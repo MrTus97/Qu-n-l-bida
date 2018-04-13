@@ -93,6 +93,12 @@
     <Compile Include="GUI\FrmSuDungDichVu.Designer.cs">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TusTest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TusTest.Designer.cs">
+      <DependentUpon>TusTest.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\FrmDangNhap.resx">
