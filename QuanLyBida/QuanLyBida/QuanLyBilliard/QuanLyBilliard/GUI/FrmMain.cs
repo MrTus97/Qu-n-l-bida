@@ -49,7 +49,7 @@ namespace QuanLyBilliard.GUI
         {
             FrmDangNhap frmDangNhap = new FrmDangNhap();
             frmDangNhap.Show();
-            this.Close();
+            this.Hide();
         }
 
         private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

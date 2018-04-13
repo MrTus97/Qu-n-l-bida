@@ -21,9 +21,50 @@ namespace QuanLyBilliard.DA
         internal DataTable showBill(HoaDon hd)
         {
             if (hd == null) return default(DataTable);
-            string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + hd.ID_HoaDon;
+            string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien,tp.ID_THUCPHAM FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + hd.ID_HoaDon;
             return ldc.getDuLieu(sql);
         }
+        /// <summary>
+        /// Hàm này sẽ thực hiện 1 procedure có 2 câu sql
+        /// 1. Xóa 1 record trong chitiethd
+        /// 2. Trả số lượng lại cho bảng thực phẩm
+        /// </summary>
+        /// <param name="idHoaDon"></param>
+        /// <param name="idThucPham"></param>
+        /// <param name="soluong"></param>
+        /// <returns></returns>
+        public int XoaMatHang(int idHoaDon, int idThucPham,int soluong)
+        {
+            /*
+             * CREATE PROCEDURE XOAMATHANG
+                @idHoaDon int,
+                @idThucPham int,
+                @soluong int
+                as
+                begin
+	                delete CHITIETHD
+	                where ID_HOADON = @idHoaDon and @idThucPham = @idThucPham
+
+	                update THUCPHAM
+	                SET SOLUONG = SOLUONG + @soluong
+	                where ID_THUCPHAM= @idThucPham
+                end*/
+            string sql = "XoaMatHang " + idHoaDon + "," + idThucPham + "," + soluong;
+            return ldc.ExecuteNonQuery(sql);
+        }
+        /// <summary>
+        /// Hàm này sẽ thực hiện câu sql sửa số lượng trong sql có idhoadon và idthucpham
+        /// </summary>
+        /// <param name="idHoaDon"></param>
+        /// <param name="tp"></param>
+        /// <param name="sl"></param>
+        /// <returns></returns>
+        public int SuaSoLuong(int idHoaDon, int tp, int sl)
+        {
+            string sql = "UPDATE CHITIETHD SET SOLUONG = SOLUONG + " + sl + " WHERE ID_HOADON = " + idHoaDon + " and ID_THUCPHAM=" + tp;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
         /// <summary>
         /// Đáng nhẽ phải viết 1 procedure xử lý thử mặt hàng đó đã có trong bill chưa rồi insert hay update trong đó luôn
         /// Nhưng vẫn chưa viết được, phải xài procedure insert và update + sửa số lượng trong mặt hàng
@@ -54,7 +95,7 @@ namespace QuanLyBilliard.DA
 	                    where ID_THUCPHAM = @id_thucpham
                     end
                     */
-                sql = "SuaSoLuongThucPhamKhiThemHang " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
+            sql = "SuaSoLuongThucPhamKhiThemHang " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
             }
             else
             {

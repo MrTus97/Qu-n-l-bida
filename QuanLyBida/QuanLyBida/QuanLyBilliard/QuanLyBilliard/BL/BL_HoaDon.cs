@@ -44,5 +44,19 @@ namespace QuanLyBilliard.BL
             return hoadon;
 
         }
+
+        public void XoaMatHang(int idHoaDon, string text,string sl)
+        {
+            int soluong = Int32.Parse(sl);
+            int idThucPham = Int32.Parse(text);
+            int i = daHoaDon.XoaMatHang(idHoaDon, idThucPham,soluong);
+        }
+
+        internal void DoiSoLuong(int idHoaDon, string idThucPham, string soluong)
+        {
+            int sl = Int32.Parse(soluong);
+            int tp = Int32.Parse(idThucPham);
+            int i = daHoaDon.SuaSoLuong(idHoaDon, tp, sl);
+        }
     }
 }

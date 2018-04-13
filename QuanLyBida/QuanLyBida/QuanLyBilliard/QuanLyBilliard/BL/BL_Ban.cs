@@ -68,8 +68,7 @@ namespace QuanLyBilliard.BL
             frmSuDungDichVu.lbTenBan.Text = ban.TenBan;
             //Lấy 1 button để lưu dữ liệu của 1 bàn khi click vào bàn
             frmSuDungDichVu.btnDaiDienBan.Tag = ban;
-            //bonus
-            frmSuDungDichVu.textEdit1.Text = ban.GioVao.ToString();
+            
             frmSuDungDichVu.btnDaiDienBan.Text = ban.TenBan;
             // Khi đã click vào 1 bàn lấy được object bàn thì cũng phải lấy được object hoadon của nó luôn
             //Nếu bàn đã được bật thì mới lấy hóa đơn và show nó lên, còn không thì ko show gì cả
@@ -79,16 +78,14 @@ namespace QuanLyBilliard.BL
                 DataTable dt = daHoaDon.LayHoaDon(ban);
                 HoaDon hoadon = new HoaDon(dt.Rows[0]);
                 frmSuDungDichVu.btnHoaDon.Tag = hoadon;
-                //bonus
                 frmSuDungDichVu.btnHoaDon.Text = hoadon.ID_HoaDon.ToString();
-               
                 //Show bill thực chất là show datagridview
                 blHoaDon.ShowBill(hoadon, out tongtien);
 
-
                 frmSuDungDichVu.txtSoHD.Text = hoadon.ID_HoaDon.ToString();
-                frmSuDungDichVu.dtpNgay.Text = ban.GioVao.ToString();
-                
+                DateTime NgayLapHoaDon = daTable.LayGioVao(ban.ID_Ban);
+                frmSuDungDichVu.dtpNgay.Text = NgayLapHoaDon.ToString();
+                frmSuDungDichVu.dtBatDau.Text = NgayLapHoaDon.Date.ToShortTimeString();
                 frmSuDungDichVu.txtTienNuoc.Text = tongtien.ToString();
                 frmSuDungDichVu.txtTongCong.Text = tongtien.ToString();
                 Enabel(true);
@@ -97,6 +94,13 @@ namespace QuanLyBilliard.BL
             {
                 Enabel(false);
             }
+        }
+
+        public float TinhTien(int hour, int minutes)
+        {
+            float dongia = daTable.LayGiaBan((frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_LoaiBan);
+            float tiengio = (hour * dongia) + (minutes / 60 * dongia);
+            return tiengio;
         }
 
         public void Enabel(bool v)
@@ -109,11 +113,14 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.btnKetThuc.Enabled = true;
                 frmSuDungDichVu.dtKetThuc.Enabled = true;
                 frmSuDungDichVu.panel4.Enabled = true;
+                
 
 
             }
             else
             {
+                frmSuDungDichVu.btnThanhToan.Enabled = false;
+                frmSuDungDichVu.txtSoGioChoi.Text = "";
                 frmSuDungDichVu.btnBatDau.Enabled = true;
                 frmSuDungDichVu.dtBatDau.Enabled = true;
                 frmSuDungDichVu.btnKetThuc.Enabled = false;
@@ -125,6 +132,7 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.dtpNgay.Text = "";
                 frmSuDungDichVu.dtBatDau.Text = "";
                 frmSuDungDichVu.dataGridView2.Rows.Clear();
+                frmSuDungDichVu.dtBatDau.Text = DateTime.Now.TimeOfDay.ToString();
             }
         }
     }

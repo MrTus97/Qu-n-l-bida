@@ -66,5 +66,19 @@ namespace QuanLyBilliard.DA
             string sql = "TATBAN " + ban.ID_Ban + "," + hd.ID_HoaDon;
             return ldc.ExecuteNonQuery(sql);
         }
+
+        public DateTime LayGioVao(int iD_Ban)
+        {
+            string sql = "select giovao from ban where id_ban = " + iD_Ban;
+            return (DateTime)ldc.ExecuteScalar(sql);
+           
+            
+        }
+
+        internal float LayGiaBan(int iD_LoaiBan)
+        {
+            string sql = "select GIA from LOAIBAN where ID_LOAIBAN =" + iD_LoaiBan;
+            return float.Parse(ldc.ExecuteScalar(sql).ToString());
+        }
     }
 }
