@@ -74,6 +74,18 @@
     <Compile Include="DTO\LoaiThucPham.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\ThucPham.cs" />
+    <Compile Include="GUI\FrmCaLamViec.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCaLamViec.Designer.cs">
+      <DependentUpon>FrmCaLamViec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmCapBac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmCapBac.Designer.cs">
+      <DependentUpon>FrmCapBac.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmChuyenBan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,11 +110,23 @@
     <Compile Include="GUI\FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmNhanVien.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmNhanVien.Designer.cs">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmSuDungDichVu.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\FrmSuDungDichVu.Designer.cs">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmTamUng.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTamUng.Designer.cs">
+      <DependentUpon>FrmTamUng.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmThanhToan.cs">
       <SubType>Form</SubType>
@@ -110,8 +134,26 @@
     <Compile Include="GUI\FrmThanhToan.Designer.cs">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmTinhCong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTinhCong.Designer.cs">
+      <DependentUpon>FrmTinhCong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmTinhLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmTinhLuong.Designer.cs">
+      <DependentUpon>FrmTinhLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\FrmCaLamViec.resx">
+      <DependentUpon>FrmCaLamViec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmCapBac.resx">
+      <DependentUpon>FrmCapBac.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmChuyenBan.resx">
       <DependentUpon>FrmChuyenBan.cs</DependentUpon>
     </EmbeddedResource>
@@ -124,11 +166,23 @@
     <EmbeddedResource Include="GUI\FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmNhanVien.resx">
+      <DependentUpon>FrmNhanVien.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmSuDungDichVu.resx">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTamUng.resx">
+      <DependentUpon>FrmTamUng.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThanhToan.resx">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTinhCong.resx">
+      <DependentUpon>FrmTinhCong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmTinhLuong.resx">
+      <DependentUpon>FrmTinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
