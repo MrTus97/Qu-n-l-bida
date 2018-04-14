@@ -1,11 +1,5 @@
-﻿
-using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Data;
 using System.Data.SqlClient;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace QuanLyBilliard.DA
 {
@@ -15,7 +9,7 @@ namespace QuanLyBilliard.DA
         public LopDungChung()
         {
             _con = new SqlConnection();
-            _con.ConnectionString = @"Data Source=DESKTOP-6ONFMG6\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
+            _con.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
 
         }
         /// <summary>

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
 using QuanLyBilliard.GUI;
 using System.Data;
@@ -13,10 +9,16 @@ namespace QuanLyBilliard.BL
     class BL_HoaDon
     {
         FrmSuDungDichVu frmSuDungDichVu;
+        FrmChuyenBan frmChuyenBan;
         DA_HoaDon daHoaDon;
         public BL_HoaDon(FrmSuDungDichVu f)
         {
             this.frmSuDungDichVu = f;
+            daHoaDon = new DA_HoaDon();
+        }
+        public BL_HoaDon(FrmChuyenBan f)
+        {
+            frmChuyenBan = f;
             daHoaDon = new DA_HoaDon();
         }
 

@@ -5,9 +5,6 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QuanLyBilliard.BL
@@ -17,6 +14,7 @@ namespace QuanLyBilliard.BL
         DA_Ban daTable;
         DA_HoaDon daHoaDon;   
         FrmSuDungDichVu frmSuDungDichVu;
+        FrmChuyenBan frmChuyenBan;
         BL_HoaDon blHoaDon;
         const int TABLE_WIDTHHEIGHT = 100;
         public BL_Ban(FrmSuDungDichVu f)
@@ -26,6 +24,21 @@ namespace QuanLyBilliard.BL
             blHoaDon = new BL_HoaDon(f);
             frmSuDungDichVu = f;
         }
+        public BL_Ban(FrmChuyenBan f)
+        {
+            frmChuyenBan = f;
+            daTable = new DA_Ban();
+            blHoaDon = new BL_HoaDon(f);
+            
+        }
+
+        internal void ChuyenBan(string v1, string v2)
+        {
+            int curr = Int32.Parse(v1);
+            int taget = Int32.Parse(v2);
+            daTable.chuyenBan(curr, taget);
+        }
+
         /// <summary>
         /// Hiển thị lại bàn khi có sự thay đổi
         /// </summary>
@@ -46,10 +59,54 @@ namespace QuanLyBilliard.BL
                 else btn.BackColor = Color.Brown;
                 //Catch Event
                 btn.Click += new EventHandler(btn_Click);
+               
                 btn.Tag = table;
                 // Add control (as button) in flowLayout
                 frmSuDungDichVu.flpBan.Controls.Add(btn);
             }
+        }
+        public void HienThiBanTat()
+        {
+            frmChuyenBan.flpBanTat.Controls.Clear();
+            List<Ban> lst = daTable.LayBan();
+            List<Ban> chuabat = new List<Ban>();
+            List<Ban> batroi = new List<Ban>();
+            foreach (Ban table in lst)
+            {
+                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
+                if (!table.TrangThai)
+                {
+                    chuabat.Add(table);
+                    Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
+                    btn.Text = table.TenBan;
+                    btn.BackColor = Color.Brown;
+                    btn.Click += new EventHandler(btnChonBanChuyen_Click);
+
+                    btn.Tag = table;
+                    frmChuyenBan.flpBanTat.Controls.Add(btn);  
+                }
+                else
+                {
+                    batroi.Add(table);
+                }
+            }
+            frmChuyenBan.cbBanChuyen.DataSource = chuabat;
+            frmChuyenBan.cbBanChuyen.DisplayMember = "TenBan";
+            frmChuyenBan.cbBanChuyen.ValueMember = "ID_Ban";
+
+            frmChuyenBan.cbBanHienTai.DataSource = batroi;
+            
+            frmChuyenBan.cbBanHienTai.DisplayMember = "TenBan";
+            frmChuyenBan.cbBanHienTai.ValueMember = "ID_Ban";
+            //frmChuyenBan.cbBanHienTai.SelectedValue = (frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_Ban;
+
+        }
+
+        public void btnChonBanChuyen_Click(object sender, EventArgs e)
+        {
+            frmChuyenBan.cbBanChuyen.Text = "";
+            frmChuyenBan.cbBanChuyen.SelectedValue = ((sender as Button).Tag as Ban).ID_Ban;
+            //frmChuyenBan.cbBanChuyen.SelectedText = ((sender as Button).Tag as Ban).TenBan;
         }
 
         public void KetThuc(Ban ban, HoaDon hd)

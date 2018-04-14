@@ -116,6 +116,7 @@
             // 
             // txtTenDangNhap
             // 
+            this.txtTenDangNhap.EditValue = "admin";
             this.txtTenDangNhap.Location = new System.Drawing.Point(109, 5);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(155, 20);

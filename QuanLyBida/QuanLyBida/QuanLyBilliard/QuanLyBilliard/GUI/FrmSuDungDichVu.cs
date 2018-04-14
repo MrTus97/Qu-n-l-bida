@@ -42,6 +42,9 @@ namespace QuanLyBilliard.GUI
             }
             blBan.HienThiBan();
             blLoaiThucPham.LoadLoaiThucPham();
+            blBan.Enabel(false);
+            dtBatDau.Enabled = false;
+            btnBatDau.Enabled = false;
             
 
         }
@@ -55,17 +58,16 @@ namespace QuanLyBilliard.GUI
             
             if ((btnDaiDienBan.Tag as Ban !=null) && (btnDaiDienBan.Tag as Ban).TrangThai)
             {
-                DateTime thoiGianHienTai = DateTime.Now;
-                DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
-                //DateTime thoiGianBatBan = 
-                //int second = Math.Abs(thoiGianHienTai.Second - thoiGianBatBan.Second);
-                
-                int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;
-                int hour = Math.Abs(thoiGianHienTai.Hour - thoiGianBatBan.Hour);
-                txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
-                float tiengio = blBan.TinhTien(hour, minutes);
-                txtTienGio.Text = tiengio.ToString();
-                txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
+                    DateTime thoiGianHienTai = DateTime.Now;
+                    DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
+                    //DateTime thoiGianBatBan = 
+                    //int second = Math.Abs(thoiGianHienTai.Second - thoiGianBatBan.Second);
+                    int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;
+                    int hour = Math.Abs(thoiGianHienTai.Hour - thoiGianBatBan.Hour);
+                    txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
+                    float tiengio = blBan.TinhTien(hour, minutes);
+                    txtTienGio.Text = tiengio.ToString();
+                    txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
             }
         }
         /// <summary>
@@ -106,8 +108,13 @@ namespace QuanLyBilliard.GUI
             Ban ban = btnDaiDienBan.Tag as Ban;
             HoaDon hd = btnHoaDon.Tag as HoaDon;
             blBan.KetThuc(ban, hd);
+            //Cái này chỉ mới kết thúc tại cơ sở dữ liệu chứ chưa kết thúc tại btnDaiDienBan
+            (btnDaiDienBan.Tag as Ban).TrangThai = false;
             blBan.HienThiBan();
             blBan.Enabel(false);
+            FrmHoaDon f = new FrmHoaDon();
+            f.ShowDialog();
+            
         }
 
         private void btnThem_Click(object sender, EventArgs e)
@@ -237,13 +244,28 @@ namespace QuanLyBilliard.GUI
 
         public void simpleButton3_Click(object sender, EventArgs e)
         {
-            FrmInThuBill f = new FrmInThuBill();
-            f.Show();
+            FrmHoaDon f = new FrmHoaDon();
+            f.btnThanhToan.Text = "Kết thúc";
+            f.ShowDialog();
         }
 
         public void btnThanhToan_Click(object sender, EventArgs e)
         {
+            FrmThanhToan f = new FrmThanhToan();
+            f.ShowDialog();
 
+        }
+
+        private void btnChuyenBan_DoubleClick(object sender, EventArgs e)
+        {
+            MessageBox.Show("VL");
+        }
+
+        private void btnChuyenBan_Click(object sender, EventArgs e)
+        {
+            FrmChuyenBan f = new FrmChuyenBan();
+            f.ShowDialog();
+            blBan.HienThiBan();
         }
     }
 }

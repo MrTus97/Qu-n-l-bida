@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace QuanLyBilliard.GUI
 {
-    public partial class TusTest : Form
+    public partial class FrmThanhToan : Form
     {
-        public TusTest()
+        public FrmThanhToan()
         {
             InitializeComponent();
         }

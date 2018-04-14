@@ -34,6 +34,8 @@
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
+            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnDaiDienHangHoaDon = new DevExpress.XtraEditors.SimpleButton();
             this.labelControl9 = new DevExpress.XtraEditors.LabelControl();
@@ -67,7 +69,6 @@
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.cbSoLuong = new DevExpress.XtraEditors.ComboBoxEdit();
-            this.btnGopBan = new DevExpress.XtraEditors.SimpleButton();
             this.btnChuyenBan = new DevExpress.XtraEditors.SimpleButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.dtBatDau = new DevExpress.XtraEditors.DateEdit();
@@ -97,8 +98,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
-            this.comboBoxEdit1 = new DevExpress.XtraEditors.ComboBoxEdit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -106,6 +105,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl5)).BeginInit();
             this.panelControl5.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNuoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienGio.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHD.Properties)).BeginInit();
@@ -134,7 +134,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).BeginInit();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -209,7 +208,6 @@
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.cbSoLuong);
-            this.panel4.Controls.Add(this.btnGopBan);
             this.panel4.Controls.Add(this.btnChuyenBan);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(2, 79);
@@ -217,6 +215,23 @@
             this.panel4.Size = new System.Drawing.Size(379, 441);
             this.panel4.TabIndex = 1;
             this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
+            // 
+            // labelControl10
+            // 
+            this.labelControl10.Location = new System.Drawing.Point(82, 33);
+            this.labelControl10.Name = "labelControl10";
+            this.labelControl10.Size = new System.Drawing.Size(56, 13);
+            this.labelControl10.TabIndex = 92;
+            this.labelControl10.Text = "Khách hàng";
+            // 
+            // comboBoxEdit1
+            // 
+            this.comboBoxEdit1.Location = new System.Drawing.Point(144, 30);
+            this.comboBoxEdit1.Name = "comboBoxEdit1";
+            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
+            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
+            this.comboBoxEdit1.Size = new System.Drawing.Size(96, 20);
+            this.comboBoxEdit1.TabIndex = 91;
             // 
             // simpleButton3
             // 
@@ -234,10 +249,11 @@
             this.btnDaiDienHangHoaDon.Size = new System.Drawing.Size(75, 23);
             this.btnDaiDienHangHoaDon.TabIndex = 90;
             this.btnDaiDienHangHoaDon.Text = "simpleButton3";
+            this.btnDaiDienHangHoaDon.Visible = false;
             // 
             // labelControl9
             // 
-            this.labelControl9.Location = new System.Drawing.Point(90, 3);
+            this.labelControl9.Location = new System.Drawing.Point(255, 33);
             this.labelControl9.Name = "labelControl9";
             this.labelControl9.Size = new System.Drawing.Size(25, 13);
             this.labelControl9.TabIndex = 89;
@@ -247,7 +263,7 @@
             // 
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(52, 53);
+            this.simpleButton4.Location = new System.Drawing.Point(53, 59);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(22, 18);
             this.simpleButton4.TabIndex = 88;
@@ -257,7 +273,7 @@
             // 
             this.simpleButton2.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton2.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton2.Image")));
-            this.simpleButton2.Location = new System.Drawing.Point(24, 53);
+            this.simpleButton2.Location = new System.Drawing.Point(25, 59);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(22, 18);
             this.simpleButton2.TabIndex = 87;
@@ -295,7 +311,7 @@
             // 
             // labelControl2
             // 
-            this.labelControl2.Location = new System.Drawing.Point(229, 5);
+            this.labelControl2.Location = new System.Drawing.Point(255, 9);
             this.labelControl2.Name = "labelControl2";
             this.labelControl2.Size = new System.Drawing.Size(30, 13);
             this.labelControl2.TabIndex = 65;
@@ -304,9 +320,9 @@
             // txtSoHD
             // 
             this.txtSoHD.Enabled = false;
-            this.txtSoHD.Location = new System.Drawing.Point(265, 2);
+            this.txtSoHD.Location = new System.Drawing.Point(286, 6);
             this.txtSoHD.Name = "txtSoHD";
-            this.txtSoHD.Size = new System.Drawing.Size(28, 20);
+            this.txtSoHD.Size = new System.Drawing.Size(84, 20);
             this.txtSoHD.TabIndex = 64;
             // 
             // txtSoGioChoi
@@ -373,7 +389,7 @@
             this.SoLuong,
             this.ThanhTien,
             this.ID_THUCPHAM1});
-            this.dataGridView2.Location = new System.Drawing.Point(10, 79);
+            this.dataGridView2.Location = new System.Drawing.Point(10, 82);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             this.dataGridView2.RowHeadersVisible = false;
@@ -418,7 +434,7 @@
             // 
             // btnDoiGiaBan
             // 
-            this.btnDoiGiaBan.Location = new System.Drawing.Point(193, 50);
+            this.btnDoiGiaBan.Location = new System.Drawing.Point(193, 56);
             this.btnDoiGiaBan.Name = "btnDoiGiaBan";
             this.btnDoiGiaBan.Size = new System.Drawing.Size(100, 23);
             this.btnDoiGiaBan.TabIndex = 69;
@@ -426,7 +442,7 @@
             // 
             // btnDoiSoLuong
             // 
-            this.btnDoiSoLuong.Location = new System.Drawing.Point(81, 50);
+            this.btnDoiSoLuong.Location = new System.Drawing.Point(81, 56);
             this.btnDoiSoLuong.Name = "btnDoiSoLuong";
             this.btnDoiSoLuong.Size = new System.Drawing.Size(106, 23);
             this.btnDoiSoLuong.TabIndex = 68;
@@ -436,18 +452,18 @@
             // dtpNgay
             // 
             this.dtpNgay.EditValue = new System.DateTime(2018, 4, 7, 0, 15, 27, 0);
-            this.dtpNgay.Location = new System.Drawing.Point(123, 0);
+            this.dtpNgay.Location = new System.Drawing.Point(286, 30);
             this.dtpNgay.Name = "dtpNgay";
             this.dtpNgay.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgay.Properties.CalendarTimeProperties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.dtpNgay.Size = new System.Drawing.Size(100, 20);
+            this.dtpNgay.Size = new System.Drawing.Size(84, 20);
             this.dtpNgay.TabIndex = 62;
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(162, 27);
+            this.labelControl3.Location = new System.Drawing.Point(90, 9);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(48, 13);
             this.labelControl3.TabIndex = 61;
@@ -455,11 +471,11 @@
             // 
             // cbNhanVienDungBan
             // 
-            this.cbNhanVienDungBan.Location = new System.Drawing.Point(216, 24);
+            this.cbNhanVienDungBan.Location = new System.Drawing.Point(144, 5);
             this.cbNhanVienDungBan.Name = "cbNhanVienDungBan";
             this.cbNhanVienDungBan.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.cbNhanVienDungBan.Size = new System.Drawing.Size(77, 20);
+            this.cbNhanVienDungBan.Size = new System.Drawing.Size(96, 20);
             this.cbNhanVienDungBan.TabIndex = 60;
             // 
             // btnInPhieuCheBien
@@ -525,28 +541,19 @@
             this.cbSoLuong.Size = new System.Drawing.Size(64, 20);
             this.cbSoLuong.TabIndex = 53;
             // 
-            // btnGopBan
-            // 
-            this.btnGopBan.Image = ((System.Drawing.Image)(resources.GetObject("btnGopBan.Image")));
-            this.btnGopBan.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnGopBan.Location = new System.Drawing.Point(304, 82);
-            this.btnGopBan.Name = "btnGopBan";
-            this.btnGopBan.Size = new System.Drawing.Size(66, 59);
-            this.btnGopBan.TabIndex = 52;
-            this.btnGopBan.Text = "Gộp bàn";
-            // 
             // btnChuyenBan
             // 
             this.btnChuyenBan.Appearance.Font = new System.Drawing.Font("Tahoma", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.btnChuyenBan.Appearance.Options.UseFont = true;
-            this.btnChuyenBan.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.Simple;
             this.btnChuyenBan.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenBan.Image")));
             this.btnChuyenBan.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnChuyenBan.Location = new System.Drawing.Point(304, 5);
+            this.btnChuyenBan.Location = new System.Drawing.Point(304, 56);
             this.btnChuyenBan.Name = "btnChuyenBan";
-            this.btnChuyenBan.Size = new System.Drawing.Size(66, 66);
+            this.btnChuyenBan.Size = new System.Drawing.Size(70, 66);
             this.btnChuyenBan.TabIndex = 51;
             this.btnChuyenBan.Text = "Chuyển bàn";
+            this.btnChuyenBan.Click += new System.EventHandler(this.btnChuyenBan_Click);
+            this.btnChuyenBan.DoubleClick += new System.EventHandler(this.btnChuyenBan_DoubleClick);
             // 
             // panel3
             // 
@@ -594,7 +601,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(230, 4);
+            this.btnThanhToan.Location = new System.Drawing.Point(223, 6);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(70, 38);
             this.btnThanhToan.TabIndex = 59;
@@ -622,7 +629,7 @@
             // btnThongKe
             // 
             this.btnThongKe.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomRight;
-            this.btnThongKe.Location = new System.Drawing.Point(304, 4);
+            this.btnThongKe.Location = new System.Drawing.Point(299, 6);
             this.btnThongKe.Name = "btnThongKe";
             this.btnThongKe.Size = new System.Drawing.Size(70, 38);
             this.btnThongKe.TabIndex = 59;
@@ -649,6 +656,7 @@
             this.btnHoaDon.Tag = "";
             this.btnHoaDon.Text = "Đại diện hóa đơn";
             this.btnHoaDon.UseVisualStyleBackColor = true;
+            this.btnHoaDon.Visible = false;
             // 
             // btnDaiDienBan
             // 
@@ -658,6 +666,7 @@
             this.btnDaiDienBan.TabIndex = 60;
             this.btnDaiDienBan.Text = "Đại diện bàn";
             this.btnDaiDienBan.UseVisualStyleBackColor = true;
+            this.btnDaiDienBan.Visible = false;
             // 
             // lbMaBan
             // 
@@ -826,23 +835,6 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // labelControl10
-            // 
-            this.labelControl10.Location = new System.Drawing.Point(19, 27);
-            this.labelControl10.Name = "labelControl10";
-            this.labelControl10.Size = new System.Drawing.Size(56, 13);
-            this.labelControl10.TabIndex = 92;
-            this.labelControl10.Text = "Khách hàng";
-            // 
-            // comboBoxEdit1
-            // 
-            this.comboBoxEdit1.Location = new System.Drawing.Point(73, 24);
-            this.comboBoxEdit1.Name = "comboBoxEdit1";
-            this.comboBoxEdit1.Properties.Buttons.AddRange(new DevExpress.XtraEditors.Controls.EditorButton[] {
-            new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
-            this.comboBoxEdit1.Size = new System.Drawing.Size(77, 20);
-            this.comboBoxEdit1.TabIndex = 91;
-            // 
             // FrmSuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -860,6 +852,7 @@
             this.panelControl5.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienNuoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtTienGio.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoHD.Properties)).EndInit();
@@ -890,7 +883,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.comboBoxEdit1.Properties)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -932,7 +924,6 @@
         public DevExpress.XtraEditors.SimpleButton btnXoa;
         public DevExpress.XtraEditors.SimpleButton btnThem;
         public DevExpress.XtraEditors.ComboBoxEdit cbSoLuong;
-        public DevExpress.XtraEditors.SimpleButton btnGopBan;
         public DevExpress.XtraEditors.SimpleButton btnChuyenBan;
         public System.Windows.Forms.Panel panel3;
         public DevExpress.XtraEditors.DateEdit dtKetThuc;

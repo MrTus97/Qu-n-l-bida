@@ -68,8 +68,7 @@ namespace QuanLyBilliard.GUI
 
         private void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            TusTest f = new TusTest();
-            f.Show();
+           
         }
     }
 }
