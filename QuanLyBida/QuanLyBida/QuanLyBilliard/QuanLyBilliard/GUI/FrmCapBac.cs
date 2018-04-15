@@ -47,5 +47,10 @@ namespace QuanLyBilliard.GUI
         {
 
         }
+
+        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

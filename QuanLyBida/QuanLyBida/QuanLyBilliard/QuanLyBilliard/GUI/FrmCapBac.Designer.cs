@@ -92,7 +92,7 @@
             // barButtonItem1
             // 
             this.barButtonItem1.AllowRightClickInMenu = false;
-            this.barButtonItem1.Caption = "Chỉnh Sửa";
+            this.barButtonItem1.Caption = "Thêm";
             this.barButtonItem1.Id = 0;
             this.barButtonItem1.Name = "barButtonItem1";
             this.barButtonItem1.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
@@ -105,7 +105,7 @@
             // 
             // barButtonItem3
             // 
-            this.barButtonItem3.Caption = "Lưu";
+            this.barButtonItem3.Caption = "Sửa";
             this.barButtonItem3.Id = 2;
             this.barButtonItem3.Name = "barButtonItem3";
             // 
@@ -243,6 +243,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(427, 253);
             this.dataGridView1.TabIndex = 9;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // FrmCapBac
             // 
