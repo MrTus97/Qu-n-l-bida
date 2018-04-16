@@ -59,12 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\BL_Ban.cs" />
+    <Compile Include="BL\BL_CapBac.cs" />
     <Compile Include="BL\BL_DangNhap.cs" />
     <Compile Include="BL\BL_HoaDon.cs" />
     <Compile Include="BL\BL_LoaiThucPham.cs" />
     <Compile Include="BL\BL_NhanVien.cs" />
     <Compile Include="BL\BL_ThucPham.cs" />
     <Compile Include="DA\DA_Ban.cs" />
+    <Compile Include="DA\DA_CapBac.cs" />
     <Compile Include="DA\DA_DangNhap.cs" />
     <Compile Include="DA\DA_HoaDon.cs" />
     <Compile Include="DA\DA_LoaiThucPham.cs" />

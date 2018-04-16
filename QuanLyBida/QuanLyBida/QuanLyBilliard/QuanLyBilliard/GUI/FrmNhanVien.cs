@@ -37,6 +37,7 @@ namespace QuanLyBilliard.GUI
             string catruc = txtCaTruc.Text;
             blNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,capbac,catruc,tendangnhap);
             blNhanVien.HienThiNhanVien();
+            
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
