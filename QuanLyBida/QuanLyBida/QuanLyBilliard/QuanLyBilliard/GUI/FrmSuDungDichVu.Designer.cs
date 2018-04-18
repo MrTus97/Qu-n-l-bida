@@ -214,7 +214,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(379, 441);
             this.panel4.TabIndex = 1;
-            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // labelControl10
             // 
@@ -396,7 +395,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(283, 281);
             this.dataGridView2.TabIndex = 70;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
-            this.dataGridView2.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellContentClick);
             // 
             // TENMATHANG
             // 
@@ -735,6 +733,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(232, 372);
             this.dataGridView1.TabIndex = 3;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // TENTHUCPHAM
             // 

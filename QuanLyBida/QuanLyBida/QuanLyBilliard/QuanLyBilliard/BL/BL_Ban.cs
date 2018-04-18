@@ -12,11 +12,14 @@ namespace QuanLyBilliard.BL
     class BL_Ban
     {
         DA_Ban daTable;
-        DA_HoaDon daHoaDon;   
+        DA_HoaDon daHoaDon;
         FrmSuDungDichVu frmSuDungDichVu;
         FrmChuyenBan frmChuyenBan;
         BL_HoaDon blHoaDon;
         const int TABLE_WIDTHHEIGHT = 100;
+        FrmHoaDon frmHoaDon;
+        
+
         public BL_Ban(FrmSuDungDichVu f)
         {
             daTable = new DA_Ban();
@@ -32,11 +35,25 @@ namespace QuanLyBilliard.BL
             
         }
 
+        public BL_Ban(FrmHoaDon f)
+        {
+            frmHoaDon = f;
+            daTable = new DA_Ban();
+        }
+
+       
+
         internal void ChuyenBan(string v1, string v2)
         {
             int curr = Int32.Parse(v1);
             int taget = Int32.Parse(v2);
             daTable.chuyenBan(curr, taget);
+        }
+
+        public int KetThuc(string text)
+        {
+            int idhoadon = Int32.Parse(text);
+            return daTable.TATBAN(idhoadon);
         }
 
         /// <summary>
@@ -109,9 +126,9 @@ namespace QuanLyBilliard.BL
             //frmChuyenBan.cbBanChuyen.SelectedText = ((sender as Button).Tag as Ban).TenBan;
         }
 
-        public void KetThuc(Ban ban, HoaDon hd)
+        public int KetThuc(HoaDon hd)
         {
-            daTable.TATBAN(ban, hd);
+            return daTable.TATBAN(hd);
         }
 
         public void BatGio(Ban ban)
@@ -136,15 +153,22 @@ namespace QuanLyBilliard.BL
                 HoaDon hoadon = new HoaDon(dt.Rows[0]);
                 frmSuDungDichVu.btnHoaDon.Tag = hoadon;
                 frmSuDungDichVu.btnHoaDon.Text = hoadon.ID_HoaDon.ToString();
-                //Show bill thực chất là show datagridview
+                //Show các mặt hàng có trong hóa đơn và tính tổng tiền
                 blHoaDon.ShowBill(hoadon, out tongtien);
-
+                // Show số hóa đơn
                 frmSuDungDichVu.txtSoHD.Text = hoadon.ID_HoaDon.ToString();
+                //Show ngày lập hóa đơn
                 DateTime NgayLapHoaDon = daTable.LayGioVao(ban.ID_Ban);
                 frmSuDungDichVu.dtpNgay.Text = NgayLapHoaDon.ToString();
                 frmSuDungDichVu.dtBatDau.Text = NgayLapHoaDon.Date.ToShortTimeString();
+                //Show tổng tiền
                 frmSuDungDichVu.txtTienNuoc.Text = tongtien.ToString();
                 frmSuDungDichVu.txtTongCong.Text = tongtien.ToString();
+                //Số lượng
+                frmSuDungDichVu.cbSoLuong.Text = "1";
+                //Nhân viên
+                //Khách hàng
+
                 Enabel(true);
             }
             else
@@ -156,7 +180,7 @@ namespace QuanLyBilliard.BL
         public float TinhTien(int hour, int minutes)
         {
             float dongia = daTable.LayGiaBan((frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_LoaiBan);
-            float tiengio = (hour * dongia) + (minutes / 60 * dongia);
+            float tiengio = (hour * dongia) + ((float) minutes * dongia/60);
             return tiengio;
         }
 
@@ -171,8 +195,6 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.dtKetThuc.Enabled = true;
                 frmSuDungDichVu.panel4.Enabled = true;
                 
-
-
             }
             else
             {

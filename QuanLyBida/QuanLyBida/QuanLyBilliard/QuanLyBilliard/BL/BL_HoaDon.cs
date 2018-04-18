@@ -10,7 +10,9 @@ namespace QuanLyBilliard.BL
     {
         FrmSuDungDichVu frmSuDungDichVu;
         FrmChuyenBan frmChuyenBan;
+        FrmHoaDon frmHoaDon;
         DA_HoaDon daHoaDon;
+        
         public BL_HoaDon(FrmSuDungDichVu f)
         {
             this.frmSuDungDichVu = f;
@@ -21,10 +23,15 @@ namespace QuanLyBilliard.BL
             frmChuyenBan = f;
             daHoaDon = new DA_HoaDon();
         }
+        public BL_HoaDon(FrmHoaDon f)
+        {
+            frmHoaDon = f;
+            daHoaDon = new DA_HoaDon();
+        }
 
         public void ShowBill(HoaDon hd, out float tongtien)
         {
-            DataTable dt = daHoaDon.showBill(hd);
+            DataTable dt = daHoaDon.showBill(hd.ID_HoaDon);
             frmSuDungDichVu.dataGridView2.Rows.Clear();
             tongtien = 0f;
             foreach (DataRow row in dt.Rows)
@@ -32,7 +39,39 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.dataGridView2.Rows.Add(row.ItemArray);
                 tongtien += float.Parse(row["ThanhTien"].ToString());
             }
+            
         }
+
+        internal void ThanhToan(string text)
+        {
+            int id = Int32.Parse(text);
+            daHoaDon.ThanhToan(id);
+        }
+
+        public void HienThiHoaDonTrenBill(int id_hoadon)
+        {
+            
+            DataTable data = daHoaDon.LayHoaDon(id_hoadon);
+            frmHoaDon.Value_SoHD.Text = data.Rows[0]["ID_HOADON"].ToString();
+            DateTime giovao = DateTime.Parse(data.Rows[0]["GioVao"].ToString());
+            frmHoaDon.Value_GioVao.Text = giovao.TimeOfDay.ToString();
+            frmHoaDon.Value_GioRa.Text = DateTime.Now.TimeOfDay.ToString();
+            frmHoaDon.Value_KhangHang.Text = data.Rows[0]["TongGioChoi"].ToString();
+            frmHoaDon.Value_Ban.Text = data.Rows[0]["TenBan"].ToString();
+            frmHoaDon.Value_KhangHang.Text = data.Rows[0]["TenKhachHang"].ToString();
+            frmHoaDon.Value_NhanVien.Text = data.Rows[0]["TenNhanVien"].ToString();
+            //Hiển thị trên datagridview
+            DataTable dt = daHoaDon.showBill(id_hoadon);
+            frmHoaDon.dataGridView2.Rows.Clear();
+            float tongtien = 0f;
+            foreach (DataRow row in dt.Rows)
+            {
+                frmHoaDon.dataGridView2.Rows.Add(row.ItemArray);
+                tongtien += float.Parse(row["ThanhTien"].ToString());
+            }
+            frmHoaDon.ValueTongTien.Text = tongtien.ToString();
+        }
+
         public void ThemMatHang(int id_HoaDOn, int soluong, int iD_ThucPham)
         {
             daHoaDon.ThemMatHang(id_HoaDOn, soluong, iD_ThucPham);
@@ -54,7 +93,7 @@ namespace QuanLyBilliard.BL
             int i = daHoaDon.XoaMatHang(idHoaDon, idThucPham,soluong);
         }
 
-        internal void DoiSoLuong(int idHoaDon, string idThucPham, string soluong)
+        public void DoiSoLuong(int idHoaDon, string idThucPham, string soluong)
         {
             int sl = Int32.Parse(soluong);
             int tp = Int32.Parse(idThucPham);

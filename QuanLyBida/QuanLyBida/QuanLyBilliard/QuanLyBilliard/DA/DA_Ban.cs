@@ -45,6 +45,13 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        internal int TATBAN(int idhoadon)
+        {
+            int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
+            string sql = "TATBAN " + idban + "," + idhoadon;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
         public int chuyenBan(int curr, int taget)
         {
             /*CREATE PROCEDURE chuyenban
@@ -60,7 +67,7 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        public int TATBAN(Ban ban, HoaDon hd)
+        public int TATBAN(HoaDon hd)
         {
             /*
                  CREATE PROCEDURE TATBAN
@@ -78,7 +85,7 @@ namespace QuanLyBilliard.DA
                     where ID_HOADON = @id_hoadon
                     end
                  */
-            string sql = "TATBAN " + ban.ID_Ban + "," + hd.ID_HoaDon;
+            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon;
             return ldc.ExecuteNonQuery(sql);
         }
 
