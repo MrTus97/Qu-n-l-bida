@@ -70,5 +70,28 @@ namespace QuanLyBilliard.GUI
         {
            
         }
+
+        private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmNhanVien"))
+            {
+                FrmNhanVien f = new FrmNhanVien();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnCapBac_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmCapBac"))
+            {
+                FrmCapBac f = new FrmCapBac();
+                f.MdiParent = this;
+                f.Show();
+            }
+            
+
+            
+        }
     }
 }

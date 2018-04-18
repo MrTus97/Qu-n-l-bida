@@ -293,12 +293,14 @@
             this.btnCapBac.Caption = "Cấp bậc";
             this.btnCapBac.Id = 24;
             this.btnCapBac.Name = "btnCapBac";
+            this.btnCapBac.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnCapBac_ItemClick);
             // 
             // btnNhanVien
             // 
             this.btnNhanVien.Caption = "Nhân viên";
             this.btnNhanVien.Id = 25;
             this.btnNhanVien.Name = "btnNhanVien";
+            this.btnNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanVien_ItemClick);
             // 
             // btnCaLamViec
             // 
