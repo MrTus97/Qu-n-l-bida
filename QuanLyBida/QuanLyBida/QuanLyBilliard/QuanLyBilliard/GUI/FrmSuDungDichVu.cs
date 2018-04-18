@@ -284,5 +284,10 @@ namespace QuanLyBilliard.GUI
             }
             
         }
+
+        private void dtpNgay_EditValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
