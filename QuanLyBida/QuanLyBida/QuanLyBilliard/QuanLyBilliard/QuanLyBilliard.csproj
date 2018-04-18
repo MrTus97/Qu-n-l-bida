@@ -220,7 +220,15 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="image\" />
-    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Actions-list-add-user-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pencil-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close_16x16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
