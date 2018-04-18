@@ -10,7 +10,7 @@ namespace QuanLyBilliard.DA
     class DA_CapBac
     {
         LopDungChung ldc = new LopDungChung();
-        private string idcapbac;
+
 
         public int ThemCapBac(string tencapbac, float hesoluong)
         {

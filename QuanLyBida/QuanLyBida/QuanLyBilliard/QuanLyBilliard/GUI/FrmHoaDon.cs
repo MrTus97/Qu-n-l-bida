@@ -47,7 +47,16 @@ namespace QuanLyBilliard.GUI
         {
             if (btnThanhToan.Text == "Thanh Toán")
             {
-                blHoaDon.ThanhToan(Value_SoHD.Text);
+                int result = blHoaDon.ThanhToan(Value_SoHD.Text);
+                if (result > 0)
+                {
+                    MessageBox.Show("Đã thanh toán");
+                }
+                else
+                {
+                    MessageBox.Show("Thanh Toán không thành công");
+                }
+                this.Close();
             }
             else
             {

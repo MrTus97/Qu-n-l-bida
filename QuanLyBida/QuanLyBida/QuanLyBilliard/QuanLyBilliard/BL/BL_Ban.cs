@@ -55,6 +55,7 @@ namespace QuanLyBilliard.BL
         public int KetThuc(string text)
         {
             int idhoadon = Int32.Parse(text);
+            
             return daTable.TATBAN(idhoadon);
         }
 
@@ -78,7 +79,6 @@ namespace QuanLyBilliard.BL
                 else btn.BackColor = Color.Brown;
                 //Catch Event
                 btn.Click += new EventHandler(btn_Click);
-               
                 btn.Tag = table;
                 // Add control (as button) in flowLayout
                 frmSuDungDichVu.flpBan.Controls.Add(btn);
@@ -128,9 +128,10 @@ namespace QuanLyBilliard.BL
             //frmChuyenBan.cbBanChuyen.SelectedText = ((sender as Button).Tag as Ban).TenBan;
         }
 
-        public int KetThuc(HoaDon hd)
+        public int KetThuc(HoaDon hd,string idnv)
         {
-            return daTable.TATBAN(hd);
+            int idNhanVien = Int32.Parse(idnv);
+            return daTable.TATBAN(hd,idNhanVien);
         }
 
         public void BatGio(Ban ban)

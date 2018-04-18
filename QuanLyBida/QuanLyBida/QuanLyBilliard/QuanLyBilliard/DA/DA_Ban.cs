@@ -67,12 +67,13 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        public int TATBAN(HoaDon hd)
+        public int TATBAN(HoaDon hd,int idNhanVien)
         {
             /*
                  CREATE PROCEDURE TATBAN
                     @id_ban int,
                     @id_hoadon int
+                    @id_NhanVien int
                     as
                     begin
                     -- Cập nhật trạng thái cho bàn
@@ -81,11 +82,11 @@ namespace QuanLyBilliard.DA
                     where ID_BAN = @id_ban
                     -- Tính tổng số giờ chơi của bàn có id_hoadon
                     UPDATE HOADON 
-                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban) 
+                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=1
                     where ID_HOADON = @id_hoadon
                     end
                  */
-            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon;
+            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien;
             return ldc.ExecuteNonQuery(sql);
         }
 

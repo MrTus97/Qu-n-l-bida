@@ -15,8 +15,8 @@ namespace QuanLyBilliard.BL
     {
         DA_NhanVien daNhanVien;
         FrmNhanVien frmNhanVien;
-        private string txtIDNhanVien;
-        private int result;
+ 
+ 
         private FrmSuDungDichVu f;
 
         public BL_NhanVien(FrmNhanVien f)

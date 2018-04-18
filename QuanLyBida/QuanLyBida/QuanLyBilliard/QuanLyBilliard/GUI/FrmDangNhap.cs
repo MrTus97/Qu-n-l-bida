@@ -15,6 +15,8 @@ namespace QuanLyBilliard.GUI
     public partial class FrmDangNhap : DevExpress.XtraEditors.XtraForm
     {
         BL_DangNhap blDangNhap;
+        private FrmMain frmMain;
+
         public FrmDangNhap()
         {
             InitializeComponent();
@@ -35,8 +37,16 @@ namespace QuanLyBilliard.GUI
         {
             string tendangnhap = txtTenDangNhap.Text;
             string matkhau = txtMatKhau.Text;
-            blDangNhap.DangNhap(tendangnhap, matkhau);
-
+            int i = blDangNhap.DangNhap(tendangnhap, matkhau);
+            if (i > 0)
+            {
+                blDangNhap.HienThiFormMain();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+            }
         }
     }
 }

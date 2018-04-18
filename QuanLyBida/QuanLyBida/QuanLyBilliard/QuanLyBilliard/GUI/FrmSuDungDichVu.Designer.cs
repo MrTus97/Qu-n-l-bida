@@ -34,6 +34,8 @@
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbNhanVien = new System.Windows.Forms.ComboBox();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
             this.btnDaiDienHangHoaDon = new DevExpress.XtraEditors.SimpleButton();
@@ -96,8 +98,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.cbNhanVien = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -212,6 +212,22 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(379, 441);
             this.panel4.TabIndex = 1;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(123, 30);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(117, 21);
+            this.comboBox1.TabIndex = 94;
+            // 
+            // cbNhanVien
+            // 
+            this.cbNhanVien.FormattingEnabled = true;
+            this.cbNhanVien.Location = new System.Drawing.Point(123, 5);
+            this.cbNhanVien.Name = "cbNhanVien";
+            this.cbNhanVien.Size = new System.Drawing.Size(117, 21);
+            this.cbNhanVien.TabIndex = 93;
             // 
             // labelControl10
             // 
@@ -447,7 +463,6 @@
             new DevExpress.XtraEditors.Controls.EditorButton(DevExpress.XtraEditors.Controls.ButtonPredefines.Combo)});
             this.dtpNgay.Size = new System.Drawing.Size(84, 20);
             this.dtpNgay.TabIndex = 62;
-            this.dtpNgay.EditValueChanged += new System.EventHandler(this.dtpNgay_EditValueChanged);
             // 
             // labelControl3
             // 
@@ -815,28 +830,13 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // cbNhanVien
-            // 
-            this.cbNhanVien.FormattingEnabled = true;
-            this.cbNhanVien.Location = new System.Drawing.Point(123, 5);
-            this.cbNhanVien.Name = "cbNhanVien";
-            this.cbNhanVien.Size = new System.Drawing.Size(117, 21);
-            this.cbNhanVien.TabIndex = 93;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 94;
-            // 
             // FrmSuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1008, 550);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmSuDungDichVu";
             this.Text = "Sử dụng dịch vụ";
             this.Load += new System.EventHandler(this.FrmSuDungDichVu_Load);

@@ -42,10 +42,10 @@ namespace QuanLyBilliard.BL
             
         }
 
-        internal void ThanhToan(string text)
+        public int ThanhToan(string text)
         {
             int id = Int32.Parse(text);
-            daHoaDon.ThanhToan(id);
+            return daHoaDon.ThanhToan(id);
         }
 
         public void HienThiHoaDonTrenBill(int id_hoadon)
@@ -60,15 +60,23 @@ namespace QuanLyBilliard.BL
             frmHoaDon.Value_Ban.Text = data.Rows[0]["TenBan"].ToString();
             frmHoaDon.Value_KhangHang.Text = data.Rows[0]["TenKhachHang"].ToString();
             frmHoaDon.Value_NhanVien.Text = data.Rows[0]["TenNhanVien"].ToString();
+            //Tính tiền giờ:
+
+            DateTime tonggiochoi = DateTime.Parse(data.Rows[0]["TongGioChoi"].ToString());
+            int gia = Int32.Parse(data.Rows[0]["GIA"].ToString());
+            float tienGio = tonggiochoi.Hour * gia + (tonggiochoi.Minute * gia / 60);
+            
             //Hiển thị trên datagridview
             DataTable dt = daHoaDon.showBill(id_hoadon);
             frmHoaDon.dataGridView2.Rows.Clear();
-            float tongtien = 0f;
+            frmHoaDon.dataGridView2.Rows.Add("Tiền giờ", data.Rows[0]["GIA"].ToString(), tonggiochoi.TimeOfDay, tienGio);
+            float tongtien = tienGio;
             foreach (DataRow row in dt.Rows)
             {
                 frmHoaDon.dataGridView2.Rows.Add(row.ItemArray);
                 tongtien += float.Parse(row["ThanhTien"].ToString());
             }
+
             frmHoaDon.ValueTongTien.Text = tongtien.ToString();
         }
 

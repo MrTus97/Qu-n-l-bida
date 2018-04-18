@@ -106,7 +106,7 @@ namespace QuanLyBilliard.GUI
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            blBan.KetThuc(hd);
+            blBan.KetThuc(hd, cbNhanVien.SelectedValue.ToString());
             //Cái này chỉ mới kết thúc tại cơ sở dữ liệu chứ chưa kết thúc tại btnDaiDienBan
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
             blBan.HienThiBan();
@@ -283,11 +283,6 @@ namespace QuanLyBilliard.GUI
                 txtTienNuoc.Text = tongtien.ToString();
             }
             
-        }
-
-        private void dtpNgay_EditValueChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
