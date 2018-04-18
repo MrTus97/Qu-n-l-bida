@@ -17,12 +17,19 @@ namespace QuanLyBilliard.BL
         FrmNhanVien frmNhanVien;
         private string txtIDNhanVien;
         private int result;
+        private FrmSuDungDichVu f;
 
         public BL_NhanVien(FrmNhanVien f)
         {
             frmNhanVien = f;
             daNhanVien = new DA_NhanVien();
 
+        }
+
+        public BL_NhanVien(FrmSuDungDichVu f)
+        {
+            this.f = f;
+            daNhanVien = new DA_NhanVien();
         }
 
         public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
@@ -49,7 +56,6 @@ namespace QuanLyBilliard.BL
             //Load dữ liệu lên datagridview
             DataTable dt = daNhanVien.LayNhanvien();
             frmNhanVien.dtgNhanVien.DataSource = dt;
-
         }
 
         internal void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
@@ -75,5 +81,10 @@ namespace QuanLyBilliard.BL
             } else { MessageBox.Show("That bai"); }
 
 }
+
+        public DataTable LayNhanVien()
+        {
+            return daNhanVien.LayNhanvien();
+        }
     }
 }
