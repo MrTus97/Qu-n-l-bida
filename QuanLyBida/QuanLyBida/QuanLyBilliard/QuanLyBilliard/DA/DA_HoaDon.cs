@@ -17,13 +17,27 @@ namespace QuanLyBilliard.DA
             string sql = "select * from hoadon where id_ban = " + ban.ID_Ban + " order by id_hoadon desc";
             return ldc.getDuLieu(sql);
         }
-
-        internal DataTable showBill(HoaDon hd)
+        //Overloading
+        internal DataTable showBill(int idhd)
         {
-            if (hd == null) return default(DataTable);
-            string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien,tp.ID_THUCPHAM FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + hd.ID_HoaDon;
+            //if (hd == null) return default(DataTable);
+            string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien,tp.ID_THUCPHAM FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + idhd;
             return ldc.getDuLieu(sql);
         }
+
+        public DataTable LayHoaDon(int id_hoadon)
+        {
+            string sql = "select * from hoadon hd,ban b,khachhang kh,nhanvien nv where hd.ID_NHANVIEN = nv.ID_NHANVIEN and hd.ID_KHACHHANG = kh.ID_KHACHHANG and hd.ID_BAN = b.ID_BAN and hd.ID_HOADON = " + id_hoadon;
+            return ldc.getDuLieu(sql);
+        }
+
+        public int ThanhToan(int id)
+        {
+            string sql = "update hoadon set thanhtoan =1 where id_hoadon =" + id;
+            return ldc.ExecuteNonQuery(sql);
+
+        }
+
         /// <summary>
         /// Hàm này sẽ thực hiện 1 procedure có 2 câu sql
         /// 1. Xóa 1 record trong chitiethd

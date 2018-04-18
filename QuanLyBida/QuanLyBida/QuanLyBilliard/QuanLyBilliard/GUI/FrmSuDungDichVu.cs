@@ -105,14 +105,14 @@ namespace QuanLyBilliard.GUI
 
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
-            Ban ban = btnDaiDienBan.Tag as Ban;
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            blBan.KetThuc(ban, hd);
+            blBan.KetThuc(hd);
             //Cái này chỉ mới kết thúc tại cơ sở dữ liệu chứ chưa kết thúc tại btnDaiDienBan
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
             blBan.HienThiBan();
             blBan.Enabel(false);
             FrmHoaDon f = new FrmHoaDon();
+            f.HienThiHoaDon(hd.ID_HoaDon);
             f.ShowDialog();
             
         }
@@ -122,6 +122,10 @@ namespace QuanLyBilliard.GUI
             if (btnDaiDienThucPham.Text == "")
             {
                 MessageBox.Show("Bạn chưa chọn thực phẩm để thêm");
+            }
+            else if (cbSoLuong.Text == "0")
+            {
+                MessageBox.Show("Không thể thêm mặt hàng với số lượng là 0");
             }
             else
             {
@@ -139,16 +143,6 @@ namespace QuanLyBilliard.GUI
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnDaiDienThucPham.Text = dataGridView1.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
-        }
-
-        private void dataGridView2_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void panel4_Paint(object sender, PaintEventArgs e)
-        {
-
         }
 
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -232,6 +226,10 @@ namespace QuanLyBilliard.GUI
             {
                 MessageBox.Show("Bạn chưa chọn món thực phẩm cần sửa số lượng");
             }
+            else if (dataGridView2.CurrentRow.Cells[2].Value.ToString() == "1")
+            {
+                MessageBox.Show("Không thể giảm mặt hàng này vì số lượng còn 1");
+            }
             else
             {
                 string idThucPham = (btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString();
@@ -246,6 +244,7 @@ namespace QuanLyBilliard.GUI
         {
             FrmHoaDon f = new FrmHoaDon();
             f.btnThanhToan.Text = "Kết thúc";
+            f.HienThiHoaDon((btnHoaDon.Tag as HoaDon).ID_HoaDon);
             f.ShowDialog();
         }
 
@@ -266,6 +265,24 @@ namespace QuanLyBilliard.GUI
             FrmChuyenBan f = new FrmChuyenBan();
             f.ShowDialog();
             blBan.HienThiBan();
+        }
+
+        private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (btnHoaDon.Text == "")
+            {
+                MessageBox.Show("Bạn phải bật bàn trước khi gọi món");
+            }else
+            {
+                btnDaiDienThucPham.Text = dataGridView1.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
+                int id_hoadon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+                int soluong = 1;
+                int id_thucpham = Int32.Parse(btnDaiDienThucPham.Text);
+                blHoaDon.ThemMatHang(id_hoadon, soluong, id_thucpham);
+                blHoaDon.ShowBill((btnHoaDon.Tag as HoaDon), out tongtien);
+                txtTienNuoc.Text = tongtien.ToString();
+            }
+            
         }
     }
 }
