@@ -239,12 +239,18 @@ namespace QuanLyBilliard.GUI
                 txtTienNuoc.Text = tongtien.ToString();
             }
         }
-
+        /// <summary>
+        /// In thử bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void simpleButton3_Click(object sender, EventArgs e)
         {
             FrmHoaDon f = new FrmHoaDon();
             f.btnThanhToan.Text = "Kết thúc";
-            f.HienThiHoaDon((btnHoaDon.Tag as HoaDon).ID_HoaDon);
+            HoaDon hd = btnHoaDon.Tag as HoaDon;
+            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,cbNhanVien.SelectedValue.ToString(), cbKhachHang.SelectedValue.ToString());
+            f.HienThiHoaDon(hd.ID_HoaDon);
             f.ShowDialog();
         }
 

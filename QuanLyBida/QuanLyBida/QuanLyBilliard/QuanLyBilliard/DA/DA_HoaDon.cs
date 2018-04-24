@@ -131,6 +131,12 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public int GanGiaTriInThuBill(int id,int idNhanVien, int idKhachHang)
+        {
+            string sql = "update HOADON set ID_NHANVIEN = " + idNhanVien + ", ID_KHACHHANG= " + idKhachHang + " where ID_HOADON = " + id;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
         public int HienThiHoaDon(int id)
         {
             string sql = "select id hoadon from hoadon where ID_ban = '" + id + "' and dathanhtoan =0";
