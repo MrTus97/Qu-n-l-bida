@@ -62,15 +62,25 @@
     <Compile Include="BL\BL_CapBac.cs" />
     <Compile Include="BL\BL_DangNhap.cs" />
     <Compile Include="BL\BL_HoaDon.cs" />
+    <Compile Include="BL\BL_KhachHang.cs" />
     <Compile Include="BL\BL_LoaiThucPham.cs" />
+<<<<<<< HEAD
     <Compile Include="BL\BL_NhanVien.cs" />
+=======
+    <Compile Include="BL\BL_NhaCungCap.cs" />
+>>>>>>> Khoa
     <Compile Include="BL\BL_ThucPham.cs" />
     <Compile Include="DA\DA_Ban.cs" />
     <Compile Include="DA\DA_CapBac.cs" />
     <Compile Include="DA\DA_DangNhap.cs" />
     <Compile Include="DA\DA_HoaDon.cs" />
+    <Compile Include="DA\DA_KhachHang.cs" />
     <Compile Include="DA\DA_LoaiThucPham.cs" />
+<<<<<<< HEAD
     <Compile Include="DA\DA_NhanVien.cs" />
+=======
+    <Compile Include="DA\DA_NhaCungCap.cs" />
+>>>>>>> Khoa
     <Compile Include="DA\DA_ThucPham.cs" />
     <Compile Include="DA\LopDungChung.cs" />
     <Compile Include="DTO\Ban.cs" />
@@ -101,6 +111,24 @@
     </Compile>
     <Compile Include="GUI\FrmDangNhap.Designer.cs">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucBanKhuVuc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucBanKhuVuc.Designer.cs">
+      <DependentUpon>FrmDanhMucBanKhuVuc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucKhachHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucKhachHang.Designer.cs">
+      <DependentUpon>FrmDanhMucKhachHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDanhMucMatHang.Designer.cs">
+      <DependentUpon>FrmDanhMucMatHang.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmHoaDon.cs">
       <SubType>Form</SubType>
@@ -170,6 +198,15 @@
     <EmbeddedResource Include="GUI\FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDanhMucBanKhuVuc.resx">
+      <DependentUpon>FrmDanhMucBanKhuVuc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDanhMucKhachHang.resx">
+      <DependentUpon>FrmDanhMucKhachHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDanhMucMatHang.resx">
+      <DependentUpon>FrmDanhMucMatHang.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmHoaDon.resx">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
@@ -219,6 +256,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Folder Include="image\" />
   </ItemGroup>
   <ItemGroup>
@@ -229,6 +267,30 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_16x16.png" />
+=======
+    <Folder Include="Resources\" />
+>>>>>>> Khoa
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\Button-Add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\delete-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\edit-file-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\Male-user-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\Male-user-edit-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\shop-cart-add-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="image\user-delete-icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
