@@ -13,12 +13,17 @@ namespace QuanLyBilliard.BL
     class BL_KhachHang
     {
         FrmDanhMucKhachHang frmDanhMucKhachHang;
-        DA_KhachHang daKhachHang;
+        FrmSuDungDichVu frmSuDungDichVu;
+        DA_KhachHang daKhachHang = new DA_KhachHang();
         public BL_KhachHang(FrmDanhMucKhachHang f)
         {
-            daKhachHang = new DA.DA_KhachHang();
             frmDanhMucKhachHang = f;
         }
+        public BL_KhachHang(FrmSuDungDichVu f)
+        {
+            frmSuDungDichVu = f;
+        }
+        
 
         public void loadLoaiKhachHang()
         {
@@ -49,6 +54,11 @@ namespace QuanLyBilliard.BL
         {
             int id = Int32.Parse(text);
             daKhachHang.xoaKhachHang(id);
+        }
+
+        public DataTable LayKhachHang()
+        {
+            return daKhachHang.LayKhachHang();
         }
     }
 }

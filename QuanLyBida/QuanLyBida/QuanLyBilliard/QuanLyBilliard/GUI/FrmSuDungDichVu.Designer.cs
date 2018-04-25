@@ -951,6 +951,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         public DevExpress.XtraEditors.LabelControl labelControl10;
         public System.Windows.Forms.ComboBox cbNhanVien;
-        private System.Windows.Forms.ComboBox cbKhachHang;
+        public System.Windows.Forms.ComboBox cbKhachHang;
     }
 }

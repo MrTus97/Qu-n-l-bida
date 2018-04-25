@@ -111,7 +111,11 @@ namespace QuanLyBilliard.BL
             int i = daHoaDon.SuaSoLuong(idHoaDon, tp, sl);
         }
 
+<<<<<<< HEAD
         public void GanGiaTriInThuBill(int id,string nv, string kh)
+=======
+        public void GanGiaTriInThuBill(int id, string nv, string kh)
+>>>>>>> master
         {
             int idNhanVien = Convert.ToInt32(nv);
             int idKhachHang = Convert.ToInt32(kh);
