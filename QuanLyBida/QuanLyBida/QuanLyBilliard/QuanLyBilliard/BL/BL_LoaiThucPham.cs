@@ -3,6 +3,7 @@ using QuanLyBilliard.DTO;
 using QuanLyBilliard.GUI;
 using System;
 using System.Collections.Generic;
+using System.Data;
 
 namespace QuanLyBilliard.BL
 {
@@ -13,6 +14,7 @@ namespace QuanLyBilliard.BL
         DA_LoaiThucPham daLoaiThucPham;
         FrmSuDungDichVu frmSuDungDichVu;
         const int TABLE_WIDTHHEIGHT = 100;
+        LopDungChung ldc = new LopDungChung();
         public BL_LoaiThucPham(FrmSuDungDichVu f)
         {
             daThucPham = new DA.DA_ThucPham();
@@ -29,6 +31,11 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.treeView1.NodeMouseClick += TreeView1_NodeMouseClick;
                 frmSuDungDichVu.treeView1.Tag = food;
             }
+        }
+        public DataTable getDuLieu()
+        {
+            string sql = "select * from loaithucpham";
+            return ldc.getDuLieu(sql);
         }
         #region Event
         private void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
