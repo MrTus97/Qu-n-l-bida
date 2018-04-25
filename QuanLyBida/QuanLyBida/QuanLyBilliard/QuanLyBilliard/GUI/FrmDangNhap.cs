@@ -15,8 +15,6 @@ namespace QuanLyBilliard.GUI
     public partial class FrmDangNhap : DevExpress.XtraEditors.XtraForm
     {
         BL_DangNhap blDangNhap;
-        private FrmMain frmMain;
-
         public FrmDangNhap()
         {
             InitializeComponent();

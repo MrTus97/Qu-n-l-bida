@@ -8,7 +8,6 @@ namespace QuanLyBilliard.BL
     class BL_DangNhap
     {
         DA_DangNhap daDangNhap;
-        FrmMain frmMain;
         FrmDangNhap frmDangNhap;
         public BL_DangNhap(FrmDangNhap f)
         {

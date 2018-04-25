@@ -31,8 +31,16 @@ namespace QuanLyBilliard.GUI
 
         private void btnChuyen_Click(object sender, EventArgs e)
         {
-            blBan.ChuyenBan(cbBanHienTai.SelectedValue.ToString(), cbBanChuyen.SelectedValue.ToString());
-            this.Close();
+            if (cbBanChuyen.SelectedValue == null)
+            {
+                MessageBox.Show("Bạn chưa chọn bàn cần chuyển");
+            }
+            else
+            {
+                blBan.ChuyenBan(cbBanHienTai.SelectedValue.ToString(), cbBanChuyen.SelectedValue.ToString());
+                this.Close();
+            }
+            
         }
     }
 }

@@ -247,9 +247,12 @@ namespace QuanLyBilliard.GUI
         public void simpleButton3_Click(object sender, EventArgs e)
         {
             FrmHoaDon f = new FrmHoaDon();
-            f.btnThanhToan.Text = "Kết thúc";
+            f.btnThanhToan.Enabled = false;
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,cbNhanVien.SelectedValue.ToString(), cbKhachHang.SelectedValue.ToString());
+
+            // Khi nào làm xong form khách hàng thì gán lại giá trị
+            string khachhang = "1";
+            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,cbNhanVien.SelectedValue.ToString(), khachhang);
             f.HienThiHoaDon(hd.ID_HoaDon);
             f.ShowDialog();
         }

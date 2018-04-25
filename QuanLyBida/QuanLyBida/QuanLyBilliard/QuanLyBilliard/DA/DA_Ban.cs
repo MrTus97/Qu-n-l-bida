@@ -45,12 +45,7 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        internal int TATBAN(int idhoadon)
-        {
-            int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
-            string sql = "TATBAN " + idban + "," + idhoadon;
-            return ldc.ExecuteNonQuery(sql);
-        }
+        
 
         public int chuyenBan(int curr, int taget)
         {
@@ -90,6 +85,12 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public int TATBAN(int idhoadon)
+        {
+            int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
+            string sql = "TATBAN " + idban + "," + idhoadon;
+            return ldc.ExecuteNonQuery(sql);
+        }
         public DateTime LayGioVao(int iD_Ban)
         {
             string sql = "select giovao from ban where id_ban = " + iD_Ban;

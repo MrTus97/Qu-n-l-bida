@@ -111,11 +111,11 @@ namespace QuanLyBilliard.BL
             int i = daHoaDon.SuaSoLuong(idHoaDon, tp, sl);
         }
 
-        public void GanGiaTriInThuBill(string nv, string kh)
+        public void GanGiaTriInThuBill(int id,string nv, string kh)
         {
             int idNhanVien = Convert.ToInt32(nv);
             int idKhachHang = Convert.ToInt32(kh);
-            daHoaDon.GanGiaTriInThuBill(idNhanVien, idKhachHang);
+            daHoaDon.GanGiaTriInThuBill(id,idNhanVien, idKhachHang);
         }
     }
 }
