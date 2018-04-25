@@ -140,6 +140,7 @@
             this.rbpQuanTri});
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl1.Size = new System.Drawing.Size(914, 143);
+            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnSuDungDichVu
             // 
@@ -192,6 +193,7 @@
             this.btnDanhMucMatHang.Id = 10;
             this.btnDanhMucMatHang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDanhMucMatHang.LargeGlyph")));
             this.btnDanhMucMatHang.Name = "btnDanhMucMatHang";
+            this.btnDanhMucMatHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucMatHang_ItemClick);
             // 
             // btnDanhMucKhachHang
             // 
@@ -199,6 +201,7 @@
             this.btnDanhMucKhachHang.Id = 11;
             this.btnDanhMucKhachHang.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDanhMucKhachHang.LargeGlyph")));
             this.btnDanhMucKhachHang.Name = "btnDanhMucKhachHang";
+            this.btnDanhMucKhachHang.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucKhachHang_ItemClick);
             // 
             // btnDanhMucBan
             // 
@@ -593,7 +596,6 @@
             this.Ribbon = this.ribbonControl1;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();
