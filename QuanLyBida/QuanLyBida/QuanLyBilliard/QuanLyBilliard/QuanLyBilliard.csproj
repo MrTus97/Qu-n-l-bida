@@ -64,11 +64,8 @@
     <Compile Include="BL\BL_HoaDon.cs" />
     <Compile Include="BL\BL_KhachHang.cs" />
     <Compile Include="BL\BL_LoaiThucPham.cs" />
-<<<<<<< HEAD
     <Compile Include="BL\BL_NhanVien.cs" />
-=======
     <Compile Include="BL\BL_NhaCungCap.cs" />
->>>>>>> Khoa
     <Compile Include="BL\BL_ThucPham.cs" />
     <Compile Include="DA\DA_Ban.cs" />
     <Compile Include="DA\DA_CapBac.cs" />
@@ -76,11 +73,8 @@
     <Compile Include="DA\DA_HoaDon.cs" />
     <Compile Include="DA\DA_KhachHang.cs" />
     <Compile Include="DA\DA_LoaiThucPham.cs" />
-<<<<<<< HEAD
     <Compile Include="DA\DA_NhanVien.cs" />
-=======
     <Compile Include="DA\DA_NhaCungCap.cs" />
->>>>>>> Khoa
     <Compile Include="DA\DA_ThucPham.cs" />
     <Compile Include="DA\LopDungChung.cs" />
     <Compile Include="DTO\Ban.cs" />
@@ -237,28 +231,25 @@
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-<<<<<<< HEAD
-    <Folder Include="image\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="Resources\Actions-list-add-user-icon.png" />
   </ItemGroup>
@@ -267,9 +258,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\close_16x16.png" />
-=======
-    <Folder Include="Resources\" />
->>>>>>> Khoa
   </ItemGroup>
   <ItemGroup>
     <None Include="image\Button-Add-icon.png" />

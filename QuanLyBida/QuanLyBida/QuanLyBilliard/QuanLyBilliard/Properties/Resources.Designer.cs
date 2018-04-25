@@ -63,15 +63,19 @@ namespace QuanLyBilliard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
         internal static System.Drawing.Bitmap Actions_list_add_user_icon {
             get {
                 object obj = ResourceManager.GetObject("Actions-list-add-user-icon", resourceCulture);
-=======
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Button_Add_icon {
             get {
                 object obj = ResourceManager.GetObject("Button-Add-icon", resourceCulture);
->>>>>>> Khoa
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -79,15 +83,9 @@ namespace QuanLyBilliard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
         internal static System.Drawing.Bitmap close_16x16 {
             get {
                 object obj = ResourceManager.GetObject("close_16x16", resourceCulture);
-=======
-        internal static System.Drawing.Bitmap delete_file_icon {
-            get {
-                object obj = ResourceManager.GetObject("delete-file-icon", resourceCulture);
->>>>>>> Khoa
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -95,11 +93,16 @@ namespace QuanLyBilliard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-<<<<<<< HEAD
-        internal static System.Drawing.Bitmap pencil_add_icon {
+        internal static System.Drawing.Bitmap delete_file_icon {
             get {
-                object obj = ResourceManager.GetObject("pencil-add-icon", resourceCulture);
-=======
+                object obj = ResourceManager.GetObject("delete-file-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap edit_file_icon {
             get {
                 object obj = ResourceManager.GetObject("edit-file-icon", resourceCulture);
@@ -130,6 +133,16 @@ namespace QuanLyBilliard.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pencil_add_icon {
+            get {
+                object obj = ResourceManager.GetObject("pencil-add-icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap shop_cart_add_icon {
             get {
                 object obj = ResourceManager.GetObject("shop-cart-add-icon", resourceCulture);
@@ -143,7 +156,6 @@ namespace QuanLyBilliard.Properties {
         internal static System.Drawing.Bitmap user_delete_icon {
             get {
                 object obj = ResourceManager.GetObject("user-delete-icon", resourceCulture);
->>>>>>> Khoa
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
