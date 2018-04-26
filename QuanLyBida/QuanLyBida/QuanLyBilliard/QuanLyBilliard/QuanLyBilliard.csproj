@@ -78,6 +78,12 @@
     <Compile Include="DTO\LoaiThucPham.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\ThucPham.cs" />
+    <Compile Include="GUI\FrmThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThongKeDoanhThu.Designer.cs">
+      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmCaLamViec.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,12 @@
     <Compile Include="GUI\FrmThanhToan.Designer.cs">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmThongKeMatHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThongKeMatHang.Designer.cs">
+      <DependentUpon>FrmThongKeMatHang.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmTinhCong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -187,6 +199,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThanhToan.resx">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThongKeDoanhThu.resx">
+      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmThongKeMatHang.resx">
+      <DependentUpon>FrmThongKeMatHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmTinhCong.resx">
       <DependentUpon>FrmTinhCong.cs</DependentUpon>
