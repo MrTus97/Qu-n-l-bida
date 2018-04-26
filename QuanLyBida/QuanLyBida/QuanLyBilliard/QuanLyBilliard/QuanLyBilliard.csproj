@@ -124,6 +124,12 @@
     <Compile Include="GUI\FrmDanhMucMatHang.Designer.cs">
       <DependentUpon>FrmDanhMucMatHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\FrmDoiSoLuong.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmDoiSoLuong.Designer.cs">
+      <DependentUpon>FrmDoiSoLuong.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmHoaDon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -200,6 +206,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDanhMucMatHang.resx">
       <DependentUpon>FrmDanhMucMatHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\FrmDoiSoLuong.resx">
+      <DependentUpon>FrmDoiSoLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmHoaDon.resx">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>

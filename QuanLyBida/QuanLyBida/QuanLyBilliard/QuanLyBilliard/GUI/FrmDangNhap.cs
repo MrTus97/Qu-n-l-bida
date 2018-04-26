@@ -21,10 +21,6 @@ namespace QuanLyBilliard.GUI
             blDangNhap = new BL_DangNhap(this);
         }
 
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -45,6 +41,11 @@ namespace QuanLyBilliard.GUI
             {
                 MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
             }
+        }
+
+        private void FrmDangNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

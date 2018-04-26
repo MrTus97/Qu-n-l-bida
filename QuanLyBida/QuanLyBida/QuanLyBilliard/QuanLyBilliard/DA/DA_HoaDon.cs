@@ -24,6 +24,15 @@ namespace QuanLyBilliard.DA
             string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien,tp.ID_THUCPHAM FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + idhd;
             return ldc.getDuLieu(sql);
         }
+        /// <summary>
+        /// Chọn tất cả hóa đơn
+        /// </summary>
+        /// <returns></returns>
+        public DataTable HienThiTatCaCacHoaDon()
+        {
+            string sql = "select * from hoadon";
+            return ldc.getDuLieu(sql);
+        }
 
         public DataTable LayHoaDon(int id_hoadon)
         {
@@ -67,7 +76,8 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
         /// <summary>
-        /// Hàm này sẽ thực hiện câu sql sửa số lượng trong sql có idhoadon và idthucpham
+        /// Thực hiện đổi số lượng thực phẩm ở trong bill có id_hoadon = @idhoadon
+        /// Dành cho "đổi số lượng", "thêm 1", "Giảm 1"
         /// </summary>
         /// <param name="idHoaDon"></param>
         /// <param name="tp"></param>
@@ -75,8 +85,19 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public int SuaSoLuong(int idHoaDon, int tp, int sl)
         {
-            string sql = "UPDATE CHITIETHD SET SOLUONG = SOLUONG + " + sl + " WHERE ID_HOADON = " + idHoaDon + " and ID_THUCPHAM=" + tp;
+            string sql = "UPDATE CHITIETHD SET SOLUONG = " + sl + " WHERE ID_HOADON = " + idHoaDon + " and ID_THUCPHAM=" + tp;
             return ldc.ExecuteNonQuery(sql);
+        }
+        /// <summary>
+        /// Hiển thị tên,số lượng, đơn giá, thành tiền cho hóa đơn có id_hoadon = @id
+        /// Dành cho in thử bill và Kết thúc
+        /// </summary>
+        /// <param name="idHoaDon"></param>
+        /// <returns></returns>
+        public DataTable HienThiThucPhamCoTrongHoaDon(int idHoaDon)
+        {
+            string sql = "SELECT TENTHUCPHAM,ct.SOLUONG,GIABAN, ct.SOLUONG*GIABAN as THANHTIEN FROM CHITIETHD ct inner join thucpham tp on ct.ID_THUCPHAM = tp.ID_THUCPHAM where ct.ID_HOADON = " + idHoaDon;
+            return ldc.getDuLieu(sql);
         }
 
         /// <summary>

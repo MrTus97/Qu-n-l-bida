@@ -61,11 +61,9 @@
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDoiGiaBan = new DevExpress.XtraEditors.SimpleButton();
             this.btnDoiSoLuong = new DevExpress.XtraEditors.SimpleButton();
             this.dtpNgay = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.btnInPhieuCheBien = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.cbSoLuong = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -76,7 +74,6 @@
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.btnKetThuc = new DevExpress.XtraEditors.SimpleButton();
-            this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnDaiDienBan = new System.Windows.Forms.Button();
@@ -198,11 +195,9 @@
             this.panel4.Controls.Add(this.labelControl6);
             this.panel4.Controls.Add(this.txtGiamGiaGio);
             this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Controls.Add(this.btnDoiGiaBan);
             this.panel4.Controls.Add(this.btnDoiSoLuong);
             this.panel4.Controls.Add(this.dtpNgay);
             this.panel4.Controls.Add(this.labelControl3);
-            this.panel4.Controls.Add(this.btnInPhieuCheBien);
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.cbSoLuong);
@@ -253,7 +248,6 @@
             this.btnDaiDienHangHoaDon.Size = new System.Drawing.Size(75, 23);
             this.btnDaiDienHangHoaDon.TabIndex = 90;
             this.btnDaiDienHangHoaDon.Text = "simpleButton3";
-            this.btnDaiDienHangHoaDon.Visible = false;
             // 
             // labelControl9
             // 
@@ -267,9 +261,9 @@
             // 
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(53, 59);
+            this.simpleButton4.Location = new System.Drawing.Point(81, 55);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(22, 18);
+            this.simpleButton4.Size = new System.Drawing.Size(28, 25);
             this.simpleButton4.TabIndex = 88;
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
@@ -285,6 +279,7 @@
             // 
             // labelControl5
             // 
+            this.labelControl5.Enabled = false;
             this.labelControl5.Location = new System.Drawing.Point(159, 403);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(47, 13);
@@ -293,6 +288,7 @@
             // 
             // txtTienNuoc
             // 
+            this.txtTienNuoc.Enabled = false;
             this.txtTienNuoc.Location = new System.Drawing.Point(216, 402);
             this.txtTienNuoc.Name = "txtTienNuoc";
             this.txtTienNuoc.Size = new System.Drawing.Size(84, 20);
@@ -300,6 +296,7 @@
             // 
             // labelControl4
             // 
+            this.labelControl4.Enabled = false;
             this.labelControl4.Location = new System.Drawing.Point(160, 379);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(37, 13);
@@ -308,6 +305,7 @@
             // 
             // txtTienGio
             // 
+            this.txtTienGio.Enabled = false;
             this.txtTienGio.Location = new System.Drawing.Point(216, 376);
             this.txtTienGio.Name = "txtTienGio";
             this.txtTienGio.Size = new System.Drawing.Size(84, 20);
@@ -339,6 +337,7 @@
             // 
             // labelControl8
             // 
+            this.labelControl8.Enabled = false;
             this.labelControl8.Location = new System.Drawing.Point(160, 429);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(50, 13);
@@ -347,6 +346,7 @@
             // 
             // txtTongCong
             // 
+            this.txtTongCong.Enabled = false;
             this.txtTongCong.Location = new System.Drawing.Point(216, 426);
             this.txtTongCong.Name = "txtTongCong";
             this.txtTongCong.Size = new System.Drawing.Size(84, 20);
@@ -435,17 +435,9 @@
             this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
             this.ID_THUCPHAM1.ReadOnly = true;
             // 
-            // btnDoiGiaBan
-            // 
-            this.btnDoiGiaBan.Location = new System.Drawing.Point(193, 56);
-            this.btnDoiGiaBan.Name = "btnDoiGiaBan";
-            this.btnDoiGiaBan.Size = new System.Drawing.Size(100, 23);
-            this.btnDoiGiaBan.TabIndex = 69;
-            this.btnDoiGiaBan.Text = "Đổi giá bán";
-            // 
             // btnDoiSoLuong
             // 
-            this.btnDoiSoLuong.Location = new System.Drawing.Point(81, 56);
+            this.btnDoiSoLuong.Location = new System.Drawing.Point(159, 56);
             this.btnDoiSoLuong.Name = "btnDoiSoLuong";
             this.btnDoiSoLuong.Size = new System.Drawing.Size(106, 23);
             this.btnDoiSoLuong.TabIndex = 68;
@@ -471,15 +463,6 @@
             this.labelControl3.Size = new System.Drawing.Size(48, 13);
             this.labelControl3.TabIndex = 61;
             this.labelControl3.Text = "Nhân viên";
-            // 
-            // btnInPhieuCheBien
-            // 
-            this.btnInPhieuCheBien.AppearanceHovered.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.btnInPhieuCheBien.Location = new System.Drawing.Point(304, 300);
-            this.btnInPhieuCheBien.Name = "btnInPhieuCheBien";
-            this.btnInPhieuCheBien.Size = new System.Drawing.Size(70, 63);
-            this.btnInPhieuCheBien.TabIndex = 57;
-            this.btnInPhieuCheBien.Text = "In phiếu \r\nchế biến\r\n";
             // 
             // btnXoa
             // 
@@ -541,7 +524,7 @@
             this.btnChuyenBan.Appearance.Options.UseFont = true;
             this.btnChuyenBan.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenBan.Image")));
             this.btnChuyenBan.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnChuyenBan.Location = new System.Drawing.Point(304, 56);
+            this.btnChuyenBan.Location = new System.Drawing.Point(300, 59);
             this.btnChuyenBan.Name = "btnChuyenBan";
             this.btnChuyenBan.Size = new System.Drawing.Size(70, 66);
             this.btnChuyenBan.TabIndex = 51;
@@ -556,7 +539,6 @@
             this.panel3.Controls.Add(this.btnThanhToan);
             this.panel3.Controls.Add(this.btnBatDau);
             this.panel3.Controls.Add(this.btnKetThuc);
-            this.panel3.Controls.Add(this.btnThongKe);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(2, 31);
             this.panel3.Name = "panel3";
@@ -595,7 +577,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(223, 6);
+            this.btnThanhToan.Location = new System.Drawing.Point(300, 3);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(70, 38);
             this.btnThanhToan.TabIndex = 59;
@@ -619,15 +601,6 @@
             this.btnKetThuc.TabIndex = 30;
             this.btnKetThuc.Text = "Kết thúc";
             this.btnKetThuc.Click += new System.EventHandler(this.btnKetThuc_Click);
-            // 
-            // btnThongKe
-            // 
-            this.btnThongKe.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomRight;
-            this.btnThongKe.Location = new System.Drawing.Point(299, 6);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(70, 38);
-            this.btnThongKe.TabIndex = 59;
-            this.btnThongKe.Text = "Thống kê";
             // 
             // panel2
             // 
@@ -908,12 +881,9 @@
         public DevExpress.XtraEditors.LabelControl labelControl6;
         public DevExpress.XtraEditors.TextEdit txtGiamGiaGio;
         public System.Windows.Forms.DataGridView dataGridView2;
-        public DevExpress.XtraEditors.SimpleButton btnDoiGiaBan;
         public DevExpress.XtraEditors.SimpleButton btnDoiSoLuong;
         public DevExpress.XtraEditors.DateEdit dtpNgay;
         public DevExpress.XtraEditors.LabelControl labelControl3;
-        public DevExpress.XtraEditors.SimpleButton btnThongKe;
-        public DevExpress.XtraEditors.SimpleButton btnInPhieuCheBien;
         public DevExpress.XtraEditors.SimpleButton btnXoa;
         public DevExpress.XtraEditors.SimpleButton btnThem;
         public DevExpress.XtraEditors.ComboBoxEdit cbSoLuong;

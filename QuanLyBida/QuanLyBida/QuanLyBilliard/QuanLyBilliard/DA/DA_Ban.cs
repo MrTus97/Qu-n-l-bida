@@ -11,6 +11,10 @@ namespace QuanLyBilliard.DA
     class DA_Ban
     {
         LopDungChung ldc = new LopDungChung();
+        /// <summary>
+        /// Lấy tất cả các bàn có tỏng cơ sở dữ liệu
+        /// </summary>
+        /// <returns></returns>
         public List<Ban> LayBan()
         {
             string sql = "SELECT * FROM BAN";
@@ -23,8 +27,12 @@ namespace QuanLyBilliard.DA
             }
             return lst;
         }
-
-        public int BATBAN(Ban ban)
+        /// <summary>
+        /// Thực hiện procedure đổi trạng thái bàn và tạo hóa đơn
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        public int BATBAN(int id)
         {
             /*
                     Thực thi 1 procedure như sau, nhiệm vụ là thêm 1 hóa đơn với giờ chơi và trạng thái thanh toán bằng 0
@@ -41,7 +49,7 @@ namespace QuanLyBilliard.DA
                     where ID_BAN = @id;
                     end
                  */
-            string sql = "batgio " + ban.ID_Ban;
+            string sql = "batgio " + id;
             return ldc.ExecuteNonQuery(sql);
         }
 

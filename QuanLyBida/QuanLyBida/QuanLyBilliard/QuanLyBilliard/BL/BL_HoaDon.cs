@@ -11,22 +11,39 @@ namespace QuanLyBilliard.BL
         FrmSuDungDichVu frmSuDungDichVu;
         FrmChuyenBan frmChuyenBan;
         FrmHoaDon frmHoaDon;
-        DA_HoaDon daHoaDon;
-        
+        FrmDoiSoLuong frmDoiSoLuong;
+        DA_HoaDon daHoaDon = new DA_HoaDon();
+        FrmThanhToan frmThanhToan;
+
+        public BL_HoaDon(FrmThanhToan f)
+        {
+            this.frmThanhToan = f;
+        }
+        public BL_HoaDon(FrmDoiSoLuong f)
+        {
+            this.frmDoiSoLuong = f;
+            
+        }
+        /// <summary>
+        /// Chọn tất cả các hóa đơn
+        /// </summary>
+        /// <returns></returns>
+        public DataTable HienThiTatCacHoaDon()
+        {
+            return daHoaDon.HienThiTatCaCacHoaDon();
+        }
+
         public BL_HoaDon(FrmSuDungDichVu f)
         {
             this.frmSuDungDichVu = f;
-            daHoaDon = new DA_HoaDon();
         }
         public BL_HoaDon(FrmChuyenBan f)
         {
             frmChuyenBan = f;
-            daHoaDon = new DA_HoaDon();
         }
         public BL_HoaDon(FrmHoaDon f)
         {
             frmHoaDon = f;
-            daHoaDon = new DA_HoaDon();
         }
 
         public void ShowBill(HoaDon hd, out float tongtien)
@@ -42,9 +59,13 @@ namespace QuanLyBilliard.BL
             
         }
 
-        public int ThanhToan(string text)
+        public DataTable LayHoaDonTheoId(int idHoaDon)
         {
-            int id = Int32.Parse(text);
+            return daHoaDon.LayHoaDon(idHoaDon);
+        }
+
+        public int ThanhToan(int id)
+        {
             return daHoaDon.ThanhToan(id);
         }
 
@@ -79,6 +100,16 @@ namespace QuanLyBilliard.BL
 
             frmHoaDon.ValueTongTien.Text = tongtien.ToString();
         }
+        /// <summary>
+        /// Hiển thị 1 bảng có danh sách các món ăn có trong bill có id_hoadon = @idHoaDon 
+        /// Dành cho in thử bill và kết thúc
+        /// </summary>
+        /// <param name="idHoaDon"></param>
+        /// <returns></returns>
+        public DataTable HienThiThucPhamCoTrongHoaDon(int idHoaDon)
+        {
+            return daHoaDon.HienThiThucPhamCoTrongHoaDon(idHoaDon);
+        }
 
         public void ThemMatHang(int id_HoaDOn, int soluong, int iD_ThucPham)
         {
@@ -104,18 +135,14 @@ namespace QuanLyBilliard.BL
             int i = daHoaDon.XoaMatHang(idHoaDon, idThucPham,soluong);
         }
 
-        public void DoiSoLuong(int idHoaDon, string idThucPham, string soluong)
+        public void DoiSoLuong(int idHoaDon, int idThucPham, int soluong)
         {
-            int sl = Int32.Parse(soluong);
-            int tp = Int32.Parse(idThucPham);
-            int i = daHoaDon.SuaSoLuong(idHoaDon, tp, sl);
+            int i = daHoaDon.SuaSoLuong(idHoaDon, idThucPham, soluong);
         }
 
-<<<<<<< HEAD
-        public void GanGiaTriInThuBill(int id,string nv, string kh)
-=======
+
         public void GanGiaTriInThuBill(int id, string nv, string kh)
->>>>>>> master
+
         {
             int idNhanVien = Convert.ToInt32(nv);
             int idKhachHang = Convert.ToInt32(kh);

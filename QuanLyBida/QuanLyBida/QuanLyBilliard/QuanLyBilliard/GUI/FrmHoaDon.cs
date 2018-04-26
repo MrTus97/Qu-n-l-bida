@@ -16,18 +16,26 @@ namespace QuanLyBilliard.GUI
     {
         BL_HoaDon blHoaDon;
         BL_Ban blBan;
-        public FrmHoaDon()
+        int idHoaDon;
+       
+        /// <summary>
+        /// Tạo ra form hóa đơn và mang theo id_hoadon
+        /// </summary>
+        /// <param name="id"></param>
+        public FrmHoaDon(int id)
         {
             InitializeComponent();
+            idHoaDon = id;
             blHoaDon = new BL_HoaDon(this);
             blBan = new BL_Ban(this);
-
-        }
-        public FrmHoaDon(HoaDon hd)
-        {
-
         }
 
+
+        /// <summary>
+        /// Nút thoát form
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void simpleButton3_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -38,16 +46,57 @@ namespace QuanLyBilliard.GUI
             blHoaDon.HienThiHoaDonTrenBill(id_hoadon);
         }
 
+        /// <summary>
+        /// Khi load form thì phải hiển thị những thông tin của bill
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmHoaDon_Load(object sender, EventArgs e)
         {
-           
+            //Xử lý hiển thị
+            btnThanhToan.Enabled = false;
+
+            DataTable data = blHoaDon.LayHoaDonTheoId(idHoaDon);
+            Value_SoHD.Text = data.Rows[0]["ID_HOADON"].ToString();
+            DateTime giovao = DateTime.Parse(data.Rows[0]["GioVao"].ToString());
+            Value_GioVao.Text = giovao.TimeOfDay.ToString();
+            DateTime gioRa = DateTime.Now;
+            Value_GioRa.Text = gioRa.TimeOfDay.ToString();
+            Value_KhangHang.Text = data.Rows[0]["TongGioChoi"].ToString();
+            Value_Ban.Text = data.Rows[0]["TenBan"].ToString();
+            Value_KhangHang.Text = data.Rows[0]["TenKhachHang"].ToString();
+            Value_NhanVien.Text = data.Rows[0]["TenNhanVien"].ToString();
+            //Tính tiền giờ:
+            int hour = gioRa.Hour - giovao.Hour;
+            int minutes = gioRa.Minute - giovao.Minute;
+            int gia = Int32.Parse(data.Rows[0]["GIA"].ToString());
+
+            float tienGio = hour * gia + (minutes * gia / 60);
+
+            //Hiển thị trên datagridview
+            dataGridView2.Rows.Clear();
+            dataGridView2.Rows.Add("Tiền giờ", gia, hour.ToString() +":"+minutes.ToString(), tienGio);
+            float tongtien = tienGio;
+            DataTable dt = blHoaDon.HienThiThucPhamCoTrongHoaDon(idHoaDon);
+            foreach (DataRow row in dt.Rows)
+            {
+                dataGridView2.Rows.Add(row.ItemArray);
+                tongtien += float.Parse(row["ThanhTien"].ToString());
+            }
+            ValueTongTien.Text = tongtien.ToString();
         }
 
+
+        /// <summary>
+        /// Set trạng thái thành đã thanh toán hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             if (btnThanhToan.Text == "Thanh Toán")
             {
-                int result = blHoaDon.ThanhToan(Value_SoHD.Text);
+                int result = blHoaDon.ThanhToan(idHoaDon);
                 if (result > 0)
                 {
                     MessageBox.Show("Đã thanh toán");
@@ -60,7 +109,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                blBan.KetThuc(Value_SoHD.Text);
+                blBan.KetThuc(idHoaDon);
             }
         }
     }

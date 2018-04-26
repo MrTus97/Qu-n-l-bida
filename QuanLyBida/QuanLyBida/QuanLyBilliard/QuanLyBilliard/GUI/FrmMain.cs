@@ -28,7 +28,7 @@ namespace QuanLyBilliard.GUI
             return false;
         }
 
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmSuDungDichVu"))
             {
@@ -38,24 +38,24 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        public void Form1_Load(object sender, EventArgs e)
         {
         }
 
 
 
-        private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             FrmDangNhap frmDangNhap = new FrmDangNhap();
             frmDangNhap.Show();
             this.Hide();
         }
 
-        private void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             Application.Exit();
         }
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmSuDungDichVu"))
             {
@@ -65,13 +65,13 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-        private void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
 
         }
 
 
-        private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmNhanVien"))
             {
@@ -81,7 +81,7 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-        private void btnCapBac_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void btnCapBac_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmCapBac"))
             {
@@ -92,7 +92,7 @@ namespace QuanLyBilliard.GUI
 
 
         } 
-        private void btnDanhMucMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        public void btnDanhMucMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmDanhMucMatHang"))
             {
@@ -100,7 +100,6 @@ namespace QuanLyBilliard.GUI
                 f.MdiParent = this;
                 f.Show();
             }
-                
         }
 
         private void ribbonControl1_Click(object sender, EventArgs e)
@@ -116,6 +115,11 @@ namespace QuanLyBilliard.GUI
                 f.MdiParent = this;
                 f.Show();
             }
+        }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
         }
     }
 }

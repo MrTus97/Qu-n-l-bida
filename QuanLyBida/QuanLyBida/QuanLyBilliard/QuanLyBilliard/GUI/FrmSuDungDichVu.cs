@@ -27,7 +27,11 @@ namespace QuanLyBilliard.GUI
             blLoaiThucPham = new BL_LoaiThucPham(this);
             
         }
-
+        /// <summary>
+        /// Khởi chạy background worker và hiển thị bàn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmSuDungDichVu_Load(object sender, EventArgs e)
         {
             backgroundWorker1 = new BackgroundWorker();
@@ -48,7 +52,10 @@ namespace QuanLyBilliard.GUI
             
 
         }
+
+
         /// <summary>
+        /// Tính giờ chơi để hiển thị tại hóa đơn
         /// Không hiểu vì sao mà đối tượng bàn lấy được tất cả các giá trị nhưng không lấy được giờ vào, bắt buộc phải truy xuất đến sql
         /// </summary>
         /// <param name="sender"></param>
@@ -60,8 +67,6 @@ namespace QuanLyBilliard.GUI
             {
                     DateTime thoiGianHienTai = DateTime.Now;
                     DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
-                    //DateTime thoiGianBatBan = 
-                    //int second = Math.Abs(thoiGianHienTai.Second - thoiGianBatBan.Second);
                     int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;
                     int hour = Math.Abs(thoiGianHienTai.Hour - thoiGianBatBan.Hour);
                     txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
@@ -70,8 +75,9 @@ namespace QuanLyBilliard.GUI
                     txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
             }
         }
+
         /// <summary>
-        /// Hàm luôn chạy của background woker
+        /// Hàm chạy của background worker
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -95,14 +101,24 @@ namespace QuanLyBilliard.GUI
             }
         }
 
+        /// <summary>
+        /// Bật giờ tạo bill và thay đổi hiển thị
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnBatDau_Click(object sender, EventArgs e)
         {
             Ban ban = btnDaiDienBan.Tag as Ban;
-            blBan.BatGio(ban);
+            blBan.BatGio(ban.ID_Ban);
             blBan.HienThiBan();
             blBan.Enabel(true);
         }
 
+        /// <summary>
+        /// Kết thúc, nghỉ chơi, có thể thanh toán hoặc không
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
             HoaDon hd = btnHoaDon.Tag as HoaDon;
@@ -111,12 +127,18 @@ namespace QuanLyBilliard.GUI
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
             blBan.HienThiBan();
             blBan.Enabel(false);
-            FrmHoaDon f = new FrmHoaDon();
-            f.HienThiHoaDon(hd.ID_HoaDon);
+            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon);
+            //f.HienThiHoaDon(hd.ID_HoaDon);
             f.ShowDialog();
             
         }
 
+
+        /// <summary>
+        /// Thêm thực phẩm vào hóa đơn bằng nút thêm với số lượng ở combo box
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnThem_Click(object sender, EventArgs e)
         {
             if (btnDaiDienThucPham.Text == "")
@@ -140,18 +162,34 @@ namespace QuanLyBilliard.GUI
             
         }
 
+
+        /// <summary>
+        /// Bắt sự kiện khi chọn thực phẩm để tương tác với nó, ở đây là thêm vào hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             btnDaiDienThucPham.Text = dataGridView1.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
         }
 
+
+        /// <summary>
+        /// Bắt sự kiện khi click vào thực phẩm đã có trong hóa đơn để tương tác với nó, ở đây là thay đổi số lượng hoặc xóa khỏi hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             DataGridViewRow row = dataGridView2.CurrentRow;
             btnDaiDienHangHoaDon.Tag = row;
             btnDaiDienHangHoaDon.Text = row.Cells[4].Value.ToString();
         }
-
+        /// <summary>
+        /// Xóa thực phẩm ra khỏi hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnXoa_Click(object sender, EventArgs e)
         {
             if (btnDaiDienHangHoaDon.Tag == null)
@@ -169,16 +207,12 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-        private void btnSua_Click(object sender, EventArgs e)
-        {
-
-        }
         /// <summary>
-        /// Thực hiện đổi số lượng (với sl = combobox số lượng)
+        /// Đổi số lượng thực phẩm có trong hóa đơn
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void btnDoiSoLuong_Click(object sender, EventArgs e)
+        public void btnDoiSoLuong_Click(object sender, EventArgs e)
         {
             if (btnDaiDienHangHoaDon.Tag == null)
             {
@@ -186,17 +220,24 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
+               
                 string idThucPham = (btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString();
                 string soluong = (btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[2].Value.ToString();
                 int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
-                blHoaDon.DoiSoLuong(idHoaDon, idThucPham, soluong);
+                //blHoaDon.DoiSoLuong(idHoaDon, idThucPham, soluong);
+
+                FrmDoiSoLuong f = new FrmDoiSoLuong(idThucPham, soluong, idHoaDon);
+
+                f.ShowDialog();
+                
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
             }
-            
+
         }
+
         /// <summary>
-        /// Thực hiện như đổi số lượng (với sl=1)
+        /// Tăng số lượng thực phẩm lên 1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -208,15 +249,18 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                string idThucPham = (btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString();
+                int idThucPham = Convert.ToInt32((btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString());
                 int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
-                blHoaDon.DoiSoLuong(idHoaDon, idThucPham, "1");
+                int soluong = Convert.ToInt32((btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[2].Value.ToString());
+
+                blHoaDon.DoiSoLuong(idHoaDon, idThucPham,soluong+ 1);
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
             }
         }
+
         /// <summary>
-        /// Thực hiện như đổi số lượng (với sl = -1)
+        /// Giảm số lượng thực phẩm xuống 1
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -232,13 +276,17 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                string idThucPham = (btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString();
+                int soluong = Convert.ToInt32((btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[2].Value.ToString());
+
+                int idThucPham = Convert.ToInt32((btnDaiDienHangHoaDon.Tag as DataGridViewRow).Cells[4].Value.ToString());
                 int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
-                blHoaDon.DoiSoLuong(idHoaDon, idThucPham, "-1");
+                blHoaDon.DoiSoLuong(idHoaDon, idThucPham, soluong-1);
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
             }
         }
+
+
         /// <summary>
         /// In thử bill
         /// </summary>
@@ -246,29 +294,42 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         public void simpleButton3_Click(object sender, EventArgs e)
         {
-            FrmHoaDon f = new FrmHoaDon();
-            f.btnThanhToan.Enabled = false;
+            
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-
-            // Khi nào làm xong form khách hàng thì gán lại giá trị
-            string khachhang = "1";
-            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,cbNhanVien.SelectedValue.ToString(), khachhang);
-            f.HienThiHoaDon(hd.ID_HoaDon);
+            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon);
+            string nhanvien = cbNhanVien.SelectedValue.ToString();
+            string khachhang = cbKhachHang.SelectedValue.ToString();
+            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,nhanvien, khachhang);
             f.ShowDialog();
         }
-
+        /// <summary>
+        /// Hiển thị các hóa đơn đã được tạo và đã kết thúc
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void btnThanhToan_Click(object sender, EventArgs e)
         {
             FrmThanhToan f = new FrmThanhToan();
             f.ShowDialog();
-
         }
 
+
+        /// <summary>
+        /// Không có ý nghĩa
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChuyenBan_DoubleClick(object sender, EventArgs e)
         {
             MessageBox.Show("VL");
         }
 
+
+        /// <summary>
+        /// Chuyển bàn này sang bàn khác
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnChuyenBan_Click(object sender, EventArgs e)
         {
             FrmChuyenBan f = new FrmChuyenBan();
@@ -276,6 +337,12 @@ namespace QuanLyBilliard.GUI
             blBan.HienThiBan();
         }
 
+
+        /// <summary>
+        /// Thêm món ăn vào hóa đơn bằng thao tác double click vào thực phẩm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (btnHoaDon.Text == "")

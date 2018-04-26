@@ -57,12 +57,15 @@ namespace QuanLyBilliard.BL
         public int KetThuc(string text)
         {
             int idhoadon = Int32.Parse(text);
-            
+            return daTable.TATBAN(idhoadon);
+        }
+        public int KetThuc(int idhoadon)
+        {
             return daTable.TATBAN(idhoadon);
         }
 
         /// <summary>
-        /// Hiển thị lại bàn khi có sự thay đổi
+        /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
         /// </summary>
         public void HienThiBan()
         {
@@ -135,10 +138,13 @@ namespace QuanLyBilliard.BL
             int idNhanVien = Int32.Parse(idnv);
             return daTable.TATBAN(hd,idNhanVien);
         }
-
-        public void BatGio(Ban ban)
+        /// <summary>
+        /// Bật giờ theo id bàn
+        /// </summary>
+        /// <param name="id"></param>
+        public void BatGio(int id)
         {
-            daTable.BATBAN(ban);
+            daTable.BATBAN(id);
         }
 
         private void btn_Click(object sender, EventArgs e)
@@ -194,6 +200,10 @@ namespace QuanLyBilliard.BL
             return tiengio;
         }
 
+        /// <summary>
+        /// Gán các giá trị enable của bàn bật (true) và tắt (false)
+        /// </summary>
+        /// <param name="v"></param>
         public void Enabel(bool v)
         {
             if (v)
@@ -208,7 +218,6 @@ namespace QuanLyBilliard.BL
             }
             else
             {
-                frmSuDungDichVu.btnThanhToan.Enabled = false;
                 frmSuDungDichVu.txtSoGioChoi.Text = "";
                 frmSuDungDichVu.btnBatDau.Enabled = true;
                 frmSuDungDichVu.dtBatDau.Enabled = true;
