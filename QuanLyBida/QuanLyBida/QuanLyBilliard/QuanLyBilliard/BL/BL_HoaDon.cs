@@ -93,7 +93,10 @@ namespace QuanLyBilliard.BL
             return hoadon;
 
         }
-
+        public DataTable LayHoaDon(int id)
+        {
+            return daHoaDon.LayHoaDon(id);
+        }
         public void XoaMatHang(int idHoaDon, string text,string sl)
         {
             int soluong = Int32.Parse(sl);
@@ -106,6 +109,13 @@ namespace QuanLyBilliard.BL
             int sl = Int32.Parse(soluong);
             int tp = Int32.Parse(idThucPham);
             int i = daHoaDon.SuaSoLuong(idHoaDon, tp, sl);
+        }
+
+        public void GanGiaTriInThuBill(int id, string nv, string kh)
+        {
+            int idNhanVien = Convert.ToInt32(nv);
+            int idKhachHang = Convert.ToInt32(kh);
+            daHoaDon.GanGiaTriInThuBill(id,idNhanVien, idKhachHang);
         }
     }
 }

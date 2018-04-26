@@ -34,7 +34,7 @@
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbKhachHang = new System.Windows.Forms.ComboBox();
             this.cbNhanVien = new System.Windows.Forms.ComboBox();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
             this.simpleButton3 = new DevExpress.XtraEditors.SimpleButton();
@@ -176,7 +176,7 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.comboBox1);
+            this.panel4.Controls.Add(this.cbKhachHang);
             this.panel4.Controls.Add(this.cbNhanVien);
             this.panel4.Controls.Add(this.labelControl10);
             this.panel4.Controls.Add(this.simpleButton3);
@@ -213,13 +213,13 @@
             this.panel4.Size = new System.Drawing.Size(379, 441);
             this.panel4.TabIndex = 1;
             // 
-            // comboBox1
+            // cbKhachHang
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(123, 30);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(117, 21);
-            this.comboBox1.TabIndex = 94;
+            this.cbKhachHang.FormattingEnabled = true;
+            this.cbKhachHang.Location = new System.Drawing.Point(123, 30);
+            this.cbKhachHang.Name = "cbKhachHang";
+            this.cbKhachHang.Size = new System.Drawing.Size(117, 21);
+            this.cbKhachHang.TabIndex = 94;
             // 
             // cbNhanVien
             // 
@@ -951,6 +951,6 @@
         private DevExpress.XtraEditors.SimpleButton simpleButton3;
         public DevExpress.XtraEditors.LabelControl labelControl10;
         public System.Windows.Forms.ComboBox cbNhanVien;
-        private System.Windows.Forms.ComboBox comboBox1;
+        public System.Windows.Forms.ComboBox cbKhachHang;
     }
 }

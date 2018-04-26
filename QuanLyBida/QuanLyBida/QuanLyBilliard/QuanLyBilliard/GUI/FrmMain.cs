@@ -17,7 +17,7 @@ namespace QuanLyBilliard.GUI
         }
         public bool FormXuatHienChua(string text)
         {
-            foreach(Form f in this.MdiChildren)
+            foreach (Form f in this.MdiChildren)
             {
                 if (f.Name.Equals(text))
                 {
@@ -37,10 +37,12 @@ namespace QuanLyBilliard.GUI
                 f.Show();
             }
         }
+
         private void Form1_Load(object sender, EventArgs e)
         {
         }
-       
+
+
 
         private void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -65,8 +67,9 @@ namespace QuanLyBilliard.GUI
 
         private void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-           
+
         }
+
 
         private void btnNhanVien_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -86,9 +89,33 @@ namespace QuanLyBilliard.GUI
                 f.MdiParent = this;
                 f.Show();
             }
-            
 
-            
+
+        } 
+        private void btnDanhMucMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmDanhMucMatHang"))
+            {
+                FrmDanhMucMatHang f = new FrmDanhMucMatHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+                
+        }
+
+        private void ribbonControl1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDanhMucKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(!FormXuatHienChua("FrmDanhMucKhachHang"))
+            {
+                FrmDanhMucKhachHang f = new FrmDanhMucKhachHang();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

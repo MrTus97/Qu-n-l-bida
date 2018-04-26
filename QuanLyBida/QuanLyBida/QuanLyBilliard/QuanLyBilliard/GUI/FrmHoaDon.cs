@@ -40,7 +40,7 @@ namespace QuanLyBilliard.GUI
 
         private void FrmHoaDon_Load(object sender, EventArgs e)
         {
-
+           
         }
 
         private void btnThanhToan_Click(object sender, EventArgs e)

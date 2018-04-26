@@ -17,6 +17,7 @@ namespace QuanLyBilliard.BL
         FrmChuyenBan frmChuyenBan;
         BL_HoaDon blHoaDon;
         BL_NhanVien blNhanVien;
+        BL_KhachHang blKhachHang;
         const int TABLE_WIDTHHEIGHT = 100;
         FrmHoaDon frmHoaDon;
         
@@ -27,6 +28,7 @@ namespace QuanLyBilliard.BL
             daHoaDon = new DA_HoaDon();
             blHoaDon = new BL_HoaDon(f);
             blNhanVien = new BL_NhanVien(f);
+            blKhachHang = new BL_KhachHang(f);
             frmSuDungDichVu = f;
         }
         public BL_Ban(FrmChuyenBan f)
@@ -36,7 +38,7 @@ namespace QuanLyBilliard.BL
             blHoaDon = new BL_HoaDon(f);
             
         }
-
+        
         public BL_Ban(FrmHoaDon f)
         {
             frmHoaDon = f;
@@ -174,7 +176,9 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.cbNhanVien.DisplayMember = "TENNHANVIEN";
                 frmSuDungDichVu.cbNhanVien.ValueMember = "ID_NHANVIEN";
                 //Khách hàng
-
+                frmSuDungDichVu.cbKhachHang.DataSource = blKhachHang.LayKhachHang();
+                frmSuDungDichVu.cbKhachHang.DisplayMember = "TENKHACHHANG";
+                frmSuDungDichVu.cbKhachHang.ValueMember = "ID_KHACHHANG";
                 Enabel(true);
             }
             else
