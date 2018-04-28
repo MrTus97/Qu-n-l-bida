@@ -47,5 +47,11 @@ namespace QuanLyBilliard.DA
             string sql = "delete thucpham where id_thucpham = " + id;
             return ldc.ExecuteNonQuery(sql);
         }
+
+        public DataTable TimThucPham(string keyword)
+        {
+            string sql = "select * from thucpham where tenthucpham like '%" + keyword + "%'";
+            return ldc.getDuLieu(sql);
+        }
     }
 }

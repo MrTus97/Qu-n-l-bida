@@ -30,16 +30,17 @@
         {
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnOK = new System.Windows.Forms.Button();
+            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.lbDenNgay = new System.Windows.Forms.Label();
+            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.lbTuNgay = new System.Windows.Forms.Label();
+            this.cbLocHoaDon = new System.Windows.Forms.ComboBox();
+            this.txtIDHoaDon = new System.Windows.Forms.TextBox();
             this.labelControl2 = new DevExpress.XtraEditors.LabelControl();
-            this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton1 = new DevExpress.XtraEditors.SimpleButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
-            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
-            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.ID_HOADON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_BAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_NHANVIEN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -49,11 +50,16 @@
             this.tienthucpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.giamgiathucpham = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DaThanhToan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DaThanhToan = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
+            this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
+            this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
             this.panelControl1.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
@@ -72,10 +78,10 @@
             // 
             // panelControl1
             // 
-            this.panelControl1.Controls.Add(this.comboBox1);
-            this.panelControl1.Controls.Add(this.textBox1);
+            this.panelControl1.Controls.Add(this.panel1);
+            this.panelControl1.Controls.Add(this.cbLocHoaDon);
+            this.panelControl1.Controls.Add(this.txtIDHoaDon);
             this.panelControl1.Controls.Add(this.labelControl2);
-            this.panelControl1.Controls.Add(this.simpleButton2);
             this.panelControl1.Controls.Add(this.simpleButton1);
             this.panelControl1.Controls.Add(this.dataGridView1);
             this.panelControl1.Controls.Add(this.labelControl1);
@@ -84,38 +90,90 @@
             this.panelControl1.Size = new System.Drawing.Size(1004, 462);
             this.panelControl1.TabIndex = 4;
             // 
-            // comboBox1
+            // panel1
             // 
-            this.comboBox1.DisplayMember = "qq";
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(491, 7);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(156, 21);
-            this.comboBox1.TabIndex = 6;
-            this.comboBox1.Text = "Tất cả";
+            this.panel1.Controls.Add(this.btnOK);
+            this.panel1.Controls.Add(this.dtpDenNgay);
+            this.panel1.Controls.Add(this.lbDenNgay);
+            this.panel1.Controls.Add(this.dtpTuNgay);
+            this.panel1.Controls.Add(this.lbTuNgay);
+            this.panel1.Location = new System.Drawing.Point(6, 34);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(702, 25);
+            this.panel1.TabIndex = 7;
             // 
-            // textBox1
+            // btnOK
             // 
-            this.textBox1.Location = new System.Drawing.Point(843, 7);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(68, 21);
-            this.textBox1.TabIndex = 5;
+            this.btnOK.Location = new System.Drawing.Point(560, 0);
+            this.btnOK.Name = "btnOK";
+            this.btnOK.Size = new System.Drawing.Size(75, 23);
+            this.btnOK.TabIndex = 16;
+            this.btnOK.Text = "OK";
+            this.btnOK.UseVisualStyleBackColor = true;
+            // 
+            // dtpDenNgay
+            // 
+            this.dtpDenNgay.Location = new System.Drawing.Point(397, 3);
+            this.dtpDenNgay.Name = "dtpDenNgay";
+            this.dtpDenNgay.Size = new System.Drawing.Size(156, 21);
+            this.dtpDenNgay.TabIndex = 15;
+            this.dtpDenNgay.ValueChanged += new System.EventHandler(this.dtpDenNgay_ValueChanged);
+            // 
+            // lbDenNgay
+            // 
+            this.lbDenNgay.AutoSize = true;
+            this.lbDenNgay.Location = new System.Drawing.Point(327, 9);
+            this.lbDenNgay.Name = "lbDenNgay";
+            this.lbDenNgay.Size = new System.Drawing.Size(54, 13);
+            this.lbDenNgay.TabIndex = 14;
+            this.lbDenNgay.Text = "Đến ngày";
+            // 
+            // dtpTuNgay
+            // 
+            this.dtpTuNgay.Location = new System.Drawing.Point(137, 3);
+            this.dtpTuNgay.Name = "dtpTuNgay";
+            this.dtpTuNgay.Size = new System.Drawing.Size(156, 21);
+            this.dtpTuNgay.TabIndex = 13;
+            this.dtpTuNgay.ValueChanged += new System.EventHandler(this.dtpTuNgay_ValueChanged);
+            // 
+            // lbTuNgay
+            // 
+            this.lbTuNgay.AutoSize = true;
+            this.lbTuNgay.Location = new System.Drawing.Point(67, 9);
+            this.lbTuNgay.Name = "lbTuNgay";
+            this.lbTuNgay.Size = new System.Drawing.Size(47, 13);
+            this.lbTuNgay.TabIndex = 12;
+            this.lbTuNgay.Text = "Từ ngày";
+            // 
+            // cbLocHoaDon
+            // 
+            this.cbLocHoaDon.DisplayMember = "qq";
+            this.cbLocHoaDon.FormattingEnabled = true;
+            this.cbLocHoaDon.Items.AddRange(new object[] {
+            "Tất cả",
+            "Hôm nay",
+            "Khoảng thời gian"});
+            this.cbLocHoaDon.Location = new System.Drawing.Point(75, 7);
+            this.cbLocHoaDon.Name = "cbLocHoaDon";
+            this.cbLocHoaDon.Size = new System.Drawing.Size(156, 21);
+            this.cbLocHoaDon.TabIndex = 6;
+            this.cbLocHoaDon.Text = "Tất cả";
+            this.cbLocHoaDon.TextChanged += new System.EventHandler(this.cbLocHoaDon_TextChanged);
+            // 
+            // txtIDHoaDon
+            // 
+            this.txtIDHoaDon.Location = new System.Drawing.Point(843, 7);
+            this.txtIDHoaDon.Name = "txtIDHoaDon";
+            this.txtIDHoaDon.Size = new System.Drawing.Size(68, 21);
+            this.txtIDHoaDon.TabIndex = 5;
             // 
             // labelControl2
             // 
             this.labelControl2.Location = new System.Drawing.Point(774, 10);
             this.labelControl2.Name = "labelControl2";
-            this.labelControl2.Size = new System.Drawing.Size(55, 13);
+            this.labelControl2.Size = new System.Drawing.Size(97, 13);
             this.labelControl2.TabIndex = 4;
-            this.labelControl2.Text = "Số Hóa đơn";
-            // 
-            // simpleButton2
-            // 
-            this.simpleButton2.Location = new System.Drawing.Point(653, 5);
-            this.simpleButton2.Name = "simpleButton2";
-            this.simpleButton2.Size = new System.Drawing.Size(75, 23);
-            this.simpleButton2.TabIndex = 3;
-            this.simpleButton2.Text = "Lọc hóa đơn";
+            this.labelControl2.Text = "Tìm theo số hóa đơn";
             // 
             // simpleButton1
             // 
@@ -124,9 +182,12 @@
             this.simpleButton1.Size = new System.Drawing.Size(75, 23);
             this.simpleButton1.TabIndex = 3;
             this.simpleButton1.Text = "Tìm";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID_HOADON,
@@ -145,34 +206,8 @@
             this.dataGridView1.RowHeadersVisible = false;
             this.dataGridView1.Size = new System.Drawing.Size(1000, 395);
             this.dataGridView1.TabIndex = 2;
-            // 
-            // labelControl1
-            // 
-            this.labelControl1.Location = new System.Drawing.Point(422, 10);
-            this.labelControl1.Name = "labelControl1";
-            this.labelControl1.Size = new System.Drawing.Size(41, 13);
-            this.labelControl1.TabIndex = 0;
-            this.labelControl1.Text = "Lọc theo";
-            // 
-            // layoutControlGroup1
-            // 
-            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
-            this.layoutControlGroup1.GroupBordersVisible = false;
-            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
-            this.layoutControlItem1});
-            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 486);
-            this.layoutControlGroup1.TextVisible = false;
-            // 
-            // layoutControlItem1
-            // 
-            this.layoutControlItem1.Control = this.panelControl1;
-            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
-            this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(1008, 466);
-            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
-            this.layoutControlItem1.TextVisible = false;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // ID_HOADON
             // 
@@ -224,6 +259,34 @@
             this.DaThanhToan.HeaderText = "Đã thanh toán";
             this.DaThanhToan.Name = "DaThanhToan";
             // 
+            // labelControl1
+            // 
+            this.labelControl1.Location = new System.Drawing.Point(6, 10);
+            this.labelControl1.Name = "labelControl1";
+            this.labelControl1.Size = new System.Drawing.Size(41, 13);
+            this.labelControl1.TabIndex = 0;
+            this.labelControl1.Text = "Lọc theo";
+            // 
+            // layoutControlGroup1
+            // 
+            this.layoutControlGroup1.EnableIndentsWithoutBorders = DevExpress.Utils.DefaultBoolean.True;
+            this.layoutControlGroup1.GroupBordersVisible = false;
+            this.layoutControlGroup1.Items.AddRange(new DevExpress.XtraLayout.BaseLayoutItem[] {
+            this.layoutControlItem1});
+            this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlGroup1.Name = "layoutControlGroup1";
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1028, 486);
+            this.layoutControlGroup1.TextVisible = false;
+            // 
+            // layoutControlItem1
+            // 
+            this.layoutControlItem1.Control = this.panelControl1;
+            this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
+            this.layoutControlItem1.Name = "layoutControlItem1";
+            this.layoutControlItem1.Size = new System.Drawing.Size(1008, 466);
+            this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
+            this.layoutControlItem1.TextVisible = false;
+            // 
             // FrmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -238,6 +301,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();
             this.panelControl1.ResumeLayout(false);
             this.panelControl1.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
@@ -252,10 +317,9 @@
         private DevExpress.XtraLayout.LayoutControlGroup layoutControlGroup1;
         private DevExpress.XtraLayout.LayoutControlItem layoutControlItem1;
         private DevExpress.XtraEditors.LabelControl labelControl1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox cbLocHoaDon;
+        private System.Windows.Forms.TextBox txtIDHoaDon;
         private DevExpress.XtraEditors.LabelControl labelControl2;
-        private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.SimpleButton simpleButton1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
@@ -268,6 +332,12 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tienthucpham;
         private System.Windows.Forms.DataGridViewTextBoxColumn giamgiathucpham;
         private System.Windows.Forms.DataGridViewTextBoxColumn tongtien;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DaThanhToan;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn DaThanhToan;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Button btnOK;
+        private System.Windows.Forms.DateTimePicker dtpDenNgay;
+        private System.Windows.Forms.Label lbDenNgay;
+        private System.Windows.Forms.DateTimePicker dtpTuNgay;
+        private System.Windows.Forms.Label lbTuNgay;
     }
 }

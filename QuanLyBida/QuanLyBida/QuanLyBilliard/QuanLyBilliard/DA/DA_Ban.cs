@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
 using System.Data;
+using System.Data.SqlClient;
 
 namespace QuanLyBilliard.DA
 {
@@ -17,8 +18,16 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public List<Ban> LayBan()
         {
-            string sql = "SELECT * FROM BAN";
-            DataTable dt = ldc.getDuLieu(sql);
+            DataTable dt = null;
+            try
+            {
+                string sql = "SELECT * FROM BAN";
+                dt = ldc.getDuLieu(sql);
+            }
+            catch(SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
             List<Ban> lst = new List<Ban>();
             foreach (DataRow row in dt.Rows)
             {
@@ -42,7 +51,7 @@ namespace QuanLyBilliard.DA
                     as
                     begin
                     insert into HOADON
-                    values (@id,NULL,NULL,NULL,NULL,NULL,0,0);
+                    values (@id,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0);
 
                     update BAN 
                     set trangthai = 1, GIOVAO = GETDATE(), GIORA = NULL 
@@ -70,13 +79,17 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        public int TATBAN(HoaDon hd,int idNhanVien)
+        public int TATBAN(HoaDon hd,int idNhanVien,int idkhachhang,float tiengio,float tienthucpham)
         {
+
             /*
                  CREATE PROCEDURE TATBAN
                     @id_ban int,
-                    @id_hoadon int
-                    @id_NhanVien int
+                    @id_hoadon int,
+                    @id_NhanVien int,
+                    @id_khachhang int,
+                    @tiengio float,
+                    @tienthucpham int
                     as
                     begin
                     -- Cập nhật trạng thái cho bàn
@@ -85,11 +98,11 @@ namespace QuanLyBilliard.DA
                     where ID_BAN = @id_ban
                     -- Tính tổng số giờ chơi của bàn có id_hoadon
                     UPDATE HOADON 
-                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=1
+                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=@id_khachhang,tiengio = @tiengio,tienthucpham=@tienthucpham
                     where ID_HOADON = @id_hoadon
                     end
                  */
-            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien;
+            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien + "," + idkhachhang + "," + tiengio + "," + tienthucpham;
             return ldc.ExecuteNonQuery(sql);
         }
 

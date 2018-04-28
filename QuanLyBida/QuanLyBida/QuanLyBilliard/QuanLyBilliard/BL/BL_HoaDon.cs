@@ -100,6 +100,17 @@ namespace QuanLyBilliard.BL
 
             frmHoaDon.ValueTongTien.Text = tongtien.ToString();
         }
+
+        public DataTable ThongKeHoaDon(string text1, string text2)
+        {
+            return daHoaDon.ThongKeHoaDon(text1, text2);
+        }
+
+        public DataTable ThongKeHoaDon(string text)
+        {
+            return daHoaDon.ThongKeHoaDon(text,text);
+        }
+
         /// <summary>
         /// Hiển thị 1 bảng có danh sách các món ăn có trong bill có id_hoadon = @idHoaDon 
         /// Dành cho in thử bill và kết thúc
@@ -124,6 +135,13 @@ namespace QuanLyBilliard.BL
             return hoadon;
 
         }
+
+        public DataTable TimKiemHoaDonShowLenThanhToan(int sohd)
+        {
+            
+            return daHoaDon.TimKiemHoaDonShowLenThanhToan(sohd);
+        }
+
         public DataTable LayHoaDon(int id)
         {
             return daHoaDon.LayHoaDon(id);
@@ -140,6 +158,11 @@ namespace QuanLyBilliard.BL
             int i = daHoaDon.SuaSoLuong(idHoaDon, idThucPham, soluong);
         }
 
+        public int ThanhToanHoaDon(int sohd, bool trangthai)
+        {
+            if (trangthai) return daHoaDon.ThanhToanHoaDon(sohd, 1);
+            return daHoaDon.ThanhToanHoaDon(sohd, 0);
+        }
 
         public void GanGiaTriInThuBill(int id, string nv, string kh)
 

@@ -31,6 +31,12 @@ namespace QuanLyBilliard.BL
             blKhachHang = new BL_KhachHang(f);
             frmSuDungDichVu = f;
         }
+
+        public List<Ban> LayBan()
+        {
+            return daTable.LayBan();
+        }
+
         public BL_Ban(FrmChuyenBan f)
         {
             frmChuyenBan = f;
@@ -56,6 +62,7 @@ namespace QuanLyBilliard.BL
 
         public int KetThuc(string text)
         {
+
             int idhoadon = Int32.Parse(text);
             return daTable.TATBAN(idhoadon);
         }
@@ -89,54 +96,34 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.flpBan.Controls.Add(btn);
             }
         }
-        public void HienThiBanTat()
+        /// <summary>
+        /// Xử lý khi bấm nút tính tiền
+        /// </summary>
+        /// <param name="hd"></param>
+        /// <param name="idnv"></param>
+        /// <param name="kh"></param>
+        /// <returns></returns>
+        public int KetThuc(HoaDon hd,string idnv,string kh)
         {
-            frmChuyenBan.flpBanTat.Controls.Clear();
-            List<Ban> lst = daTable.LayBan();
-            List<Ban> chuabat = new List<Ban>();
-            List<Ban> batroi = new List<Ban>();
-            foreach (Ban table in lst)
-            {
-                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
-                if (!table.TrangThai)
-                {
-                    chuabat.Add(table);
-                    Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
-                    btn.Text = table.TenBan;
-                    btn.BackColor = Color.Brown;
-                    btn.Click += new EventHandler(btnChonBanChuyen_Click);
-
-                    btn.Tag = table;
-                    frmChuyenBan.flpBanTat.Controls.Add(btn);  
-                }
-                else
-                {
-                    batroi.Add(table);
-                }
-            }
-            frmChuyenBan.cbBanChuyen.DataSource = chuabat;
-            frmChuyenBan.cbBanChuyen.DisplayMember = "TenBan";
-            frmChuyenBan.cbBanChuyen.ValueMember = "ID_Ban";
-
-            frmChuyenBan.cbBanHienTai.DataSource = batroi;
-            
-            frmChuyenBan.cbBanHienTai.DisplayMember = "TenBan";
-            frmChuyenBan.cbBanHienTai.ValueMember = "ID_Ban";
-            //frmChuyenBan.cbBanHienTai.SelectedValue = (frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_Ban;
-
-        }
-
-        public void btnChonBanChuyen_Click(object sender, EventArgs e)
-        {
-            frmChuyenBan.cbBanChuyen.Text = "";
-            frmChuyenBan.cbBanChuyen.SelectedValue = ((sender as Button).Tag as Ban).ID_Ban;
-            //frmChuyenBan.cbBanChuyen.SelectedText = ((sender as Button).Tag as Ban).TenBan;
-        }
-
-        public int KetThuc(HoaDon hd,string idnv)
-        {
+            //Chuyển đổi dữ liệu cho phù hợp
+            int khachhang = Convert.ToInt32(kh);
             int idNhanVien = Int32.Parse(idnv);
-            return daTable.TATBAN(hd,idNhanVien);
+
+            //Gọi hàm để tính cột tiền giờ
+            /*1. Chọn bàn
+             *2. Lấy giờ vào
+             *3. Lấy giờ hiện tại
+             *4. Tính giờ chơi
+             *5. Tính tiền
+             */
+            DateTime giovao = Convert.ToDateTime(daTable.LayGioVao(hd.ID_Ban));
+            DateTime gioRa = DateTime.Now;
+            int hour = gioRa.Hour - giovao.Hour;
+            int minute = gioRa.Minute - giovao.Minute;
+            float tiengio = TinhTien(hour, minute);
+            //Gọi hàm để tính cột tiền thực phẩm
+            int tienthucpham = daHoaDon.TinhTongTienThucPham(hd.ID_HoaDon);
+            return daTable.TATBAN(hd,idNhanVien,khachhang,tiengio,tienthucpham);
         }
         /// <summary>
         /// Bật giờ theo id bàn

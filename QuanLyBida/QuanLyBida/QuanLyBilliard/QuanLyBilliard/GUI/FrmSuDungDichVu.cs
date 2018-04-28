@@ -19,12 +19,15 @@ namespace QuanLyBilliard.GUI
         BL_HoaDon blHoaDon;
         BL_Ban blBan;
         BL_LoaiThucPham blLoaiThucPham;
+        BL_ThucPham blThucPham;
+        int idBanHienTai;
         public FrmSuDungDichVu()
         {
             InitializeComponent();
             blBan = new BL_Ban(this);
             blHoaDon = new BL_HoaDon(this);
             blLoaiThucPham = new BL_LoaiThucPham(this);
+            blThucPham = new BL_ThucPham(this);
             
         }
         /// <summary>
@@ -122,12 +125,14 @@ namespace QuanLyBilliard.GUI
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            blBan.KetThuc(hd, cbNhanVien.SelectedValue.ToString());
-            //Cái này chỉ mới kết thúc tại cơ sở dữ liệu chứ chưa kết thúc tại btnDaiDienBan
+            string nhanvien = cbNhanVien.SelectedValue.ToString();
+            string khachhang = cbKhachHang.SelectedValue.ToString();
+            
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
+            blBan.KetThuc(hd, nhanvien, khachhang);
             blBan.HienThiBan();
             blBan.Enabel(false);
-            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon);
+            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon,true);
             //f.HienThiHoaDon(hd.ID_HoaDon);
             f.ShowDialog();
             
@@ -296,7 +301,7 @@ namespace QuanLyBilliard.GUI
         {
             
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon);
+            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon,false);
             string nhanvien = cbNhanVien.SelectedValue.ToString();
             string khachhang = cbKhachHang.SelectedValue.ToString();
             blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,nhanvien, khachhang);
@@ -332,10 +337,12 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void btnChuyenBan_Click(object sender, EventArgs e)
         {
-            FrmChuyenBan f = new FrmChuyenBan();
+            idBanHienTai = (btnDaiDienBan.Tag as Ban).ID_Ban;
+            FrmChuyenBan f = new FrmChuyenBan(idBanHienTai);
             f.ShowDialog();
             blBan.HienThiBan();
         }
+
 
 
         /// <summary>
@@ -359,6 +366,17 @@ namespace QuanLyBilliard.GUI
                 txtTienNuoc.Text = tongtien.ToString();
             }
             
+        }
+
+        private void simpleButton1_Click(object sender, EventArgs e)
+        {
+            string keyword = txtTimKiem.Text;
+            DataTable dt = blThucPham.TimThucPham(keyword);
+            dataGridView1.Rows.Clear();
+            foreach (DataRow row in dt.Rows)
+            {
+                dataGridView1.Rows.Add(row["TENTHUCPHAM"],row["DVT"],row["GIABAN"],row["ID_THUCPHAM"]);
+            }
         }
     }
 }

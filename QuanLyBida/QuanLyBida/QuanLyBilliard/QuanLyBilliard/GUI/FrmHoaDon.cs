@@ -17,15 +17,16 @@ namespace QuanLyBilliard.GUI
         BL_HoaDon blHoaDon;
         BL_Ban blBan;
         int idHoaDon;
-       
+        bool ketThuc;
         /// <summary>
         /// Tạo ra form hóa đơn và mang theo id_hoadon
         /// </summary>
         /// <param name="id"></param>
-        public FrmHoaDon(int id)
+        public FrmHoaDon(int id,bool ketThuc)
         {
             InitializeComponent();
             idHoaDon = id;
+            this.ketThuc = ketThuc;
             blHoaDon = new BL_HoaDon(this);
             blBan = new BL_Ban(this);
         }
@@ -53,9 +54,13 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void FrmHoaDon_Load(object sender, EventArgs e)
         {
-            //Xử lý hiển thị
+            //Xử lý hiển thị.
             btnThanhToan.Enabled = false;
-
+            if (ketThuc)
+            {
+                btnThanhToan.Enabled = true;
+            }
+            
             DataTable data = blHoaDon.LayHoaDonTheoId(idHoaDon);
             Value_SoHD.Text = data.Rows[0]["ID_HOADON"].ToString();
             DateTime giovao = DateTime.Parse(data.Rows[0]["GioVao"].ToString());
