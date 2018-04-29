@@ -50,7 +50,7 @@ namespace QuanLyBilliard.DA
 
         public DataTable TimThucPham(string keyword)
         {
-            string sql = "select * from thucpham where tenthucpham like '%" + keyword + "%'";
+            string sql = "select * from thucpham where tenthucpham like N'%" + keyword + "%'";
             return ldc.getDuLieu(sql);
         }
     }

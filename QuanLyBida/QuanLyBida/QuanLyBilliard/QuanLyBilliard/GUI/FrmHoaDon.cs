@@ -56,6 +56,7 @@ namespace QuanLyBilliard.GUI
         {
             //Xử lý hiển thị.
             btnThanhToan.Enabled = false;
+            //Xét thử đang bấm kết thúc hay in thử bill
             if (ketThuc)
             {
                 btnThanhToan.Enabled = true;

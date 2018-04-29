@@ -103,12 +103,10 @@ namespace QuanLyBilliard.BL
 
         public DataTable ThongKeHoaDon(string text1, string text2)
         {
-            return daHoaDon.ThongKeHoaDon(text1, text2);
-        }
-
-        public DataTable ThongKeHoaDon(string text)
-        {
-            return daHoaDon.ThongKeHoaDon(text,text);
+            DateTime denngay = Convert.ToDateTime(text2);
+            //denngay.AddDays(1);
+            denngay = denngay.Date.AddDays(1);
+            return daHoaDon.ThongKeHoaDon(text1, denngay.ToShortDateString());
         }
 
         /// <summary>

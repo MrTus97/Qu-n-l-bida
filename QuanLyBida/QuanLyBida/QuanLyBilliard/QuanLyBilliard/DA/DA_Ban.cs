@@ -39,8 +39,10 @@ namespace QuanLyBilliard.DA
         /// <summary>
         /// Thực hiện procedure đổi trạng thái bàn và tạo hóa đơn
         /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
+        /// <param name="id">ID bàn</param>
+        /// <returns>
+        /// Trả về số dòng thay đổi, nếu lớn hơn 0 thì thành công
+        /// </returns>
         public int BATBAN(int id)
         {
             /*
@@ -51,7 +53,7 @@ namespace QuanLyBilliard.DA
                     as
                     begin
                     insert into HOADON
-                    values (@id,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0);
+                    values (@id,NULL,NULL,NULL,NULL,NULL,NULL,NULL,0,0,getdate(),null);
 
                     update BAN 
                     set trangthai = 1, GIOVAO = GETDATE(), GIORA = NULL 
@@ -63,7 +65,12 @@ namespace QuanLyBilliard.DA
         }
 
         
-
+        /// <summary>
+        /// Chuyển bàn curr sang taget
+        /// </summary>
+        /// <param name="curr"></param>
+        /// <param name="taget"></param>
+        /// <returns></returns>
         public int chuyenBan(int curr, int taget)
         {
             /*CREATE PROCEDURE chuyenban
@@ -98,20 +105,26 @@ namespace QuanLyBilliard.DA
                     where ID_BAN = @id_ban
                     -- Tính tổng số giờ chơi của bàn có id_hoadon
                     UPDATE HOADON 
-                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=@id_khachhang,tiengio = @tiengio,tienthucpham=@tienthucpham
+                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=@id_khachhang,tiengio = @tiengio,tienthucpham=@tienthucpham,NGAYKETTHUCHOADON=GETDATE()
                     where ID_HOADON = @id_hoadon
                     end
                  */
             string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien + "," + idkhachhang + "," + tiengio + "," + tienthucpham;
             return ldc.ExecuteNonQuery(sql);
         }
-
+        /// <summary>
+        /// Tắt bàn có số hóa đơn là text
+        /// Tìm bàn đang chứa hóa đơn rồi tắt bàn theo idbàn và kết thúc hóa đơn
+        /// </summary>
+        /// <param name="idhoadon"></param>
+        /// <returns></returns>
         public int TATBAN(int idhoadon)
         {
             int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
             string sql = "TATBAN " + idban + "," + idhoadon;
             return ldc.ExecuteNonQuery(sql);
         }
+
         public DateTime LayGioVao(int iD_Ban)
         {
             string sql = "select giovao from ban where id_ban = " + iD_Ban;

@@ -13,6 +13,6 @@
                     where ID_BAN = @id_ban
                     -- Tính tổng số giờ chơi của bàn có id_hoadon
                     UPDATE HOADON 
-                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @idNhanVien,ID_KHACHHANG=@id_khachhang,tiengio = @tiengio,tienthucpham=@tienthucpham
+                    SET TONGGIOCHOI = (SELECT GIORA-GIOVAO FROM BAN WHERE ID_BAN =@id_ban),ID_NHANVIEN = @id_NhanVien,ID_KHACHHANG=@id_khachhang,tiengio = @tiengio,tienthucpham=@tienthucpham,NGAYKETTHUCHOADON=GETDATE()
                     where ID_HOADON = @id_hoadon
                     end

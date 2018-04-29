@@ -21,7 +21,7 @@ namespace QuanLyBilliard
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new FrmThanhToan());
+            Application.Run(new FrmSuDungDichVu());
         }
     }
 }

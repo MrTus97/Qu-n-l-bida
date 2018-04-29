@@ -31,7 +31,6 @@
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btnOK = new System.Windows.Forms.Button();
             this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
             this.lbDenNgay = new System.Windows.Forms.Label();
             this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
@@ -92,7 +91,6 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btnOK);
             this.panel1.Controls.Add(this.dtpDenNgay);
             this.panel1.Controls.Add(this.lbDenNgay);
             this.panel1.Controls.Add(this.dtpTuNgay);
@@ -101,15 +99,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(702, 25);
             this.panel1.TabIndex = 7;
-            // 
-            // btnOK
-            // 
-            this.btnOK.Location = new System.Drawing.Point(560, 0);
-            this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(75, 23);
-            this.btnOK.TabIndex = 16;
-            this.btnOK.Text = "OK";
-            this.btnOK.UseVisualStyleBackColor = true;
             // 
             // dtpDenNgay
             // 
@@ -147,17 +136,17 @@
             // 
             // cbLocHoaDon
             // 
-            this.cbLocHoaDon.DisplayMember = "qq";
             this.cbLocHoaDon.FormattingEnabled = true;
             this.cbLocHoaDon.Items.AddRange(new object[] {
-            "Tất cả",
             "Hôm nay",
-            "Khoảng thời gian"});
+            "Khoảng thời gian",
+            "Tất cả"});
             this.cbLocHoaDon.Location = new System.Drawing.Point(75, 7);
             this.cbLocHoaDon.Name = "cbLocHoaDon";
             this.cbLocHoaDon.Size = new System.Drawing.Size(156, 21);
             this.cbLocHoaDon.TabIndex = 6;
-            this.cbLocHoaDon.Text = "Tất cả";
+            this.cbLocHoaDon.Text = "Hôm nay";
+            this.cbLocHoaDon.SelectedIndexChanged += new System.EventHandler(this.cbLocHoaDon_SelectedIndexChanged);
             this.cbLocHoaDon.TextChanged += new System.EventHandler(this.cbLocHoaDon_TextChanged);
             // 
             // txtIDHoaDon
@@ -334,7 +323,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tongtien;
         private System.Windows.Forms.DataGridViewCheckBoxColumn DaThanhToan;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button btnOK;
         private System.Windows.Forms.DateTimePicker dtpDenNgay;
         private System.Windows.Forms.Label lbDenNgay;
         private System.Windows.Forms.DateTimePicker dtpTuNgay;

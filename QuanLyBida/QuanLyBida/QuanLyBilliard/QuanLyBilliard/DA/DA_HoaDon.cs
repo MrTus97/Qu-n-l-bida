@@ -11,13 +11,18 @@ namespace QuanLyBilliard.DA
     class DA_HoaDon
     {
         LopDungChung ldc = new LopDungChung();
+        /// <summary>
+        /// Lấy tất cả các hóa đơn của bàn sắp xếp giảm dần
+        /// </summary>
+        /// <param name="ban"></param>
+        /// <returns></returns>
         public DataTable LayHoaDon(Ban ban)
         {
-            //string sql = "SELECT TOP 1(ID_HOADON),ID_BAN,ID_NHANVIEN,ID_KHACHHANG,ID_GIAMGIA,GIAMGIAGIO,GIAMGIATHUCPHAM,TONGGIOCHOI,DATHANHTOAN FROM HOADON where ID_BAN ="+ban.ID_Ban+" order by ID_HOADON desc";
             string sql = "select * from hoadon where id_ban = " + ban.ID_Ban + " order by id_hoadon desc";
             return ldc.getDuLieu(sql);
         }
-        //Overloading
+        
+
         internal DataTable showBill(int idhd)
         {
             //if (hd == null) return default(DataTable);
@@ -75,10 +80,15 @@ namespace QuanLyBilliard.DA
             string sql = "XoaMatHang " + idHoaDon + "," + idThucPham + "," + soluong;
             return ldc.ExecuteNonQuery(sql);
         }
-
+        /// <summary>
+        /// Thống kê hóa đơn từ ngày này đến ngày kia
+        /// </summary>
+        /// <param name="tungay"></param>
+        /// <param name="denngay"></param>
+        /// <returns></returns>
         public DataTable ThongKeHoaDon(string tungay,string denngay)
         {
-            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where GIORA >= convert(datetime,'"+tungay+ "',103) and GIORA <= dateadd(day,1,CONVERT(datetime,'"+denngay+"',103))";
+            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.NGAYKETTHUCHOADON >= CONVERT(datetime,'"+tungay+"',103) and hd.NGAYKETTHUCHOADON<CONVERT(datetime,'" + denngay + "',103)";
             return ldc.getDuLieu(sql);
 
         }
@@ -185,13 +195,23 @@ namespace QuanLyBilliard.DA
             return 0;
         }
 
-
+        /// <summary>
+        /// Gán giá trị nhân viên,khách hàng vào csdl
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="idNhanVien"></param>
+        /// <param name="idKhachHang"></param>
+        /// <returns></returns>
         public int GanGiaTriInThuBill(int id,int idNhanVien, int idKhachHang)
         {
             string sql = "update HOADON set ID_NHANVIEN = " + idNhanVien + ", ID_KHACHHANG= " + idKhachHang + " where ID_HOADON = " + id;
             return ldc.ExecuteNonQuery(sql);
         }
-
+        /// <summary>
+        /// Hiển thị những hóa đơn chưa thanh toán
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         public int HienThiHoaDon(int id)
         {
             string sql = "select id hoadon from hoadon where ID_ban = '" + id + "' and dathanhtoan =0";

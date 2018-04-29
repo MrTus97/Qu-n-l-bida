@@ -47,5 +47,11 @@ namespace QuanLyBilliard.GUI
         {
 
         }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmQuenMatKhau f = new FrmQuenMatKhau();
+            f.ShowDialog();
+        }
     }
 }

@@ -18,6 +18,7 @@ namespace QuanLyBilliard.BL
  
  
         private FrmSuDungDichVu f;
+        private FrmQuenMatKhau frmQuenMatKhau;
 
         public BL_NhanVien(FrmNhanVien f)
         {
@@ -29,6 +30,17 @@ namespace QuanLyBilliard.BL
         public BL_NhanVien(FrmSuDungDichVu f)
         {
             this.f = f;
+            daNhanVien = new DA_NhanVien();
+        }
+
+        public string QuenMatKhau(string text)
+        {
+            return daNhanVien.QuenMatKhau(text);
+        }
+
+        public BL_NhanVien(FrmQuenMatKhau frmQuenMatKhau)
+        {
+            this.frmQuenMatKhau = frmQuenMatKhau;
             daNhanVien = new DA_NhanVien();
         }
 

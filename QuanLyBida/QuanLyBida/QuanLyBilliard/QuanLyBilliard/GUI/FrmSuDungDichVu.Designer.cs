@@ -56,6 +56,11 @@
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtGiamGiaGio = new DevExpress.XtraEditors.TextEdit();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnDoiSoLuong = new DevExpress.XtraEditors.SimpleButton();
             this.dtpNgay = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
@@ -78,6 +83,10 @@
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.btnDaiDienThucPham = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.TENTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIABAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_THUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelControl3 = new DevExpress.XtraEditors.PanelControl();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -86,15 +95,6 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TENTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIABAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_THUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -248,6 +248,7 @@
             this.btnDaiDienHangHoaDon.Size = new System.Drawing.Size(75, 23);
             this.btnDaiDienHangHoaDon.TabIndex = 90;
             this.btnDaiDienHangHoaDon.Text = "simpleButton3";
+            this.btnDaiDienHangHoaDon.Visible = false;
             // 
             // labelControl9
             // 
@@ -291,6 +292,7 @@
             this.txtTienNuoc.Enabled = false;
             this.txtTienNuoc.Location = new System.Drawing.Point(216, 402);
             this.txtTienNuoc.Name = "txtTienNuoc";
+            this.txtTienNuoc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienNuoc.Size = new System.Drawing.Size(84, 20);
             this.txtTienNuoc.TabIndex = 85;
             // 
@@ -308,6 +310,7 @@
             this.txtTienGio.Enabled = false;
             this.txtTienGio.Location = new System.Drawing.Point(216, 376);
             this.txtTienGio.Name = "txtTienGio";
+            this.txtTienGio.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienGio.Size = new System.Drawing.Size(84, 20);
             this.txtTienGio.TabIndex = 83;
             // 
@@ -324,6 +327,7 @@
             this.txtSoHD.Enabled = false;
             this.txtSoHD.Location = new System.Drawing.Point(286, 6);
             this.txtSoHD.Name = "txtSoHD";
+            this.txtSoHD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSoHD.Size = new System.Drawing.Size(84, 20);
             this.txtSoHD.TabIndex = 64;
             // 
@@ -349,6 +353,7 @@
             this.txtTongCong.Enabled = false;
             this.txtTongCong.Location = new System.Drawing.Point(216, 426);
             this.txtTongCong.Name = "txtTongCong";
+            this.txtTongCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTongCong.Size = new System.Drawing.Size(84, 20);
             this.txtTongCong.TabIndex = 79;
             // 
@@ -377,6 +382,7 @@
             // 
             // txtGiamGiaGio
             // 
+            this.txtGiamGiaGio.EditValue = "0";
             this.txtGiamGiaGio.Location = new System.Drawing.Point(90, 376);
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
             this.txtGiamGiaGio.Size = new System.Drawing.Size(55, 20);
@@ -400,6 +406,41 @@
             this.dataGridView2.Size = new System.Drawing.Size(283, 281);
             this.dataGridView2.TabIndex = 70;
             this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            // 
+            // TENMATHANG
+            // 
+            this.TENMATHANG.HeaderText = "Tên hàng";
+            this.TENMATHANG.Name = "TENMATHANG";
+            this.TENMATHANG.ReadOnly = true;
+            this.TENMATHANG.Width = 95;
+            // 
+            // GIABAN1
+            // 
+            this.GIABAN1.HeaderText = "Giá Bán";
+            this.GIABAN1.Name = "GIABAN1";
+            this.GIABAN1.ReadOnly = true;
+            this.GIABAN1.Width = 52;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 52;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            this.ThanhTien.Width = 85;
+            // 
+            // ID_THUCPHAM1
+            // 
+            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
+            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
+            this.ID_THUCPHAM1.ReadOnly = true;
+            this.ID_THUCPHAM1.Visible = false;
             // 
             // btnDoiSoLuong
             // 
@@ -670,6 +711,32 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
+            // TENTHUCPHAM
+            // 
+            this.TENTHUCPHAM.HeaderText = "Tên hàng";
+            this.TENTHUCPHAM.Name = "TENTHUCPHAM";
+            this.TENTHUCPHAM.ReadOnly = true;
+            // 
+            // DVT
+            // 
+            this.DVT.HeaderText = "ĐVT";
+            this.DVT.Name = "DVT";
+            this.DVT.ReadOnly = true;
+            this.DVT.Width = 50;
+            // 
+            // GIABAN
+            // 
+            this.GIABAN.HeaderText = "Giá";
+            this.GIABAN.Name = "GIABAN";
+            this.GIABAN.ReadOnly = true;
+            // 
+            // ID_THUCPHAM
+            // 
+            this.ID_THUCPHAM.HeaderText = "ID";
+            this.ID_THUCPHAM.Name = "ID_THUCPHAM";
+            this.ID_THUCPHAM.ReadOnly = true;
+            this.ID_THUCPHAM.Visible = false;
+            // 
             // panelControl3
             // 
             this.panelControl3.Controls.Add(this.treeView1);
@@ -744,67 +811,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(988, 530);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // TENTHUCPHAM
-            // 
-            this.TENTHUCPHAM.HeaderText = "Tên hàng";
-            this.TENTHUCPHAM.Name = "TENTHUCPHAM";
-            this.TENTHUCPHAM.ReadOnly = true;
-            // 
-            // DVT
-            // 
-            this.DVT.HeaderText = "ĐVT";
-            this.DVT.Name = "DVT";
-            this.DVT.ReadOnly = true;
-            this.DVT.Width = 50;
-            // 
-            // GIABAN
-            // 
-            this.GIABAN.HeaderText = "Giá";
-            this.GIABAN.Name = "GIABAN";
-            this.GIABAN.ReadOnly = true;
-            // 
-            // ID_THUCPHAM
-            // 
-            this.ID_THUCPHAM.HeaderText = "ID";
-            this.ID_THUCPHAM.Name = "ID_THUCPHAM";
-            this.ID_THUCPHAM.ReadOnly = true;
-            this.ID_THUCPHAM.Visible = false;
-            // 
-            // TENMATHANG
-            // 
-            this.TENMATHANG.HeaderText = "Tên hàng";
-            this.TENMATHANG.Name = "TENMATHANG";
-            this.TENMATHANG.ReadOnly = true;
-            this.TENMATHANG.Width = 95;
-            // 
-            // GIABAN1
-            // 
-            this.GIABAN1.HeaderText = "Giá Bán";
-            this.GIABAN1.Name = "GIABAN1";
-            this.GIABAN1.ReadOnly = true;
-            this.GIABAN1.Width = 52;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 52;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            this.ThanhTien.Width = 85;
-            // 
-            // ID_THUCPHAM1
-            // 
-            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
-            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
-            this.ID_THUCPHAM1.ReadOnly = true;
-            this.ID_THUCPHAM1.Visible = false;
             // 
             // FrmSuDungDichVu
             // 

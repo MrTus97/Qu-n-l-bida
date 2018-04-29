@@ -222,7 +222,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(40, 469);
+            this.btnThanhToan.Location = new System.Drawing.Point(142, 469);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(75, 23);
             this.btnThanhToan.TabIndex = 75;
@@ -231,7 +231,7 @@
             // 
             // simpleButton2
             // 
-            this.simpleButton2.Location = new System.Drawing.Point(145, 469);
+            this.simpleButton2.Location = new System.Drawing.Point(39, 469);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
             this.simpleButton2.TabIndex = 76;
@@ -243,7 +243,7 @@
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
             this.simpleButton3.TabIndex = 77;
-            this.simpleButton3.Text = "Hủy";
+            this.simpleButton3.Text = "Thoát";
             this.simpleButton3.Click += new System.EventHandler(this.simpleButton3_Click);
             // 
             // Value_SoHD

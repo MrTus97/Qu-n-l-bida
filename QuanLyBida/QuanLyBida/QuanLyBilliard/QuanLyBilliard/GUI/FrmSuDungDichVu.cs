@@ -1,4 +1,5 @@
-﻿using QuanLyBilliard.BL;
+﻿using DevExpress.XtraEditors;
+using QuanLyBilliard.BL;
 using QuanLyBilliard.DTO;
 using System;
 using System.Collections.Generic;
@@ -14,13 +15,19 @@ namespace QuanLyBilliard.GUI
 {
     public partial class FrmSuDungDichVu : Form
     {
+        #region khai báo
         float tongtien = 0;
         BackgroundWorker backgroundWorker1;
         BL_HoaDon blHoaDon;
         BL_Ban blBan;
         BL_LoaiThucPham blLoaiThucPham;
         BL_ThucPham blThucPham;
+        BL_NhanVien blNhanVien;
+        BL_KhachHang blKhachHang;
         int idBanHienTai;
+        const int TABLE_WIDTH = 70;
+        const int TABLE_HEIGHT = 120;
+        #endregion
         public FrmSuDungDichVu()
         {
             InitializeComponent();
@@ -28,15 +35,18 @@ namespace QuanLyBilliard.GUI
             blHoaDon = new BL_HoaDon(this);
             blLoaiThucPham = new BL_LoaiThucPham(this);
             blThucPham = new BL_ThucPham(this);
+            blNhanVien = new BL_NhanVien(this);
+            blKhachHang = new BL_KhachHang(this);
             
         }
         /// <summary>
-        /// Khởi chạy background worker và hiển thị bàn
+        /// Khởi chạy background worker - hiển thị bàn
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmSuDungDichVu_Load(object sender, EventArgs e)
         {
+            #region background
             backgroundWorker1 = new BackgroundWorker();
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = true;
@@ -47,22 +57,167 @@ namespace QuanLyBilliard.GUI
                 // Start the asynchronous operation.
                 backgroundWorker1.RunWorkerAsync();
             }
-            blBan.HienThiBan();
+            #endregion
+            HienThiBan();
             blLoaiThucPham.LoadLoaiThucPham();
-            blBan.Enabel(false);
+            Enabel(false);
             dtBatDau.Enabled = false;
             btnBatDau.Enabled = false;
-            
+        }
+        /// <summary>
+        /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
+        /// </summary>
+        public void HienThiBan()
+        {
+            //Xóa hết các bàn hiện tại để tải lại bàn mới
+            flpBan.Controls.Clear();
+            List<Ban> lst = blBan.LayBan();
+            foreach (Ban table in lst)
+            {
+                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
+                SimpleButton btn = new SimpleButton() { Width = TABLE_WIDTH, Height = TABLE_HEIGHT };
+                //Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
+                btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                btn.LookAndFeel.UseDefaultLookAndFeel = false;
+                string tenban;
+                if (table.TrangThai)
+                {
+                    tenban = table.TenBan + "\n(ON)";
+                }
+                else tenban = table.TenBan + "\n(OFF)";
+                btn.Text = tenban ;
+                if (table.TrangThai)
+                {
+                    btn.Appearance.Image = Properties.Resources.on;
+                }
+                else btn.Appearance.Image = Properties.Resources.off;
+                //Catch Event
+                btn.Click += new EventHandler(btn_Click);
+                btn.DoubleClick += Btn_DoubleClick;
+                btn.Tag = table;
+                // Add control (as button) in flowLayout
+                flpBan.Controls.Add(btn);
 
+            }
         }
 
 
         /// <summary>
-        /// Tính giờ chơi để hiển thị tại hóa đơn
-        /// Không hiểu vì sao mà đối tượng bàn lấy được tất cả các giá trị nhưng không lấy được giờ vào, bắt buộc phải truy xuất đến sql
+        /// Bật bàn hoặc tắt bàn bằng cách double click vào bàn
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void Btn_DoubleClick(object sender, EventArgs e)
+        {
+            Ban ban = ((sender as SimpleButton).Tag as Ban);
+            if (!ban.TrangThai)
+            {
+                blBan.BatGio(ban.ID_Ban);
+                HienThiBan();
+                Enabel(true);
+            }
+            else
+            {
+                KetThuc();
+            }
+        }
+        /// <summary>
+        /// Hiển thị bàn đang click lên thanh detail ở bên phải
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btn_Click(object sender, EventArgs e)
+        {
+            Ban ban = (sender as SimpleButton).Tag as Ban;
+            lbTenBan.Text = ban.TenBan;
+            //Lấy 1 button để lưu dữ liệu của 1 bàn khi click vào bàn
+            btnDaiDienBan.Tag = ban;
+            btnDaiDienBan.Text = ban.TenBan;
+            // Khi đã click vào 1 bàn lấy được object bàn thì cũng phải lấy được object hoadon của nó luôn
+            //Nếu bàn đã được bật thì mới lấy hóa đơn và show nó lên, còn không thì ko show gì cả
+            if (ban.TrangThai)
+            {
+                float tongtien = 0f;
+                DataTable dt = blBan.LayHoaDon(ban);
+                HoaDon hoadon = new HoaDon(dt.Rows[0]);
+                btnHoaDon.Tag = hoadon;
+                btnHoaDon.Text = hoadon.ID_HoaDon.ToString();
+                //Show các mặt hàng có trong hóa đơn và tính tổng tiền
+                blHoaDon.ShowBill(hoadon, out tongtien);
+                // Show số hóa đơn
+                txtSoHD.Text = hoadon.ID_HoaDon.ToString();
+                //Show ngày lập hóa đơn 
+                DateTime NgayLapHoaDon = blBan.LayGioVao(ban.ID_Ban);
+                dtpNgay.Text = NgayLapHoaDon.ToString();
+                dtBatDau.Text = NgayLapHoaDon.TimeOfDay.ToString("hh");
+                dtBatDau.Text += ":";
+                dtBatDau.Text += NgayLapHoaDon.TimeOfDay.ToString("mm");
+                //tổng tiền
+                txtTienNuoc.Text = tongtien.ToString();
+                txtTongCong.Text = tongtien.ToString();
+                //Số lượng
+                cbSoLuong.Text = "1";
+                //Nhân viên
+                cbNhanVien.DataSource = blNhanVien.LayNhanVien();
+                cbNhanVien.DisplayMember = "TENNHANVIEN";
+                cbNhanVien.ValueMember = "ID_NHANVIEN";
+                //Khách hàng
+                cbKhachHang.DataSource = blKhachHang.LayKhachHang();
+                cbKhachHang.DisplayMember = "TENKHACHHANG";
+                cbKhachHang.ValueMember = "ID_KHACHHANG";
+                Enabel(true);
+            }
+            else
+            {
+                Enabel(false);
+                //Hiển thị giờ hiện tại của hệ thống.
+                dtKetThuc.Text = DateTime.Now.TimeOfDay.ToString();
+            }
+        }
+        /// <summary>
+        /// Gán các giá trị enable của bàn bật (true) và tắt (false)
+        /// </summary>
+        /// <param name="v"></param>
+        public void Enabel(bool v)
+        {
+            if (v)
+            {
+                //Enable
+                dataGridView2.Enabled = true;
+                btnBatDau.Enabled = false;
+                dtBatDau.Enabled = false;
+                btnKetThuc.Enabled = true;
+                dtKetThuc.Enabled = true;
+                panel4.Enabled = true;
+
+            }
+            else
+            {
+                dataGridView2.Enabled = false;
+                txtSoGioChoi.Text = "";
+                btnBatDau.Enabled = true;
+                dtBatDau.Enabled = true;
+                btnKetThuc.Enabled = false;
+                dtKetThuc.Enabled = false;
+                panel4.Enabled = false;
+                //Xóa dữ liệu ở bàn đang bật đi
+                txtSoHD.Text = "";
+                // Xóa ngày giờ lập hóa đơn
+                dtpNgay.Text = "";
+                dtBatDau.Text = "";
+                dataGridView2.Rows.Clear();
+                dtBatDau.Text = DateTime.Now.TimeOfDay.ToString();
+            }
+        }
+
+        /// <summary>
+        /// Báo cáo của background woker - tính tổng giờ chơi hiển thị tại hóa đơn
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        /// <remarks>
+        /// Không hiểu vì sao mà đối tượng bàn lấy được tất cả các giá trị nhưng không lấy được giờ vào, bắt buộc phải truy xuất đến sql
+        /// </remarks>
         public void BackgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             
@@ -80,7 +235,7 @@ namespace QuanLyBilliard.GUI
         }
 
         /// <summary>
-        /// Hàm chạy của background worker
+        /// Hàm làm việc liên tục của background worker, đây như là một thread riêng biệt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -105,7 +260,7 @@ namespace QuanLyBilliard.GUI
         }
 
         /// <summary>
-        /// Bật giờ tạo bill và thay đổi hiển thị
+        /// Bật giờ - tạo bill  - Hiển thị
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -113,8 +268,8 @@ namespace QuanLyBilliard.GUI
         {
             Ban ban = btnDaiDienBan.Tag as Ban;
             blBan.BatGio(ban.ID_Ban);
-            blBan.HienThiBan();
-            blBan.Enabel(true);
+            HienThiBan();
+            Enabel(true);
         }
 
         /// <summary>
@@ -124,18 +279,23 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void btnKetThuc_Click(object sender, EventArgs e)
         {
+            KetThuc();
+        }
+
+        /// <summary>
+        /// Khi bấm kết thúc hoặc click đúp chuột để tắt bàn
+        /// </summary>
+        public void KetThuc()
+        {
             HoaDon hd = btnHoaDon.Tag as HoaDon;
             string nhanvien = cbNhanVien.SelectedValue.ToString();
             string khachhang = cbKhachHang.SelectedValue.ToString();
-            
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
             blBan.KetThuc(hd, nhanvien, khachhang);
-            blBan.HienThiBan();
-            blBan.Enabel(false);
-            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon,true);
-            //f.HienThiHoaDon(hd.ID_HoaDon);
+            HienThiBan();
+            Enabel(false);
+            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon, true);
             f.ShowDialog();
-            
         }
 
 
@@ -340,11 +500,8 @@ namespace QuanLyBilliard.GUI
             idBanHienTai = (btnDaiDienBan.Tag as Ban).ID_Ban;
             FrmChuyenBan f = new FrmChuyenBan(idBanHienTai);
             f.ShowDialog();
-            blBan.HienThiBan();
+            HienThiBan();
         }
-
-
-
         /// <summary>
         /// Thêm món ăn vào hóa đơn bằng thao tác double click vào thực phẩm
         /// </summary>
@@ -368,6 +525,11 @@ namespace QuanLyBilliard.GUI
             
         }
 
+        /// <summary>
+        /// Tìm kiếm thực phẩm
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void simpleButton1_Click(object sender, EventArgs e)
         {
             string keyword = txtTimKiem.Text;

@@ -6,11 +6,13 @@ using System.Collections.Generic;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using DevExpress.XtraEditors;
 
 namespace QuanLyBilliard.BL
 {
     class BL_Ban
     {
+        #region Khai báo
         DA_Ban daTable;
         DA_HoaDon daHoaDon;
         FrmSuDungDichVu frmSuDungDichVu;
@@ -18,10 +20,14 @@ namespace QuanLyBilliard.BL
         BL_HoaDon blHoaDon;
         BL_NhanVien blNhanVien;
         BL_KhachHang blKhachHang;
-        const int TABLE_WIDTHHEIGHT = 100;
+        const int TABLE_WIDTH = 70;
+        const int TABLE_HEIGHT = 120;
         FrmHoaDon frmHoaDon;
-        
-
+        #endregion
+        /// <summary>
+        /// Constructor cho Form Sử dụng dịch vụ
+        /// </summary>
+        /// <param name="f"></param>
         public BL_Ban(FrmSuDungDichVu f)
         {
             daTable = new DA_Ban();
@@ -31,12 +37,18 @@ namespace QuanLyBilliard.BL
             blKhachHang = new BL_KhachHang(f);
             frmSuDungDichVu = f;
         }
-
+        /// <summary>
+        /// Lấy tất cả các bàn có trong csdl
+        /// </summary>
+        /// <returns></returns>
         public List<Ban> LayBan()
         {
             return daTable.LayBan();
         }
-
+        /// <summary>
+        /// constructor cho Form Chuyển bàn
+        /// </summary>
+        /// <param name="f"></param>
         public BL_Ban(FrmChuyenBan f)
         {
             frmChuyenBan = f;
@@ -45,6 +57,10 @@ namespace QuanLyBilliard.BL
             
         }
         
+        /// <summary>
+        /// Constructor cho Form Hóa đơn
+        /// </summary>
+        /// <param name="f"></param>
         public BL_Ban(FrmHoaDon f)
         {
             frmHoaDon = f;
@@ -52,50 +68,45 @@ namespace QuanLyBilliard.BL
         }
 
        
-
-        internal void ChuyenBan(string v1, string v2)
+        /// <summary>
+        /// Chuyển bàn có id là v1 sang bàn có id là v2
+        /// </summary>
+        /// <param name="v1"></param>
+        /// <param name="v2"></param>
+        public void ChuyenBan(string v1, string v2)
         {
             int curr = Int32.Parse(v1);
             int taget = Int32.Parse(v2);
             daTable.chuyenBan(curr, taget);
         }
 
+        /// <summary>
+        /// Kết thúc bàn đang chứa mã hóa đơn là text
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
         public int KetThuc(string text)
         {
 
             int idhoadon = Int32.Parse(text);
             return daTable.TATBAN(idhoadon);
         }
+
         public int KetThuc(int idhoadon)
         {
             return daTable.TATBAN(idhoadon);
         }
 
-        /// <summary>
-        /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
-        /// </summary>
-        public void HienThiBan()
+        public DataTable LayHoaDon(Ban ban)
         {
-            //Xóa hết các bàn hiện tại để tải lại bàn mới
-            frmSuDungDichVu.flpBan.Controls.Clear();
-            List<Ban> lst = daTable.LayBan();
-            foreach (Ban table in lst)
-            {
-                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
-                Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
-                btn.Text = table.TenBan;
-                if (table.TrangThai)
-                {
-                    btn.BackColor = Color.Aqua;
-                }
-                else btn.BackColor = Color.Brown;
-                //Catch Event
-                btn.Click += new EventHandler(btn_Click);
-                btn.Tag = table;
-                // Add control (as button) in flowLayout
-                frmSuDungDichVu.flpBan.Controls.Add(btn);
-            }
+            return daHoaDon.LayHoaDon(ban);
         }
+
+        public DateTime LayGioVao(int iD_Ban)
+        {
+            return daTable.LayGioVao(iD_Ban);
+        }
+
         /// <summary>
         /// Xử lý khi bấm nút tính tiền
         /// </summary>
@@ -133,53 +144,12 @@ namespace QuanLyBilliard.BL
         {
             daTable.BATBAN(id);
         }
-
-        private void btn_Click(object sender, EventArgs e)
-        {
-            Ban ban = (sender as Button).Tag as Ban;
-            frmSuDungDichVu.lbTenBan.Text = ban.TenBan;
-            //Lấy 1 button để lưu dữ liệu của 1 bàn khi click vào bàn
-            frmSuDungDichVu.btnDaiDienBan.Tag = ban;
-            
-            frmSuDungDichVu.btnDaiDienBan.Text = ban.TenBan;
-            // Khi đã click vào 1 bàn lấy được object bàn thì cũng phải lấy được object hoadon của nó luôn
-            //Nếu bàn đã được bật thì mới lấy hóa đơn và show nó lên, còn không thì ko show gì cả
-            if (ban.TrangThai)
-            {
-                float tongtien = 0f;
-                DataTable dt = daHoaDon.LayHoaDon(ban);
-                HoaDon hoadon = new HoaDon(dt.Rows[0]);
-                frmSuDungDichVu.btnHoaDon.Tag = hoadon;
-                frmSuDungDichVu.btnHoaDon.Text = hoadon.ID_HoaDon.ToString();
-                //Show các mặt hàng có trong hóa đơn và tính tổng tiền
-                blHoaDon.ShowBill(hoadon, out tongtien);
-                // Show số hóa đơn
-                frmSuDungDichVu.txtSoHD.Text = hoadon.ID_HoaDon.ToString();
-                //Show ngày lập hóa đơn
-                DateTime NgayLapHoaDon = daTable.LayGioVao(ban.ID_Ban);
-                frmSuDungDichVu.dtpNgay.Text = NgayLapHoaDon.ToString();
-                frmSuDungDichVu.dtBatDau.Text = NgayLapHoaDon.Date.ToShortTimeString();
-                //Show tổng tiền
-                frmSuDungDichVu.txtTienNuoc.Text = tongtien.ToString();
-                frmSuDungDichVu.txtTongCong.Text = tongtien.ToString();
-                //Số lượng
-                frmSuDungDichVu.cbSoLuong.Text = "1";
-                //Nhân viên
-                frmSuDungDichVu.cbNhanVien.DataSource = blNhanVien.LayNhanVien();
-                frmSuDungDichVu.cbNhanVien.DisplayMember = "TENNHANVIEN";
-                frmSuDungDichVu.cbNhanVien.ValueMember = "ID_NHANVIEN";
-                //Khách hàng
-                frmSuDungDichVu.cbKhachHang.DataSource = blKhachHang.LayKhachHang();
-                frmSuDungDichVu.cbKhachHang.DisplayMember = "TENKHACHHANG";
-                frmSuDungDichVu.cbKhachHang.ValueMember = "ID_KHACHHANG";
-                Enabel(true);
-            }
-            else
-            {
-                Enabel(false);
-            }
-        }
-
+        /// <summary>
+        /// Tính tiền giờ
+        /// </summary>
+        /// <param name="hour"></param>
+        /// <param name="minutes"></param>
+        /// <returns></returns>
         public float TinhTien(int hour, int minutes)
         {
             float dongia = daTable.LayGiaBan((frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_LoaiBan);
@@ -187,38 +157,5 @@ namespace QuanLyBilliard.BL
             return tiengio;
         }
 
-        /// <summary>
-        /// Gán các giá trị enable của bàn bật (true) và tắt (false)
-        /// </summary>
-        /// <param name="v"></param>
-        public void Enabel(bool v)
-        {
-            if (v)
-            {
-                //Enable
-                frmSuDungDichVu.btnBatDau.Enabled = false;
-                frmSuDungDichVu.dtBatDau.Enabled = false;
-                frmSuDungDichVu.btnKetThuc.Enabled = true;
-                frmSuDungDichVu.dtKetThuc.Enabled = true;
-                frmSuDungDichVu.panel4.Enabled = true;
-                
-            }
-            else
-            {
-                frmSuDungDichVu.txtSoGioChoi.Text = "";
-                frmSuDungDichVu.btnBatDau.Enabled = true;
-                frmSuDungDichVu.dtBatDau.Enabled = true;
-                frmSuDungDichVu.btnKetThuc.Enabled = false;
-                frmSuDungDichVu.dtKetThuc.Enabled = false;
-                frmSuDungDichVu.panel4.Enabled = false;
-                //Xóa dữ liệu ở bàn đang bật đi
-                frmSuDungDichVu.txtSoHD.Text = "";
-                // Xóa ngày giờ lập hóa đơn
-                frmSuDungDichVu.dtpNgay.Text = "";
-                frmSuDungDichVu.dtBatDau.Text = "";
-                frmSuDungDichVu.dataGridView2.Rows.Clear();
-                frmSuDungDichVu.dtBatDau.Text = DateTime.Now.TimeOfDay.ToString();
-            }
-        }
     }
 }

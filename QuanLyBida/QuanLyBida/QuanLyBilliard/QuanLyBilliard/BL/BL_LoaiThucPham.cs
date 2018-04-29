@@ -32,11 +32,6 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.treeView1.Tag = food;
             }
         }
-        public DataTable getDuLieu()
-        {
-            string sql = "select * from loaithucpham";
-            return ldc.getDuLieu(sql);
-        }
         #region Event
         private void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
         {
