@@ -20,7 +20,7 @@ namespace QuanLyBilliard.DA
 
         public int ThemMatHang(string tenthucpham,string dvt,int idLoaiThucPham, float dongia,int idNhaCungCap)
         {
-            string sql = "insert into thucpham values('"+tenthucpham+"','"+dvt+"',"+idLoaiThucPham+",0,"+dongia+","+idNhaCungCap+")";
+            string sql = "insert into thucpham values('"+tenthucpham+"','"+dvt+"',"+idLoaiThucPham+","+dongia+","+idNhaCungCap+",0)";
             return ldc.ExecuteNonQuery(sql);
         }
 

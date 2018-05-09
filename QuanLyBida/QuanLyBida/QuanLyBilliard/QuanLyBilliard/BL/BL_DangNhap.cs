@@ -19,8 +19,9 @@ namespace QuanLyBilliard.BL
             DataTable dt = daDangNhap.LayDuLieu(tendangnhap, matkhau);
             return dt.Rows.Count;
         }
-        public void HienThiFormMain()
+        public void HienThiFormMain(string tendangnhap)
         {
+            int i = daDangNhap.LayCapBac(tendangnhap);
             FrmMain f = new FrmMain();
             f.Show();
         }

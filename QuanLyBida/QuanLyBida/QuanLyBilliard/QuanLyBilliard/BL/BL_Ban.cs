@@ -114,12 +114,13 @@ namespace QuanLyBilliard.BL
         /// <param name="idnv"></param>
         /// <param name="kh"></param>
         /// <returns></returns>
-        public int KetThuc(HoaDon hd,string idnv,string kh)
+        public int KetThuc(HoaDon hd,string idnv,string kh,string tg,string tpp)
         {
             //Chuyển đổi dữ liệu cho phù hợp
             int khachhang = Convert.ToInt32(kh);
             int idNhanVien = Int32.Parse(idnv);
-
+            float tiengio = float.Parse(tg);
+            int tienthucpham = Convert.ToInt32(tpp);
             //Gọi hàm để tính cột tiền giờ
             /*1. Chọn bàn
              *2. Lấy giờ vào
@@ -127,13 +128,13 @@ namespace QuanLyBilliard.BL
              *4. Tính giờ chơi
              *5. Tính tiền
              */
-            DateTime giovao = Convert.ToDateTime(daTable.LayGioVao(hd.ID_Ban));
-            DateTime gioRa = DateTime.Now;
-            int hour = gioRa.Hour - giovao.Hour;
-            int minute = gioRa.Minute - giovao.Minute;
-            float tiengio = TinhTien(hour, minute);
+            //DateTime giovao = Convert.ToDateTime(daTable.LayGioVao(hd.ID_Ban));
+            //DateTime gioRa = DateTime.Now;
+            //int hour = gioRa.Hour - giovao.Hour;
+            //int minute = gioRa.Minute - giovao.Minute;
+            //int day = gioRa.Day - giovao.Day;
             //Gọi hàm để tính cột tiền thực phẩm
-            int tienthucpham = daHoaDon.TinhTongTienThucPham(hd.ID_HoaDon);
+            //int tienthucpham = daHoaDon.TinhTongTienThucPham(hd.ID_HoaDon);
             return daTable.TATBAN(hd,idNhanVien,khachhang,tiengio,tienthucpham);
         }
         /// <summary>
@@ -150,10 +151,10 @@ namespace QuanLyBilliard.BL
         /// <param name="hour"></param>
         /// <param name="minutes"></param>
         /// <returns></returns>
-        public float TinhTien(int hour, int minutes)
+        public float TinhTien(int day,int hour, int minutes)
         {
             float dongia = daTable.LayGiaBan((frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_LoaiBan);
-            float tiengio = (hour * dongia) + ((float) minutes * dongia/60);
+            float tiengio = (day*dongia*24) + (hour * dongia) + (int)(minutes * dongia/60);
             return tiengio;
         }
 

@@ -33,10 +33,7 @@ namespace QuanLyBilliard.GUI
 
         private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string tencapbac = txtTencapbac.Text;
-            string hesoluong = txtHesoluong.Text;
-            blCapBac.SuaCapBac(tencapbac, hesoluong);
-            blCapBac.HienThiCapBac();
+            
              
         }
 
@@ -94,6 +91,13 @@ namespace QuanLyBilliard.GUI
             txtHesoluong.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
             textEdit1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
         }
-       
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string tencapbac = txtTencapbac.Text;
+            string hesoluong = txtHesoluong.Text;
+            blCapBac.ThemCapBac(tencapbac, hesoluong);
+            blCapBac.HienThiCapBac();
+        }
     }
 }

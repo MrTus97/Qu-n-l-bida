@@ -121,5 +121,10 @@ namespace QuanLyBilliard.GUI
         {
 
         }
+
+        private void barHeaderItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
     }
 }

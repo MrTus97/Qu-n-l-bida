@@ -1,4 +1,6 @@
-﻿namespace QuanLyBilliard.GUI
+﻿using DevExpress.XtraEditors;
+
+namespace QuanLyBilliard.GUI
 {
     partial class FrmSuDungDichVu
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSuDungDichVu));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -95,6 +98,9 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ContextMenuBan = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tínhTiềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hủyHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -129,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            this.ContextMenuBan.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -367,6 +374,7 @@
             // 
             // txtGiamGiaNuoc
             // 
+            this.txtGiamGiaNuoc.EditValue = "0";
             this.txtGiamGiaNuoc.Location = new System.Drawing.Point(90, 400);
             this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
             this.txtGiamGiaNuoc.Size = new System.Drawing.Size(55, 20);
@@ -387,6 +395,7 @@
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
             this.txtGiamGiaGio.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaGio.TabIndex = 75;
+            this.txtGiamGiaGio.EditValueChanged += new System.EventHandler(this.txtGiamGiaGio_EditValueChanged);
             // 
             // dataGridView2
             // 
@@ -623,7 +632,7 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(90, 1);
+            this.btnHoaDon.Location = new System.Drawing.Point(186, -1);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(114, 23);
             this.btnHoaDon.TabIndex = 61;
@@ -634,7 +643,7 @@
             // 
             // btnDaiDienBan
             // 
-            this.btnDaiDienBan.Location = new System.Drawing.Point(218, 3);
+            this.btnDaiDienBan.Location = new System.Drawing.Point(306, 0);
             this.btnDaiDienBan.Name = "btnDaiDienBan";
             this.btnDaiDienBan.Size = new System.Drawing.Size(75, 23);
             this.btnDaiDienBan.TabIndex = 60;
@@ -812,6 +821,26 @@
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
+            // ContextMenuBan
+            // 
+            this.ContextMenuBan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tínhTiềnToolStripMenuItem,
+            this.hủyHóaĐơnToolStripMenuItem});
+            this.ContextMenuBan.Name = "ContextMenuBan";
+            this.ContextMenuBan.Size = new System.Drawing.Size(147, 48);
+            // 
+            // tínhTiềnToolStripMenuItem
+            // 
+            this.tínhTiềnToolStripMenuItem.Name = "tínhTiềnToolStripMenuItem";
+            this.tínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.tínhTiềnToolStripMenuItem.Text = "Kết thúc";
+            // 
+            // hủyHóaĐơnToolStripMenuItem
+            // 
+            this.hủyHóaĐơnToolStripMenuItem.Name = "hủyHóaĐơnToolStripMenuItem";
+            this.hủyHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.hủyHóaĐơnToolStripMenuItem.Text = "Hủy Hóa Đơn";
+            // 
             // FrmSuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -859,6 +888,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            this.ContextMenuBan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -912,7 +942,10 @@
         public DevExpress.XtraEditors.LabelControl labelControl5;
         public DevExpress.XtraEditors.TextEdit txtTienNuoc;
         public DevExpress.XtraEditors.LabelControl labelControl4;
-        public DevExpress.XtraEditors.TextEdit txtTienGio;
+        public DevExpress.XtraEditors.TextEdit 
+            
+            
+            Gio;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl9;
@@ -931,5 +964,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuBan;
+        private System.Windows.Forms.ToolStripMenuItem tínhTiềnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hủyHóaĐơnToolStripMenuItem;
+        private TextEdit txtTienGio;
     }
 }

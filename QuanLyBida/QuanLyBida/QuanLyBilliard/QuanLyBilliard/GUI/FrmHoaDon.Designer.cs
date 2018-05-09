@@ -39,11 +39,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -55,6 +50,11 @@
             this.Value_GioRa = new System.Windows.Forms.Label();
             this.Value_NhanVien = new System.Windows.Forms.Label();
             this.ValueTongTien = new System.Windows.Forms.Label();
+            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -176,40 +176,6 @@
             this.dataGridView2.Size = new System.Drawing.Size(283, 236);
             this.dataGridView2.TabIndex = 71;
             // 
-            // TENMATHANG
-            // 
-            this.TENMATHANG.HeaderText = "Tên hàng";
-            this.TENMATHANG.Name = "TENMATHANG";
-            this.TENMATHANG.ReadOnly = true;
-            this.TENMATHANG.Width = 95;
-            // 
-            // GIABAN1
-            // 
-            this.GIABAN1.HeaderText = "Giá Bán";
-            this.GIABAN1.Name = "GIABAN1";
-            this.GIABAN1.ReadOnly = true;
-            this.GIABAN1.Width = 52;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 52;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            this.ThanhTien.Width = 85;
-            // 
-            // ID_THUCPHAM1
-            // 
-            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
-            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
-            this.ID_THUCPHAM1.ReadOnly = true;
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -309,6 +275,41 @@
             this.ValueTongTien.TabIndex = 79;
             this.ValueTongTien.Text = "label10";
             // 
+            // TENMATHANG
+            // 
+            this.TENMATHANG.HeaderText = "Tên hàng";
+            this.TENMATHANG.Name = "TENMATHANG";
+            this.TENMATHANG.ReadOnly = true;
+            this.TENMATHANG.Width = 95;
+            // 
+            // GIABAN1
+            // 
+            this.GIABAN1.HeaderText = "Giá Bán";
+            this.GIABAN1.Name = "GIABAN1";
+            this.GIABAN1.ReadOnly = true;
+            this.GIABAN1.Width = 52;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 52;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            this.ThanhTien.Width = 85;
+            // 
+            // ID_THUCPHAM1
+            // 
+            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
+            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
+            this.ID_THUCPHAM1.ReadOnly = true;
+            this.ID_THUCPHAM1.Visible = false;
+            // 
             // FrmHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,11 +366,6 @@
         public System.Windows.Forms.Label label7;
         public System.Windows.Forms.Label label8;
         public System.Windows.Forms.Label label9;
-        public System.Windows.Forms.DataGridViewTextBoxColumn TENMATHANG;
-        public System.Windows.Forms.DataGridViewTextBoxColumn GIABAN1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM1;
         public System.Windows.Forms.Label label12;
         public DevExpress.XtraEditors.SimpleButton btnThanhToan;
         public DevExpress.XtraEditors.SimpleButton simpleButton2;
@@ -381,5 +377,10 @@
         public System.Windows.Forms.Label Value_GioRa;
         public System.Windows.Forms.Label Value_NhanVien;
         public System.Windows.Forms.Label ValueTongTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENMATHANG;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM1;
     }
 }

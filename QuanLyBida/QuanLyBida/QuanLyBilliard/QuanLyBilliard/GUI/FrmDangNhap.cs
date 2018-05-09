@@ -29,18 +29,27 @@ namespace QuanLyBilliard.GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+
             string tendangnhap = txtTenDangNhap.Text;
             string matkhau = txtMatKhau.Text;
-            int i = blDangNhap.DangNhap(tendangnhap, matkhau);
-            if (i > 0)
+            if (tendangnhap == "" || matkhau == "")
             {
-                blDangNhap.HienThiFormMain();
-                this.Hide();
+                MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống");
             }
             else
             {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                int i = blDangNhap.DangNhap(tendangnhap, matkhau);
+                if (i > 0)
+                {
+                    blDangNhap.HienThiFormMain(tendangnhap);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                }
             }
+           
         }
 
         private void FrmDangNhap_Load(object sender, EventArgs e)

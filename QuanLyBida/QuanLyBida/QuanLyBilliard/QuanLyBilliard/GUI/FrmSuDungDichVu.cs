@@ -46,7 +46,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void FrmSuDungDichVu_Load(object sender, EventArgs e)
         {
-            #region background
+            #region Khai báo cho background
             backgroundWorker1 = new BackgroundWorker();
             backgroundWorker1.WorkerReportsProgress = true;
             backgroundWorker1.WorkerSupportsCancellation = true;
@@ -58,11 +58,13 @@ namespace QuanLyBilliard.GUI
                 backgroundWorker1.RunWorkerAsync();
             }
             #endregion
+            #region Hiển thị những thứ cơ bản khi load form lên
             HienThiBan();
             blLoaiThucPham.LoadLoaiThucPham();
             Enabel(false);
             dtBatDau.Enabled = false;
             btnBatDau.Enabled = false;
+            #endregion
         }
         /// <summary>
         /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
@@ -76,9 +78,8 @@ namespace QuanLyBilliard.GUI
             {
                 // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
                 SimpleButton btn = new SimpleButton() { Width = TABLE_WIDTH, Height = TABLE_HEIGHT };
-                //Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
-                btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
-                btn.LookAndFeel.UseDefaultLookAndFeel = false;
+                
+                //Set text
                 string tenban;
                 if (table.TrangThai)
                 {
@@ -86,20 +87,28 @@ namespace QuanLyBilliard.GUI
                 }
                 else tenban = table.TenBan + "\n(OFF)";
                 btn.Text = tenban ;
+                //SetColor
+                btn.LookAndFeel.Style = DevExpress.LookAndFeel.LookAndFeelStyle.Flat;
+                btn.LookAndFeel.UseDefaultLookAndFeel = false;
                 if (table.TrangThai)
                 {
                     btn.Appearance.Image = Properties.Resources.on;
                 }
                 else btn.Appearance.Image = Properties.Resources.off;
+
+
                 //Catch Event
                 btn.Click += new EventHandler(btn_Click);
                 btn.DoubleClick += Btn_DoubleClick;
+                btn.ContextMenuStrip = ContextMenuBan;
                 btn.Tag = table;
+
                 // Add control (as button) in flowLayout
                 flpBan.Controls.Add(btn);
 
             }
         }
+
 
 
         /// <summary>
@@ -223,15 +232,42 @@ namespace QuanLyBilliard.GUI
             
             if ((btnDaiDienBan.Tag as Ban !=null) && (btnDaiDienBan.Tag as Ban).TrangThai)
             {
-                    DateTime thoiGianHienTai = DateTime.Now;
-                    DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
-                    int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;
-                    int hour = Math.Abs(thoiGianHienTai.Hour - thoiGianBatBan.Hour);
-                    txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
-                    float tiengio = blBan.TinhTien(hour, minutes);
-                    txtTienGio.Text = tiengio.ToString();
-                    txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
+                //Thời gian
+                DateTime thoiGianHienTai = DateTime.Now;
+                DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
+                int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;              
+                int hour = thoiGianHienTai.Hour - thoiGianBatBan.Hour;
+                int day = thoiGianHienTai.Day - thoiGianBatBan.Day;
+                
+                //Làm tròn
+                if (minutes < 0)
+                {
+                    //Phút sau nhỏ hơn phút trước
+                    minutes = 60 + minutes;
+                    if (hour > 0)
+                    {
+                        hour--;
+                    }else
+                    {
+                        hour = 24 + hour - 1;
+                        day--;
+                    }
+                    //Làm tròn phút để tính tiền
+                    if (minutes%10 >=5) minutes = (minutes/10+1)*10;
+                }
+               
+                float tiengio = blBan.TinhTien(day,hour, minutes);
+                txtTienGio.Text = tiengio.ToString();
+
+                //Hiển thị
+                txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
+                
+                txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
             }
+        }
+        public void TinhTienGio()
+        {
+
         }
 
         /// <summary>
@@ -290,8 +326,10 @@ namespace QuanLyBilliard.GUI
             HoaDon hd = btnHoaDon.Tag as HoaDon;
             string nhanvien = cbNhanVien.SelectedValue.ToString();
             string khachhang = cbKhachHang.SelectedValue.ToString();
+            string tiengio = txtTienGio.Text;
+            string tienthucpham = txtTienNuoc.Text;
             (btnDaiDienBan.Tag as Ban).TrangThai = false;
-            blBan.KetThuc(hd, nhanvien, khachhang);
+            blBan.KetThuc(hd, nhanvien, khachhang,tiengio,tienthucpham);
             HienThiBan();
             Enabel(false);
             FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon, true);
@@ -509,7 +547,11 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void dataGridView1_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (btnHoaDon.Text == "")
+            if (btnDaiDienBan.Text == "Đại diện bàn")
+            {
+                MessageBox.Show("Bạn phải chọn bàn trước khi gọi món");
+            }else
+            if (btnHoaDon.Text == "Đại diện hóa đơn")
             {
                 MessageBox.Show("Bạn phải bật bàn trước khi gọi món");
             }else
@@ -539,6 +581,11 @@ namespace QuanLyBilliard.GUI
             {
                 dataGridView1.Rows.Add(row["TENTHUCPHAM"],row["DVT"],row["GIABAN"],row["ID_THUCPHAM"]);
             }
+        }
+
+        private void txtGiamGiaGio_EditValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -114,6 +114,7 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.EditValue = "admin";
             this.txtMatKhau.Location = new System.Drawing.Point(109, 33);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.Size = new System.Drawing.Size(155, 20);
