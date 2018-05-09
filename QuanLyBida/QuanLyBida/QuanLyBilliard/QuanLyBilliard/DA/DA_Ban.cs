@@ -52,6 +52,13 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public int themBan(int idLoaiBan, string tenBan)
+        {
+            string sql = "insert into BAN values ('" + tenBan + "',0,null,null,"+idLoaiBan+")";
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+
         public int chuyenBan(int curr, int taget)
         {
             /*CREATE PROCEDURE chuyenban
@@ -66,6 +73,13 @@ namespace QuanLyBilliard.DA
             string sql = "chuyenban "+ curr+ "," + taget;
             return ldc.ExecuteNonQuery(sql);
         }
+
+        public int capNhatBan(int idBan, int idLoaidBan, string text2)
+        {
+            string sql = "update ban set TENBAN = '"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
 
         public int TATBAN(HoaDon hd,int idNhanVien)
         {
@@ -88,6 +102,30 @@ namespace QuanLyBilliard.DA
                  */
             string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien;
             return ldc.ExecuteNonQuery(sql);
+        }
+
+        public int xoaBan(int id)
+        {
+            string sql = "delete BAN where ID_BAN ="+id;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            string sql = "select TENLOAI,TENBAN,ban.ID_BAN,ban.ID_LOAIBAN from LOAIBAN,BAN where LOAIBAN.ID_LOAIBAN=BAN.ID_LOAIBAN";
+            return ldc.getDuLieu(sql);
+        }
+
+        public DataTable HienThiDuLieu()
+        {
+            string sql = "select ban.ID_LoaiBan,TenBan,Gia from Ban, LoaiBan where Ban.ID_LoaiBan = LoaiBan.Id_LoaiBan";
+                return ldc.getDuLieu(sql);
+        }
+
+        public DataTable getDuLieu()
+        {
+            string sql = "select * from loaiban";
+            return ldc.getDuLieu(sql);
         }
 
         public DateTime LayGioVao(int iD_Ban)

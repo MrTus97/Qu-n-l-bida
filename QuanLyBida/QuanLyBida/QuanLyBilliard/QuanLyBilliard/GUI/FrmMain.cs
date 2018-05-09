@@ -117,5 +117,20 @@ namespace QuanLyBilliard.GUI
                 f.Show();
             }
         }
+
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnDanhMucBan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if(!FormXuatHienChua("FrmDanhMucBanKhuVuc"))
+            {
+                FrmDanhMucBanKhuVuc f = new FrmDanhMucBanKhuVuc();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
     }
 }

@@ -54,5 +54,11 @@ namespace QuanLyBilliard.DA
             string sql = "select * from khachhang";
             return ldc.getDuLieu(sql);
         }
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            string sql = "select TENLOAIKHACHHANG,TENKHACHHANG,SODIENTHOAI,NGAYSINH,GIOITINH,ID_KHACHHANG,lkh.ID_LOAIKHACHHANG from KHACHHANG kh, LOAIKHACHHANG lkh where kh.ID_LOAIKHACHHANG = lkh.ID_LOAIKHACHHANG";
+            return ldc.getDuLieu(sql);
+        }
     }
 }

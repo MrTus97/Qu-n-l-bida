@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using QuanLyBilliard.DTO;
 
 namespace QuanLyBilliard.DA
 {
@@ -46,6 +47,12 @@ namespace QuanLyBilliard.DA
         {
             string sql = "delete thucpham where id_thucpham = " + id;
             return ldc.ExecuteNonQuery(sql);
+        }
+
+        public DataTable layDuLieulenDataGridView()
+        {
+            string sql = "select TENLOAITHUCPHAM,TENTHUCPHAM,DVT,GIABAN,TENNHACUNGCAP,ID_THUCPHAM,ltp.ID_LOAITHUCPHAM,ncc.ID_NHACUNGCAP from THUCPHAM tp,LOAITHUCPHAM ltp,NHACUNGCAP ncc where tp.ID_LOAITHUCPHAM = ltp.ID_LOAITHUCPHAM and tp.ID_NHACUNGCAP=ncc.ID_NHACUNGCAP";
+            return ldc.getDuLieu(sql);
         }
     }
 }

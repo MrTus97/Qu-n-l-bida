@@ -14,13 +14,19 @@ namespace QuanLyBilliard.BL
         DA_Ban daTable;
         DA_HoaDon daHoaDon;
         FrmSuDungDichVu frmSuDungDichVu;
+        FrmDanhMucBanKhuVuc frmDanhMucBanKhuVuc;
         FrmChuyenBan frmChuyenBan;
         BL_HoaDon blHoaDon;
         BL_NhanVien blNhanVien;
         BL_KhachHang blKhachHang;
         const int TABLE_WIDTHHEIGHT = 100;
         FrmHoaDon frmHoaDon;
-        
+        public BL_Ban(FrmDanhMucBanKhuVuc f)
+        {
+            frmDanhMucBanKhuVuc = f;
+            daTable = new DA_Ban();
+            daHoaDon = new DA_HoaDon();
+        }
 
         public BL_Ban(FrmSuDungDichVu f)
         {
@@ -31,6 +37,8 @@ namespace QuanLyBilliard.BL
             blKhachHang = new BL_KhachHang(f);
             frmSuDungDichVu = f;
         }
+
+
         public BL_Ban(FrmChuyenBan f)
         {
             frmChuyenBan = f;
@@ -45,7 +53,11 @@ namespace QuanLyBilliard.BL
             daTable = new DA_Ban();
         }
 
-       
+        public void themBan(string loaiBan, string TenBan)
+        {
+            int idLoaidBan = Int32.Parse(loaiBan);
+            daTable.themBan(idLoaidBan, TenBan);
+        }
 
         internal void ChuyenBan(string v1, string v2)
         {
@@ -59,6 +71,15 @@ namespace QuanLyBilliard.BL
             int idhoadon = Int32.Parse(text);
             
             return daTable.TATBAN(idhoadon);
+        }
+
+
+
+        internal void capNhatBan(string text1, string loaiBan, string text2)
+        {
+            int idBan = Int32.Parse(text1);
+            int idLoaidBan = Int32.Parse(loaiBan);
+            daTable.capNhatBan(idBan,idLoaidBan, text2);
         }
 
         /// <summary>
@@ -86,6 +107,30 @@ namespace QuanLyBilliard.BL
                 frmSuDungDichVu.flpBan.Controls.Add(btn);
             }
         }
+
+        public void xoaBan(string text)
+        {
+            int id = Int32.Parse(text);
+            daTable.xoaBan(id);
+        }
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            return daTable.layDuLieuLenDataGridView();
+        }
+
+        public DataTable HienThiDuLieu()
+        {
+            return daTable.HienThiDuLieu();
+        }
+
+        public void LoadLoaiBan()
+        {
+            frmDanhMucBanKhuVuc.cbxLoaiBan.DataSource = daTable.getDuLieu();
+            frmDanhMucBanKhuVuc.cbxLoaiBan.DisplayMember = "TenLoai";
+            frmDanhMucBanKhuVuc.cbxLoaiBan.ValueMember = "ID_LoaiBan";
+        }
+
         public void HienThiBanTat()
         {
             frmChuyenBan.flpBanTat.Controls.Clear();

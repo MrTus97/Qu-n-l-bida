@@ -43,7 +43,7 @@ namespace QuanLyBilliard.GUI
                 string loaikhachhang = cbxLoaiKhachHang.SelectedValue.ToString();
                 string ngaysinh = dtpNgaySinh.Text.ToString();
                 blKhachHang.themKhachHang( txtTenKhachHang.Text, txtSoDienThoai.Text,ngaysinh,gioitinh, loaikhachhang);
-                dataGridView1.DataSource = blKhachHang.HienThiDuLieu();
+                loadKhachHang();
             }
         }
 
@@ -60,7 +60,26 @@ namespace QuanLyBilliard.GUI
         private void FrmDanhMucKhachHang_Load(object sender, EventArgs e)
         {
             blKhachHang.loadLoaiKhachHang();
-            dataGridView1.DataSource = blKhachHang.HienThiDuLieu();
+            loadKhachHang();
+        }
+
+        private void loadKhachHang()
+        {
+            DataTable dt = blKhachHang.layDuLieuLenDataGridView();
+            dataGridView1.Rows.Clear();
+            foreach(DataRow row in dt.Rows)
+            {
+                string gt;
+                if (row[4].ToString() == "True")
+                {
+                    gt = "Nam";
+                }
+                else
+                {
+                    gt = "Nữ";
+                }
+                dataGridView1.Rows.Add(row[0],row[1],row[2],row[3],gt,row[5],row[6]);
+            }
         }
 
         private void btnCapNhat_Click(object sender, EventArgs e)
@@ -74,16 +93,24 @@ namespace QuanLyBilliard.GUI
             string loaikhachhang = cbxLoaiKhachHang.SelectedValue.ToString();
             string ngaysinh = dtpNgaySinh.Text.ToString();
             blKhachHang.CapNhatKhachHang(textBox1.Text, txtTenKhachHang.Text, txtSoDienThoai.Text, ngaysinh, gioitinh, loaikhachhang);
-            dataGridView1.DataSource = blKhachHang.HienThiDuLieu();
+            loadKhachHang();
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             textBox1.Text = dataGridView1.CurrentRow.Cells["ID_KHACHHANG"].Value.ToString();
-            txtSoDienThoai.Text = dataGridView1.CurrentRow.Cells["SODIENTHOAI"].Value.ToString();
+            txtSoDienThoai.Text = dataGridView1.CurrentRow.Cells["SDT"].Value.ToString();
             txtTenKhachHang.Text = dataGridView1.CurrentRow.Cells["Tenkhachhang"].Value.ToString();
             dtpNgaySinh.Text = dataGridView1.CurrentRow.Cells["NgaySinh"].Value.ToString();
-            cbxLoaiKhachHang.Text = dataGridView1.CurrentRow.Cells["ID_LOAIKHACHHANG"].Value.ToString();
+            cbxLoaiKhachHang.SelectedValue = dataGridView1.CurrentRow.Cells["ID_LOAIKHACHHANG"].Value.ToString();
+            if(dataGridView1.CurrentRow.Cells["GioiTinh"].Value.ToString()=="Nam")
+            {
+                rbnNam.Checked = true;
+            }
+            else
+            {
+                rbnNU.Checked = true;
+            }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -96,7 +123,7 @@ namespace QuanLyBilliard.GUI
             {
                 blKhachHang.xoaKhachHang(textBox1.Text);
             }
-            dataGridView1.DataSource = blKhachHang.HienThiDuLieu();
+            loadKhachHang();
         }
     }
 }

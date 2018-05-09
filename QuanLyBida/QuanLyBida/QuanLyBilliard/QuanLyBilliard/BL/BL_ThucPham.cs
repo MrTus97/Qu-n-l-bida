@@ -2,6 +2,8 @@
 using QuanLyBilliard.GUI;
 using System.Data;
 using System;
+using System.Collections.Generic;
+using QuanLyBilliard.DTO;
 
 namespace QuanLyBilliard.BL
 {
@@ -40,7 +42,7 @@ namespace QuanLyBilliard.BL
             daThucPham.ThemMatHang(tenthucpham,dvt,idLoaiThucPham,dongia,idNhaCungCap);
         }
 
-        public void loadLoaiThucPham()
+        public void loadloaiThucPham()
         {
             frmDanhMucMatHang.cbxLoaiThucPham.DataSource = daThucPham.getDuLieu();
             frmDanhMucMatHang.cbxLoaiThucPham.DisplayMember = "TenLoaiThucPham";
@@ -66,6 +68,13 @@ namespace QuanLyBilliard.BL
         {
             int id = Convert.ToInt32(text);
             daThucPham.XoaMatHang(id);
+        }
+
+
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            return daThucPham.layDuLieulenDataGridView();
         }
 
         //public void loadNhaCungCap()
