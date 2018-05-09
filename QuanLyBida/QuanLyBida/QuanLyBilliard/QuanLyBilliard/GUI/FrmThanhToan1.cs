@@ -30,7 +30,6 @@ namespace QuanLyBilliard.GUI
             cbLocHoaDon.Text = "Tất cả";
             DataTable result = blHoaDon.HienThiTatCacHoaDon();
             HienThiHoaDonLenDataGridView(result);
-
         }
         /// <summary>
         /// Hàm test cellclick
@@ -41,12 +40,11 @@ namespace QuanLyBilliard.GUI
         {
             if (dataGridView1.CurrentRow.Cells["DATHANHTOAN"].Selected)
             {
-
+                
                 if (dataGridView1.CurrentRow.Cells["DATHANHTOAN"].Value.ToString() == "True")
                 {
                     Console.WriteLine("DA THANH TOAN");
-                }
-                else Console.WriteLine("CHUA THANH TOAN");
+                }else Console.WriteLine("CHUA THANH TOAN");
             }
             else Console.WriteLine("3");
 
@@ -73,12 +71,12 @@ namespace QuanLyBilliard.GUI
                 panel1.Visible = true;
                 dtpDenNgay.Visible = false;
                 lbDenNgay.Visible = false;
-
+                
                 lbTuNgay.Text = "Ngày hiện tại";
                 dtpTuNgay.Text = DateTime.Now.ToShortDateString();
                 dtpTuNgay.Enabled = false;
 
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpTuNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text,dtpTuNgay.Text);
                 HienThiHoaDonLenDataGridView(result);
             }
             // Lọc từ ngày này đến ngày kia
@@ -97,7 +95,7 @@ namespace QuanLyBilliard.GUI
                 dtpDenNgay.Visible = true;
                 dtpDenNgay.Text = DateTime.Now.ToShortDateString();
 
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpDenNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text,dtpDenNgay.Text);
                 HienThiHoaDonLenDataGridView(result);
             }
         }
@@ -119,8 +117,8 @@ namespace QuanLyBilliard.GUI
                 dataGridView1.Rows.Add(row.ItemArray);
                 if (row[4].ToString() != "")
                     tongTienGio += float.Parse(row[4].ToString());
-                if (row[5].ToString() != "")
-                    tongGiamGiaGio += float.Parse(row[5].ToString());
+                if (row[5].ToString() != "") 
+                tongGiamGiaGio += float.Parse(row[5].ToString());
                 if (row[6].ToString() != "")
                     tienThucPham += float.Parse(row[6].ToString());
                 if (row[7].ToString() != "")
@@ -128,7 +126,7 @@ namespace QuanLyBilliard.GUI
                 if (row[8].ToString() != "")
                     tongTien += float.Parse(row[8].ToString());
             }
-            dataGridView1.Rows.Add("", "", "", "Tổng tiền", tongTienGio, tongGiamGiaGio, tienThucPham, giamGiaThucPham, tongTien, null);
+            dataGridView1.Rows.Add("", "", "", "Tổng tiền", tongTienGio, tongGiamGiaGio, tienThucPham, giamGiaThucPham, tongTien,null);
         }
 
         /// <summary>
@@ -141,7 +139,7 @@ namespace QuanLyBilliard.GUI
             DateTime tungay = Convert.ToDateTime(dtpTuNgay.Text);
             DateTime denngay = Convert.ToDateTime(dtpDenNgay.Text);
 
-            if (tungay > denngay)
+            if (tungay > denngay )
             {
 
                 MessageBox.Show("\"Từ ngày\" không thể lớn hơn \"đến ngày\"");
@@ -200,7 +198,7 @@ namespace QuanLyBilliard.GUI
                 {
                     HienThiHoaDonLenDataGridView(result);
                 }
-
+                
             }
             catch
             {
@@ -226,9 +224,7 @@ namespace QuanLyBilliard.GUI
                 bool trangthai = !Convert.ToBoolean(dataGridView1.CurrentCell.Value.ToString());
                 int sohd = Convert.ToInt32(dataGridView1.CurrentRow.Cells["ID_HOADON"].Value.ToString());
                 blHoaDon.ThanhToanHoaDon(sohd, trangthai);
-                if (trangthai) dataGridView1.CurrentCell.Value = true;
-                else dataGridView1.CurrentCell.Value = false;
-            }
+            }        
         }
     }
 }

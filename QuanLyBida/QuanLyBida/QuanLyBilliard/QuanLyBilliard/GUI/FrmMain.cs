@@ -117,20 +117,14 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-<<<<<<< HEAD
-        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-=======
+
+
         private void FrmMain_Load(object sender, EventArgs e)
->>>>>>> origin/Khoa
         {
 
         }
 
-<<<<<<< HEAD
-        private void barHeaderItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
 
-=======
         private void btnDanhMucBan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if(!FormXuatHienChua("FrmDanhMucBanKhuVuc"))
@@ -139,7 +133,6 @@ namespace QuanLyBilliard.GUI
                 f.MdiParent = this;
                 f.Show();
             }
->>>>>>> origin/Khoa
         }
     }
 }

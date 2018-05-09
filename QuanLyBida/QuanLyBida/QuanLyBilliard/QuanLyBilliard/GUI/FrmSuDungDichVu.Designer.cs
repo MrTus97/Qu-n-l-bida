@@ -58,7 +58,7 @@ namespace QuanLyBilliard.GUI
             this.txtGiamGiaNuoc = new DevExpress.XtraEditors.TextEdit();
             this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
             this.txtGiamGiaGio = new DevExpress.XtraEditors.TextEdit();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvThucPhamTrongHoaDon = new System.Windows.Forms.DataGridView();
             this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -85,7 +85,7 @@ namespace QuanLyBilliard.GUI
             this.panelControl2 = new DevExpress.XtraEditors.PanelControl();
             this.panelControl4 = new DevExpress.XtraEditors.PanelControl();
             this.btnDaiDienThucPham = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dgvThucPham = new System.Windows.Forms.DataGridView();
             this.TENTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DVT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIABAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -114,7 +114,7 @@ namespace QuanLyBilliard.GUI
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamGiaNuoc.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamGiaGio.Properties)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucPhamTrongHoaDon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgay.Properties.CalendarTimeProperties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgay.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSoLuong.Properties)).BeginInit();
@@ -128,7 +128,7 @@ namespace QuanLyBilliard.GUI
             this.panelControl2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).BeginInit();
             this.panelControl4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucPham)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).BeginInit();
             this.panelControl3.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -201,7 +201,7 @@ namespace QuanLyBilliard.GUI
             this.panel4.Controls.Add(this.txtGiamGiaNuoc);
             this.panel4.Controls.Add(this.labelControl6);
             this.panel4.Controls.Add(this.txtGiamGiaGio);
-            this.panel4.Controls.Add(this.dataGridView2);
+            this.panel4.Controls.Add(this.dgvThucPhamTrongHoaDon);
             this.panel4.Controls.Add(this.btnDoiSoLuong);
             this.panel4.Controls.Add(this.dtpNgay);
             this.panel4.Controls.Add(this.labelControl3);
@@ -397,24 +397,24 @@ namespace QuanLyBilliard.GUI
             this.txtGiamGiaGio.TabIndex = 75;
             this.txtGiamGiaGio.EditValueChanged += new System.EventHandler(this.txtGiamGiaGio_EditValueChanged);
             // 
-            // dataGridView2
+            // dgvThucPhamTrongHoaDon
             // 
-            this.dataGridView2.AllowUserToAddRows = false;
-            this.dataGridView2.AllowUserToDeleteRows = false;
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvThucPhamTrongHoaDon.AllowUserToAddRows = false;
+            this.dgvThucPhamTrongHoaDon.AllowUserToDeleteRows = false;
+            this.dgvThucPhamTrongHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThucPhamTrongHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TENMATHANG,
             this.GIABAN1,
             this.SoLuong,
             this.ThanhTien,
             this.ID_THUCPHAM1});
-            this.dataGridView2.Location = new System.Drawing.Point(10, 82);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.RowHeadersVisible = false;
-            this.dataGridView2.Size = new System.Drawing.Size(283, 281);
-            this.dataGridView2.TabIndex = 70;
-            this.dataGridView2.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
+            this.dgvThucPhamTrongHoaDon.Location = new System.Drawing.Point(10, 82);
+            this.dgvThucPhamTrongHoaDon.Name = "dgvThucPhamTrongHoaDon";
+            this.dgvThucPhamTrongHoaDon.ReadOnly = true;
+            this.dgvThucPhamTrongHoaDon.RowHeadersVisible = false;
+            this.dgvThucPhamTrongHoaDon.Size = new System.Drawing.Size(283, 281);
+            this.dgvThucPhamTrongHoaDon.TabIndex = 70;
+            this.dgvThucPhamTrongHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView2_CellClick);
             // 
             // TENMATHANG
             // 
@@ -683,7 +683,7 @@ namespace QuanLyBilliard.GUI
             // panelControl4
             // 
             this.panelControl4.Controls.Add(this.btnDaiDienThucPham);
-            this.panelControl4.Controls.Add(this.dataGridView1);
+            this.panelControl4.Controls.Add(this.dgvThucPham);
             this.panelControl4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelControl4.Location = new System.Drawing.Point(2, 144);
             this.panelControl4.Name = "panelControl4";
@@ -700,25 +700,25 @@ namespace QuanLyBilliard.GUI
             this.btnDaiDienThucPham.UseVisualStyleBackColor = true;
             this.btnDaiDienThucPham.Visible = false;
             // 
-            // dataGridView1
+            // dgvThucPham
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvThucPham.AllowUserToAddRows = false;
+            this.dgvThucPham.AllowUserToDeleteRows = false;
+            this.dgvThucPham.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvThucPham.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.TENTHUCPHAM,
             this.DVT,
             this.GIABAN,
             this.ID_THUCPHAM});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(2, 2);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(232, 372);
-            this.dataGridView1.TabIndex = 3;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
-            this.dataGridView1.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
+            this.dgvThucPham.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgvThucPham.Location = new System.Drawing.Point(2, 2);
+            this.dgvThucPham.Name = "dgvThucPham";
+            this.dgvThucPham.ReadOnly = true;
+            this.dgvThucPham.RowHeadersVisible = false;
+            this.dgvThucPham.Size = new System.Drawing.Size(232, 372);
+            this.dgvThucPham.TabIndex = 3;
+            this.dgvThucPham.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dgvThucPham.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellDoubleClick);
             // 
             // TENTHUCPHAM
             // 
@@ -865,7 +865,7 @@ namespace QuanLyBilliard.GUI
             ((System.ComponentModel.ISupportInitialize)(this.txtTongCong.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamGiaNuoc.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtGiamGiaGio.Properties)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucPhamTrongHoaDon)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgay.Properties.CalendarTimeProperties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtpNgay.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbSoLuong.Properties)).EndInit();
@@ -880,7 +880,7 @@ namespace QuanLyBilliard.GUI
             this.panelControl2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl4)).EndInit();
             this.panelControl4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvThucPham)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl3)).EndInit();
             this.panelControl3.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
@@ -919,7 +919,7 @@ namespace QuanLyBilliard.GUI
         public DevExpress.XtraEditors.TextEdit txtGiamGiaNuoc;
         public DevExpress.XtraEditors.LabelControl labelControl6;
         public DevExpress.XtraEditors.TextEdit txtGiamGiaGio;
-        public System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dgvThucPhamTrongHoaDon;
         public DevExpress.XtraEditors.SimpleButton btnDoiSoLuong;
         public DevExpress.XtraEditors.DateEdit dtpNgay;
         public DevExpress.XtraEditors.LabelControl labelControl3;
@@ -938,7 +938,7 @@ namespace QuanLyBilliard.GUI
         public System.Windows.Forms.Label lbMaBan;
         public DevExpress.XtraEditors.LabelControl lbTenBan;
         public System.Windows.Forms.FlowLayoutPanel flpBan;
-        public System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.DataGridView dgvThucPham;
         public DevExpress.XtraEditors.LabelControl labelControl5;
         public DevExpress.XtraEditors.TextEdit txtTienNuoc;
         public DevExpress.XtraEditors.LabelControl labelControl4;

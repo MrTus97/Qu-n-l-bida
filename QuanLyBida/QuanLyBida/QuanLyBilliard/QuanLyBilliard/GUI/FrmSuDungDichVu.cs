@@ -192,7 +192,7 @@ namespace QuanLyBilliard.GUI
             if (v)
             {
                 //Enable
-                dataGridView2.Enabled = true;
+                dgvThucPhamTrongHoaDon.Enabled = true;
                 btnBatDau.Enabled = false;
                 dtBatDau.Enabled = false;
                 btnKetThuc.Enabled = true;
@@ -202,7 +202,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                dataGridView2.Enabled = false;
+                dgvThucPhamTrongHoaDon.Enabled = false;
                 txtSoGioChoi.Text = "";
                 btnBatDau.Enabled = true;
                 dtBatDau.Enabled = true;
@@ -214,7 +214,7 @@ namespace QuanLyBilliard.GUI
                 // Xóa ngày giờ lập hóa đơn
                 dtpNgay.Text = "";
                 dtBatDau.Text = "";
-                dataGridView2.Rows.Clear();
+                dgvThucPhamTrongHoaDon.Rows.Clear();
                 dtBatDau.Text = DateTime.Now.TimeOfDay.ToString();
             }
         }
@@ -373,7 +373,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDaiDienThucPham.Text = dataGridView1.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
+            btnDaiDienThucPham.Text = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
         }
 
 
@@ -384,7 +384,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void dataGridView2_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dataGridView2.CurrentRow;
+            DataGridViewRow row = dgvThucPhamTrongHoaDon.CurrentRow;
             btnDaiDienHangHoaDon.Tag = row;
             btnDaiDienHangHoaDon.Text = row.Cells[4].Value.ToString();
         }
@@ -473,7 +473,7 @@ namespace QuanLyBilliard.GUI
             {
                 MessageBox.Show("Bạn chưa chọn món thực phẩm cần sửa số lượng");
             }
-            else if (dataGridView2.CurrentRow.Cells[2].Value.ToString() == "1")
+            else if (dgvThucPhamTrongHoaDon.CurrentRow.Cells[2].Value.ToString() == "1")
             {
                 MessageBox.Show("Không thể giảm mặt hàng này vì số lượng còn 1");
             }
@@ -556,7 +556,7 @@ namespace QuanLyBilliard.GUI
                 MessageBox.Show("Bạn phải bật bàn trước khi gọi món");
             }else
             {
-                btnDaiDienThucPham.Text = dataGridView1.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
+                btnDaiDienThucPham.Text = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
                 int id_hoadon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
                 int soluong = 1;
                 int id_thucpham = Int32.Parse(btnDaiDienThucPham.Text);
@@ -576,10 +576,10 @@ namespace QuanLyBilliard.GUI
         {
             string keyword = txtTimKiem.Text;
             DataTable dt = blThucPham.TimThucPham(keyword);
-            dataGridView1.Rows.Clear();
+            dgvThucPham.Rows.Clear();
             foreach (DataRow row in dt.Rows)
             {
-                dataGridView1.Rows.Add(row["TENTHUCPHAM"],row["DVT"],row["GIABAN"],row["ID_THUCPHAM"]);
+                dgvThucPham.Rows.Add(row["TENTHUCPHAM"],row["DVT"],row["GIABAN"],row["ID_THUCPHAM"]);
             }
         }
 

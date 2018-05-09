@@ -49,15 +49,15 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-<<<<<<< HEAD
+
         public DataTable TimThucPham(string keyword)
         {
             string sql = "select * from thucpham where tenthucpham like N'%" + keyword + "%'";
-=======
+            return ldc.getDuLieu(sql);
+        }
         public DataTable layDuLieulenDataGridView()
         {
             string sql = "select TENLOAITHUCPHAM,TENTHUCPHAM,DVT,GIABAN,TENNHACUNGCAP,ID_THUCPHAM,ltp.ID_LOAITHUCPHAM,ncc.ID_NHACUNGCAP from THUCPHAM tp,LOAITHUCPHAM ltp,NHACUNGCAP ncc where tp.ID_LOAITHUCPHAM = ltp.ID_LOAITHUCPHAM and tp.ID_NHACUNGCAP=ncc.ID_NHACUNGCAP";
->>>>>>> origin/Khoa
             return ldc.getDuLieu(sql);
         }
     }

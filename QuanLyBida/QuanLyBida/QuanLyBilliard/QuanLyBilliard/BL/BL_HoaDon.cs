@@ -49,11 +49,11 @@ namespace QuanLyBilliard.BL
         public void ShowBill(HoaDon hd, out float tongtien)
         {
             DataTable dt = daHoaDon.showBill(hd.ID_HoaDon);
-            frmSuDungDichVu.dataGridView2.Rows.Clear();
+            frmSuDungDichVu.dgvThucPhamTrongHoaDon.Rows.Clear();
             tongtien = 0f;
             foreach (DataRow row in dt.Rows)
             {
-                frmSuDungDichVu.dataGridView2.Rows.Add(row.ItemArray);
+                frmSuDungDichVu.dgvThucPhamTrongHoaDon.Rows.Add(row.ItemArray);
                 tongtien += float.Parse(row["ThanhTien"].ToString());
             }
             

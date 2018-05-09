@@ -97,6 +97,12 @@
     <Compile Include="DTO\LoaiThucPham.cs" />
     <Compile Include="DTO\NhanVien.cs" />
     <Compile Include="DTO\ThucPham.cs" />
+    <Compile Include="GUI\FrmThanhToan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\FrmThanhToan.Designer.cs">
+      <DependentUpon>FrmThanhToan.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmThongKeDoanhThu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -186,12 +192,6 @@
     </Compile>
     <Compile Include="GUI\FrmTamUng.Designer.cs">
       <DependentUpon>FrmTamUng.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmThanhToan.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmThanhToan.Designer.cs">
-      <DependentUpon>FrmThanhToan.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmThongKeMatHang.cs">
       <SubType>Form</SubType>

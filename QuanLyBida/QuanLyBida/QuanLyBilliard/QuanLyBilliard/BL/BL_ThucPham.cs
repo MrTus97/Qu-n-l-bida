@@ -25,10 +25,10 @@ namespace QuanLyBilliard.BL
         public void getDuLieu(int id)
         {
             DataTable dt = daThucPham.getDuLieu(id);
-            frmSuDungDichVu.dataGridView1.Rows.Clear();
+            frmSuDungDichVu.dgvThucPham.Rows.Clear();
             foreach (DataRow row in dt.Rows)
             {
-                frmSuDungDichVu.dataGridView1.Rows.Add(row["TENTHUCPHAM"], row["DVT"], row["GIABAN"], row["ID_THUCPHAM"]);
+                frmSuDungDichVu.dgvThucPham.Rows.Add(row["TENTHUCPHAM"], row["DVT"], row["GIABAN"], row["ID_THUCPHAM"]);
 
             }
             //frmMain.dataGridView1.DataSource = daThucPham.getDuLieu(id);
@@ -70,17 +70,15 @@ namespace QuanLyBilliard.BL
             daThucPham.XoaMatHang(id);
         }
 
-<<<<<<< HEAD
+
         public DataTable TimThucPham(string keyword)
         {
             return daThucPham.TimThucPham(keyword);
-=======
-
+        }
 
         public DataTable layDuLieuLenDataGridView()
         {
             return daThucPham.layDuLieulenDataGridView();
->>>>>>> origin/Khoa
         }
 
         //public void loadNhaCungCap()

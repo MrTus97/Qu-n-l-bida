@@ -24,13 +24,13 @@ namespace QuanLyBilliard.BL
         const int TABLE_WIDTH = 70;
         const int TABLE_HEIGHT = 120;
         FrmHoaDon frmHoaDon;
-<<<<<<< HEAD
+
         #endregion
         /// <summary>
         /// Constructor cho Form Sử dụng dịch vụ
         /// </summary>
         /// <param name="f"></param>
-=======
+
         public BL_Ban(FrmDanhMucBanKhuVuc f)
         {
             frmDanhMucBanKhuVuc = f;
@@ -38,7 +38,7 @@ namespace QuanLyBilliard.BL
             daHoaDon = new DA_HoaDon();
         }
 
->>>>>>> origin/Khoa
+
         public BL_Ban(FrmSuDungDichVu f)
         {
             daTable = new DA_Ban();
@@ -48,7 +48,7 @@ namespace QuanLyBilliard.BL
             blKhachHang = new BL_KhachHang(f);
             frmSuDungDichVu = f;
         }
-<<<<<<< HEAD
+
         /// <summary>
         /// Lấy tất cả các bàn có trong csdl
         /// </summary>
@@ -61,10 +61,8 @@ namespace QuanLyBilliard.BL
         /// constructor cho Form Chuyển bàn
         /// </summary>
         /// <param name="f"></param>
-=======
 
 
->>>>>>> origin/Khoa
         public BL_Ban(FrmChuyenBan f)
         {
             frmChuyenBan = f;
@@ -83,15 +81,12 @@ namespace QuanLyBilliard.BL
             daTable = new DA_Ban();
         }
 
-<<<<<<< HEAD
        
         /// <summary>
         /// Chuyển bàn có id là v1 sang bàn có id là v2
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
-        public void ChuyenBan(string v1, string v2)
-=======
         public void themBan(string loaiBan, string TenBan)
         {
             int idLoaidBan = Int32.Parse(loaiBan);
@@ -99,7 +94,6 @@ namespace QuanLyBilliard.BL
         }
 
         internal void ChuyenBan(string v1, string v2)
->>>>>>> origin/Khoa
         {
             int curr = Int32.Parse(v1);
             int taget = Int32.Parse(v2);
@@ -118,11 +112,10 @@ namespace QuanLyBilliard.BL
             return daTable.TATBAN(idhoadon);
         }
 
-<<<<<<< HEAD
         public int KetThuc(int idhoadon)
         {
             return daTable.TATBAN(idhoadon);
-=======
+        }
 
 
         internal void capNhatBan(string text1, string loaiBan, string text2)
@@ -132,31 +125,31 @@ namespace QuanLyBilliard.BL
             daTable.capNhatBan(idBan,idLoaidBan, text2);
         }
 
-        /// <summary>
-        /// Hiển thị lại bàn khi có sự thay đổi
-        /// </summary>
-        public void HienThiBan()
-        {
-            //Xóa hết các bàn hiện tại để tải lại bàn mới
-            frmSuDungDichVu.flpBan.Controls.Clear();
-            List<Ban> lst = daTable.LayBan();
-            foreach (Ban table in lst)
-            {
-                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
-                Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
-                btn.Text = table.TenBan;
-                if (table.TrangThai)
-                {
-                    btn.BackColor = Color.Aqua;
-                }
-                else btn.BackColor = Color.Brown;
-                //Catch Event
-                btn.Click += new EventHandler(btn_Click);
-                btn.Tag = table;
-                // Add control (as button) in flowLayout
-                frmSuDungDichVu.flpBan.Controls.Add(btn);
-            }
-        }
+        ///// <summary>
+        ///// Hiển thị lại bàn khi có sự thay đổi
+        ///// </summary>
+        //public void HienThiBan()
+        //{
+        //    //Xóa hết các bàn hiện tại để tải lại bàn mới
+        //    frmSuDungDichVu.flpBan.Controls.Clear();
+        //    List<Ban> lst = daTable.LayBan();
+        //    foreach (Ban table in lst)
+        //    {
+        //        // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
+        //        Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
+        //        btn.Text = table.TenBan;
+        //        if (table.TrangThai)
+        //        {
+        //            btn.BackColor = Color.Aqua;
+        //        }
+        //        else btn.BackColor = Color.Brown;
+        //        //Catch Event
+        //        btn.Click += new EventHandler(btn_Click);
+        //        btn.Tag = table;
+        //        // Add control (as button) in flowLayout
+        //        frmSuDungDichVu.flpBan.Controls.Add(btn);
+        //    }
+        //}
 
         public void xoaBan(string text)
         {
@@ -181,43 +174,42 @@ namespace QuanLyBilliard.BL
             frmDanhMucBanKhuVuc.cbxLoaiBan.ValueMember = "ID_LoaiBan";
         }
 
-        public void HienThiBanTat()
-        {
-            frmChuyenBan.flpBanTat.Controls.Clear();
-            List<Ban> lst = daTable.LayBan();
-            List<Ban> chuabat = new List<Ban>();
-            List<Ban> batroi = new List<Ban>();
-            foreach (Ban table in lst)
-            {
-                // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
-                if (!table.TrangThai)
-                {
-                    chuabat.Add(table);
-                    Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
-                    btn.Text = table.TenBan;
-                    btn.BackColor = Color.Brown;
-                    btn.Click += new EventHandler(btnChonBanChuyen_Click);
+        //public void HienThiBanTat()
+        //{
+        //    frmChuyenBan.flpBanTat.Controls.Clear();
+        //    List<Ban> lst = daTable.LayBan();
+        //    List<Ban> chuabat = new List<Ban>();
+        //    List<Ban> batroi = new List<Ban>();
+        //    foreach (Ban table in lst)
+        //    {
+        //        // Tạo ra các button bàn, các thuộc tính của bàn như text và cách hiển thị màu của nó
+        //        if (!table.TrangThai)
+        //        {
+        //            chuabat.Add(table);
+        //            Button btn = new Button() { Width = TABLE_WIDTHHEIGHT, Height = TABLE_WIDTHHEIGHT };
+        //            btn.Text = table.TenBan;
+        //            btn.BackColor = Color.Brown;
+        //            btn.Click += new EventHandler(btnChonBanChuyen_Click);
 
-                    btn.Tag = table;
-                    frmChuyenBan.flpBanTat.Controls.Add(btn);  
-                }
-                else
-                {
-                    batroi.Add(table);
-                }
-            }
-            frmChuyenBan.cbBanChuyen.DataSource = chuabat;
-            frmChuyenBan.cbBanChuyen.DisplayMember = "TenBan";
-            frmChuyenBan.cbBanChuyen.ValueMember = "ID_Ban";
+        //            btn.Tag = table;
+        //            frmChuyenBan.flpBanTat.Controls.Add(btn);  
+        //        }
+        //        else
+        //        {
+        //            batroi.Add(table);
+        //        }
+        //    }
+        //    frmChuyenBan.cbBanChuyen.DataSource = chuabat;
+        //    frmChuyenBan.cbBanChuyen.DisplayMember = "TenBan";
+        //    frmChuyenBan.cbBanChuyen.ValueMember = "ID_Ban";
 
-            frmChuyenBan.cbBanHienTai.DataSource = batroi;
+        //    frmChuyenBan.cbBanHienTai.DataSource = batroi;
             
-            frmChuyenBan.cbBanHienTai.DisplayMember = "TenBan";
-            frmChuyenBan.cbBanHienTai.ValueMember = "ID_Ban";
-            //frmChuyenBan.cbBanHienTai.SelectedValue = (frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_Ban;
+        //    frmChuyenBan.cbBanHienTai.DisplayMember = "TenBan";
+        //    frmChuyenBan.cbBanHienTai.ValueMember = "ID_Ban";
+        //    //frmChuyenBan.cbBanHienTai.SelectedValue = (frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_Ban;
 
->>>>>>> origin/Khoa
-        }
+        //}
 
         public DataTable LayHoaDon(Ban ban)
         {

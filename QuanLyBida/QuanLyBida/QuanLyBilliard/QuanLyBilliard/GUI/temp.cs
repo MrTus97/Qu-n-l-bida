@@ -27,7 +27,6 @@ namespace QuanLyBilliard.GUI
 
 
         }
-        private Bitmap MyImage;
         public void ShowMyImage(string fileToDisplay, int xSize, int ySize)
         {
             //// Sets up an image object to be displayed.

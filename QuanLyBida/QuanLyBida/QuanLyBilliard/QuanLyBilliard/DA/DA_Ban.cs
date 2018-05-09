@@ -64,7 +64,7 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-<<<<<<< HEAD
+
         
         /// <summary>
         /// Chuyển bàn curr sang taget
@@ -72,7 +72,7 @@ namespace QuanLyBilliard.DA
         /// <param name="curr"></param>
         /// <param name="taget"></param>
         /// <returns></returns>
-=======
+
         public int themBan(int idLoaiBan, string tenBan)
         {
             string sql = "insert into BAN values ('" + tenBan + "',0,null,null,"+idLoaiBan+")";
@@ -80,7 +80,6 @@ namespace QuanLyBilliard.DA
         }
 
 
->>>>>>> origin/Khoa
         public int chuyenBan(int curr, int taget)
         {
             /*CREATE PROCEDURE chuyenban
@@ -96,9 +95,8 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-<<<<<<< HEAD
-        public int TATBAN(HoaDon hd,int idNhanVien,int idkhachhang,float tiengio,float tienthucpham)
-=======
+
+
         public int capNhatBan(int idBan, int idLoaidBan, string text2)
         {
             string sql = "update ban set TENBAN = '"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
@@ -106,8 +104,8 @@ namespace QuanLyBilliard.DA
         }
 
 
-        public int TATBAN(HoaDon hd,int idNhanVien)
->>>>>>> origin/Khoa
+        //public int TATBAN(HoaDon hd,int idNhanVien)
+        public int TATBAN(HoaDon hd, int idNhanVien, int idkhachhang, float tiengio, float tienthucpham)
         {
 
             /*
