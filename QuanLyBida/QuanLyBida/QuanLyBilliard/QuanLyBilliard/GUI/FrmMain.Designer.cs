@@ -209,6 +209,7 @@
             this.btnDanhMucBan.Id = 12;
             this.btnDanhMucBan.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnDanhMucBan.LargeGlyph")));
             this.btnDanhMucBan.Name = "btnDanhMucBan";
+            this.btnDanhMucBan.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnDanhMucBan_ItemClick);
             // 
             // btnQuanLyBanHang
             // 
@@ -592,6 +593,7 @@
             this.Ribbon = this.ribbonControl1;
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Load += new System.EventHandler(this.FrmMain_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ribbonControl1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.xtraTabbedMdiManager1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).EndInit();

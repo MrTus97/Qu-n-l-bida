@@ -60,5 +60,10 @@ namespace QuanLyBilliard.BL
         {
             return daKhachHang.LayKhachHang();
         }
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            return daKhachHang.layDuLieuLenDataGridView();
+        }
     }
 }

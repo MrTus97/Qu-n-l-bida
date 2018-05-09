@@ -53,6 +53,14 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.LoaiThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_LOAITHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_NHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -102,14 +110,24 @@
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.LoaiThucPham,
+            this.TenThucPham,
+            this.DonViTinh,
+            this.GiaBan,
+            this.NhaCungCap,
+            this.IDTHUCPHAM,
+            this.ID_LOAITHUCPHAM,
+            this.ID_NHACUNGCAP});
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.dataGridView1.Location = new System.Drawing.Point(695, 2);
+            this.dataGridView1.Location = new System.Drawing.Point(685, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.RowHeadersVisible = false;
-            this.dataGridView1.Size = new System.Drawing.Size(629, 401);
+            this.dataGridView1.Size = new System.Drawing.Size(639, 401);
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
             // 
             // panel3
             // 
@@ -316,6 +334,60 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // LoaiThucPham
+            // 
+            this.LoaiThucPham.HeaderText = "Loại Thực Phẩm";
+            this.LoaiThucPham.Name = "LoaiThucPham";
+            this.LoaiThucPham.ReadOnly = true;
+            this.LoaiThucPham.Width = 150;
+            // 
+            // TenThucPham
+            // 
+            this.TenThucPham.HeaderText = "Tên Thực Phẩm";
+            this.TenThucPham.Name = "TenThucPham";
+            this.TenThucPham.ReadOnly = true;
+            this.TenThucPham.Width = 150;
+            // 
+            // DonViTinh
+            // 
+            this.DonViTinh.HeaderText = "Đơn Vị Tính";
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.HeaderText = "Giá Bán";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            // 
+            // NhaCungCap
+            // 
+            this.NhaCungCap.HeaderText = "Nhà Cung Cấp";
+            this.NhaCungCap.Name = "NhaCungCap";
+            this.NhaCungCap.ReadOnly = true;
+            this.NhaCungCap.Width = 135;
+            // 
+            // IDTHUCPHAM
+            // 
+            this.IDTHUCPHAM.HeaderText = "Column1";
+            this.IDTHUCPHAM.Name = "IDTHUCPHAM";
+            this.IDTHUCPHAM.ReadOnly = true;
+            this.IDTHUCPHAM.Visible = false;
+            // 
+            // ID_LOAITHUCPHAM
+            // 
+            this.ID_LOAITHUCPHAM.HeaderText = "ID_LOAITHUCPHAM";
+            this.ID_LOAITHUCPHAM.Name = "ID_LOAITHUCPHAM";
+            this.ID_LOAITHUCPHAM.ReadOnly = true;
+            this.ID_LOAITHUCPHAM.Visible = false;
+            // 
+            // ID_NHACUNGCAP
+            // 
+            this.ID_NHACUNGCAP.HeaderText = "ID_NHACUNGCAP";
+            this.ID_NHACUNGCAP.Name = "ID_NHACUNGCAP";
+            this.ID_NHACUNGCAP.ReadOnly = true;
+            this.ID_NHACUNGCAP.Visible = false;
+            // 
             // FrmDanhMucMatHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -369,5 +441,13 @@
         public System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LoaiThucPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenThucPham;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DonViTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiaBan;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NhaCungCap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDTHUCPHAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_LOAITHUCPHAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_NHACUNGCAP;
     }
 }
