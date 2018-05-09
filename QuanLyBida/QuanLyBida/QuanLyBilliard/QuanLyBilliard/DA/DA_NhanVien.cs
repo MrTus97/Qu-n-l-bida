@@ -27,6 +27,17 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public string QuenMatKhau(string text)
+        {
+            string sql = "select matkhau from dangnhap where tendangnhap = '"+ text +"'";
+            object result = ldc.ExecuteScalar(sql);
+            if (result == null)
+            {
+                return "";
+            }
+            return ldc.ExecuteScalar(sql).ToString();
+        }
+
         public int XoaNhanVien(int idNhanVien)
         {
             string sql = "Delete NHANVIEN where ID_NhanVien = " + idNhanVien ;

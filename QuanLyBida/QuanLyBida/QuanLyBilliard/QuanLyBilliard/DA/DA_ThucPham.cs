@@ -20,7 +20,7 @@ namespace QuanLyBilliard.DA
 
         public int ThemMatHang(string tenthucpham,string dvt,int idLoaiThucPham, float dongia,int idNhaCungCap)
         {
-            string sql = "insert into thucpham values('"+tenthucpham+"','"+dvt+"',"+idLoaiThucPham+",0,"+dongia+","+idNhaCungCap+")";
+            string sql = "insert into thucpham values('"+tenthucpham+"','"+dvt+"',"+idLoaiThucPham+","+dongia+","+idNhaCungCap+",0)";
             return ldc.ExecuteNonQuery(sql);
         }
 
@@ -46,6 +46,12 @@ namespace QuanLyBilliard.DA
         {
             string sql = "delete thucpham where id_thucpham = " + id;
             return ldc.ExecuteNonQuery(sql);
+        }
+
+        public DataTable TimThucPham(string keyword)
+        {
+            string sql = "select * from thucpham where tenthucpham like N'%" + keyword + "%'";
+            return ldc.getDuLieu(sql);
         }
     }
 }

@@ -51,5 +51,11 @@ namespace QuanLyBilliard.BL
             else { MessageBox.Show("That bai"); }
 
         }
+
+        internal void ThemCapBac(string tencapbac, string hesoluong)
+        {
+            float hsl = float.Parse(hesoluong);
+            daCapBac.ThemCapBac(tencapbac, hsl);
+        }
     }
 }

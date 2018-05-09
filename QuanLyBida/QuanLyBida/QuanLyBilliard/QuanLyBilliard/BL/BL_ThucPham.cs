@@ -68,6 +68,11 @@ namespace QuanLyBilliard.BL
             daThucPham.XoaMatHang(id);
         }
 
+        public DataTable TimThucPham(string keyword)
+        {
+            return daThucPham.TimThucPham(keyword);
+        }
+
         //public void loadNhaCungCap()
         //{
         //    frmDanhMucMatHang.cbxNhaCungCap.DataSource = daThucPham.getDuLieu();

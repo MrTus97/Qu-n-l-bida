@@ -15,18 +15,12 @@ namespace QuanLyBilliard.GUI
     public partial class FrmDangNhap : DevExpress.XtraEditors.XtraForm
     {
         BL_DangNhap blDangNhap;
-        private FrmMain frmMain;
-
         public FrmDangNhap()
         {
             InitializeComponent();
             blDangNhap = new BL_DangNhap(this);
         }
 
-        private void panelControl1_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
 
         private void btnThoat_Click(object sender, EventArgs e)
         {
@@ -35,18 +29,38 @@ namespace QuanLyBilliard.GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+
             string tendangnhap = txtTenDangNhap.Text;
             string matkhau = txtMatKhau.Text;
-            int i = blDangNhap.DangNhap(tendangnhap, matkhau);
-            if (i > 0)
+            if (tendangnhap == "" || matkhau == "")
             {
-                blDangNhap.HienThiFormMain();
-                this.Hide();
+                MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống");
             }
             else
             {
-                MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                int i = blDangNhap.DangNhap(tendangnhap, matkhau);
+                if (i > 0)
+                {
+                    blDangNhap.HienThiFormMain(tendangnhap);
+                    this.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                }
             }
+           
+        }
+
+        private void FrmDangNhap_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            FrmQuenMatKhau f = new FrmQuenMatKhau();
+            f.ShowDialog();
         }
     }
 }

@@ -8,7 +8,6 @@ namespace QuanLyBilliard.BL
     class BL_DangNhap
     {
         DA_DangNhap daDangNhap;
-        FrmMain frmMain;
         FrmDangNhap frmDangNhap;
         public BL_DangNhap(FrmDangNhap f)
         {
@@ -20,8 +19,9 @@ namespace QuanLyBilliard.BL
             DataTable dt = daDangNhap.LayDuLieu(tendangnhap, matkhau);
             return dt.Rows.Count;
         }
-        public void HienThiFormMain()
+        public void HienThiFormMain(string tendangnhap)
         {
+            int i = daDangNhap.LayCapBac(tendangnhap);
             FrmMain f = new FrmMain();
             f.Show();
         }

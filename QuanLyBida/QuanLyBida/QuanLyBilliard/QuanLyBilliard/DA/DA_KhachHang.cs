@@ -18,7 +18,7 @@ namespace QuanLyBilliard.DA
             {
                 sql = "select * from loaikhachhang";
             }
-            catch (SqlException ex)
+            catch (SqlException )
             {
                 Console.WriteLine("getdulieu ");
             }

@@ -15,5 +15,10 @@ namespace QuanLyBilliard.DA
             string sql = "select * from DANGNHAP where tendangnhap ='" + tendangnhap + "' and matkhau ='" + matkhau + "'";
             return ldc.getDuLieu(sql);
         }
+
+        public int LayCapBac(string tendangnhap)
+        {
+            return 1;
+        }
     }
 }

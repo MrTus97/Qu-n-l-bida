@@ -1,4 +1,6 @@
-﻿namespace QuanLyBilliard.GUI
+﻿using DevExpress.XtraEditors;
+
+namespace QuanLyBilliard.GUI
 {
     partial class FrmSuDungDichVu
     {
@@ -28,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSuDungDichVu));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -61,11 +64,9 @@
             this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnDoiGiaBan = new DevExpress.XtraEditors.SimpleButton();
             this.btnDoiSoLuong = new DevExpress.XtraEditors.SimpleButton();
             this.dtpNgay = new DevExpress.XtraEditors.DateEdit();
             this.labelControl3 = new DevExpress.XtraEditors.LabelControl();
-            this.btnInPhieuCheBien = new DevExpress.XtraEditors.SimpleButton();
             this.btnXoa = new DevExpress.XtraEditors.SimpleButton();
             this.btnThem = new DevExpress.XtraEditors.SimpleButton();
             this.cbSoLuong = new DevExpress.XtraEditors.ComboBoxEdit();
@@ -76,7 +77,6 @@
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.btnBatDau = new DevExpress.XtraEditors.SimpleButton();
             this.btnKetThuc = new DevExpress.XtraEditors.SimpleButton();
-            this.btnThongKe = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnHoaDon = new System.Windows.Forms.Button();
             this.btnDaiDienBan = new System.Windows.Forms.Button();
@@ -98,6 +98,9 @@
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.ContextMenuBan = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tínhTiềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hủyHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -132,6 +135,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
+            this.ContextMenuBan.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -198,11 +202,9 @@
             this.panel4.Controls.Add(this.labelControl6);
             this.panel4.Controls.Add(this.txtGiamGiaGio);
             this.panel4.Controls.Add(this.dataGridView2);
-            this.panel4.Controls.Add(this.btnDoiGiaBan);
             this.panel4.Controls.Add(this.btnDoiSoLuong);
             this.panel4.Controls.Add(this.dtpNgay);
             this.panel4.Controls.Add(this.labelControl3);
-            this.panel4.Controls.Add(this.btnInPhieuCheBien);
             this.panel4.Controls.Add(this.btnXoa);
             this.panel4.Controls.Add(this.btnThem);
             this.panel4.Controls.Add(this.cbSoLuong);
@@ -267,9 +269,9 @@
             // 
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(53, 59);
+            this.simpleButton4.Location = new System.Drawing.Point(81, 55);
             this.simpleButton4.Name = "simpleButton4";
-            this.simpleButton4.Size = new System.Drawing.Size(22, 18);
+            this.simpleButton4.Size = new System.Drawing.Size(28, 25);
             this.simpleButton4.TabIndex = 88;
             this.simpleButton4.Click += new System.EventHandler(this.simpleButton4_Click);
             // 
@@ -285,6 +287,7 @@
             // 
             // labelControl5
             // 
+            this.labelControl5.Enabled = false;
             this.labelControl5.Location = new System.Drawing.Point(159, 403);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(47, 13);
@@ -293,13 +296,16 @@
             // 
             // txtTienNuoc
             // 
+            this.txtTienNuoc.Enabled = false;
             this.txtTienNuoc.Location = new System.Drawing.Point(216, 402);
             this.txtTienNuoc.Name = "txtTienNuoc";
+            this.txtTienNuoc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienNuoc.Size = new System.Drawing.Size(84, 20);
             this.txtTienNuoc.TabIndex = 85;
             // 
             // labelControl4
             // 
+            this.labelControl4.Enabled = false;
             this.labelControl4.Location = new System.Drawing.Point(160, 379);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(37, 13);
@@ -308,8 +314,10 @@
             // 
             // txtTienGio
             // 
+            this.txtTienGio.Enabled = false;
             this.txtTienGio.Location = new System.Drawing.Point(216, 376);
             this.txtTienGio.Name = "txtTienGio";
+            this.txtTienGio.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienGio.Size = new System.Drawing.Size(84, 20);
             this.txtTienGio.TabIndex = 83;
             // 
@@ -326,6 +334,7 @@
             this.txtSoHD.Enabled = false;
             this.txtSoHD.Location = new System.Drawing.Point(286, 6);
             this.txtSoHD.Name = "txtSoHD";
+            this.txtSoHD.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtSoHD.Size = new System.Drawing.Size(84, 20);
             this.txtSoHD.TabIndex = 64;
             // 
@@ -339,6 +348,7 @@
             // 
             // labelControl8
             // 
+            this.labelControl8.Enabled = false;
             this.labelControl8.Location = new System.Drawing.Point(160, 429);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(50, 13);
@@ -347,8 +357,10 @@
             // 
             // txtTongCong
             // 
+            this.txtTongCong.Enabled = false;
             this.txtTongCong.Location = new System.Drawing.Point(216, 426);
             this.txtTongCong.Name = "txtTongCong";
+            this.txtTongCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTongCong.Size = new System.Drawing.Size(84, 20);
             this.txtTongCong.TabIndex = 79;
             // 
@@ -362,6 +374,7 @@
             // 
             // txtGiamGiaNuoc
             // 
+            this.txtGiamGiaNuoc.EditValue = "0";
             this.txtGiamGiaNuoc.Location = new System.Drawing.Point(90, 400);
             this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
             this.txtGiamGiaNuoc.Size = new System.Drawing.Size(55, 20);
@@ -377,10 +390,12 @@
             // 
             // txtGiamGiaGio
             // 
+            this.txtGiamGiaGio.EditValue = "0";
             this.txtGiamGiaGio.Location = new System.Drawing.Point(90, 376);
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
             this.txtGiamGiaGio.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaGio.TabIndex = 75;
+            this.txtGiamGiaGio.EditValueChanged += new System.EventHandler(this.txtGiamGiaGio_EditValueChanged);
             // 
             // dataGridView2
             // 
@@ -434,18 +449,11 @@
             this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
             this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
             this.ID_THUCPHAM1.ReadOnly = true;
-            // 
-            // btnDoiGiaBan
-            // 
-            this.btnDoiGiaBan.Location = new System.Drawing.Point(193, 56);
-            this.btnDoiGiaBan.Name = "btnDoiGiaBan";
-            this.btnDoiGiaBan.Size = new System.Drawing.Size(100, 23);
-            this.btnDoiGiaBan.TabIndex = 69;
-            this.btnDoiGiaBan.Text = "Đổi giá bán";
+            this.ID_THUCPHAM1.Visible = false;
             // 
             // btnDoiSoLuong
             // 
-            this.btnDoiSoLuong.Location = new System.Drawing.Point(81, 56);
+            this.btnDoiSoLuong.Location = new System.Drawing.Point(159, 56);
             this.btnDoiSoLuong.Name = "btnDoiSoLuong";
             this.btnDoiSoLuong.Size = new System.Drawing.Size(106, 23);
             this.btnDoiSoLuong.TabIndex = 68;
@@ -471,15 +479,6 @@
             this.labelControl3.Size = new System.Drawing.Size(48, 13);
             this.labelControl3.TabIndex = 61;
             this.labelControl3.Text = "Nhân viên";
-            // 
-            // btnInPhieuCheBien
-            // 
-            this.btnInPhieuCheBien.AppearanceHovered.GradientMode = System.Drawing.Drawing2D.LinearGradientMode.ForwardDiagonal;
-            this.btnInPhieuCheBien.Location = new System.Drawing.Point(304, 300);
-            this.btnInPhieuCheBien.Name = "btnInPhieuCheBien";
-            this.btnInPhieuCheBien.Size = new System.Drawing.Size(70, 63);
-            this.btnInPhieuCheBien.TabIndex = 57;
-            this.btnInPhieuCheBien.Text = "In phiếu \r\nchế biến\r\n";
             // 
             // btnXoa
             // 
@@ -541,7 +540,7 @@
             this.btnChuyenBan.Appearance.Options.UseFont = true;
             this.btnChuyenBan.Image = ((System.Drawing.Image)(resources.GetObject("btnChuyenBan.Image")));
             this.btnChuyenBan.ImageLocation = DevExpress.XtraEditors.ImageLocation.TopCenter;
-            this.btnChuyenBan.Location = new System.Drawing.Point(304, 56);
+            this.btnChuyenBan.Location = new System.Drawing.Point(300, 59);
             this.btnChuyenBan.Name = "btnChuyenBan";
             this.btnChuyenBan.Size = new System.Drawing.Size(70, 66);
             this.btnChuyenBan.TabIndex = 51;
@@ -556,7 +555,6 @@
             this.panel3.Controls.Add(this.btnThanhToan);
             this.panel3.Controls.Add(this.btnBatDau);
             this.panel3.Controls.Add(this.btnKetThuc);
-            this.panel3.Controls.Add(this.btnThongKe);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(2, 31);
             this.panel3.Name = "panel3";
@@ -595,7 +593,7 @@
             // 
             // btnThanhToan
             // 
-            this.btnThanhToan.Location = new System.Drawing.Point(223, 6);
+            this.btnThanhToan.Location = new System.Drawing.Point(300, 3);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(70, 38);
             this.btnThanhToan.TabIndex = 59;
@@ -620,15 +618,6 @@
             this.btnKetThuc.Text = "Kết thúc";
             this.btnKetThuc.Click += new System.EventHandler(this.btnKetThuc_Click);
             // 
-            // btnThongKe
-            // 
-            this.btnThongKe.ImageLocation = DevExpress.XtraEditors.ImageLocation.BottomRight;
-            this.btnThongKe.Location = new System.Drawing.Point(299, 6);
-            this.btnThongKe.Name = "btnThongKe";
-            this.btnThongKe.Size = new System.Drawing.Size(70, 38);
-            this.btnThongKe.TabIndex = 59;
-            this.btnThongKe.Text = "Thống kê";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.btnHoaDon);
@@ -643,7 +632,7 @@
             // 
             // btnHoaDon
             // 
-            this.btnHoaDon.Location = new System.Drawing.Point(90, 1);
+            this.btnHoaDon.Location = new System.Drawing.Point(186, -1);
             this.btnHoaDon.Name = "btnHoaDon";
             this.btnHoaDon.Size = new System.Drawing.Size(114, 23);
             this.btnHoaDon.TabIndex = 61;
@@ -654,7 +643,7 @@
             // 
             // btnDaiDienBan
             // 
-            this.btnDaiDienBan.Location = new System.Drawing.Point(218, 3);
+            this.btnDaiDienBan.Location = new System.Drawing.Point(306, 0);
             this.btnDaiDienBan.Name = "btnDaiDienBan";
             this.btnDaiDienBan.Size = new System.Drawing.Size(75, 23);
             this.btnDaiDienBan.TabIndex = 60;
@@ -755,6 +744,7 @@
             this.ID_THUCPHAM.HeaderText = "ID";
             this.ID_THUCPHAM.Name = "ID_THUCPHAM";
             this.ID_THUCPHAM.ReadOnly = true;
+            this.ID_THUCPHAM.Visible = false;
             // 
             // panelControl3
             // 
@@ -793,6 +783,7 @@
             this.simpleButton1.Size = new System.Drawing.Size(24, 24);
             this.simpleButton1.TabIndex = 2;
             this.simpleButton1.Text = "TK";
+            this.simpleButton1.Click += new System.EventHandler(this.simpleButton1_Click);
             // 
             // txtTimKiem
             // 
@@ -829,6 +820,26 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(988, 530);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // ContextMenuBan
+            // 
+            this.ContextMenuBan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tínhTiềnToolStripMenuItem,
+            this.hủyHóaĐơnToolStripMenuItem});
+            this.ContextMenuBan.Name = "ContextMenuBan";
+            this.ContextMenuBan.Size = new System.Drawing.Size(147, 48);
+            // 
+            // tínhTiềnToolStripMenuItem
+            // 
+            this.tínhTiềnToolStripMenuItem.Name = "tínhTiềnToolStripMenuItem";
+            this.tínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.tínhTiềnToolStripMenuItem.Text = "Kết thúc";
+            // 
+            // hủyHóaĐơnToolStripMenuItem
+            // 
+            this.hủyHóaĐơnToolStripMenuItem.Name = "hủyHóaĐơnToolStripMenuItem";
+            this.hủyHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
+            this.hủyHóaĐơnToolStripMenuItem.Text = "Hủy Hóa Đơn";
             // 
             // FrmSuDungDichVu
             // 
@@ -877,6 +888,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
+            this.ContextMenuBan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -908,12 +920,9 @@
         public DevExpress.XtraEditors.LabelControl labelControl6;
         public DevExpress.XtraEditors.TextEdit txtGiamGiaGio;
         public System.Windows.Forms.DataGridView dataGridView2;
-        public DevExpress.XtraEditors.SimpleButton btnDoiGiaBan;
         public DevExpress.XtraEditors.SimpleButton btnDoiSoLuong;
         public DevExpress.XtraEditors.DateEdit dtpNgay;
         public DevExpress.XtraEditors.LabelControl labelControl3;
-        public DevExpress.XtraEditors.SimpleButton btnThongKe;
-        public DevExpress.XtraEditors.SimpleButton btnInPhieuCheBien;
         public DevExpress.XtraEditors.SimpleButton btnXoa;
         public DevExpress.XtraEditors.SimpleButton btnThem;
         public DevExpress.XtraEditors.ComboBoxEdit cbSoLuong;
@@ -930,27 +939,34 @@
         public DevExpress.XtraEditors.LabelControl lbTenBan;
         public System.Windows.Forms.FlowLayoutPanel flpBan;
         public System.Windows.Forms.DataGridView dataGridView1;
-        public System.Windows.Forms.DataGridViewTextBoxColumn TENTHUCPHAM;
-        public System.Windows.Forms.DataGridViewTextBoxColumn DVT;
-        public System.Windows.Forms.DataGridViewTextBoxColumn GIABAN;
-        public System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM;
         public DevExpress.XtraEditors.LabelControl labelControl5;
         public DevExpress.XtraEditors.TextEdit txtTienNuoc;
         public DevExpress.XtraEditors.LabelControl labelControl4;
-        public DevExpress.XtraEditors.TextEdit txtTienGio;
+        public DevExpress.XtraEditors.TextEdit 
+            
+            
+            Gio;
         private DevExpress.XtraEditors.SimpleButton simpleButton4;
         private DevExpress.XtraEditors.SimpleButton simpleButton2;
         private DevExpress.XtraEditors.LabelControl labelControl9;
         public DevExpress.XtraEditors.DateEdit dtBatDau;
         private DevExpress.XtraEditors.SimpleButton btnDaiDienHangHoaDon;
+        private DevExpress.XtraEditors.SimpleButton simpleButton3;
+        public DevExpress.XtraEditors.LabelControl labelControl10;
+        public System.Windows.Forms.ComboBox cbNhanVien;
+        public System.Windows.Forms.ComboBox cbKhachHang;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENMATHANG;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn ThanhTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM1;
-        private DevExpress.XtraEditors.SimpleButton simpleButton3;
-        public DevExpress.XtraEditors.LabelControl labelControl10;
-        public System.Windows.Forms.ComboBox cbNhanVien;
-        public System.Windows.Forms.ComboBox cbKhachHang;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TENTHUCPHAM;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuBan;
+        private System.Windows.Forms.ToolStripMenuItem tínhTiềnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hủyHóaĐơnToolStripMenuItem;
+        private TextEdit txtTienGio;
     }
 }
