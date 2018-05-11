@@ -40,9 +40,19 @@
             this.barDockControlRight = new DevExpress.XtraBars.BarDockControl();
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtIDNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.dtgNhanVien = new System.Windows.Forms.DataGridView();
+            this.TenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CaTruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCapBac = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -53,9 +63,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.lbTenDangNhap = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.txtTenDangNhap = new DevExpress.XtraEditors.TextEdit();
             this.txtSoDienThoai = new DevExpress.XtraEditors.TextEdit();
             this.txtCMND = new DevExpress.XtraEditors.TextEdit();
             this.txtCaTruc = new DevExpress.XtraEditors.TextEdit();
@@ -70,7 +78,6 @@
             this.panelControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDNhanVien.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhanVien)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCaTruc.Properties)).BeginInit();
@@ -136,14 +143,14 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(786, 31);
+            this.barDockControlTop.Size = new System.Drawing.Size(1095, 31);
             // 
             // barDockControlBottom
             // 
             this.barDockControlBottom.CausesValidation = false;
             this.barDockControlBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.barDockControlBottom.Location = new System.Drawing.Point(0, 405);
-            this.barDockControlBottom.Size = new System.Drawing.Size(786, 0);
+            this.barDockControlBottom.Size = new System.Drawing.Size(1095, 0);
             // 
             // barDockControlLeft
             // 
@@ -156,7 +163,7 @@
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(786, 31);
+            this.barDockControlRight.Location = new System.Drawing.Point(1095, 31);
             this.barDockControlRight.Size = new System.Drawing.Size(0, 374);
             // 
             // layoutControl1
@@ -166,12 +173,13 @@
             this.layoutControl1.Location = new System.Drawing.Point(0, 31);
             this.layoutControl1.Name = "layoutControl1";
             this.layoutControl1.Root = this.layoutControlGroup1;
-            this.layoutControl1.Size = new System.Drawing.Size(786, 374);
+            this.layoutControl1.Size = new System.Drawing.Size(1095, 374);
             this.layoutControl1.TabIndex = 15;
             this.layoutControl1.Text = "layoutControl1";
             // 
             // panelControl1
             // 
+            this.panelControl1.Controls.Add(this.textBox1);
             this.panelControl1.Controls.Add(this.label8);
             this.panelControl1.Controls.Add(this.txtIDNhanVien);
             this.panelControl1.Controls.Add(this.dtgNhanVien);
@@ -185,9 +193,7 @@
             this.panelControl1.Controls.Add(this.label5);
             this.panelControl1.Controls.Add(this.label4);
             this.panelControl1.Controls.Add(this.label3);
-            this.panelControl1.Controls.Add(this.lbTenDangNhap);
             this.panelControl1.Controls.Add(this.label1);
-            this.panelControl1.Controls.Add(this.txtTenDangNhap);
             this.panelControl1.Controls.Add(this.txtSoDienThoai);
             this.panelControl1.Controls.Add(this.txtCMND);
             this.panelControl1.Controls.Add(this.txtCaTruc);
@@ -195,8 +201,16 @@
             this.panelControl1.Controls.Add(this.groupBox1);
             this.panelControl1.Location = new System.Drawing.Point(12, 12);
             this.panelControl1.Name = "panelControl1";
-            this.panelControl1.Size = new System.Drawing.Size(762, 350);
+            this.panelControl1.Size = new System.Drawing.Size(1071, 350);
             this.panelControl1.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(436, 186);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 21);
+            this.textBox1.TabIndex = 22;
+            this.textBox1.Visible = false;
             // 
             // label8
             // 
@@ -217,18 +231,88 @@
             // 
             // dtgNhanVien
             // 
+            this.dtgNhanVien.AllowUserToAddRows = false;
+            this.dtgNhanVien.AllowUserToDeleteRows = false;
             this.dtgNhanVien.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtgNhanVien.Location = new System.Drawing.Point(310, 141);
+            this.dtgNhanVien.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TenNhanVien,
+            this.Cmnd,
+            this.SoDienThoai,
+            this.CaTruc,
+            this.NgaySinh,
+            this.GioiTinh,
+            this.CapBac,
+            this.IDNhanVien,
+            this.IDCapBac});
+            this.dtgNhanVien.Location = new System.Drawing.Point(276, 129);
             this.dtgNhanVien.Name = "dtgNhanVien";
+            this.dtgNhanVien.ReadOnly = true;
             this.dtgNhanVien.RowHeadersVisible = false;
-            this.dtgNhanVien.Size = new System.Drawing.Size(361, 190);
+            this.dtgNhanVien.Size = new System.Drawing.Size(705, 190);
             this.dtgNhanVien.TabIndex = 18;
+            this.dtgNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgNhanVien_CellClick);
             this.dtgNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // TenNhanVien
+            // 
+            this.TenNhanVien.HeaderText = "Tên Nhân Viên";
+            this.TenNhanVien.Name = "TenNhanVien";
+            this.TenNhanVien.ReadOnly = true;
+            // 
+            // Cmnd
+            // 
+            this.Cmnd.HeaderText = "CMND";
+            this.Cmnd.Name = "Cmnd";
+            this.Cmnd.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // CaTruc
+            // 
+            this.CaTruc.HeaderText = "Ca Trực";
+            this.CaTruc.Name = "CaTruc";
+            this.CaTruc.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // CapBac
+            // 
+            this.CapBac.HeaderText = "Cấp bậc";
+            this.CapBac.Name = "CapBac";
+            this.CapBac.ReadOnly = true;
+            // 
+            // IDNhanVien
+            // 
+            this.IDNhanVien.HeaderText = "ID_NhânViên";
+            this.IDNhanVien.Name = "IDNhanVien";
+            this.IDNhanVien.ReadOnly = true;
+            this.IDNhanVien.Visible = false;
+            // 
+            // IDCapBac
+            // 
+            this.IDCapBac.HeaderText = "ID_CấpBậc";
+            this.IDCapBac.Name = "IDCapBac";
+            this.IDCapBac.ReadOnly = true;
+            this.IDCapBac.Visible = false;
             // 
             // cbCapBac
             // 
             this.cbCapBac.FormattingEnabled = true;
-            this.cbCapBac.Location = new System.Drawing.Point(86, 215);
+            this.cbCapBac.Location = new System.Drawing.Point(86, 186);
             this.cbCapBac.Name = "cbCapBac";
             this.cbCapBac.Size = new System.Drawing.Size(121, 21);
             this.cbCapBac.TabIndex = 17;
@@ -236,7 +320,7 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(205, 180);
+            this.radioButton2.Location = new System.Drawing.Point(205, 151);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(38, 17);
             this.radioButton2.TabIndex = 16;
@@ -247,7 +331,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(86, 180);
+            this.radioButton1.Location = new System.Drawing.Point(86, 151);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(46, 17);
             this.radioButton1.TabIndex = 15;
@@ -258,7 +342,7 @@
             // dtpNgaySinh
             // 
             this.dtpNgaySinh.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpNgaySinh.Location = new System.Drawing.Point(86, 141);
+            this.dtpNgaySinh.Location = new System.Drawing.Point(86, 112);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(126, 21);
             this.dtpNgaySinh.TabIndex = 14;
@@ -275,7 +359,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 147);
+            this.label6.Location = new System.Drawing.Point(6, 118);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 12;
@@ -284,7 +368,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 223);
+            this.label2.Location = new System.Drawing.Point(6, 194);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(46, 13);
             this.label2.TabIndex = 11;
@@ -293,7 +377,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 180);
+            this.label5.Location = new System.Drawing.Point(6, 151);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 13);
             this.label5.TabIndex = 11;
@@ -317,15 +401,6 @@
             this.label3.TabIndex = 9;
             this.label3.Text = "ca trực";
             // 
-            // lbTenDangNhap
-            // 
-            this.lbTenDangNhap.AutoSize = true;
-            this.lbTenDangNhap.Location = new System.Drawing.Point(6, 117);
-            this.lbTenDangNhap.Name = "lbTenDangNhap";
-            this.lbTenDangNhap.Size = new System.Drawing.Size(79, 13);
-            this.lbTenDangNhap.TabIndex = 8;
-            this.lbTenDangNhap.Text = "Tên đăng nhập";
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -334,14 +409,6 @@
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 7;
             this.label1.Text = "Tên Nhân Viên";
-            // 
-            // txtTenDangNhap
-            // 
-            this.txtTenDangNhap.Location = new System.Drawing.Point(86, 114);
-            this.txtTenDangNhap.MenuManager = this.barManager1;
-            this.txtTenDangNhap.Name = "txtTenDangNhap";
-            this.txtTenDangNhap.Size = new System.Drawing.Size(126, 20);
-            this.txtTenDangNhap.TabIndex = 5;
             // 
             // txtSoDienThoai
             // 
@@ -391,7 +458,7 @@
             this.layoutControlItem1});
             this.layoutControlGroup1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlGroup1.Name = "layoutControlGroup1";
-            this.layoutControlGroup1.Size = new System.Drawing.Size(786, 374);
+            this.layoutControlGroup1.Size = new System.Drawing.Size(1095, 374);
             this.layoutControlGroup1.TextVisible = false;
             // 
             // layoutControlItem1
@@ -399,7 +466,7 @@
             this.layoutControlItem1.Control = this.panelControl1;
             this.layoutControlItem1.Location = new System.Drawing.Point(0, 0);
             this.layoutControlItem1.Name = "layoutControlItem1";
-            this.layoutControlItem1.Size = new System.Drawing.Size(766, 354);
+            this.layoutControlItem1.Size = new System.Drawing.Size(1075, 354);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
@@ -407,7 +474,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(786, 405);
+            this.ClientSize = new System.Drawing.Size(1095, 405);
             this.Controls.Add(this.layoutControl1);
             this.Controls.Add(this.barDockControlLeft);
             this.Controls.Add(this.barDockControlRight);
@@ -424,7 +491,6 @@
             this.panelControl1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDNhanVien.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgNhanVien)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSoDienThoai.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCMND.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtCaTruc.Properties)).EndInit();
@@ -455,9 +521,7 @@
         public System.Windows.Forms.Label label5;
         public System.Windows.Forms.Label label4;
         public System.Windows.Forms.Label label3;
-        public System.Windows.Forms.Label lbTenDangNhap;
         public System.Windows.Forms.Label label1;
-        public DevExpress.XtraEditors.TextEdit txtTenDangNhap;
         public DevExpress.XtraEditors.TextEdit txtSoDienThoai;
         public DevExpress.XtraEditors.TextEdit txtCMND;
         public DevExpress.XtraEditors.TextEdit txtCaTruc;
@@ -472,5 +536,15 @@
         public DevExpress.XtraEditors.TextEdit txtIDNhanVien;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cmnd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CaTruc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CapBac;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDNhanVien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn IDCapBac;
     }
 }
