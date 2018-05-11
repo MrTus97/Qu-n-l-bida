@@ -27,8 +27,9 @@ namespace QuanLyBilliard.GUI
         int idBanHienTai;
         const int TABLE_WIDTH = 70;
         const int TABLE_HEIGHT = 120;
+        int quyen;
         #endregion
-        public FrmSuDungDichVu()
+        public FrmSuDungDichVu(int quyen)
         {
             InitializeComponent();
             blBan = new BL_Ban(this);
@@ -37,6 +38,7 @@ namespace QuanLyBilliard.GUI
             blThucPham = new BL_ThucPham(this);
             blNhanVien = new BL_NhanVien(this);
             blKhachHang = new BL_KhachHang(this);
+            this.quyen = quyen;
             
         }
         /// <summary>
@@ -64,8 +66,45 @@ namespace QuanLyBilliard.GUI
             Enabel(false);
             dtBatDau.Enabled = false;
             btnBatDau.Enabled = false;
+            //Phân quyền
+            switch (quyen)
+            {
+                case BL.BL_Quyen.ADMIN:
+                    QuyenAdmin();
+                    break;
+                case BL.BL_Quyen.QUANLY:
+                    QuyenQuanLy();
+                    break;
+                case BL.BL_Quyen.THUNGAN:
+                    QuyenThuNgan();
+                    break;
+                case BL.BL_Quyen.THUKHO:
+                    QuyenThuKho();
+                    break;
+            }
             #endregion
         }
+
+        private void QuyenThuKho()
+        {
+            txtGiamGiaNuoc.Enabled = false;
+        }
+
+        private void QuyenThuNgan()
+        {
+            txtGiamGiaNuoc.Enabled = false;
+        }
+
+        private void QuyenQuanLy()
+        {
+            txtGiamGiaNuoc.Enabled = false;
+        }
+
+        private void QuyenAdmin()
+        {
+            txtGiamGiaNuoc.Enabled = true;
+        }
+
         /// <summary>
         /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
         /// </summary>

@@ -16,9 +16,10 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
-        public int LayCapBac(string tendangnhap)
+        public int LayQuyen(string tendangnhap)
         {
-            return 1;
+            string sql = "select ID_QUYEN From dangnhap where TENDANGNHAP ='"+ tendangnhap + "'";
+            return (int)ldc.ExecuteScalar(sql);
         }
     }
 }

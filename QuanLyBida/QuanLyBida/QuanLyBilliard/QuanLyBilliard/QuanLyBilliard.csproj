@@ -82,6 +82,7 @@
     <Compile Include="BL\BL_NhanVien.cs" />
     <Compile Include="BL\BL_NhaCungCap.cs" />
     <Compile Include="BL\BL_ThucPham.cs" />
+    <Compile Include="BL\BL_Quyen.cs" />
     <Compile Include="DA\DA_Ban.cs" />
     <Compile Include="DA\DA_CapBac.cs" />
     <Compile Include="DA\DA_DangNhap.cs" />

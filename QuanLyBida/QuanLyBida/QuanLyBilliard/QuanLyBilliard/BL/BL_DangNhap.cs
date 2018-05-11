@@ -21,8 +21,8 @@ namespace QuanLyBilliard.BL
         }
         public void HienThiFormMain(string tendangnhap)
         {
-            int i = daDangNhap.LayCapBac(tendangnhap);
-            FrmMain f = new FrmMain();
+            int i = daDangNhap.LayQuyen(tendangnhap);
+            FrmMain f = new FrmMain(i);
             f.Show();
         }
     }
