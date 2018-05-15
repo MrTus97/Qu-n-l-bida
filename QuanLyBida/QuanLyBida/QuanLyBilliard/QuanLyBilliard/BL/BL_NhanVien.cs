@@ -27,10 +27,20 @@ namespace QuanLyBilliard.BL
 
         }
 
+        public DataTable LoadCapBac()
+        {
+            return daNhanVien.getDuLieu();
+        }
+
         public BL_NhanVien(FrmSuDungDichVu f)
         {
             this.f = f;
             daNhanVien = new DA_NhanVien();
+        }
+
+        public DataTable layDuLieuLenDataGridView()
+        {
+            return daNhanVien.layDuLieuLenDataGridView();
         }
 
         public string QuenMatKhau(string text)
@@ -44,22 +54,29 @@ namespace QuanLyBilliard.BL
             daNhanVien = new DA_NhanVien();
         }
 
-        public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
-        {
+        //public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
+        //{
 
-            int gt;
-            if (gioitinh == "Nam")
-            {
-                gt = 1;
-            }
-            else gt = 0;
-            int cp = Int32.Parse(capbac);
-            int result = daNhanVien.ThemNhanVien(tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
-            if (result > 0)
-            {
-                MessageBox.Show("Thanh cong");
-            } else { MessageBox.Show("That bai"); }
+        //    int gt;
+        //    if (gioitinh == "Nam")
+        //    {
+        //        gt = 1;
+        //    }
+        //    else gt = 0;
+        //    int cp = Int32.Parse(capbac);
+        //    int result = daNhanVien.ThemNhanVien(tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
+        //    if (result > 0)
+        //    {
+        //        MessageBox.Show("Thanh cong");
+        //    } else { MessageBox.Show("That bai"); }
+        //}
+
+        public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string catruc)
+        {
+            int idCapBac = Int32.Parse(capbac);
+            daNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,idCapBac,catruc);
         }
+
         /// <summary>
         /// Hiển thị tất cả các nhân viên lên datagridview
         /// </summary>
@@ -67,20 +84,26 @@ namespace QuanLyBilliard.BL
         {
             //Load dữ liệu lên datagridview
             DataTable dt = daNhanVien.LayNhanvien();
-            frmNhanVien.dtgNhanVien.DataSource = dt;
         }
 
-        internal void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
+        //internal void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
+        //{
+        //    int idNhanVien = Int32.Parse(txtIDNhanVien);
+        //    int gt;
+        //    if (gioitinh == "Nam")
+        //    {
+        //        gt = 1;
+        //    }
+        //    else gt = 0;
+        //    int cp = Int32.Parse(capbac);
+        //    daNhanVien.SuaThongTinNhanVien(idNhanVien, tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
+        //}
+
+        public void SuaThongTinNhanVien(string text,string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string catruc)
         {
-            int idNhanVien = Int32.Parse(txtIDNhanVien);
-            int gt;
-            if (gioitinh == "Nam")
-            {
-                gt = 1;
-            }
-            else gt = 0;
-            int cp = Int32.Parse(capbac);
-            daNhanVien.SuaThongTinNhanVien(idNhanVien, tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
+            int IdNhanVien = Int32.Parse(text);
+            int IdCapBac = Int32.Parse(capbac);
+            daNhanVien.SuaThongTinNhanVien(IdNhanVien,tennhanvien, ngaysinh, cmnd, sdt, gioitinh, IdCapBac, catruc);
         }
 
         internal void XoaNhanVien(string idNhanVien)

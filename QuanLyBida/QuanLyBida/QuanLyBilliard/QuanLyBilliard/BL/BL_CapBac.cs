@@ -28,7 +28,7 @@ namespace QuanLyBilliard.BL
 
         public void HienThiCapBac()
         {
-            frmCapBac.dataGridView1.DataSource =  daCapBac.HienThiCapBac();            
+            frmCapBac.dtgCapBac.DataSource =  daCapBac.HienThiCapBac();            
         }
 
         internal void SuaCapBac(string idcapbac, string tencapbac, string hesoluong)
