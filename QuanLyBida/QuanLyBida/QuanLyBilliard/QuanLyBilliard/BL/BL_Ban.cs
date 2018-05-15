@@ -57,6 +57,12 @@ namespace QuanLyBilliard.BL
         {
             return daTable.LayBan();
         }
+
+        public DataTable LayDanhSachLoaiBan()
+        {
+            return daTable.layDanhSachLoaiBan();
+        }
+
         /// <summary>
         /// constructor cho Form Chuyển bàn
         /// </summary>
@@ -117,12 +123,28 @@ namespace QuanLyBilliard.BL
             return daTable.TATBAN(idhoadon);
         }
 
+        public int ThemLoaiBan(string text,string gia)
+        {
+            int giaBan = Convert.ToInt32(gia);
+            return daTable.ThemLoaiBan(text,giaBan);
+        }
+
+        public int CapNhatLoaiBan(string txtTenLoai,string txtGia, int tag)
+        {
+            int gia = Convert.ToInt32(txtGia);
+            return daTable.CapNhatLoaiBan(txtTenLoai,gia, tag);
+        }
 
         internal void capNhatBan(string text1, string loaiBan, string text2)
         {
             int idBan = Int32.Parse(text1);
             int idLoaidBan = Int32.Parse(loaiBan);
             daTable.capNhatBan(idBan,idLoaidBan, text2);
+        }
+
+        internal int XoaLoaiBan(int idban)
+        {
+            return daTable.XoaLoaiBan(idban);
         }
 
         ///// <summary>
@@ -265,10 +287,12 @@ namespace QuanLyBilliard.BL
         /// <param name="hour"></param>
         /// <param name="minutes"></param>
         /// <returns></returns>
-        public float TinhTien(int day,int hour, int minutes)
+        public float TinhTienGio(int day,int hour, int minutes,float giamGiaGio)
         {
             float dongia = daTable.LayGiaBan((frmSuDungDichVu.btnDaiDienBan.Tag as Ban).ID_LoaiBan);
             float tiengio = (day*dongia*24) + (hour * dongia) + (int)(minutes * dongia/60);
+            //Tính giảm giá
+            tiengio -= (tiengio * giamGiaGio / 100);
             return tiengio;
         }
 

@@ -29,7 +29,7 @@ namespace QuanLyBilliard.DTO
             }
             else
             {
-                this.ID_NhanVien = (int)row["ID_NHANVIEN"];
+                this.ID_NhanVien = Convert.ToInt32(row["ID_NHANVIEN"].ToString());
             }
             if (row["ID_KHACHHANG"].ToString() == "")
             {
@@ -37,7 +37,7 @@ namespace QuanLyBilliard.DTO
             }
             else
             {
-                this.ID_KhachHang = (int)row["ID_KHACHHANG"];
+                this.ID_KhachHang = Convert.ToInt32(row["ID_KHACHHANG"].ToString());
             }
             if (row["ID_GIAMGIA"].ToString() == "")
             {
@@ -45,23 +45,23 @@ namespace QuanLyBilliard.DTO
             }
             else
             {
-                this.ID_GiamGia = (int)row["ID_GIAMGIA"];
+                this.ID_GiamGia = Convert.ToInt32(row["ID_GIAMGIA"].ToString());
             }
-            if (row["GIAMGIAGIO"].ToString() == "")
+            if (row["GIAMGIAGIO"].ToString() == "0")
             {
-                this.ID_NhanVien = -1;
-            }
-            else
-            {
-                this.GiamGiaGio = (float)row["GIAMGIAGIO"];
-            }
-            if (row["GIAMGIATHUCPHAM"].ToString() == "")
-            {
-                this.GiamGiaThucPham = -1;
+                this.ID_NhanVien = 0;
             }
             else
             {
-                this.GiamGiaThucPham = (float)row["GIAMGIATHUCPHAM"];
+                this.GiamGiaGio = float.Parse(row["GIAMGIAGIO"].ToString());
+            }
+            if (row["GIAMGIATHUCPHAM"].ToString() == "0")
+            {
+                this.GiamGiaThucPham = 0;
+            }
+            else
+            {
+                this.GiamGiaThucPham = float.Parse(row["GIAMGIATHUCPHAM"].ToString());
 
             }
 

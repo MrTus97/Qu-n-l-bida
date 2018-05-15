@@ -4,34 +4,35 @@ using System.Data;
 using System;
 using System.Collections.Generic;
 using QuanLyBilliard.DTO;
+using QuanLyBilliard.GUI.NHAPHANG;
 
 namespace QuanLyBilliard.BL
 {
     class BL_ThucPham
     {
-        DA_ThucPham daThucPham;
+        DA_ThucPham daThucPham = new DA_ThucPham();
         FrmSuDungDichVu frmSuDungDichVu;
         FrmDanhMucMatHang frmDanhMucMatHang;
+        private FrmTuyChonNhapHang frmTuyChonNhapHang;
+
         public BL_ThucPham(FrmSuDungDichVu f)
         {
-            daThucPham = new DA.DA_ThucPham();
             frmSuDungDichVu = f;
         }
         public BL_ThucPham(FrmDanhMucMatHang f)
         {
-            daThucPham = new DA.DA_ThucPham();
+            
             frmDanhMucMatHang = f;
         }
-        public void getDuLieu(int id)
-        {
-            DataTable dt = daThucPham.getDuLieu(id);
-            frmSuDungDichVu.dgvThucPham.Rows.Clear();
-            foreach (DataRow row in dt.Rows)
-            {
-                frmSuDungDichVu.dgvThucPham.Rows.Add(row["TENTHUCPHAM"], row["DVT"], row["GIABAN"], row["ID_THUCPHAM"]);
 
-            }
-            //frmMain.dataGridView1.DataSource = daThucPham.getDuLieu(id);
+        public BL_ThucPham(FrmTuyChonNhapHang frmTuyChonNhapHang)
+        {
+            this.frmTuyChonNhapHang = frmTuyChonNhapHang;
+        }
+
+        public DataTable getDuLieu(int id)
+        {
+            return daThucPham.getDuLieu(id);
         }
 
         public void ThemMatHang(string tenthucpham, string dvt, string text3, string text4, string text5)

@@ -131,6 +131,18 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
+        internal int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
+        {
+            string sql = "update HOADON set GIAMGIATHUCPHAM = " + giamGiaThucPham + " where ID_HOADON=" + idHoaDon;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+        public int SetGiamGiaGio(int idHoaDon, double giamGiaGio)
+        {
+            string sql = "update HOADON set GIAMGIAGIO = " + giamGiaGio + " where ID_HOADON=" + idHoaDon;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
         /// <summary>
         /// Đáng nhẽ phải viết 1 procedure xử lý thử mặt hàng đó đã có trong bill chưa rồi insert hay update trong đó luôn
         /// Nhưng vẫn chưa viết được, phải xài procedure insert và update + sửa số lượng trong mặt hàng

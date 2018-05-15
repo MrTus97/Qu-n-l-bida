@@ -169,5 +169,15 @@ namespace QuanLyBilliard.BL
             int idKhachHang = Convert.ToInt32(kh);
             daHoaDon.GanGiaTriInThuBill(id,idNhanVien, idKhachHang);
         }
+
+        public int SetGiamGiaGio(int idHoaDon, double giamGiaGio)
+        {
+            return daHoaDon.SetGiamGiaGio(idHoaDon, giamGiaGio);
+        }
+
+        internal int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
+        {
+            return daHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
+        }
     }
 }

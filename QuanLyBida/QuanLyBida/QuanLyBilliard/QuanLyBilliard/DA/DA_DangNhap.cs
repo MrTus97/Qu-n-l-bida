@@ -21,5 +21,18 @@ namespace QuanLyBilliard.DA
             string sql = "select ID_QUYEN From dangnhap where TENDANGNHAP ='"+ tendangnhap + "'";
             return (int)ldc.ExecuteScalar(sql);
         }
+
+        internal string LayMatKhau(string tendangnhap)
+        {
+            string sql = "select matkhau from dangnhap where tendangnhap='" + tendangnhap+"'";
+            return (string)ldc.ExecuteScalar(sql);
+        }
+
+
+        public int DoiMatKhau(string tendangnhap, string matkhaumoi)
+        {
+            string sql = "update dangnhap set matkhau ='" + matkhaumoi + "' where tendangnhap='" + tendangnhap + "'";
+            return ldc.ExecuteNonQuery(sql);
+        }
     }
 }

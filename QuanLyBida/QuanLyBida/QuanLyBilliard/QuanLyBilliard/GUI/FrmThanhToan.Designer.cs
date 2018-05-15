@@ -28,13 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pn2 = new System.Windows.Forms.Panel();
-            this.pn1 = new System.Windows.Forms.Panel();
+            this.pnLoc = new System.Windows.Forms.Panel();
             this.lbLocTheo = new System.Windows.Forms.Label();
             this.cbLocHoaDon = new System.Windows.Forms.ComboBox();
             this.btnTim = new DevExpress.XtraEditors.SimpleButton();
             this.lbTimKiem = new System.Windows.Forms.Label();
             this.txtIDHoaDon = new DevExpress.XtraEditors.TextEdit();
+            this.pnNgay = new System.Windows.Forms.Panel();
+            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
+            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
+            this.lbDenNgay = new System.Windows.Forms.Label();
+            this.lbTuNgay = new System.Windows.Forms.Label();
             this.DATHANHTOAN = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GIAMGIATHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -46,40 +50,24 @@
             this.TENBAN = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ID_HOADON = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dtpTuNgay = new System.Windows.Forms.DateTimePicker();
-            this.dtpDenNgay = new System.Windows.Forms.DateTimePicker();
-            this.lbDenNgay = new System.Windows.Forms.Label();
-            this.lbTuNgay = new System.Windows.Forms.Label();
-            this.pn2.SuspendLayout();
-            this.pn1.SuspendLayout();
+            this.pnLoc.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDHoaDon.Properties)).BeginInit();
+            this.pnNgay.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // pn2
+            // pnLoc
             // 
-            this.pn2.Controls.Add(this.lbLocTheo);
-            this.pn2.Controls.Add(this.cbLocHoaDon);
-            this.pn2.Controls.Add(this.btnTim);
-            this.pn2.Controls.Add(this.lbTimKiem);
-            this.pn2.Controls.Add(this.txtIDHoaDon);
-            this.pn2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn2.Location = new System.Drawing.Point(0, 0);
-            this.pn2.Name = "pn2";
-            this.pn2.Size = new System.Drawing.Size(824, 42);
-            this.pn2.TabIndex = 6;
-            // 
-            // pn1
-            // 
-            this.pn1.Controls.Add(this.dtpTuNgay);
-            this.pn1.Controls.Add(this.dtpDenNgay);
-            this.pn1.Controls.Add(this.lbDenNgay);
-            this.pn1.Controls.Add(this.lbTuNgay);
-            this.pn1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pn1.Location = new System.Drawing.Point(0, 42);
-            this.pn1.Name = "pn1";
-            this.pn1.Size = new System.Drawing.Size(824, 40);
-            this.pn1.TabIndex = 5;
+            this.pnLoc.Controls.Add(this.lbLocTheo);
+            this.pnLoc.Controls.Add(this.cbLocHoaDon);
+            this.pnLoc.Controls.Add(this.btnTim);
+            this.pnLoc.Controls.Add(this.lbTimKiem);
+            this.pnLoc.Controls.Add(this.txtIDHoaDon);
+            this.pnLoc.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnLoc.Location = new System.Drawing.Point(0, 0);
+            this.pnLoc.Name = "pnLoc";
+            this.pnLoc.Size = new System.Drawing.Size(824, 42);
+            this.pnLoc.TabIndex = 6;
             // 
             // lbLocTheo
             // 
@@ -103,6 +91,7 @@
             this.cbLocHoaDon.Name = "cbLocHoaDon";
             this.cbLocHoaDon.Size = new System.Drawing.Size(144, 24);
             this.cbLocHoaDon.TabIndex = 4;
+            this.cbLocHoaDon.TextChanged += new System.EventHandler(this.cbLocHoaDon_TextChanged);
             // 
             // btnTim
             // 
@@ -132,6 +121,54 @@
             this.txtIDHoaDon.Properties.Appearance.Options.UseFont = true;
             this.txtIDHoaDon.Size = new System.Drawing.Size(174, 22);
             this.txtIDHoaDon.TabIndex = 7;
+            // 
+            // pnNgay
+            // 
+            this.pnNgay.Controls.Add(this.dtpTuNgay);
+            this.pnNgay.Controls.Add(this.dtpDenNgay);
+            this.pnNgay.Controls.Add(this.lbDenNgay);
+            this.pnNgay.Controls.Add(this.lbTuNgay);
+            this.pnNgay.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnNgay.Location = new System.Drawing.Point(0, 42);
+            this.pnNgay.Name = "pnNgay";
+            this.pnNgay.Size = new System.Drawing.Size(824, 40);
+            this.pnNgay.TabIndex = 5;
+            // 
+            // dtpTuNgay
+            // 
+            this.dtpTuNgay.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpTuNgay.Location = new System.Drawing.Point(178, 10);
+            this.dtpTuNgay.Name = "dtpTuNgay";
+            this.dtpTuNgay.Size = new System.Drawing.Size(200, 23);
+            this.dtpTuNgay.TabIndex = 13;
+            // 
+            // dtpDenNgay
+            // 
+            this.dtpDenNgay.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtpDenNgay.Location = new System.Drawing.Point(504, 10);
+            this.dtpDenNgay.Name = "dtpDenNgay";
+            this.dtpDenNgay.Size = new System.Drawing.Size(200, 23);
+            this.dtpDenNgay.TabIndex = 14;
+            // 
+            // lbDenNgay
+            // 
+            this.lbDenNgay.AutoSize = true;
+            this.lbDenNgay.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbDenNgay.Location = new System.Drawing.Point(429, 15);
+            this.lbDenNgay.Name = "lbDenNgay";
+            this.lbDenNgay.Size = new System.Drawing.Size(69, 16);
+            this.lbDenNgay.TabIndex = 11;
+            this.lbDenNgay.Text = "Đến ngày";
+            // 
+            // lbTuNgay
+            // 
+            this.lbTuNgay.AutoSize = true;
+            this.lbTuNgay.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbTuNgay.Location = new System.Drawing.Point(111, 15);
+            this.lbTuNgay.Name = "lbTuNgay";
+            this.lbTuNgay.Size = new System.Drawing.Size(61, 16);
+            this.lbTuNgay.TabIndex = 12;
+            this.lbTuNgay.Text = "Từ ngày";
             // 
             // DATHANHTOAN
             // 
@@ -238,62 +275,30 @@
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // dtpTuNgay
-            // 
-            this.dtpTuNgay.Location = new System.Drawing.Point(178, 10);
-            this.dtpTuNgay.Name = "dtpTuNgay";
-            this.dtpTuNgay.Size = new System.Drawing.Size(200, 20);
-            this.dtpTuNgay.TabIndex = 13;
-            // 
-            // dtpDenNgay
-            // 
-            this.dtpDenNgay.Location = new System.Drawing.Point(504, 10);
-            this.dtpDenNgay.Name = "dtpDenNgay";
-            this.dtpDenNgay.Size = new System.Drawing.Size(200, 20);
-            this.dtpDenNgay.TabIndex = 14;
-            // 
-            // lbDenNgay
-            // 
-            this.lbDenNgay.AutoSize = true;
-            this.lbDenNgay.Location = new System.Drawing.Point(454, 17);
-            this.lbDenNgay.Name = "lbDenNgay";
-            this.lbDenNgay.Size = new System.Drawing.Size(35, 13);
-            this.lbDenNgay.TabIndex = 11;
-            this.lbDenNgay.Text = "label1";
-            // 
-            // lbTuNgay
-            // 
-            this.lbTuNgay.AutoSize = true;
-            this.lbTuNgay.Location = new System.Drawing.Point(120, 16);
-            this.lbTuNgay.Name = "lbTuNgay";
-            this.lbTuNgay.Size = new System.Drawing.Size(35, 13);
-            this.lbTuNgay.TabIndex = 12;
-            this.lbTuNgay.Text = "label1";
-            // 
             // FrmThanhToan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(824, 397);
-            this.Controls.Add(this.pn1);
-            this.Controls.Add(this.pn2);
+            this.Controls.Add(this.pnNgay);
+            this.Controls.Add(this.pnLoc);
             this.Controls.Add(this.dataGridView1);
             this.Name = "FrmThanhToan";
             this.Text = "FrmThanhToan";
             this.Load += new System.EventHandler(this.FrmThanhToan_Load);
-            this.pn2.ResumeLayout(false);
-            this.pn2.PerformLayout();
-            this.pn1.ResumeLayout(false);
-            this.pn1.PerformLayout();
+            this.pnLoc.ResumeLayout(false);
+            this.pnLoc.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.txtIDHoaDon.Properties)).EndInit();
+            this.pnNgay.ResumeLayout(false);
+            this.pnNgay.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private System.Windows.Forms.Panel pn2;
-        private System.Windows.Forms.Panel pn1;
+        private System.Windows.Forms.Panel pnLoc;
+        private System.Windows.Forms.Panel pnNgay;
         private System.Windows.Forms.Label lbLocTheo;
         private System.Windows.Forms.ComboBox cbLocHoaDon;
         private DevExpress.XtraEditors.SimpleButton btnTim;

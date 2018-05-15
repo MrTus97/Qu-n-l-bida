@@ -64,8 +64,14 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public DataTable layDanhSachLoaiBan()
+        {
+            string sql = "select * from loaiban";
+            return ldc.getDuLieu(sql);
+        }
 
-        
+
+
         /// <summary>
         /// Chuyển bàn curr sang taget
         /// </summary>
@@ -95,11 +101,27 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
+        public int ThemLoaiBan(string text,int gia)
+        {
+            string sql = "insert into loaiban values('"+text+"',"+gia+")";
+            return ldc.ExecuteNonQuery(sql);
+        }
 
+        public int CapNhatLoaiBan(string txtTenLoai,int gia ,int tag)
+        {
+            string sql = "update loaiban set tenloai = '"+txtTenLoai+"',gia="+gia+" where id_loaiban=" + tag;
+            return ldc.ExecuteNonQuery(sql);
+        }
 
         public int capNhatBan(int idBan, int idLoaidBan, string text2)
         {
             string sql = "update ban set TENBAN = '"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+        public int XoaLoaiBan(int idban)
+        {
+            string sql = "delete loaiban where id_loaiBan=" + idban;
             return ldc.ExecuteNonQuery(sql);
         }
 
