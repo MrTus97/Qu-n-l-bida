@@ -37,6 +37,8 @@ namespace QuanLyBilliard.GUI
             this.flpBan = new System.Windows.Forms.FlowLayoutPanel();
             this.panelControl5 = new DevExpress.XtraEditors.PanelControl();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.simpleButton6 = new DevExpress.XtraEditors.SimpleButton();
+            this.simpleButton5 = new DevExpress.XtraEditors.SimpleButton();
             this.cbKhachHang = new System.Windows.Forms.ComboBox();
             this.cbNhanVien = new System.Windows.Forms.ComboBox();
             this.labelControl10 = new DevExpress.XtraEditors.LabelControl();
@@ -54,9 +56,9 @@ namespace QuanLyBilliard.GUI
             this.txtSoGioChoi = new System.Windows.Forms.TextBox();
             this.labelControl8 = new DevExpress.XtraEditors.LabelControl();
             this.txtTongCong = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl7 = new DevExpress.XtraEditors.LabelControl();
+            this.lbGiamGiaNuoc = new DevExpress.XtraEditors.LabelControl();
             this.txtGiamGiaNuoc = new DevExpress.XtraEditors.TextEdit();
-            this.labelControl6 = new DevExpress.XtraEditors.LabelControl();
+            this.lbGiamGiaGio = new DevExpress.XtraEditors.LabelControl();
             this.txtGiamGiaGio = new DevExpress.XtraEditors.TextEdit();
             this.dgvThucPhamTrongHoaDon = new System.Windows.Forms.DataGridView();
             this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -180,6 +182,8 @@ namespace QuanLyBilliard.GUI
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.simpleButton6);
+            this.panel4.Controls.Add(this.simpleButton5);
             this.panel4.Controls.Add(this.cbKhachHang);
             this.panel4.Controls.Add(this.cbNhanVien);
             this.panel4.Controls.Add(this.labelControl10);
@@ -197,9 +201,9 @@ namespace QuanLyBilliard.GUI
             this.panel4.Controls.Add(this.txtSoGioChoi);
             this.panel4.Controls.Add(this.labelControl8);
             this.panel4.Controls.Add(this.txtTongCong);
-            this.panel4.Controls.Add(this.labelControl7);
+            this.panel4.Controls.Add(this.lbGiamGiaNuoc);
             this.panel4.Controls.Add(this.txtGiamGiaNuoc);
-            this.panel4.Controls.Add(this.labelControl6);
+            this.panel4.Controls.Add(this.lbGiamGiaGio);
             this.panel4.Controls.Add(this.txtGiamGiaGio);
             this.panel4.Controls.Add(this.dgvThucPhamTrongHoaDon);
             this.panel4.Controls.Add(this.btnDoiSoLuong);
@@ -214,6 +218,24 @@ namespace QuanLyBilliard.GUI
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(379, 441);
             this.panel4.TabIndex = 1;
+            // 
+            // simpleButton6
+            // 
+            this.simpleButton6.Location = new System.Drawing.Point(163, 395);
+            this.simpleButton6.Name = "simpleButton6";
+            this.simpleButton6.Size = new System.Drawing.Size(29, 20);
+            this.simpleButton6.TabIndex = 95;
+            this.simpleButton6.Text = "OK";
+            this.simpleButton6.Click += new System.EventHandler(this.simpleButton6_Click);
+            // 
+            // simpleButton5
+            // 
+            this.simpleButton5.Location = new System.Drawing.Point(163, 369);
+            this.simpleButton5.Name = "simpleButton5";
+            this.simpleButton5.Size = new System.Drawing.Size(29, 20);
+            this.simpleButton5.TabIndex = 95;
+            this.simpleButton5.Text = "OK";
+            this.simpleButton5.Click += new System.EventHandler(this.simpleButton5_Click);
             // 
             // cbKhachHang
             // 
@@ -241,7 +263,7 @@ namespace QuanLyBilliard.GUI
             // 
             // simpleButton3
             // 
-            this.simpleButton3.Location = new System.Drawing.Point(304, 369);
+            this.simpleButton3.Location = new System.Drawing.Point(300, 294);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(70, 69);
             this.simpleButton3.TabIndex = 60;
@@ -269,7 +291,7 @@ namespace QuanLyBilliard.GUI
             // 
             this.simpleButton4.ButtonStyle = DevExpress.XtraEditors.Controls.BorderStyles.NoBorder;
             this.simpleButton4.Image = ((System.Drawing.Image)(resources.GetObject("simpleButton4.Image")));
-            this.simpleButton4.Location = new System.Drawing.Point(81, 55);
+            this.simpleButton4.Location = new System.Drawing.Point(53, 56);
             this.simpleButton4.Name = "simpleButton4";
             this.simpleButton4.Size = new System.Drawing.Size(28, 25);
             this.simpleButton4.TabIndex = 88;
@@ -288,7 +310,7 @@ namespace QuanLyBilliard.GUI
             // labelControl5
             // 
             this.labelControl5.Enabled = false;
-            this.labelControl5.Location = new System.Drawing.Point(159, 403);
+            this.labelControl5.Location = new System.Drawing.Point(229, 396);
             this.labelControl5.Name = "labelControl5";
             this.labelControl5.Size = new System.Drawing.Size(47, 13);
             this.labelControl5.TabIndex = 86;
@@ -297,7 +319,7 @@ namespace QuanLyBilliard.GUI
             // txtTienNuoc
             // 
             this.txtTienNuoc.Enabled = false;
-            this.txtTienNuoc.Location = new System.Drawing.Point(216, 402);
+            this.txtTienNuoc.Location = new System.Drawing.Point(286, 395);
             this.txtTienNuoc.Name = "txtTienNuoc";
             this.txtTienNuoc.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienNuoc.Size = new System.Drawing.Size(84, 20);
@@ -306,7 +328,7 @@ namespace QuanLyBilliard.GUI
             // labelControl4
             // 
             this.labelControl4.Enabled = false;
-            this.labelControl4.Location = new System.Drawing.Point(160, 379);
+            this.labelControl4.Location = new System.Drawing.Point(230, 372);
             this.labelControl4.Name = "labelControl4";
             this.labelControl4.Size = new System.Drawing.Size(37, 13);
             this.labelControl4.TabIndex = 84;
@@ -315,7 +337,7 @@ namespace QuanLyBilliard.GUI
             // txtTienGio
             // 
             this.txtTienGio.Enabled = false;
-            this.txtTienGio.Location = new System.Drawing.Point(216, 376);
+            this.txtTienGio.Location = new System.Drawing.Point(286, 369);
             this.txtTienGio.Name = "txtTienGio";
             this.txtTienGio.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTienGio.Size = new System.Drawing.Size(84, 20);
@@ -349,7 +371,7 @@ namespace QuanLyBilliard.GUI
             // labelControl8
             // 
             this.labelControl8.Enabled = false;
-            this.labelControl8.Location = new System.Drawing.Point(160, 429);
+            this.labelControl8.Location = new System.Drawing.Point(230, 422);
             this.labelControl8.Name = "labelControl8";
             this.labelControl8.Size = new System.Drawing.Size(50, 13);
             this.labelControl8.TabIndex = 80;
@@ -358,40 +380,40 @@ namespace QuanLyBilliard.GUI
             // txtTongCong
             // 
             this.txtTongCong.Enabled = false;
-            this.txtTongCong.Location = new System.Drawing.Point(216, 426);
+            this.txtTongCong.Location = new System.Drawing.Point(286, 419);
             this.txtTongCong.Name = "txtTongCong";
             this.txtTongCong.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTongCong.Size = new System.Drawing.Size(84, 20);
             this.txtTongCong.TabIndex = 79;
             // 
-            // labelControl7
+            // lbGiamGiaNuoc
             // 
-            this.labelControl7.Location = new System.Drawing.Point(13, 405);
-            this.labelControl7.Name = "labelControl7";
-            this.labelControl7.Size = new System.Drawing.Size(67, 13);
-            this.labelControl7.TabIndex = 78;
-            this.labelControl7.Text = "Giảm giá nước";
+            this.lbGiamGiaNuoc.Location = new System.Drawing.Point(25, 398);
+            this.lbGiamGiaNuoc.Name = "lbGiamGiaNuoc";
+            this.lbGiamGiaNuoc.Size = new System.Drawing.Size(67, 13);
+            this.lbGiamGiaNuoc.TabIndex = 78;
+            this.lbGiamGiaNuoc.Text = "Giảm giá nước";
             // 
             // txtGiamGiaNuoc
             // 
             this.txtGiamGiaNuoc.EditValue = "0";
-            this.txtGiamGiaNuoc.Location = new System.Drawing.Point(90, 400);
+            this.txtGiamGiaNuoc.Location = new System.Drawing.Point(102, 393);
             this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
             this.txtGiamGiaNuoc.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaNuoc.TabIndex = 77;
             // 
-            // labelControl6
+            // lbGiamGiaGio
             // 
-            this.labelControl6.Location = new System.Drawing.Point(13, 379);
-            this.labelControl6.Name = "labelControl6";
-            this.labelControl6.Size = new System.Drawing.Size(57, 13);
-            this.labelControl6.TabIndex = 76;
-            this.labelControl6.Text = "Giảm giá giờ";
+            this.lbGiamGiaGio.Location = new System.Drawing.Point(25, 372);
+            this.lbGiamGiaGio.Name = "lbGiamGiaGio";
+            this.lbGiamGiaGio.Size = new System.Drawing.Size(57, 13);
+            this.lbGiamGiaGio.TabIndex = 76;
+            this.lbGiamGiaGio.Text = "Giảm giá giờ";
             // 
             // txtGiamGiaGio
             // 
             this.txtGiamGiaGio.EditValue = "0";
-            this.txtGiamGiaGio.Location = new System.Drawing.Point(90, 376);
+            this.txtGiamGiaGio.Location = new System.Drawing.Point(102, 369);
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
             this.txtGiamGiaGio.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaGio.TabIndex = 75;
@@ -418,31 +440,34 @@ namespace QuanLyBilliard.GUI
             // 
             // TENMATHANG
             // 
+            this.TENMATHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TENMATHANG.HeaderText = "Tên hàng";
             this.TENMATHANG.Name = "TENMATHANG";
             this.TENMATHANG.ReadOnly = true;
-            this.TENMATHANG.Width = 95;
+            this.TENMATHANG.Width = 77;
             // 
             // GIABAN1
             // 
+            this.GIABAN1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.GIABAN1.HeaderText = "Giá Bán";
             this.GIABAN1.Name = "GIABAN1";
             this.GIABAN1.ReadOnly = true;
-            this.GIABAN1.Width = 52;
+            this.GIABAN1.Width = 68;
             // 
             // SoLuong
             // 
+            this.SoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.SoLuong.HeaderText = "Số lượng";
             this.SoLuong.Name = "SoLuong";
             this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 52;
+            this.SoLuong.Width = 69;
             // 
             // ThanhTien
             // 
+            this.ThanhTien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.ThanhTien.HeaderText = "Thành tiền";
             this.ThanhTien.Name = "ThanhTien";
             this.ThanhTien.ReadOnly = true;
-            this.ThanhTien.Width = 85;
             // 
             // ID_THUCPHAM1
             // 
@@ -453,7 +478,7 @@ namespace QuanLyBilliard.GUI
             // 
             // btnDoiSoLuong
             // 
-            this.btnDoiSoLuong.Location = new System.Drawing.Point(159, 56);
+            this.btnDoiSoLuong.Location = new System.Drawing.Point(87, 56);
             this.btnDoiSoLuong.Name = "btnDoiSoLuong";
             this.btnDoiSoLuong.Size = new System.Drawing.Size(106, 23);
             this.btnDoiSoLuong.TabIndex = 68;
@@ -722,25 +747,30 @@ namespace QuanLyBilliard.GUI
             // 
             // TENTHUCPHAM
             // 
+            this.TENTHUCPHAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.TENTHUCPHAM.HeaderText = "Tên hàng";
             this.TENTHUCPHAM.Name = "TENTHUCPHAM";
             this.TENTHUCPHAM.ReadOnly = true;
+            this.TENTHUCPHAM.Width = 77;
             // 
             // DVT
             // 
+            this.DVT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.DVT.HeaderText = "ĐVT";
             this.DVT.Name = "DVT";
             this.DVT.ReadOnly = true;
-            this.DVT.Width = 50;
+            this.DVT.Width = 52;
             // 
             // GIABAN
             // 
+            this.GIABAN.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.GIABAN.HeaderText = "Giá";
             this.GIABAN.Name = "GIABAN";
             this.GIABAN.ReadOnly = true;
             // 
             // ID_THUCPHAM
             // 
+            this.ID_THUCPHAM.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
             this.ID_THUCPHAM.HeaderText = "ID";
             this.ID_THUCPHAM.Name = "ID_THUCPHAM";
             this.ID_THUCPHAM.ReadOnly = true;
@@ -915,9 +945,9 @@ namespace QuanLyBilliard.GUI
         public System.Windows.Forms.TextBox txtSoGioChoi;
         public DevExpress.XtraEditors.LabelControl labelControl8;
         public DevExpress.XtraEditors.TextEdit txtTongCong;
-        public DevExpress.XtraEditors.LabelControl labelControl7;
+        public DevExpress.XtraEditors.LabelControl lbGiamGiaNuoc;
         public DevExpress.XtraEditors.TextEdit txtGiamGiaNuoc;
-        public DevExpress.XtraEditors.LabelControl labelControl6;
+        public DevExpress.XtraEditors.LabelControl lbGiamGiaGio;
         public DevExpress.XtraEditors.TextEdit txtGiamGiaGio;
         public System.Windows.Forms.DataGridView dgvThucPhamTrongHoaDon;
         public DevExpress.XtraEditors.SimpleButton btnDoiSoLuong;
@@ -955,6 +985,12 @@ namespace QuanLyBilliard.GUI
         public DevExpress.XtraEditors.LabelControl labelControl10;
         public System.Windows.Forms.ComboBox cbNhanVien;
         public System.Windows.Forms.ComboBox cbKhachHang;
+        private System.Windows.Forms.ContextMenuStrip ContextMenuBan;
+        private System.Windows.Forms.ToolStripMenuItem tínhTiềnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hủyHóaĐơnToolStripMenuItem;
+        private TextEdit txtTienGio;
+        private SimpleButton simpleButton6;
+        private SimpleButton simpleButton5;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENMATHANG;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN1;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoLuong;
@@ -964,9 +1000,5 @@ namespace QuanLyBilliard.GUI
         private System.Windows.Forms.DataGridViewTextBoxColumn DVT;
         private System.Windows.Forms.DataGridViewTextBoxColumn GIABAN;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_THUCPHAM;
-        private System.Windows.Forms.ContextMenuStrip ContextMenuBan;
-        private System.Windows.Forms.ToolStripMenuItem tínhTiềnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hủyHóaĐơnToolStripMenuItem;
-        private TextEdit txtTienGio;
     }
 }

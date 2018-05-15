@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyBilliard.BL;
 
+
 namespace QuanLyBilliard.GUI
 {
     public partial class FrmDangNhap : DevExpress.XtraEditors.XtraForm
@@ -54,7 +55,6 @@ namespace QuanLyBilliard.GUI
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-           
         }
 
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

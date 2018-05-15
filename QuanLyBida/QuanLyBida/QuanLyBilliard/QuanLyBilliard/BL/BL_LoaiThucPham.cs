@@ -4,39 +4,35 @@ using QuanLyBilliard.GUI;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using QuanLyBilliard.GUI.NHAPHANG;
 
 namespace QuanLyBilliard.BL
 {
     class BL_LoaiThucPham
     {
-        DA_ThucPham daThucPham;
+        DA_ThucPham daThucPham = new DA_ThucPham();
         BL_ThucPham blThucPham;
-        DA_LoaiThucPham daLoaiThucPham;
+        DA_LoaiThucPham daLoaiThucPham = new DA.DA_LoaiThucPham();
         FrmSuDungDichVu frmSuDungDichVu;
         const int TABLE_WIDTHHEIGHT = 100;
         LopDungChung ldc = new LopDungChung();
+        private FrmTuyChonNhapHang frmTuyChonNhapHang;
+
         public BL_LoaiThucPham(FrmSuDungDichVu f)
         {
-            daThucPham = new DA.DA_ThucPham();
-            daLoaiThucPham = new DA.DA_LoaiThucPham();
             blThucPham = new BL_ThucPham(f);
             frmSuDungDichVu = f;
         }
-        public void LoadLoaiThucPham()
+
+        public BL_LoaiThucPham(FrmTuyChonNhapHang frmTuyChonNhapHang)
         {
-            List<LoaiThucPham> lst = daLoaiThucPham.getDuLieu();
-            foreach (LoaiThucPham food in lst)
-            {
-                frmSuDungDichVu.treeView1.Nodes.Add(food.id.ToString(), food.tenloai);
-                frmSuDungDichVu.treeView1.NodeMouseClick += TreeView1_NodeMouseClick;
-                frmSuDungDichVu.treeView1.Tag = food;
-            }
+            this.frmTuyChonNhapHang = frmTuyChonNhapHang;
         }
-        #region Event
-        private void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
+
+        public List<LoaiThucPham> LoadLoaiThucPham()
         {
-            blThucPham.getDuLieu(Int32.Parse(e.Node.Name));
+            return daLoaiThucPham.getDuLieu();
         }
-        #endregion
+        
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBilliard.GUI.DANH_MUC;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,16 +17,14 @@ namespace QuanLyBilliard.GUI
         const int THUNGAN = 3;
         const int THUKHO = 4;
         int quyen;
-        public FrmMain()
-        {
-            InitializeComponent();
-        }
+        string tendangnhap;
 
-        public FrmMain(int i)
+        public FrmMain(int i, string tendangnhap)
         {
             InitializeComponent();
             quyen = i;
-           
+            this.tendangnhap = tendangnhap;
+
         }
 
         private void QuyenAdmin()
@@ -51,14 +50,13 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
-            btnCaLamViec.Enabled = true;
+
             btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
             btnTinhLuong.Enabled = true;
             //Quản trị
-            btnPhanQuyen.Enabled = true;
-            btnXoaDuLieu.Enabled = true;
-            btnCauHinhHeThong.Enabled = true;
+            btnKhuyenMai.Enabled = true;
+            btnAbout.Enabled = true;
             btnCauHinhTichDiem.Enabled = true;
 
         }
@@ -115,7 +113,12 @@ namespace QuanLyBilliard.GUI
 
         public void barButtonItem31_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-
+            if (!FormXuatHienChua("FrmKhuyenMai"))
+            {
+                FrmKhuyenMai f = new FrmKhuyenMai();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
 
@@ -139,7 +142,7 @@ namespace QuanLyBilliard.GUI
             }
 
 
-        } 
+        }
         public void btnDanhMucMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmDanhMucMatHang"))
@@ -157,7 +160,7 @@ namespace QuanLyBilliard.GUI
 
         private void btnDanhMucKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(!FormXuatHienChua("FrmDanhMucKhachHang"))
+            if (!FormXuatHienChua("FrmDanhMucKhachHang"))
             {
                 FrmDanhMucKhachHang f = new FrmDanhMucKhachHang();
                 f.MdiParent = this;
@@ -169,14 +172,16 @@ namespace QuanLyBilliard.GUI
 
         private void FrmMain_Load(object sender, EventArgs e)
         {
-            
+            barAiDangDangNhap.Caption = tendangnhap;
             switch (quyen)
             {
                 case BL.BL_Quyen.ADMIN:
                     QuyenAdmin();
+
                     break;
                 case BL.BL_Quyen.QUANLY:
                     QuyenQuanLy();
+
                     break;
                 case BL.BL_Quyen.THUNGAN:
                     QuyenThuNgan();
@@ -210,14 +215,13 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
-            btnCaLamViec.Enabled = false;
+
             btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
             btnTinhLuong.Enabled = false;
             //Quản trị
-            btnPhanQuyen.Enabled = false;
-            btnXoaDuLieu.Enabled = false;
-            btnCauHinhHeThong.Enabled = false;
+            btnKhuyenMai.Enabled = false;
+            btnAbout.Enabled = false;
             btnCauHinhTichDiem.Enabled = false;
         }
 
@@ -244,14 +248,12 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
-            btnCaLamViec.Enabled = false;
             btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
             btnTinhLuong.Enabled = false;
             //Quản trị
-            btnPhanQuyen.Enabled = false;
-            btnXoaDuLieu.Enabled = false;
-            btnCauHinhHeThong.Enabled = false;
+            btnKhuyenMai.Enabled = false;
+            btnAbout.Enabled = false;
             btnCauHinhTichDiem.Enabled = false;
         }
 
@@ -278,20 +280,18 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
-            btnCaLamViec.Enabled = true;
             btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
             btnTinhLuong.Enabled = true;
             //Quản trị
-            btnPhanQuyen.Enabled = false;
-            btnXoaDuLieu.Enabled = false;
-            btnCauHinhHeThong.Enabled = false;
+            btnKhuyenMai.Enabled = false;
+            btnAbout.Enabled = false;
             btnCauHinhTichDiem.Enabled = false;
         }
 
         private void btnDanhMucBan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if(!FormXuatHienChua("FrmDanhMucBanKhuVuc"))
+            if (!FormXuatHienChua("FrmDanhMucBanKhuVuc"))
             {
                 FrmDanhMucBanKhuVuc f = new FrmDanhMucBanKhuVuc();
                 f.MdiParent = this;
@@ -304,6 +304,58 @@ namespace QuanLyBilliard.GUI
             if (!FormXuatHienChua("FrmThanhToan"))
             {
                 FrmThanhToan f = new FrmThanhToan();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnDanhMucNhaCungCap_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmDanhMucNhaCungCap"))
+            {
+                FrmDanhMucNhaCungCap f = new FrmDanhMucNhaCungCap();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnBaoCaoKhoHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            XtraReport1 x = new XtraReport1();
+            x.CreateDocument();
+        }
+
+        private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmDoiMatKhau"))
+            {
+                FrmDoiMatKhau f = new FrmDoiMatKhau(tendangnhap);
+                //f.MdiParent = this;
+                f.ShowDialog();
+            }
+        }
+
+        private void btnNhapHangVaoKho_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmNhapHang"))
+            {
+                FrmNhapHang f = new FrmNhapHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnAbout_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            About f = new About();
+            f.ShowDialog();
+        }
+
+        private void btnTaoPhieuThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmPhieuThu"))
+            {
+                FrmPhieuThu f = new FrmPhieuThu();
                 f.MdiParent = this;
                 f.Show();
             }

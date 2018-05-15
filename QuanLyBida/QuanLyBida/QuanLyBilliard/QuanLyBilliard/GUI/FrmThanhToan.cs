@@ -26,7 +26,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void FrmThanhToan_Load(object sender, EventArgs e)
         {
-            pn2.Visible = true;
+            pnNgay.Visible = false;
             cbLocHoaDon.Text = "Tất cả";
             DataTable result = blHoaDon.HienThiTatCacHoaDon();
             HienThiHoaDonLenDataGridView(result);
@@ -63,14 +63,14 @@ namespace QuanLyBilliard.GUI
             //Chọn tất cả
             if (cbLocHoaDon.Text == "Tất cả")
             {
-                pn2.Visible = false;
+                pnNgay.Visible = false;
                 DataTable result = blHoaDon.HienThiTatCacHoaDon();
                 HienThiHoaDonLenDataGridView(result);
             }
             //Lọc theo ngày hiện tại
             else if (cbLocHoaDon.Text == "Hôm nay")
             {
-                pn2.Visible = true;
+                pnNgay.Visible = true;
                 dtpDenNgay.Visible = false;
                 lbDenNgay.Visible = false;
 
@@ -84,7 +84,7 @@ namespace QuanLyBilliard.GUI
             // Lọc từ ngày này đến ngày kia
             else
             {
-                pn2.Visible = true;
+                pnNgay.Visible = true;
 
                 lbTuNgay.Visible = true;
                 lbTuNgay.Text = "Từ ngày";

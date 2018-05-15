@@ -24,6 +24,7 @@ namespace QuanLyBilliard.GUI
         BL_ThucPham blThucPham;
         BL_NhanVien blNhanVien;
         BL_KhachHang blKhachHang;
+        BL_KhuyenMai blKhuyenMai;
         int idBanHienTai;
         const int TABLE_WIDTH = 70;
         const int TABLE_HEIGHT = 120;
@@ -38,6 +39,7 @@ namespace QuanLyBilliard.GUI
             blThucPham = new BL_ThucPham(this);
             blNhanVien = new BL_NhanVien(this);
             blKhachHang = new BL_KhachHang(this);
+            blKhuyenMai = new BL_KhuyenMai(this);
             this.quyen = quyen;
             
         }
@@ -62,7 +64,7 @@ namespace QuanLyBilliard.GUI
             #endregion
             #region Hiển thị những thứ cơ bản khi load form lên
             HienThiBan();
-            blLoaiThucPham.LoadLoaiThucPham();
+            LoadLoaiThucPham();
             Enabel(false);
             dtBatDau.Enabled = false;
             btnBatDau.Enabled = false;
@@ -82,8 +84,63 @@ namespace QuanLyBilliard.GUI
                     QuyenThuKho();
                     break;
             }
+            //Kiểm tra khuyến mãi
+            double kmh = 0, kmn = 0;
+            DataTable km = blKhuyenMai.XemKhuyenMai();
+            DateTime homnay = DateTime.Now.Date;
+            foreach (DataRow row in km.Rows)
+            {
+                if (homnay >= (DateTime)row["NGAYBATDAU"] && homnay <= (DateTime)row["NGAYKETTHUC"])
+                {
+                    if (kmh < (double)row["GIAMGIAGIO"])
+                    {
+                        kmh = (double)row["GIAMGIAGIO"];
+                    }
+                    if (kmn < (double)row["GIAMGIATHUCPHAM"])
+                    {
+                        kmn = (double)row["GIAMGIATHUCPHAM"];
+                    }
+                }
+            }
+            lbGiamGiaGio.Tag = kmh;
+            lbGiamGiaNuoc.Tag = kmn;
             #endregion
         }
+
+        private void LoadLoaiThucPham()
+        {
+            List<LoaiThucPham> lst = blLoaiThucPham.LoadLoaiThucPham();
+            foreach (LoaiThucPham food in lst)
+            {
+                treeView1.Nodes.Add(food.id.ToString(), food.tenloai);
+                treeView1.NodeMouseClick += TreeView1_NodeMouseClick;
+                treeView1.Tag = food;
+            }
+        }
+        #region Event
+        private void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
+        {
+            LoadThucPham(Int32.Parse(e.Node.Name));
+            blThucPham.getDuLieu(Int32.Parse(e.Node.Name));
+        }
+
+        private void LoadThucPham(int v)
+        {
+            DataTable result = blThucPham.getDuLieu(v);
+            RefeshThucPham(result);
+        }
+
+        private void RefeshThucPham(DataTable result)
+        {
+            dgvThucPham.Rows.Clear();
+            foreach(DataRow row in result.Rows)
+            {
+                dgvThucPham.Rows.Add(row["TENTHUCPHAM"], row["DVT"], row["GIABAN"], row["ID_THUCPHAM"]);
+            }
+        }
+
+
+        #endregion
 
         private void QuyenThuKho()
         {
@@ -213,7 +270,11 @@ namespace QuanLyBilliard.GUI
                 cbKhachHang.DataSource = blKhachHang.LayKhachHang();
                 cbKhachHang.DisplayMember = "TENKHACHHANG";
                 cbKhachHang.ValueMember = "ID_KHACHHANG";
+                //Giảm giá
+                txtGiamGiaGio.Text = lbGiamGiaGio.Tag.ToString();
+                txtGiamGiaNuoc.Text = lbGiamGiaNuoc.Tag.ToString();
                 Enabel(true);
+
             }
             else
             {
@@ -268,15 +329,25 @@ namespace QuanLyBilliard.GUI
         /// </remarks>
         public void BackgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
-            
-            if ((btnDaiDienBan.Tag as Ban !=null) && (btnDaiDienBan.Tag as Ban).TrangThai)
+
+            if ((btnDaiDienBan.Tag as Ban != null) && (btnDaiDienBan.Tag as Ban).TrangThai)
             {
                 //Thời gian
                 DateTime thoiGianHienTai = DateTime.Now;
                 DateTime thoiGianBatBan = DateTime.Parse(dtpNgay.Text);
-                int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;              
+                int minutes = thoiGianHienTai.Minute - thoiGianBatBan.Minute;
                 int hour = thoiGianHienTai.Hour - thoiGianBatBan.Hour;
                 int day = thoiGianHienTai.Day - thoiGianBatBan.Day;
+                float giamGiaGio = 0;
+                if (txtGiamGiaGio.Text != "")
+                {
+                    giamGiaGio = float.Parse(txtGiamGiaGio.Text);
+                }
+                float giamGiaThucPham = 0;
+                if (txtGiamGiaNuoc.Text != "")
+                {
+                    giamGiaThucPham = float.Parse(txtGiamGiaNuoc.Text);
+                }
                 
                 //Làm tròn
                 if (minutes < 0)
@@ -291,13 +362,17 @@ namespace QuanLyBilliard.GUI
                         hour = 24 + hour - 1;
                         day--;
                     }
-                    //Làm tròn phút để tính tiền
-                    if (minutes%10 >=5) minutes = (minutes/10+1)*10;
+                    ////Làm tròn phút để tính tiền
+                    //if (minutes%10 >=5) minutes = (minutes/10+1)*10;
                 }
                
-                float tiengio = blBan.TinhTien(day,hour, minutes);
+                float tiengio = blBan.TinhTienGio(day,hour, minutes,giamGiaGio);
                 txtTienGio.Text = tiengio.ToString();
 
+                //Tiền nước
+                blHoaDon.ShowBill((btnHoaDon.Tag as HoaDon), out tongtien);
+                tongtien-= tongtien * giamGiaThucPham / 100;
+                txtTienNuoc.Text = tongtien.ToString();
                 //Hiển thị
                 txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
                 
@@ -615,16 +690,69 @@ namespace QuanLyBilliard.GUI
         {
             string keyword = txtTimKiem.Text;
             DataTable dt = blThucPham.TimThucPham(keyword);
-            dgvThucPham.Rows.Clear();
-            foreach (DataRow row in dt.Rows)
-            {
-                dgvThucPham.Rows.Add(row["TENTHUCPHAM"],row["DVT"],row["GIABAN"],row["ID_THUCPHAM"]);
-            }
+            RefeshThucPham(dt);
         }
 
         private void txtGiamGiaGio_EditValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void simpleButton5_Click(object sender, EventArgs e)
+        {
+            int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+            double giamGiaGio = (double)(lbGiamGiaGio.Tag);
+            try
+            {
+                double temp = Convert.ToDouble(txtGiamGiaGio.Text);
+                if (temp > giamGiaGio)
+                {
+                    giamGiaGio = temp;
+                }
+                txtGiamGiaGio.Text = giamGiaGio.ToString();
+            }
+            catch(Exception)
+            {
+                MessageBox.Show("Bạn phải nhập vào số nhé");
+            }
+            int kq = blHoaDon.SetGiamGiaGio(idHoaDon, giamGiaGio);
+            if (kq > 0)
+            {
+                Console.WriteLine("Thanh Cong");
+            }
+            else
+            {
+                Console.WriteLine("That bai");
+            }
+        }
+
+        private void simpleButton6_Click(object sender, EventArgs e)
+        {
+            int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+            double giamGiaThucPham = (double)lbGiamGiaNuoc.Tag;
+            try
+            {
+                
+                double temp = Convert.ToDouble(txtGiamGiaNuoc.Text);
+                if (temp > giamGiaThucPham)
+                {
+                    giamGiaThucPham = temp;
+                }
+                txtGiamGiaNuoc.Text = giamGiaThucPham.ToString();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Bạn phải nhập vào số nhé");
+            }
+            int kq = blHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
+            if (kq > 0)
+            {
+                Console.WriteLine("Thanh Cong");
+            }
+            else
+            {
+                Console.WriteLine("That bai");
+            }
         }
     }
 }
