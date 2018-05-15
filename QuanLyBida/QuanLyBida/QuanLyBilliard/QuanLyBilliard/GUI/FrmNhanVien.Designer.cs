@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmNhanVien));
             this.barManager1 = new DevExpress.XtraBars.BarManager(this.components);
             this.bar1 = new DevExpress.XtraBars.Bar();
             this.bbtnThem = new DevExpress.XtraBars.BarButtonItem();
@@ -117,7 +118,7 @@
             // bbtnThem
             // 
             this.bbtnThem.Caption = "Thêm";
-            this.bbtnThem.Glyph = global::QuanLyBilliard.Properties.Resources.Actions_list_add_user_icon;
+            this.bbtnThem.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtnThem.Glyph")));
             this.bbtnThem.Id = 0;
             this.bbtnThem.Name = "bbtnThem";
             this.bbtnThem.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem1_ItemClick);
@@ -125,7 +126,7 @@
             // bbtnSua
             // 
             this.bbtnSua.Caption = "Sửa";
-            this.bbtnSua.Glyph = global::QuanLyBilliard.Properties.Resources.pencil_add_icon;
+            this.bbtnSua.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtnSua.Glyph")));
             this.bbtnSua.Id = 1;
             this.bbtnSua.Name = "bbtnSua";
             this.bbtnSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.X_ItemClick);
@@ -133,7 +134,7 @@
             // bbtnXoa
             // 
             this.bbtnXoa.Caption = "Xóa";
-            this.bbtnXoa.Glyph = global::QuanLyBilliard.Properties.Resources.close_16x16;
+            this.bbtnXoa.Glyph = ((System.Drawing.Image)(resources.GetObject("bbtnXoa.Glyph")));
             this.bbtnXoa.Id = 2;
             this.bbtnXoa.Name = "bbtnXoa";
             this.bbtnXoa.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem2_ItemClick);
@@ -220,6 +221,7 @@
             this.label8.Size = new System.Drawing.Size(18, 13);
             this.label8.TabIndex = 20;
             this.label8.Text = "ID";
+            this.label8.Visible = false;
             // 
             // txtIDNhanVien
             // 
@@ -228,6 +230,7 @@
             this.txtIDNhanVien.Name = "txtIDNhanVien";
             this.txtIDNhanVien.Size = new System.Drawing.Size(100, 20);
             this.txtIDNhanVien.TabIndex = 19;
+            this.txtIDNhanVien.Visible = false;
             // 
             // dtgNhanVien
             // 
@@ -449,6 +452,7 @@
             this.groupBox1.Size = new System.Drawing.Size(167, 69);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Visible = false;
             // 
             // layoutControlGroup1
             // 

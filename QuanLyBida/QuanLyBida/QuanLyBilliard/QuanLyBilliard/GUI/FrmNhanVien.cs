@@ -102,7 +102,7 @@ namespace QuanLyBilliard.GUI
             else
             blNhanVien.XoaNhanVien(textBox1.Text);
             loadDuLieu();
-
+           
         }
 
         private void dtgNhanVien_CellClick(object sender, DataGridViewCellEventArgs e)

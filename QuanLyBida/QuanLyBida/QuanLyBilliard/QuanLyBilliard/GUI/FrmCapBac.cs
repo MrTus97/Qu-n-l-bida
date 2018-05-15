@@ -87,9 +87,9 @@ namespace QuanLyBilliard.GUI
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtTencapbac.Text = dataGridView1.CurrentRow.Cells[1].Value.ToString();
-            txtHesoluong.Text = dataGridView1.CurrentRow.Cells[2].Value.ToString();
-            textEdit1.Text = dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            txtTencapbac.Text = dtgCapBac.CurrentRow.Cells[1].Value.ToString();
+            txtHesoluong.Text = dtgCapBac.CurrentRow.Cells[2].Value.ToString();
+            textEdit1.Text = dtgCapBac.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -97,6 +97,55 @@ namespace QuanLyBilliard.GUI
             string tencapbac = txtTencapbac.Text;
             string hesoluong = txtHesoluong.Text;
             blCapBac.ThemCapBac(tencapbac, hesoluong);
+            blCapBac.HienThiCapBac();
+        }
+
+       // private void dtgCapBac_CellClick(object sender, DataGridViewCellEventArgs e)
+        //{
+         //   txtTencapbac.Text = dtgCapBac.CurrentRow.Cells["TenCapBac"].Value.ToString();
+          //  txtHesoluong.Text = dtgCapBac.CurrentRow.Cells["HeSoLuong"].Value.ToString();
+            
+            
+        //}
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            string tencapbac = txtTencapbac.Text;
+            string hesoluong = txtHesoluong.Text;
+            string idcapbac = textEdit1.Text;
+            blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
+            blCapBac.HienThiCapBac();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            string idcapbac = textEdit1.Text;
+            blCapBac.XoaCapBac(idcapbac);
+            blCapBac.HienThiCapBac();
+        }
+
+        private void dtgCapBac_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void bbtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string tencapbac = txtTencapbac.Text;
+            string hesoluong = txtHesoluong.Text;
+            blCapBac.ThemCapBac(tencapbac, hesoluong);
+            blCapBac.HienThiCapBac();
+        }
+
+        private void bbtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+
+        }
+
+        private void bbtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string idcapbac = textEdit1.Text;
+            blCapBac.XoaCapBac(idcapbac);
             blCapBac.HienThiCapBac();
         }
     }

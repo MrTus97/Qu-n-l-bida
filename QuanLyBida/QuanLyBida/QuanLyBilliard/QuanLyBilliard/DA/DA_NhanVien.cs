@@ -61,13 +61,13 @@ namespace QuanLyBilliard.DA
    
         public int ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, int idCapBac, string catruc)
         {
-            string sql = "insert into NhanVien values('"+tennhanvien+"',convert(datetime,'"+ngaysinh+"',103),'"+cmnd+"','"+sdt+"',"+gioitinh+", "+idCapBac+",N'"+catruc+"',null) ";
+            string sql = "insert into NhanVien values( N'"+tennhanvien+"',convert(datetime,'"+ngaysinh+"',103),'"+cmnd+"','"+sdt+"',"+gioitinh+", "+idCapBac+",N'"+catruc+"',null) ";
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int SuaThongTinNhanVien(int IdNhanVien,string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, int idCapBac, string catruc)
         {
-            string sql = "update NHANVIEN set TENNHANVIEN='" + tennhanvien + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "' where ID_NhanVien = '" + IdNhanVien + "'";
+            string sql = "update NHANVIEN set TENNHANVIEN=N'" + tennhanvien + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "',catruc=N'"+catruc+"' where ID_NhanVien = '" + IdNhanVien + "'";
             return ldc.ExecuteNonQuery(sql);
         }
     }
