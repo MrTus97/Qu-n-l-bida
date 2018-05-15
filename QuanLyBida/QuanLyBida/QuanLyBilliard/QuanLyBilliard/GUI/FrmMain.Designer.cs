@@ -59,13 +59,13 @@
             this.ribbonPageGroup5 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup6 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
+            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
             this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
-            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpQuanTri = new DevExpress.XtraBars.Ribbon.RibbonPage();
+            this.ribbonPageGroup9 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup11 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.xtraTabbedMdiManager1 = new DevExpress.XtraTabbedMdi.XtraTabbedMdiManager(this.components);
             this.btnDoiMatKhau = new DevExpress.XtraBars.BarButtonItem();
@@ -347,6 +347,15 @@
             this.ribbonPageGroup2.ShowCaptionButton = false;
             this.ribbonPageGroup2.Text = "Thống kê";
             // 
+            // ribbonPageGroup7
+            // 
+            this.ribbonPageGroup7.AllowTextClipping = false;
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnNhapHangVaoKho);
+            this.ribbonPageGroup7.ItemLinks.Add(this.btnBaoCaoKhoHang);
+            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
+            this.ribbonPageGroup7.ShowCaptionButton = false;
+            this.ribbonPageGroup7.Text = "Quản lý kho";
+            // 
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -382,23 +391,6 @@
             this.ribbonPageGroup4.Name = "ribbonPageGroup4";
             this.ribbonPageGroup4.ShowCaptionButton = false;
             // 
-            // ribbonPageGroup7
-            // 
-            this.ribbonPageGroup7.AllowTextClipping = false;
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnNhapHangVaoKho);
-            this.ribbonPageGroup7.ItemLinks.Add(this.btnBaoCaoKhoHang);
-            this.ribbonPageGroup7.Name = "ribbonPageGroup7";
-            this.ribbonPageGroup7.ShowCaptionButton = false;
-            this.ribbonPageGroup7.Text = "Quản lý kho";
-            // 
-            // ribbonPageGroup9
-            // 
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnCapBac);
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnNhanVien);
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnTamUng);
-            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
-            this.ribbonPageGroup9.Text = "ribbonPageGroup9";
-            // 
             // rbpQuanTri
             // 
             this.rbpQuanTri.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
@@ -407,13 +399,21 @@
             this.rbpQuanTri.Name = "rbpQuanTri";
             this.rbpQuanTri.Text = "QUẢN TRỊ";
             // 
+            // ribbonPageGroup9
+            // 
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnCapBac);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnNhanVien);
+            this.ribbonPageGroup9.ItemLinks.Add(this.btnTamUng);
+            this.ribbonPageGroup9.Name = "ribbonPageGroup9";
+            this.ribbonPageGroup9.Text = "Nhân Viên";
+            // 
             // ribbonPageGroup11
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.btnKhuyenMai);
             this.ribbonPageGroup11.ItemLinks.Add(this.btnAbout);
             this.ribbonPageGroup11.ItemLinks.Add(this.btnCauHinhTichDiem);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
-            this.ribbonPageGroup11.Text = "ribbonPageGroup11";
+            this.ribbonPageGroup11.Text = "Quản trị";
             // 
             // xtraTabbedMdiManager1
             // 

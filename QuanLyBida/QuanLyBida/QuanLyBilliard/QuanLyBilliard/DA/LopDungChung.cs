@@ -9,7 +9,7 @@ namespace QuanLyBilliard.DA
         public LopDungChung()
         {
             _con = new SqlConnection();
-            _con.ConnectionString = @"Data Source=ARES;Initial Catalog=QUANLYBIDA;Integrated Security=True";
+            _con.ConnectionString = @"Data Source=DESKTOP-6ONFMG6\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
 
         }
         /// <summary>

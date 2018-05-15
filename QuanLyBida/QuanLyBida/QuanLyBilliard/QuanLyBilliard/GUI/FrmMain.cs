@@ -34,7 +34,6 @@ namespace QuanLyBilliard.GUI
             btnDanhMucBan.Enabled = true;
             btnDanhMucKhachHang.Enabled = true;
             btnThongKeDoanhThu.Enabled = true;
-            btnThongKeMatHang.Enabled = true;
             btnSuDungDichVu.Enabled = true;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
@@ -53,7 +52,6 @@ namespace QuanLyBilliard.GUI
 
             btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
-            btnTinhLuong.Enabled = true;
             //Quản trị
             btnKhuyenMai.Enabled = true;
             btnAbout.Enabled = true;
@@ -199,7 +197,6 @@ namespace QuanLyBilliard.GUI
             btnDanhMucBan.Enabled = false;
             btnDanhMucKhachHang.Enabled = false;
             btnThongKeDoanhThu.Enabled = false;
-            btnThongKeMatHang.Enabled = true;
             btnSuDungDichVu.Enabled = false;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
@@ -218,7 +215,6 @@ namespace QuanLyBilliard.GUI
 
             btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
-            btnTinhLuong.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
@@ -232,7 +228,6 @@ namespace QuanLyBilliard.GUI
             btnDanhMucBan.Enabled = true;
             btnDanhMucKhachHang.Enabled = true;
             btnThongKeDoanhThu.Enabled = true;
-            btnThongKeMatHang.Enabled = false;
             btnSuDungDichVu.Enabled = true;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
@@ -250,7 +245,6 @@ namespace QuanLyBilliard.GUI
             btnNhanVien.Enabled = false;
             btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
-            btnTinhLuong.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
@@ -264,7 +258,6 @@ namespace QuanLyBilliard.GUI
             btnDanhMucBan.Enabled = true;
             btnDanhMucKhachHang.Enabled = true;
             btnThongKeDoanhThu.Enabled = true;
-            btnThongKeMatHang.Enabled = true;
             btnSuDungDichVu.Enabled = true;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
@@ -282,7 +275,6 @@ namespace QuanLyBilliard.GUI
             btnNhanVien.Enabled = true;
             btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
-            btnTinhLuong.Enabled = true;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
