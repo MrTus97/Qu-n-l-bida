@@ -49,9 +49,7 @@
             this.btnDanhMucThuChi = new DevExpress.XtraBars.BarButtonItem();
             this.btnCapBac = new DevExpress.XtraBars.BarButtonItem();
             this.btnNhanVien = new DevExpress.XtraBars.BarButtonItem();
-            this.btnTamUng = new DevExpress.XtraBars.BarButtonItem();
             this.btnTinhCong = new DevExpress.XtraBars.BarButtonItem();
-            this.btnCauHinhTichDiem = new DevExpress.XtraBars.BarButtonItem();
             this.btnKhuyenMai = new DevExpress.XtraBars.BarButtonItem();
             this.btnAbout = new DevExpress.XtraBars.BarButtonItem();
             this.barButtonItem1 = new DevExpress.XtraBars.BarButtonItem();
@@ -107,9 +105,7 @@
             this.btnDanhMucThuChi,
             this.btnCapBac,
             this.btnNhanVien,
-            this.btnTamUng,
             this.btnTinhCong,
-            this.btnCauHinhTichDiem,
             this.btnKhuyenMai,
             this.btnAbout,
             this.barButtonItem1});
@@ -264,25 +260,12 @@
             this.btnNhanVien.Name = "btnNhanVien";
             this.btnNhanVien.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnNhanVien_ItemClick);
             // 
-            // btnTamUng
-            // 
-            this.btnTamUng.Caption = "Tạm ứng";
-            this.btnTamUng.Id = 27;
-            this.btnTamUng.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTamUng.LargeGlyph")));
-            this.btnTamUng.Name = "btnTamUng";
-            // 
             // btnTinhCong
             // 
             this.btnTinhCong.Caption = "Tính công";
             this.btnTinhCong.Id = 28;
             this.btnTinhCong.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTinhCong.LargeGlyph")));
             this.btnTinhCong.Name = "btnTinhCong";
-            // 
-            // btnCauHinhTichDiem
-            // 
-            this.btnCauHinhTichDiem.Caption = "Xóa Dữ liệu";
-            this.btnCauHinhTichDiem.Id = 30;
-            this.btnCauHinhTichDiem.Name = "btnCauHinhTichDiem";
             // 
             // btnKhuyenMai
             // 
@@ -401,7 +384,6 @@
             // 
             this.ribbonPageGroup9.ItemLinks.Add(this.btnCapBac);
             this.ribbonPageGroup9.ItemLinks.Add(this.btnNhanVien);
-            this.ribbonPageGroup9.ItemLinks.Add(this.btnTamUng);
             this.ribbonPageGroup9.Name = "ribbonPageGroup9";
             this.ribbonPageGroup9.Text = "Nhân Viên";
             // 
@@ -409,7 +391,6 @@
             // 
             this.ribbonPageGroup11.ItemLinks.Add(this.btnKhuyenMai);
             this.ribbonPageGroup11.ItemLinks.Add(this.btnAbout);
-            this.ribbonPageGroup11.ItemLinks.Add(this.btnCauHinhTichDiem);
             this.ribbonPageGroup11.Name = "ribbonPageGroup11";
             this.ribbonPageGroup11.Text = "Quản trị";
             // 
@@ -551,9 +532,7 @@
         private DevExpress.XtraBars.BarButtonItem btnDanhMucThuChi;
         private DevExpress.XtraBars.BarButtonItem btnCapBac;
         private DevExpress.XtraBars.BarButtonItem btnNhanVien;
-        private DevExpress.XtraBars.BarButtonItem btnTamUng;
         private DevExpress.XtraBars.BarButtonItem btnTinhCong;
-        private DevExpress.XtraBars.BarButtonItem btnCauHinhTichDiem;
         private DevExpress.XtraBars.BarButtonItem btnKhuyenMai;
         private DevExpress.XtraBars.BarButtonItem btnAbout;
         private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup3;
