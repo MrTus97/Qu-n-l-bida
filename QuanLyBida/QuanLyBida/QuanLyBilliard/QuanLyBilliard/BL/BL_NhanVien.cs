@@ -86,7 +86,7 @@ namespace QuanLyBilliard.BL
             DataTable dt = daNhanVien.LayNhanvien();
         }
 
-        //internal void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
+        //public void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
         //{
         //    int idNhanVien = Int32.Parse(txtIDNhanVien);
         //    int gt;
@@ -106,7 +106,7 @@ namespace QuanLyBilliard.BL
             daNhanVien.SuaThongTinNhanVien(IdNhanVien,tennhanvien, ngaysinh, cmnd, sdt, gioitinh, IdCapBac, catruc);
         }
 
-        internal void XoaNhanVien(string idNhanVien)
+        public void XoaNhanVien(string idNhanVien)
         {
             int id = Int32.Parse(idNhanVien);
             int result = daNhanVien.XoaNhanVien(id);

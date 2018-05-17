@@ -18,13 +18,8 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        public  DataTable HienThiCapBac()
-        {
-            string sql = "select * from capbac";
-            return ldc.getDuLieu(sql);
-        }
 
-        internal int SuaCapBac(int id, string tencapbac, float hsl)
+        public int SuaCapBac(int id, string tencapbac, float hsl)
         {
             string sql = "update capbac set tencapbac = '"+tencapbac+"',hesoluong="+hsl+" where id_capbac="+id;
             return ldc.ExecuteNonQuery(sql);
@@ -34,6 +29,12 @@ namespace QuanLyBilliard.DA
         {
             string sql = "Delete CAPBAC where ID_CapBac = " + id;
             return ldc.ExecuteNonQuery(sql);
+        }
+
+        public DataTable LayDanhSachCapBac()
+        {
+            string sql = "select * from capbac";
+            return ldc.getDuLieu(sql);
         }
     }
 }

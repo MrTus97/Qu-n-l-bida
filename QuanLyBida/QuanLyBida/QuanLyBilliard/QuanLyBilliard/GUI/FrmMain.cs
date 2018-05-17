@@ -58,7 +58,7 @@ namespace QuanLyBilliard.GUI
             btnCauHinhTichDiem.Enabled = true;
 
         }
-
+        #region Phương thức
         public bool FormXuatHienChua(string text)
         {
             foreach (Form f in this.MdiChildren)
@@ -71,7 +71,8 @@ namespace QuanLyBilliard.GUI
             }
             return false;
         }
-
+        #endregion
+       
         public void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             if (!FormXuatHienChua("FrmSuDungDichVu"))
@@ -81,11 +82,6 @@ namespace QuanLyBilliard.GUI
                 f.Show();
             }
         }
-
-        public void Form1_Load(object sender, EventArgs e)
-        {
-        }
-
 
 
         public void barButtonItem7_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -97,7 +93,12 @@ namespace QuanLyBilliard.GUI
 
         public void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            Application.Exit();
+            DialogResult result = MessageBox.Show("Bạn có thực sự muốn thoát khỏi chương trình ?", "Xác nhận", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
         }
         public void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -151,10 +152,7 @@ namespace QuanLyBilliard.GUI
             }
         }
 
-        private void ribbonControl1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void btnDanhMucKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -175,7 +173,6 @@ namespace QuanLyBilliard.GUI
             {
                 case BL.BL_Quyen.ADMIN:
                     QuyenAdmin();
-
                     break;
                 case BL.BL_Quyen.QUANLY:
                     QuyenQuanLy();
@@ -313,8 +310,6 @@ namespace QuanLyBilliard.GUI
 
         private void btnBaoCaoKhoHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            XtraReport1 x = new XtraReport1();
-            x.CreateDocument();
         }
 
         private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -343,14 +338,5 @@ namespace QuanLyBilliard.GUI
             f.ShowDialog();
         }
 
-        private void btnTaoPhieuThu_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            if (!FormXuatHienChua("FrmPhieuThu"))
-            {
-                FrmPhieuThu f = new FrmPhieuThu();
-                f.MdiParent = this;
-                f.Show();
-            }
-        }
     }
 }

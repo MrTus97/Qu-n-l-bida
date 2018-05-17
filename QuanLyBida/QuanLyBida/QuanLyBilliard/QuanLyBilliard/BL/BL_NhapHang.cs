@@ -90,5 +90,15 @@ namespace QuanLyBilliard.BL
         {
             return daNhapHang.XoaHoaDonNhap(tag);
         }
+
+        public int XoaMatHangChiTietHoaDonNhap(int v, int idMatHang)
+        {
+            return daNhapHang.XoaMatHangChiTietNhap(v, idMatHang);
+        }
+
+        public int DoiSoLuongChiTietHoaDonNhap(int v1, int idMatHang, int v2)
+        {
+            return daNhapHang.DoiSoLuongChiTietHoaDonNhap(v1, idMatHang, v2);
+        }
     }
 }

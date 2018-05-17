@@ -157,22 +157,13 @@ namespace QuanLyBilliard.GUI
             txtTenBan.Text = dgvBan.CurrentRow.Cells["TENBAN"].Value.ToString();
         }
 
-        //private void btnXoa_Click_1(object sender, EventArgs e)
-        //{
-
-        //}
-
-        //private void btnThem_Click_1(object sender, EventArgs e)
-        //{
-        //    blBan.themBan(cbxLoaiBan.SelectedValue.ToString(), textBox1.Text);
-        //    RefreshBan();
-        //}
-
-        //private void btnCapNhat_Click_1(object sender, EventArgs e)
-        //{
-        //    blBan.capNhatBan(textBox1.Text, cbxLoaiBan.SelectedValue.ToString(), txtTenBan.Text);
-        //    RefreshBan();
-        //}
-
+        private void txtGia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
     }
 }

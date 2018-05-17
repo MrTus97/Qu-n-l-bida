@@ -123,7 +123,6 @@
             this.ribbonControl1.RibbonStyle = DevExpress.XtraBars.Ribbon.RibbonControlStyle.Office2010;
             this.ribbonControl1.Size = new System.Drawing.Size(914, 143);
             this.ribbonControl1.ToolbarLocation = DevExpress.XtraBars.Ribbon.RibbonQuickAccessToolbarLocation.Above;
-            this.ribbonControl1.Click += new System.EventHandler(this.ribbonControl1_Click);
             // 
             // btnSuDungDichVu
             // 
@@ -234,7 +233,6 @@
             this.btnTaoPhieuThu.Id = 21;
             this.btnTaoPhieuThu.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("btnTaoPhieuThu.LargeGlyph")));
             this.btnTaoPhieuThu.Name = "btnTaoPhieuThu";
-            this.btnTaoPhieuThu.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.btnTaoPhieuThu_ItemClick);
             // 
             // btnTaoPhieuChi
             // 

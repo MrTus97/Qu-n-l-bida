@@ -38,11 +38,13 @@ namespace QuanLyBilliard.GUI.DANH_MUC
                 txtIDNhaCungCap.Text = dataGridViewRow.Cells[0].Value.ToString();
                 txtTenNhaCungCap.Text = dataGridViewRow.Cells[1].Value.ToString();
                 richTextBox1.Text = "Cập nhật nhà cung cấp";
+                this.Text = "Cập nhật nhà cung cấp";
             }else
             {
                 label1.Visible = false;
                 txtIDNhaCungCap.Visible = false;
                 richTextBox1.Text = "Thêm mới nhà cung cấp";
+                this.Text = "Thêm mới nhà cung cấp";
             }
         }
 

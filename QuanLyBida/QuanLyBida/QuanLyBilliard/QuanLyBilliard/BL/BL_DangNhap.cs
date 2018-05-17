@@ -35,7 +35,7 @@ namespace QuanLyBilliard.BL
             f.Show();
         }
 
-        internal string LayMatKhau(string tendangnhap)
+        public string LayMatKhau(string tendangnhap)
         {
             return daDangNhap.LayMatKhau(tendangnhap);
         }

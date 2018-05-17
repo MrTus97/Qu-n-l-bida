@@ -102,6 +102,7 @@
             this.btnTim.Size = new System.Drawing.Size(53, 23);
             this.btnTim.TabIndex = 8;
             this.btnTim.Text = "Tìm";
+            this.btnTim.Click += new System.EventHandler(this.btnTim_Click);
             // 
             // lbTimKiem
             // 
@@ -164,7 +165,7 @@
             // 
             this.lbTuNgay.AutoSize = true;
             this.lbTuNgay.Font = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbTuNgay.Location = new System.Drawing.Point(111, 15);
+            this.lbTuNgay.Location = new System.Drawing.Point(73, 15);
             this.lbTuNgay.Name = "lbTuNgay";
             this.lbTuNgay.Size = new System.Drawing.Size(61, 16);
             this.lbTuNgay.TabIndex = 12;

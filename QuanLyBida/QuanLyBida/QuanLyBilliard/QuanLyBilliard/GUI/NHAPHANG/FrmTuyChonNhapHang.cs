@@ -16,6 +16,7 @@ namespace QuanLyBilliard.GUI.NHAPHANG
     {
         private BL_LoaiThucPham blLoaiThucPham;
         private BL_ThucPham blThucPham;
+        //Chứa mặt hàng nhập, đơn giá, số lượng,tổng tiền same same với datagridview hiển thị
         DataTable matHangNhap;
         const int SOLUONGNHAP = 1;
         const int GIANHAP = 2;
@@ -208,5 +209,49 @@ namespace QuanLyBilliard.GUI.NHAPHANG
                 MessageBox.Show("Thất bại");
             }
         }
+
+        private void txtSoHoaDon_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
+
+        private void txtGiaNhap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
+
+        private void dgvTuyChonNhapHang_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            btnDoiSoLuong.Tag = dgvTuyChonNhapHang.CurrentRow;
+        }
+
+        private void btnXoa_Click(object sender, EventArgs e)
+        {
+            if (btnDoiSoLuong.Tag == null)
+            {
+                MessageBox.Show("Bạn chưa chọn mặt hàng cần xóa");
+            }else
+            {
+                int idMatHang = Int32.Parse((btnDoiSoLuong.Tag as DataGridViewRow).Cells[4].Value.ToString());
+                foreach (DataRow row in matHangNhap.Rows)
+                {
+                    if (idMatHang.ToString() == row[ID_MATHANG].ToString())
+                    {
+                        matHangNhap.Rows.Remove(row);
+                        break;
+                    }
+                }
+                RefeshMatHangNhap(matHangNhap);
+            }
+        }
+
     }
 }

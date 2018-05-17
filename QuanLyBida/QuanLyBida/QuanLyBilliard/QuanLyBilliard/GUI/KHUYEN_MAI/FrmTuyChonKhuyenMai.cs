@@ -97,5 +97,16 @@ namespace QuanLyBilliard.GUI.KHUYEN_MAI
             }
             blKhuyenMai = new BL_KhuyenMai(this);
         }
+
+
+
+        private void txtGiamGiaGio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Giảm giá giờ là kí tự số ", "Thông Báo ");
+            }
+        }
     }
 }

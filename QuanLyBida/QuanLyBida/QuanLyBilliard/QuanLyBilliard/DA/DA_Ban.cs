@@ -198,7 +198,7 @@ namespace QuanLyBilliard.DA
             
         }
 
-        internal float LayGiaBan(int iD_LoaiBan)
+        public float LayGiaBan(int iD_LoaiBan)
         {
             string sql = "select GIA from LOAIBAN where ID_LOAIBAN =" + iD_LoaiBan;
             return float.Parse(ldc.ExecuteScalar(sql).ToString());

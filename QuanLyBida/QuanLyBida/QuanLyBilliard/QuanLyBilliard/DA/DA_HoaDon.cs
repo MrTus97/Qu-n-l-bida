@@ -23,7 +23,7 @@ namespace QuanLyBilliard.DA
         }
         
 
-        internal DataTable showBill(int idhd)
+        public DataTable showBill(int idhd)
         {
             //if (hd == null) return default(DataTable);
             string sql = "SELECT tp.TENTHUCPHAM,tp.GIABAN,ct.SOLUONG, tp.GIABAN* ct.SOLUONG as thanhtien,tp.ID_THUCPHAM FROM CHITIETHD ct,HOADON hd, THUCPHAM tp WHERE ct.ID_HOADON = hd.ID_HOADON and tp.ID_THUCPHAM = ct.ID_THUCPHAM and ct.ID_HOADON = " + idhd;
@@ -131,7 +131,7 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
-        internal int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
+        public int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
         {
             string sql = "update HOADON set GIAMGIATHUCPHAM = " + giamGiaThucPham + " where ID_HOADON=" + idHoaDon;
             return ldc.ExecuteNonQuery(sql);

@@ -18,13 +18,13 @@ namespace QuanLyBilliard.DA
 
         public int CapNhatNhaCungCap(int id, string text2)
         {
-           string sql = "update nhacungcap set tennhacungcap ='"+text2+ "' where id_NHACUNGCAP =" + id;
+           string sql = "update nhacungcap set tennhacungcap =N'"+text2+ "' where id_NHACUNGCAP =" + id;
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int ThemNhaCungCap(string txtTenNhaCungCap)
         {
-            string sql = "insert into nhacungcap values('" + txtTenNhaCungCap + "')";
+            string sql = "insert into nhacungcap values(N'" + txtTenNhaCungCap + "')";
             return ldc.ExecuteNonQuery(sql);
         }
 
@@ -34,7 +34,7 @@ namespace QuanLyBilliard.DA
             return ldc.ExecuteNonQuery(sql);
         }
 
-        internal DataTable TimKiemNhaCungCap(string text)
+        public DataTable TimKiemNhaCungCap(string text)
         {
             string sql = "select * from nhacungcap where id_nhacungcap like '%" + text + "%' or tennhacungcap like N'%" + text + "%'";
             return ldc.getDuLieu(sql);

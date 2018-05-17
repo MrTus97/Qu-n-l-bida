@@ -61,7 +61,7 @@ namespace QuanLyBilliard.BL
             return daNhaCungCap.XoaNhaCungCap(id);
         }
 
-        internal DataTable TimNhaCungCap(string text)
+        public DataTable TimNhaCungCap(string text)
         {
             return daNhaCungCap.TimKiemNhaCungCap(text);
         }

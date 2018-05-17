@@ -69,9 +69,21 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
-        internal int CapNhatHoaDonNhap(int soHoaDon, string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
+        public int CapNhatHoaDonNhap(int soHoaDon, string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
         {
             string sql = "update hoadonnhap set tenhoadonnhap =N'" + tenHoaDon + "',ngaynhap = convert(datetime,'" + ngayTaoHoaDon + "',103),tongtien =" + tongtien + " where id_hoadonnhap =" + soHoaDon;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+        internal int XoaMatHangChiTietNhap(int v, int idMatHang)
+        {
+            string sql = "delete CHITIET_HOADONNHAP where ID_HOADONNHAP=" + v + " and ID_THUCPHAM=" + idMatHang;
+            return ldc.ExecuteNonQuery(sql);
+        }
+
+        internal int DoiSoLuongChiTietHoaDonNhap(int v1, int idMatHang, int v2)
+        {
+            string sql = "update CHITIET_HOADONNHAP where SOLUONG = SOLUONG +"+v2+" where ID_HOADONNHAP = " + v1 + " and ID_THUCPHAM = " + idMatHang;
             return ldc.ExecuteNonQuery(sql);
         }
     }

@@ -19,114 +19,15 @@ namespace QuanLyBilliard.GUI
         {
             InitializeComponent();
             blCapBac = new BL_CapBac(this);
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmCapBac_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            
-             
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void textEdit1_EditValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dataGridView1_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void label1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string idcapbac = textEdit1.Text;
-            blCapBac.XoaCapBac(idcapbac);
-            blCapBac.HienThiCapBac();
-        }
-
-        private void barButtonItem3_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
-        {
-            string tencapbac = txtTencapbac.Text;
-            string hesoluong = txtHesoluong.Text;
-            string idcapbac = textEdit1.Text;
-            blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
-            blCapBac.HienThiCapBac();
-                
-
+            DataTable result = blCapBac.LayDanhSachCapBac();
+            RefeshCapBac(result);
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            txtTencapbac.Text = dtgCapBac.CurrentRow.Cells[1].Value.ToString();
-            txtHesoluong.Text = dtgCapBac.CurrentRow.Cells[2].Value.ToString();
-            textEdit1.Text = dtgCapBac.CurrentRow.Cells[0].Value.ToString();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string tencapbac = txtTencapbac.Text;
-            string hesoluong = txtHesoluong.Text;
-            blCapBac.ThemCapBac(tencapbac, hesoluong);
-            blCapBac.HienThiCapBac();
-        }
-
-       // private void dtgCapBac_CellClick(object sender, DataGridViewCellEventArgs e)
-        //{
-         //   txtTencapbac.Text = dtgCapBac.CurrentRow.Cells["TenCapBac"].Value.ToString();
-          //  txtHesoluong.Text = dtgCapBac.CurrentRow.Cells["HeSoLuong"].Value.ToString();
-            
-            
-        //}
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-            string tencapbac = txtTencapbac.Text;
-            string hesoluong = txtHesoluong.Text;
-            string idcapbac = textEdit1.Text;
-            blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
-            blCapBac.HienThiCapBac();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            string idcapbac = textEdit1.Text;
-            blCapBac.XoaCapBac(idcapbac);
-            blCapBac.HienThiCapBac();
-        }
-
-        private void dtgCapBac_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
+            txtTencapbac.Text = dgvCapBac.CurrentRow.Cells[1].Value.ToString();
+            txtHesoluong.Text = dgvCapBac.CurrentRow.Cells[2].Value.ToString();
+            textEdit1.Text = dgvCapBac.CurrentRow.Cells[0].Value.ToString();
         }
 
         private void bbtnThem_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -134,19 +35,35 @@ namespace QuanLyBilliard.GUI
             string tencapbac = txtTencapbac.Text;
             string hesoluong = txtHesoluong.Text;
             blCapBac.ThemCapBac(tencapbac, hesoluong);
-            blCapBac.HienThiCapBac();
+            DataTable result = blCapBac.LayDanhSachCapBac();
+            RefeshCapBac(result);
         }
 
-        private void bbtnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        private void RefeshCapBac(DataTable result)
         {
-
+            dgvCapBac.Rows.Clear();
+            foreach(DataRow row in result.Rows)
+            {
+                dgvCapBac.Rows.Add(row.ItemArray);
+            }
         }
 
         private void bbtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string idcapbac = textEdit1.Text;
             blCapBac.XoaCapBac(idcapbac);
-            blCapBac.HienThiCapBac();
+            DataTable result = blCapBac.LayDanhSachCapBac();
+            RefeshCapBac(result);
+        }
+
+        private void btnSua_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            string tencapbac = txtTencapbac.Text;
+            string hesoluong = txtHesoluong.Text;
+            string idcapbac = textEdit1.Text;
+            blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
+            DataTable result = blCapBac.LayDanhSachCapBac();
+            RefeshCapBac(result);
         }
     }
 }

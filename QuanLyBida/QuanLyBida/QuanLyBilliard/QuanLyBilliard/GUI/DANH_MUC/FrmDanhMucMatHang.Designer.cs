@@ -33,6 +33,14 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LoaiThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_LOAITHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_NHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -53,14 +61,6 @@
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.LoaiThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenThucPham = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GiaBan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NhaCungCap = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDTHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_LOAITHUCPHAM = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_NHACUNGCAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -128,6 +128,60 @@
             this.dataGridView1.TabIndex = 17;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick_1);
+            // 
+            // LoaiThucPham
+            // 
+            this.LoaiThucPham.HeaderText = "Loại Thực Phẩm";
+            this.LoaiThucPham.Name = "LoaiThucPham";
+            this.LoaiThucPham.ReadOnly = true;
+            this.LoaiThucPham.Width = 150;
+            // 
+            // TenThucPham
+            // 
+            this.TenThucPham.HeaderText = "Tên Thực Phẩm";
+            this.TenThucPham.Name = "TenThucPham";
+            this.TenThucPham.ReadOnly = true;
+            this.TenThucPham.Width = 150;
+            // 
+            // DonViTinh
+            // 
+            this.DonViTinh.HeaderText = "Đơn Vị Tính";
+            this.DonViTinh.Name = "DonViTinh";
+            this.DonViTinh.ReadOnly = true;
+            // 
+            // GiaBan
+            // 
+            this.GiaBan.HeaderText = "Giá Bán";
+            this.GiaBan.Name = "GiaBan";
+            this.GiaBan.ReadOnly = true;
+            // 
+            // NhaCungCap
+            // 
+            this.NhaCungCap.HeaderText = "Nhà Cung Cấp";
+            this.NhaCungCap.Name = "NhaCungCap";
+            this.NhaCungCap.ReadOnly = true;
+            this.NhaCungCap.Width = 135;
+            // 
+            // IDTHUCPHAM
+            // 
+            this.IDTHUCPHAM.HeaderText = "Column1";
+            this.IDTHUCPHAM.Name = "IDTHUCPHAM";
+            this.IDTHUCPHAM.ReadOnly = true;
+            this.IDTHUCPHAM.Visible = false;
+            // 
+            // ID_LOAITHUCPHAM
+            // 
+            this.ID_LOAITHUCPHAM.HeaderText = "ID_LOAITHUCPHAM";
+            this.ID_LOAITHUCPHAM.Name = "ID_LOAITHUCPHAM";
+            this.ID_LOAITHUCPHAM.ReadOnly = true;
+            this.ID_LOAITHUCPHAM.Visible = false;
+            // 
+            // ID_NHACUNGCAP
+            // 
+            this.ID_NHACUNGCAP.HeaderText = "ID_NHACUNGCAP";
+            this.ID_NHACUNGCAP.Name = "ID_NHACUNGCAP";
+            this.ID_NHACUNGCAP.ReadOnly = true;
+            this.ID_NHACUNGCAP.Visible = false;
             // 
             // panel3
             // 
@@ -284,6 +338,7 @@
             this.txtDonGia.Size = new System.Drawing.Size(293, 21);
             this.txtDonGia.TabIndex = 8;
             this.txtDonGia.TextChanged += new System.EventHandler(this.txtDonGia_TextChanged);
+            this.txtDonGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonGia_KeyPress);
             // 
             // cbxLoaiThucPham
             // 
@@ -301,6 +356,7 @@
             this.txtDonViTinh.Size = new System.Drawing.Size(293, 21);
             this.txtDonViTinh.TabIndex = 7;
             this.txtDonViTinh.TextChanged += new System.EventHandler(this.txtDonViTinh_TextChanged);
+            this.txtDonViTinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDonViTinh_KeyPress);
             // 
             // txtTenThucPham
             // 
@@ -333,60 +389,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // LoaiThucPham
-            // 
-            this.LoaiThucPham.HeaderText = "Loại Thực Phẩm";
-            this.LoaiThucPham.Name = "LoaiThucPham";
-            this.LoaiThucPham.ReadOnly = true;
-            this.LoaiThucPham.Width = 150;
-            // 
-            // TenThucPham
-            // 
-            this.TenThucPham.HeaderText = "Tên Thực Phẩm";
-            this.TenThucPham.Name = "TenThucPham";
-            this.TenThucPham.ReadOnly = true;
-            this.TenThucPham.Width = 150;
-            // 
-            // DonViTinh
-            // 
-            this.DonViTinh.HeaderText = "Đơn Vị Tính";
-            this.DonViTinh.Name = "DonViTinh";
-            this.DonViTinh.ReadOnly = true;
-            // 
-            // GiaBan
-            // 
-            this.GiaBan.HeaderText = "Giá Bán";
-            this.GiaBan.Name = "GiaBan";
-            this.GiaBan.ReadOnly = true;
-            // 
-            // NhaCungCap
-            // 
-            this.NhaCungCap.HeaderText = "Nhà Cung Cấp";
-            this.NhaCungCap.Name = "NhaCungCap";
-            this.NhaCungCap.ReadOnly = true;
-            this.NhaCungCap.Width = 135;
-            // 
-            // IDTHUCPHAM
-            // 
-            this.IDTHUCPHAM.HeaderText = "Column1";
-            this.IDTHUCPHAM.Name = "IDTHUCPHAM";
-            this.IDTHUCPHAM.ReadOnly = true;
-            this.IDTHUCPHAM.Visible = false;
-            // 
-            // ID_LOAITHUCPHAM
-            // 
-            this.ID_LOAITHUCPHAM.HeaderText = "ID_LOAITHUCPHAM";
-            this.ID_LOAITHUCPHAM.Name = "ID_LOAITHUCPHAM";
-            this.ID_LOAITHUCPHAM.ReadOnly = true;
-            this.ID_LOAITHUCPHAM.Visible = false;
-            // 
-            // ID_NHACUNGCAP
-            // 
-            this.ID_NHACUNGCAP.HeaderText = "ID_NHACUNGCAP";
-            this.ID_NHACUNGCAP.Name = "ID_NHACUNGCAP";
-            this.ID_NHACUNGCAP.ReadOnly = true;
-            this.ID_NHACUNGCAP.Visible = false;
             // 
             // FrmDanhMucMatHang
             // 

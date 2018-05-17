@@ -175,7 +175,7 @@ namespace QuanLyBilliard.BL
             return daHoaDon.SetGiamGiaGio(idHoaDon, giamGiaGio);
         }
 
-        internal int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
+        public int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
         {
             return daHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
         }

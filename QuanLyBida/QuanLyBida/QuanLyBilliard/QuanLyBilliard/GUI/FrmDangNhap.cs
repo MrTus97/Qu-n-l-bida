@@ -53,14 +53,15 @@ namespace QuanLyBilliard.GUI
            
         }
 
-        private void FrmDangNhap_Load(object sender, EventArgs e)
-        {
-        }
-
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             FrmQuenMatKhau f = new FrmQuenMatKhau();
             f.ShowDialog();
+        }
+
+        private void linkLabel1_LinkClicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

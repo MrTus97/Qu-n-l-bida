@@ -41,6 +41,9 @@ namespace QuanLyBilliard.GUI
                 {
                     MessageBox.Show("Mật khẩu điền vào không giống nhau");
                 }
+                else if (matkhaumoi == txtMatkhauHienTai.Text){
+                    MessageBox.Show("Mật khẩu mới trùng với mật khẩu cũ");
+                }
                 else
                 {
                     blDangNhap.DoiMatKhau(tendangnhap, matkhaumoi);

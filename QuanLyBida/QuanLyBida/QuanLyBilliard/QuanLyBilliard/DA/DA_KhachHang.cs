@@ -33,13 +33,13 @@ namespace QuanLyBilliard.DA
 
         public int themKhachHang(string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int idLoaiKhacHhang)
         {
-            string sql = "insert into KHACHHANG values ('"+tenkhachhang+"','"+sdt+"','"+ngaysinh+"',"+gioitinh+",0,"+idLoaiKhacHhang+")";
+            string sql = "insert into KHACHHANG values (N'"+tenkhachhang+"','"+sdt+"',convert(datetime,'"+ngaysinh+"',103),"+gioitinh+",0,"+idLoaiKhacHhang+")";
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int CapNhatKhachHang(int idKhachHang, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int idLoaiKhacHhang)
         {
-            string sql = "update khachhang set tenkhachhang = '"+tenkhachhang+"', sodienthoai = '"+sdt+"', ngaysinh = '"+ngaysinh+"', gioitinh= '"+gioitinh+"', id_loaikhachhang = "+idLoaiKhacHhang+" where id_khachhang = "+idKhachHang+"";
+            string sql = "update khachhang set tenkhachhang = N'"+tenkhachhang+"', sodienthoai = '"+sdt+"', ngaysinh = convert(datetime,'"+ngaysinh+"',103), gioitinh= '"+gioitinh+"', id_loaikhachhang = "+idLoaiKhacHhang+" where id_khachhang = "+idKhachHang+"";
             return ldc.ExecuteNonQuery(sql);
         }
 

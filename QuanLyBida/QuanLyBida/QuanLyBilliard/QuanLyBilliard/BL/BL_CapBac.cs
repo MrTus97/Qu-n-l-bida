@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data;
 
 namespace QuanLyBilliard.BL
 {
@@ -18,20 +19,11 @@ namespace QuanLyBilliard.BL
         {
             frmCapBac = f;
             daCapBac = new DA_CapBac();
-            HienThiCapBac();
         }
 
-        public void SuaCapBac(string tencapbac, string hesoluong)
-        {
-            
-        }
 
-        public void HienThiCapBac()
-        {
-            frmCapBac.dtgCapBac.DataSource =  daCapBac.HienThiCapBac();            
-        }
 
-        internal void SuaCapBac(string idcapbac, string tencapbac, string hesoluong)
+        public void SuaCapBac(string idcapbac, string tencapbac, string hesoluong)
         {
             int id = Int32.Parse(idcapbac);
             float hsl = float.Parse(hesoluong);
@@ -40,7 +32,7 @@ namespace QuanLyBilliard.BL
             else MessageBox.Show("Thất bại");
         }
 
-        internal void XoaCapBac(string idcapbac)
+        public void XoaCapBac(string idcapbac)
         {
             int id = Int32.Parse(idcapbac);
             int result = daCapBac.XoaCapBac(id);
@@ -52,10 +44,15 @@ namespace QuanLyBilliard.BL
 
         }
 
-        internal void ThemCapBac(string tencapbac, string hesoluong)
+        public void ThemCapBac(string tencapbac, string hesoluong)
         {
             float hsl = float.Parse(hesoluong);
             daCapBac.ThemCapBac(tencapbac, hsl);
+        }
+
+        public DataTable LayDanhSachCapBac()
+        {
+            return daCapBac.LayDanhSachCapBac();
         }
     }
 }

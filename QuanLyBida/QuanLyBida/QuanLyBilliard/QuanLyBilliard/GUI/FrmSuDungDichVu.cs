@@ -30,6 +30,11 @@ namespace QuanLyBilliard.GUI
         const int TABLE_HEIGHT = 120;
         int quyen;
         #endregion
+
+        /// <summary>
+        /// Tạo hàm dựng cho form Sử dụng dịch vụ với tham số là quyền truyền vào
+        /// </summary>
+        /// <param name="quyen"></param>
         public FrmSuDungDichVu(int quyen)
         {
             InitializeComponent();
@@ -62,7 +67,7 @@ namespace QuanLyBilliard.GUI
                 backgroundWorker1.RunWorkerAsync();
             }
             #endregion
-            #region Hiển thị những thứ cơ bản khi load form lên
+            
             HienThiBan();
             LoadLoaiThucPham();
             Enabel(false);
@@ -88,23 +93,27 @@ namespace QuanLyBilliard.GUI
             double kmh = 0, kmn = 0;
             DataTable km = blKhuyenMai.XemKhuyenMai();
             DateTime homnay = DateTime.Now.Date;
-            foreach (DataRow row in km.Rows)
+            if (km.Rows.Count != 0)
             {
-                if (homnay >= (DateTime)row["NGAYBATDAU"] && homnay <= (DateTime)row["NGAYKETTHUC"])
+                foreach (DataRow row in km.Rows)
                 {
-                    if (kmh < (double)row["GIAMGIAGIO"])
+                    if (homnay >= (DateTime)row["NGAYBATDAU"] && homnay <= (DateTime)row["NGAYKETTHUC"])
                     {
-                        kmh = (double)row["GIAMGIAGIO"];
-                    }
-                    if (kmn < (double)row["GIAMGIATHUCPHAM"])
-                    {
-                        kmn = (double)row["GIAMGIATHUCPHAM"];
+                        if (kmh < (double)row["GIAMGIAGIO"])
+                        {
+                            kmh = (double)row["GIAMGIAGIO"];
+                        }
+                        if (kmn < (double)row["GIAMGIATHUCPHAM"])
+                        {
+                            kmn = (double)row["GIAMGIATHUCPHAM"];
+                        }
                     }
                 }
+                lbGiamGiaGio.Tag = kmh;
+                lbGiamGiaNuoc.Tag = kmn;
             }
-            lbGiamGiaGio.Tag = kmh;
-            lbGiamGiaNuoc.Tag = kmn;
-            #endregion
+            
+        
         }
 
         private void LoadLoaiThucPham()
@@ -142,6 +151,7 @@ namespace QuanLyBilliard.GUI
 
         #endregion
 
+        #region Phân quyền
         private void QuyenThuKho()
         {
             txtGiamGiaNuoc.Enabled = false;
@@ -161,6 +171,7 @@ namespace QuanLyBilliard.GUI
         {
             txtGiamGiaNuoc.Enabled = true;
         }
+        #endregion
 
         /// <summary>
         /// Hiển thị tất cả các bàn có trong cơ sở dữ liệu
@@ -271,8 +282,23 @@ namespace QuanLyBilliard.GUI
                 cbKhachHang.DisplayMember = "TENKHACHHANG";
                 cbKhachHang.ValueMember = "ID_KHACHHANG";
                 //Giảm giá
-                txtGiamGiaGio.Text = lbGiamGiaGio.Tag.ToString();
-                txtGiamGiaNuoc.Text = lbGiamGiaNuoc.Tag.ToString();
+                int giamgio = Int32.Parse(lbGiamGiaGio.Tag.ToString());
+                if (hoadon.GiamGiaGio > giamgio)
+                {
+                    txtGiamGiaGio.Text = hoadon.GiamGiaGio.ToString();
+                }else
+                {
+                    txtGiamGiaGio.Text = lbGiamGiaGio.Tag.ToString();
+                }
+
+                int giamnuoc = Int32.Parse(lbGiamGiaNuoc.Tag.ToString());
+                if (hoadon.GiamGiaThucPham > giamnuoc)
+                {
+                    txtGiamGiaNuoc.Text = hoadon.GiamGiaThucPham.ToString();
+                }else
+                {
+                    txtGiamGiaNuoc.Text = lbGiamGiaNuoc.Tag.ToString();
+                }
                 Enabel(true);
 
             }
@@ -700,41 +726,52 @@ namespace QuanLyBilliard.GUI
 
         private void simpleButton5_Click(object sender, EventArgs e)
         {
-            int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+            
             double giamGiaGio = (double)(lbGiamGiaGio.Tag);
             try
             {
                 double temp = Convert.ToDouble(txtGiamGiaGio.Text);
-                if (temp > giamGiaGio)
+                if (temp <0 || temp > 100)
+                {
+                    txtGiamGiaGio.Text = giamGiaGio.ToString();
+                    throw new Exception();
+                }
+                else if (temp > giamGiaGio)
                 {
                     giamGiaGio = temp;
                 }
                 txtGiamGiaGio.Text = giamGiaGio.ToString();
+
             }
             catch(Exception)
             {
-                MessageBox.Show("Bạn phải nhập vào số nhé");
+                MessageBox.Show("Chỉ khuyến mãi trong khoảng 0 - 100");
             }
-            int kq = blHoaDon.SetGiamGiaGio(idHoaDon, giamGiaGio);
-            if (kq > 0)
+            finally
             {
-                Console.WriteLine("Thanh Cong");
+                int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+                int kq = blHoaDon.SetGiamGiaGio(idHoaDon, giamGiaGio);
+                if (kq > 0)
+                {
+                    txtGiamGiaGio.ForeColor = Color.Black;
+                }
+                
             }
-            else
-            {
-                Console.WriteLine("That bai");
-            }
+            
         }
 
-        private void simpleButton6_Click(object sender, EventArgs e)
+        public void simpleButton6_Click(object sender, EventArgs e)
         {
-            int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+            
             double giamGiaThucPham = (double)lbGiamGiaNuoc.Tag;
             try
             {
-                
                 double temp = Convert.ToDouble(txtGiamGiaNuoc.Text);
-                if (temp > giamGiaThucPham)
+                if (temp <0  || temp > 100)
+                {
+                    txtGiamGiaNuoc.Text = giamGiaThucPham.ToString();
+                    throw new Exception();
+                } else if (temp > giamGiaThucPham)
                 {
                     giamGiaThucPham = temp;
                 }
@@ -742,16 +779,47 @@ namespace QuanLyBilliard.GUI
             }
             catch (Exception)
             {
-                MessageBox.Show("Bạn phải nhập vào số nhé");
+                MessageBox.Show("Giảm giá nằm trong khoảng 0-100");
             }
-            int kq = blHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
-            if (kq > 0)
+            finally
             {
-                Console.WriteLine("Thanh Cong");
+                int idHoaDon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
+                int kq = blHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
+                if (kq > 0)
+                {
+                    txtGiamGiaNuoc.BackColor = Color.Black;
+                }
+                
             }
-            else
+            
+        }
+
+        private void cbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
-                Console.WriteLine("That bai");
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
+
+        private void txtGiamGiaGio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtGiamGiaGio.ForeColor = Color.Red;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
+
+        private void txtGiamGiaNuoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            txtGiamGiaNuoc.BackColor = Color.Red;
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
             }
         }
     }

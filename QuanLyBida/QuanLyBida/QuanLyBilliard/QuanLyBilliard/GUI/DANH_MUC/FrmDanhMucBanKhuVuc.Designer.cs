@@ -192,6 +192,7 @@
             this.txtGia.Name = "txtGia";
             this.txtGia.Size = new System.Drawing.Size(233, 21);
             this.txtGia.TabIndex = 14;
+            this.txtGia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGia_KeyPress);
             // 
             // txtTenLoai
             // 

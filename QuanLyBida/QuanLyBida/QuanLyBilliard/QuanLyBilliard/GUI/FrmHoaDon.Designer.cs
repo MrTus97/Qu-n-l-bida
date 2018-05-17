@@ -39,6 +39,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
             this.btnThanhToan = new DevExpress.XtraEditors.SimpleButton();
             this.simpleButton2 = new DevExpress.XtraEditors.SimpleButton();
@@ -50,11 +55,6 @@
             this.Value_GioRa = new System.Windows.Forms.Label();
             this.Value_NhanVien = new System.Windows.Forms.Label();
             this.ValueTongTien = new System.Windows.Forms.Label();
-            this.TENMATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GIABAN1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ThanhTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_THUCPHAM1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -176,6 +176,41 @@
             this.dataGridView2.Size = new System.Drawing.Size(283, 236);
             this.dataGridView2.TabIndex = 71;
             // 
+            // TENMATHANG
+            // 
+            this.TENMATHANG.HeaderText = "Tên hàng";
+            this.TENMATHANG.Name = "TENMATHANG";
+            this.TENMATHANG.ReadOnly = true;
+            this.TENMATHANG.Width = 95;
+            // 
+            // GIABAN1
+            // 
+            this.GIABAN1.HeaderText = "Giá Bán";
+            this.GIABAN1.Name = "GIABAN1";
+            this.GIABAN1.ReadOnly = true;
+            this.GIABAN1.Width = 52;
+            // 
+            // SoLuong
+            // 
+            this.SoLuong.HeaderText = "Số lượng";
+            this.SoLuong.Name = "SoLuong";
+            this.SoLuong.ReadOnly = true;
+            this.SoLuong.Width = 52;
+            // 
+            // ThanhTien
+            // 
+            this.ThanhTien.HeaderText = "Thành tiền";
+            this.ThanhTien.Name = "ThanhTien";
+            this.ThanhTien.ReadOnly = true;
+            this.ThanhTien.Width = 85;
+            // 
+            // ID_THUCPHAM1
+            // 
+            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
+            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
+            this.ID_THUCPHAM1.ReadOnly = true;
+            this.ID_THUCPHAM1.Visible = false;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -188,6 +223,7 @@
             // 
             // btnThanhToan
             // 
+            this.btnThanhToan.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnThanhToan.Location = new System.Drawing.Point(142, 469);
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(75, 23);
@@ -197,6 +233,7 @@
             // 
             // simpleButton2
             // 
+            this.simpleButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.simpleButton2.Location = new System.Drawing.Point(39, 469);
             this.simpleButton2.Name = "simpleButton2";
             this.simpleButton2.Size = new System.Drawing.Size(75, 23);
@@ -205,6 +242,7 @@
             // 
             // simpleButton3
             // 
+            this.simpleButton3.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.simpleButton3.Location = new System.Drawing.Point(248, 469);
             this.simpleButton3.Name = "simpleButton3";
             this.simpleButton3.Size = new System.Drawing.Size(75, 23);
@@ -275,45 +313,12 @@
             this.ValueTongTien.TabIndex = 79;
             this.ValueTongTien.Text = "label10";
             // 
-            // TENMATHANG
-            // 
-            this.TENMATHANG.HeaderText = "Tên hàng";
-            this.TENMATHANG.Name = "TENMATHANG";
-            this.TENMATHANG.ReadOnly = true;
-            this.TENMATHANG.Width = 95;
-            // 
-            // GIABAN1
-            // 
-            this.GIABAN1.HeaderText = "Giá Bán";
-            this.GIABAN1.Name = "GIABAN1";
-            this.GIABAN1.ReadOnly = true;
-            this.GIABAN1.Width = 52;
-            // 
-            // SoLuong
-            // 
-            this.SoLuong.HeaderText = "Số lượng";
-            this.SoLuong.Name = "SoLuong";
-            this.SoLuong.ReadOnly = true;
-            this.SoLuong.Width = 52;
-            // 
-            // ThanhTien
-            // 
-            this.ThanhTien.HeaderText = "Thành tiền";
-            this.ThanhTien.Name = "ThanhTien";
-            this.ThanhTien.ReadOnly = true;
-            this.ThanhTien.Width = 85;
-            // 
-            // ID_THUCPHAM1
-            // 
-            this.ID_THUCPHAM1.HeaderText = "ID Thực phẩm";
-            this.ID_THUCPHAM1.Name = "ID_THUCPHAM1";
-            this.ID_THUCPHAM1.ReadOnly = true;
-            this.ID_THUCPHAM1.Visible = false;
-            // 
             // FrmHoaDon
             // 
+            this.AcceptButton = this.btnThanhToan;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.simpleButton3;
             this.ClientSize = new System.Drawing.Size(354, 504);
             this.Controls.Add(this.ValueTongTien);
             this.Controls.Add(this.Value_NhanVien);

@@ -33,6 +33,13 @@
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.LoaiKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_KHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ID_LOAIKHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnThem = new System.Windows.Forms.Button();
             this.btnCapNhat = new System.Windows.Forms.Button();
@@ -56,13 +63,6 @@
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.LoaiKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TenKhachHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SDT = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_KHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ID_LOAIKHACHHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -129,6 +129,54 @@
             this.dataGridView1.Size = new System.Drawing.Size(704, 464);
             this.dataGridView1.TabIndex = 21;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            // 
+            // LoaiKhachHang
+            // 
+            this.LoaiKhachHang.HeaderText = "Loại Khách Hàng";
+            this.LoaiKhachHang.Name = "LoaiKhachHang";
+            this.LoaiKhachHang.ReadOnly = true;
+            this.LoaiKhachHang.Width = 150;
+            // 
+            // TenKhachHang
+            // 
+            this.TenKhachHang.HeaderText = "Tên Khách Hang";
+            this.TenKhachHang.Name = "TenKhachHang";
+            this.TenKhachHang.ReadOnly = true;
+            this.TenKhachHang.Width = 150;
+            // 
+            // SDT
+            // 
+            this.SDT.HeaderText = "Số Điện Thoại";
+            this.SDT.Name = "SDT";
+            this.SDT.ReadOnly = true;
+            this.SDT.Width = 150;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            this.NgaySinh.Width = 150;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // ID_KHACHHANG
+            // 
+            this.ID_KHACHHANG.HeaderText = "Column1";
+            this.ID_KHACHHANG.Name = "ID_KHACHHANG";
+            this.ID_KHACHHANG.ReadOnly = true;
+            this.ID_KHACHHANG.Visible = false;
+            // 
+            // ID_LOAIKHACHHANG
+            // 
+            this.ID_LOAIKHACHHANG.HeaderText = "ID_LOAIKHACHHANG";
+            this.ID_LOAIKHACHHANG.Name = "ID_LOAIKHACHHANG";
+            this.ID_LOAIKHACHHANG.ReadOnly = true;
+            this.ID_LOAIKHACHHANG.Visible = false;
             // 
             // panel3
             // 
@@ -322,6 +370,7 @@
             this.txtSoDienThoai.Size = new System.Drawing.Size(272, 21);
             this.txtSoDienThoai.TabIndex = 7;
             this.txtSoDienThoai.TextChanged += new System.EventHandler(this.txtSoDienThoai_TextChanged);
+            this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
             // txtTenKhachHang
             // 
@@ -354,54 +403,6 @@
             // errorProvider1
             // 
             this.errorProvider1.ContainerControl = this;
-            // 
-            // LoaiKhachHang
-            // 
-            this.LoaiKhachHang.HeaderText = "Loại Khách Hàng";
-            this.LoaiKhachHang.Name = "LoaiKhachHang";
-            this.LoaiKhachHang.ReadOnly = true;
-            this.LoaiKhachHang.Width = 150;
-            // 
-            // TenKhachHang
-            // 
-            this.TenKhachHang.HeaderText = "Tên Khách Hang";
-            this.TenKhachHang.Name = "TenKhachHang";
-            this.TenKhachHang.ReadOnly = true;
-            this.TenKhachHang.Width = 150;
-            // 
-            // SDT
-            // 
-            this.SDT.HeaderText = "Số Điện Thoại";
-            this.SDT.Name = "SDT";
-            this.SDT.ReadOnly = true;
-            this.SDT.Width = 150;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            this.NgaySinh.Width = 150;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // ID_KHACHHANG
-            // 
-            this.ID_KHACHHANG.HeaderText = "Column1";
-            this.ID_KHACHHANG.Name = "ID_KHACHHANG";
-            this.ID_KHACHHANG.ReadOnly = true;
-            this.ID_KHACHHANG.Visible = false;
-            // 
-            // ID_LOAIKHACHHANG
-            // 
-            this.ID_LOAIKHACHHANG.HeaderText = "ID_LOAIKHACHHANG";
-            this.ID_LOAIKHACHHANG.Name = "ID_LOAIKHACHHANG";
-            this.ID_LOAIKHACHHANG.ReadOnly = true;
-            this.ID_LOAIKHACHHANG.Visible = false;
             // 
             // FrmDanhMucKhachHang
             // 

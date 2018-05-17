@@ -399,8 +399,11 @@ namespace QuanLyBilliard.GUI
             this.txtGiamGiaNuoc.EditValue = "0";
             this.txtGiamGiaNuoc.Location = new System.Drawing.Point(102, 393);
             this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
+            this.txtGiamGiaNuoc.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtGiamGiaNuoc.Properties.Appearance.Options.UseForeColor = true;
             this.txtGiamGiaNuoc.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaNuoc.TabIndex = 77;
+            this.txtGiamGiaNuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGiaNuoc_KeyPress);
             // 
             // lbGiamGiaGio
             // 
@@ -415,9 +418,12 @@ namespace QuanLyBilliard.GUI
             this.txtGiamGiaGio.EditValue = "0";
             this.txtGiamGiaGio.Location = new System.Drawing.Point(102, 369);
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
+            this.txtGiamGiaGio.Properties.Appearance.ForeColor = System.Drawing.Color.Black;
+            this.txtGiamGiaGio.Properties.Appearance.Options.UseForeColor = true;
             this.txtGiamGiaGio.Size = new System.Drawing.Size(55, 20);
             this.txtGiamGiaGio.TabIndex = 75;
             this.txtGiamGiaGio.EditValueChanged += new System.EventHandler(this.txtGiamGiaGio_EditValueChanged);
+            this.txtGiamGiaGio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGiaGio_KeyPress);
             // 
             // dgvThucPhamTrongHoaDon
             // 
@@ -558,6 +564,7 @@ namespace QuanLyBilliard.GUI
             "24"});
             this.cbSoLuong.Size = new System.Drawing.Size(64, 20);
             this.cbSoLuong.TabIndex = 53;
+            this.cbSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoLuong_KeyPress);
             // 
             // btnChuyenBan
             // 

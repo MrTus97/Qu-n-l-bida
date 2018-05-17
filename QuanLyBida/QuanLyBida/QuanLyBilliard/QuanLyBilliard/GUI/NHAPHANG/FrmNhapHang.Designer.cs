@@ -33,20 +33,18 @@
             this.btnThem = new System.Windows.Forms.ToolStripButton();
             this.btnSua = new System.Windows.Forms.ToolStripButton();
             this.btnXoa = new System.Windows.Forms.ToolStripButton();
-            this.toolStripTextBox1 = new System.Windows.Forms.ToolStripTextBox();
-            this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
             this.dgvHoaDonNhap = new System.Windows.Forms.DataGridView();
             this.ID_HOADONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TENHOADONNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NGAYNHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvChiTietHDNhap = new System.Windows.Forms.DataGridView();
-            this.splitter1 = new System.Windows.Forms.Splitter();
             this.MATHANG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.SOLUONG = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.DONGIANHAP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Thanhtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.c_dgvChiTietHDNhap_IdMatHang = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.splitter1 = new System.Windows.Forms.Splitter();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDonNhap)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvChiTietHDNhap)).BeginInit();
@@ -57,9 +55,7 @@
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.btnThem,
             this.btnSua,
-            this.btnXoa,
-            this.toolStripTextBox1,
-            this.toolStripLabel1});
+            this.btnXoa});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1350, 25);
@@ -92,19 +88,6 @@
             this.btnXoa.Size = new System.Drawing.Size(80, 22);
             this.btnXoa.Text = "Xóa phiếu";
             this.btnXoa.Click += new System.EventHandler(this.btnXoa_Click);
-            // 
-            // toolStripTextBox1
-            // 
-            this.toolStripTextBox1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripTextBox1.Name = "toolStripTextBox1";
-            this.toolStripTextBox1.Size = new System.Drawing.Size(100, 25);
-            // 
-            // toolStripLabel1
-            // 
-            this.toolStripLabel1.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
-            this.toolStripLabel1.Name = "toolStripLabel1";
-            this.toolStripLabel1.Size = new System.Drawing.Size(64, 22);
-            this.toolStripLabel1.Text = "Tổng tiền :";
             // 
             // dgvHoaDonNhap
             // 
@@ -175,14 +158,6 @@
             this.dgvChiTietHDNhap.Size = new System.Drawing.Size(1067, 350);
             this.dgvChiTietHDNhap.TabIndex = 2;
             // 
-            // splitter1
-            // 
-            this.splitter1.Location = new System.Drawing.Point(283, 25);
-            this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 350);
-            this.splitter1.TabIndex = 3;
-            this.splitter1.TabStop = false;
-            // 
             // MATHANG
             // 
             this.MATHANG.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -221,6 +196,14 @@
             this.c_dgvChiTietHDNhap_IdMatHang.ReadOnly = true;
             this.c_dgvChiTietHDNhap_IdMatHang.Visible = false;
             // 
+            // splitter1
+            // 
+            this.splitter1.Location = new System.Drawing.Point(283, 25);
+            this.splitter1.Name = "splitter1";
+            this.splitter1.Size = new System.Drawing.Size(3, 350);
+            this.splitter1.TabIndex = 3;
+            this.splitter1.TabStop = false;
+            // 
             // FrmNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -249,14 +232,12 @@
         private System.Windows.Forms.ToolStripButton btnThem;
         private System.Windows.Forms.ToolStripButton btnSua;
         private System.Windows.Forms.ToolStripButton btnXoa;
-        private System.Windows.Forms.ToolStripLabel toolStripLabel1;
         private System.Windows.Forms.DataGridViewTextBoxColumn ID_HOADONNHAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TENHOADONNHAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn NGAYNHAP;
         private System.Windows.Forms.DataGridViewTextBoxColumn TongTien;
         private System.Windows.Forms.DataGridView dgvChiTietHDNhap;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.ToolStripTextBox toolStripTextBox1;
         private System.Windows.Forms.DataGridViewTextBoxColumn MATHANG;
         private System.Windows.Forms.DataGridViewTextBoxColumn SOLUONG;
         private System.Windows.Forms.DataGridViewTextBoxColumn DONGIANHAP;

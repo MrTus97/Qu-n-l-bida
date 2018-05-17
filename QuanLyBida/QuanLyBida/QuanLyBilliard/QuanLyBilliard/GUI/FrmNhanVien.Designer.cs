@@ -247,11 +247,12 @@
             this.CapBac,
             this.IDNhanVien,
             this.IDCapBac});
-            this.dtgNhanVien.Location = new System.Drawing.Point(276, 129);
+            this.dtgNhanVien.Dock = System.Windows.Forms.DockStyle.Right;
+            this.dtgNhanVien.Location = new System.Drawing.Point(364, 2);
             this.dtgNhanVien.Name = "dtgNhanVien";
             this.dtgNhanVien.ReadOnly = true;
             this.dtgNhanVien.RowHeadersVisible = false;
-            this.dtgNhanVien.Size = new System.Drawing.Size(705, 190);
+            this.dtgNhanVien.Size = new System.Drawing.Size(705, 346);
             this.dtgNhanVien.TabIndex = 18;
             this.dtgNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgNhanVien_CellClick);
             this.dtgNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);

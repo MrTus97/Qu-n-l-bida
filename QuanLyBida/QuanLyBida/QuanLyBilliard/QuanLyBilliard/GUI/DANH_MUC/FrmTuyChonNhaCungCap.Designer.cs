@@ -141,7 +141,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox1);
             this.Name = "FrmTuyChonNhaCungCap";
-            this.Text = "FrmTuyChonNhaCungCap";
+            this.Text = "Nhà cung cấp";
             this.Load += new System.EventHandler(this.FrmTuyChonNhaCungCap_Load);
             this.panel2.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

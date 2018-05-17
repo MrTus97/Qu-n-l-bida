@@ -30,21 +30,21 @@
         {
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.txtIDKhuyenMai = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtTenKhuyenMai = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtGiamGiaGio = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtGiamGiaThucPham = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.dtpNgayBatDau = new System.Windows.Forms.DateTimePicker();
             this.dtpNgayKetThuc = new System.Windows.Forms.DateTimePicker();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnGhiDuLieu = new System.Windows.Forms.Button();
+            this.dtpNgayBatDau = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGiamGiaThucPham = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtGiamGiaGio = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtTenKhuyenMai = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtIDKhuyenMai = new System.Windows.Forms.TextBox();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.btnThoat = new System.Windows.Forms.Button();
+            this.btnGhiDuLieu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -82,70 +82,41 @@
             this.panel1.TabIndex = 1;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
-            // panel2
+            // dtpNgayKetThuc
             // 
-            this.panel2.Controls.Add(this.btnThoat);
-            this.panel2.Controls.Add(this.btnGhiDuLieu);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 306);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(449, 48);
-            this.panel2.TabIndex = 2;
+            this.dtpNgayKetThuc.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayKetThuc.Location = new System.Drawing.Point(222, 187);
+            this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
+            this.dtpNgayKetThuc.Size = new System.Drawing.Size(200, 26);
+            this.dtpNgayKetThuc.TabIndex = 10;
             // 
-            // txtIDKhuyenMai
+            // label6
             // 
-            this.txtIDKhuyenMai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIDKhuyenMai.Location = new System.Drawing.Point(222, 27);
-            this.txtIDKhuyenMai.Name = "txtIDKhuyenMai";
-            this.txtIDKhuyenMai.Size = new System.Drawing.Size(200, 26);
-            this.txtIDKhuyenMai.TabIndex = 0;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(41, 193);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(133, 18);
+            this.label6.TabIndex = 9;
+            this.label6.Text = "NGÀY KẾT THÚC";
             // 
-            // label1
+            // dtpNgayBatDau
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(41, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "ID KHUYẾN MÃI";
+            this.dtpNgayBatDau.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpNgayBatDau.Location = new System.Drawing.Point(222, 155);
+            this.dtpNgayBatDau.Name = "dtpNgayBatDau";
+            this.dtpNgayBatDau.Size = new System.Drawing.Size(200, 26);
+            this.dtpNgayBatDau.TabIndex = 8;
             // 
-            // label2
+            // label5
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(41, 62);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(138, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "TÊN KHUYẾN MÃI";
-            // 
-            // txtTenKhuyenMai
-            // 
-            this.txtTenKhuyenMai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTenKhuyenMai.Location = new System.Drawing.Point(222, 59);
-            this.txtTenKhuyenMai.Name = "txtTenKhuyenMai";
-            this.txtTenKhuyenMai.Size = new System.Drawing.Size(200, 26);
-            this.txtTenKhuyenMai.TabIndex = 2;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(41, 94);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 18);
-            this.label3.TabIndex = 5;
-            this.label3.Text = "GIẢM GIÁ GIỜ";
-            // 
-            // txtGiamGiaGio
-            // 
-            this.txtGiamGiaGio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtGiamGiaGio.Location = new System.Drawing.Point(222, 91);
-            this.txtGiamGiaGio.Name = "txtGiamGiaGio";
-            this.txtGiamGiaGio.Size = new System.Drawing.Size(200, 26);
-            this.txtGiamGiaGio.TabIndex = 4;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(41, 161);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(124, 18);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "NGÀY BẮT ĐẦU";
             // 
             // label4
             // 
@@ -165,39 +136,82 @@
             this.txtGiamGiaThucPham.Size = new System.Drawing.Size(200, 26);
             this.txtGiamGiaThucPham.TabIndex = 6;
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(41, 161);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(124, 18);
-            this.label5.TabIndex = 7;
-            this.label5.Text = "NGÀY BẮT ĐẦU";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(41, 94);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(110, 18);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "GIẢM GIÁ GIỜ";
             // 
-            // dtpNgayBatDau
+            // txtGiamGiaGio
             // 
-            this.dtpNgayBatDau.Location = new System.Drawing.Point(222, 155);
-            this.dtpNgayBatDau.Name = "dtpNgayBatDau";
-            this.dtpNgayBatDau.Size = new System.Drawing.Size(200, 26);
-            this.dtpNgayBatDau.TabIndex = 8;
+            this.txtGiamGiaGio.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtGiamGiaGio.Location = new System.Drawing.Point(222, 91);
+            this.txtGiamGiaGio.Name = "txtGiamGiaGio";
+            this.txtGiamGiaGio.Size = new System.Drawing.Size(200, 26);
+            this.txtGiamGiaGio.TabIndex = 4;
+            this.txtGiamGiaGio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGiaGio_KeyPress);
             // 
-            // dtpNgayKetThuc
+            // label2
             // 
-            this.dtpNgayKetThuc.Location = new System.Drawing.Point(222, 187);
-            this.dtpNgayKetThuc.Name = "dtpNgayKetThuc";
-            this.dtpNgayKetThuc.Size = new System.Drawing.Size(200, 26);
-            this.dtpNgayKetThuc.TabIndex = 10;
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(41, 62);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(138, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "TÊN KHUYẾN MÃI";
             // 
-            // label6
+            // txtTenKhuyenMai
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(41, 193);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(133, 18);
-            this.label6.TabIndex = 9;
-            this.label6.Text = "NGÀY KẾT THÚC";
+            this.txtTenKhuyenMai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTenKhuyenMai.Location = new System.Drawing.Point(222, 59);
+            this.txtTenKhuyenMai.Name = "txtTenKhuyenMai";
+            this.txtTenKhuyenMai.Size = new System.Drawing.Size(200, 26);
+            this.txtTenKhuyenMai.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(41, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "ID KHUYẾN MÃI";
+            // 
+            // txtIDKhuyenMai
+            // 
+            this.txtIDKhuyenMai.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIDKhuyenMai.Location = new System.Drawing.Point(222, 27);
+            this.txtIDKhuyenMai.Name = "txtIDKhuyenMai";
+            this.txtIDKhuyenMai.Size = new System.Drawing.Size(200, 26);
+            this.txtIDKhuyenMai.TabIndex = 0;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.btnThoat);
+            this.panel2.Controls.Add(this.btnGhiDuLieu);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.panel2.Location = new System.Drawing.Point(0, 306);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(449, 48);
+            this.panel2.TabIndex = 2;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnThoat.Location = new System.Drawing.Point(347, 3);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 33);
+            this.btnThoat.TabIndex = 1;
+            this.btnThoat.Text = "Thoát";
+            this.btnThoat.UseVisualStyleBackColor = true;
+            this.btnThoat.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnGhiDuLieu
             // 
@@ -209,20 +223,12 @@
             this.btnGhiDuLieu.UseVisualStyleBackColor = true;
             this.btnGhiDuLieu.Click += new System.EventHandler(this.button1_Click);
             // 
-            // btnThoat
-            // 
-            this.btnThoat.Location = new System.Drawing.Point(347, 3);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 33);
-            this.btnThoat.TabIndex = 1;
-            this.btnThoat.Text = "Thoát";
-            this.btnThoat.UseVisualStyleBackColor = true;
-            this.btnThoat.Click += new System.EventHandler(this.button2_Click);
-            // 
             // FrmTuyChonKhuyenMai
             // 
+            this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(449, 354);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

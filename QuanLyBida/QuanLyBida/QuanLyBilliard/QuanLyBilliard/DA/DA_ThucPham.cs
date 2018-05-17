@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
+using System.Data.SqlClient;
+using System.Windows.Forms;
 
 namespace QuanLyBilliard.DA
 {
@@ -14,14 +16,12 @@ namespace QuanLyBilliard.DA
         public DataTable getDuLieu(int loaiThucPham)
         {
             string sql = "select * from thucpham where ID_LOAITHUCPHAM = " + loaiThucPham + "";
-            //string sql = "select TENTHUCPHAM,DVT,GIABAN from thucpham where ID_LOAITHUCPHAM = " + loaiThucPham+"";
-            DataTable dt = ldc.getDuLieu(sql);
-            return dt;
+            return ldc.getDuLieu(sql);
         }
 
         public int ThemMatHang(string tenthucpham,string dvt,int idLoaiThucPham, float dongia,int idNhaCungCap)
         {
-            string sql = "insert into thucpham values('"+tenthucpham+"','"+dvt+"',"+idLoaiThucPham+","+dongia+","+idNhaCungCap+",0)";
+            string sql = "insert into thucpham values(N'"+tenthucpham+"',N'"+dvt+"',"+idLoaiThucPham+","+dongia+","+idNhaCungCap+",0)";
             return ldc.ExecuteNonQuery(sql);
         }
 
@@ -45,8 +45,17 @@ namespace QuanLyBilliard.DA
 
         public int XoaMatHang(int id)
         {
-            string sql = "delete thucpham where id_thucpham = " + id;
-            return ldc.ExecuteNonQuery(sql);
+            string sql = "";
+            try
+            {
+                sql = "delete thucpham where id_thucpham = " + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                MessageBox.Show("Không thể xóa mặt hàng này");
+            }
+            return -1;            
         }
 
 

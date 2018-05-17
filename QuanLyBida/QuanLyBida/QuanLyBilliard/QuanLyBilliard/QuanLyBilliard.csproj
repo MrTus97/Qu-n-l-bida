@@ -83,7 +83,6 @@
     <Compile Include="BL\BL_NhanVien.cs" />
     <Compile Include="BL\BL_NhaCungCap.cs" />
     <Compile Include="BL\BL_NhapHang.cs" />
-    <Compile Include="BL\BL_PhieuThu.cs" />
     <Compile Include="BL\BL_ThucPham.cs" />
     <Compile Include="BL\BL_Quyen.cs" />
     <Compile Include="DA\DA_Ban.cs" />
@@ -96,7 +95,6 @@
     <Compile Include="DA\DA_NhanVien.cs" />
     <Compile Include="DA\DA_NhaCungCap.cs" />
     <Compile Include="DA\DA_NhapHang.cs" />
-    <Compile Include="DA\DA_PhieuThu.cs" />
     <Compile Include="DA\DA_ThucPham.cs" />
     <Compile Include="DA\LopDungChung.cs" />
     <Compile Include="DTO\Ban.cs" />
@@ -129,18 +127,6 @@
     <Compile Include="GUI\FrmDoiMatKhau.Designer.cs">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\NHAP XUAT\FrmPhieuThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\NHAP XUAT\FrmPhieuThu.Designer.cs">
-      <DependentUpon>FrmPhieuThu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\NHAP XUAT\FrmTuyChonPhieuThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\NHAP XUAT\FrmTuyChonPhieuThu.Designer.cs">
-      <DependentUpon>FrmTuyChonPhieuThu.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\NHAPHANG\FrmNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -158,18 +144,6 @@
     </Compile>
     <Compile Include="GUI\FrmThanhToan.Designer.cs">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmThongKeDoanhThu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmThongKeDoanhThu.Designer.cs">
-      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmCaLamViec.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmCaLamViec.Designer.cs">
-      <DependentUpon>FrmCaLamViec.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\FrmCapBac.cs">
       <SubType>Form</SubType>
@@ -243,30 +217,6 @@
     <Compile Include="GUI\FrmSuDungDichVu.Designer.cs">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\FrmTamUng.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmTamUng.Designer.cs">
-      <DependentUpon>FrmTamUng.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmThongKeMatHang.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmThongKeMatHang.Designer.cs">
-      <DependentUpon>FrmThongKeMatHang.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmTinhCong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmTinhCong.Designer.cs">
-      <DependentUpon>FrmTinhCong.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GUI\FrmTinhLuong.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\FrmTinhLuong.Designer.cs">
-      <DependentUpon>FrmTinhLuong.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\KHUYEN_MAI\FrmTuyChonKhuyenMai.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -279,20 +229,20 @@
     <Compile Include="GUI\NHAPHANG\FrmTuyChonNhapHang.Designer.cs">
       <DependentUpon>FrmTuyChonNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\RangBuocDuLieu.cs" />
     <Compile Include="GUI\temp.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="GUI\temp.Designer.cs">
       <DependentUpon>temp.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\XtraReport1.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="GUI\XtraReport1.Designer.cs">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QUANLYBIDADataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QUANLYBIDADataSet.xsd</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="GUI\About.resx">
       <DependentUpon>About.cs</DependentUpon>
     </EmbeddedResource>
@@ -301,9 +251,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DANH_MUC\FrmTuyChonNhaCungCap.resx">
       <DependentUpon>FrmTuyChonNhaCungCap.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmCaLamViec.resx">
-      <DependentUpon>FrmCaLamViec.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmCapBac.resx">
       <DependentUpon>FrmCapBac.cs</DependentUpon>
@@ -332,12 +279,6 @@
     <EmbeddedResource Include="GUI\FrmHoaDon.resx">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\NHAP XUAT\FrmPhieuThu.resx">
-      <DependentUpon>FrmPhieuThu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\NHAP XUAT\FrmTuyChonPhieuThu.resx">
-      <DependentUpon>FrmTuyChonPhieuThu.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NHAPHANG\FrmNhapHang.resx">
       <DependentUpon>FrmNhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -356,23 +297,8 @@
     <EmbeddedResource Include="GUI\FrmSuDungDichVu.resx">
       <DependentUpon>FrmSuDungDichVu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmTamUng.resx">
-      <DependentUpon>FrmTamUng.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmThanhToan.resx">
       <DependentUpon>FrmThanhToan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmThongKeDoanhThu.resx">
-      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmThongKeMatHang.resx">
-      <DependentUpon>FrmThongKeMatHang.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmTinhCong.resx">
-      <DependentUpon>FrmTinhCong.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\FrmTinhLuong.resx">
-      <DependentUpon>FrmTinhLuong.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\KHUYEN_MAI\FrmTuyChonKhuyenMai.resx">
       <DependentUpon>FrmTuyChonKhuyenMai.cs</DependentUpon>
@@ -382,9 +308,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\temp.resx">
       <DependentUpon>temp.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\XtraReport1.resx">
-      <DependentUpon>XtraReport1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -411,6 +334,17 @@
   <ItemGroup>
     <None Include="image\off.png" />
     <Content Include="image\on.png" />
+    <None Include="QUANLYBIDADataSet.xsc">
+      <DependentUpon>QUANLYBIDADataSet.xsd</DependentUpon>
+    </None>
+    <None Include="QUANLYBIDADataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>QUANLYBIDADataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="QUANLYBIDADataSet.xss">
+      <DependentUpon>QUANLYBIDADataSet.xsd</DependentUpon>
+    </None>
     <None Include="Resources\on.png" />
   </ItemGroup>
   <ItemGroup>

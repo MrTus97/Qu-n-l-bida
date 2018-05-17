@@ -230,5 +230,20 @@ namespace QuanLyBilliard.GUI
                 else dataGridView1.CurrentCell.Value = false;
             }
         }
+
+        private void btnTim_Click(object sender, EventArgs e)
+        {
+            int sohd = Int32.Parse(txtIDHoaDon.Text);
+            DataTable result = blHoaDon.TimKiemHoaDonShowLenThanhToan(sohd);
+            if (result.Rows.Count != 0)
+            {
+                HienThiHoaDonLenDataGridView(result);
+            }
+            else
+            {
+                MessageBox.Show("Khong co ket qua");
+            }
+            
+        }
     }
 }

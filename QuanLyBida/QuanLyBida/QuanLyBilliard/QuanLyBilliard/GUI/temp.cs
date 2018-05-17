@@ -21,10 +21,7 @@ namespace QuanLyBilliard.GUI
        
         private void temp_Load(object sender, EventArgs e)
         {
-            dataGridView1.Columns[0].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView1.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridView1.Columns[2].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-
+            
 
         }
         public void ShowMyImage(string fileToDisplay, int xSize, int ySize)

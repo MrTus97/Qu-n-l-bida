@@ -22,7 +22,7 @@ namespace QuanLyBilliard.DA
             return (int)ldc.ExecuteScalar(sql);
         }
 
-        internal string LayMatKhau(string tendangnhap)
+        public string LayMatKhau(string tendangnhap)
         {
             string sql = "select matkhau from dangnhap where tendangnhap='" + tendangnhap+"'";
             return (string)ldc.ExecuteScalar(sql);
