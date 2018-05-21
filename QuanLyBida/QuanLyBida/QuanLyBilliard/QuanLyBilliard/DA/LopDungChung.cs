@@ -1,4 +1,5 @@
-﻿using System.Data;
+﻿using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 
 namespace QuanLyBilliard.DA
@@ -10,7 +11,7 @@ namespace QuanLyBilliard.DA
         {
             _con = new SqlConnection();
             
-            _con.ConnectionString = Properties.Settings.Default.QUANLYBIDAConnectionString;// @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
+            _con.ConnectionString = ConfigurationManager.ConnectionStrings["tenketnoi"].ConnectionString;// @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
 
         }
         /// <summary>
