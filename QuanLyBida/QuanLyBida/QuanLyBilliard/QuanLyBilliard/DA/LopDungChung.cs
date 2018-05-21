@@ -10,7 +10,7 @@ namespace QuanLyBilliard.DA
         {
             _con = new SqlConnection();
             
-            _con.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
+            _con.ConnectionString = Properties.Settings.Default.QUANLYBIDAConnectionString;// @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
 
         }
         /// <summary>
