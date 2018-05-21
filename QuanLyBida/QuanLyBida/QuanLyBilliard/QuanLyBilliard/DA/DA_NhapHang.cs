@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,19 +49,38 @@ namespace QuanLyBilliard.DA
 
         public int XoaHoaDonNhap(int tag)
         {
+            
             int i = XoaChiTietHoaDonNhap(tag);
-            i +=XoaBangHoaDonNhap(tag);
-            return i;
+            if (i == -1) return -1;
+            int k =XoaBangHoaDonNhap(tag);
+            if (k == -1) return -1;
+            return i + k;
         }
         public int XoaChiTietHoaDonNhap(int tag)
         {
-            string sql = "delete CHITIET_HOADONNHAP where ID_HOADONNHAP = " + tag;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "delete CHITIET_HOADONNHAP where ID_HOADONNHAP = " + tag;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+            
         }
         public int XoaBangHoaDonNhap(int tag)
         {
-            string sql ="delete HOADONNHAP where ID_HOADONNHAP = " + tag;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "delete HOADONNHAP where ID_HOADONNHAP = " + tag;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+           
         }
 
         public DataTable LayDuLieuHoaDonNhap(int v)

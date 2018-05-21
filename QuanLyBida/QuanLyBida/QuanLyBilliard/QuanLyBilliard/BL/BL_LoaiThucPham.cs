@@ -17,6 +17,7 @@ namespace QuanLyBilliard.BL
         const int TABLE_WIDTHHEIGHT = 100;
         LopDungChung ldc = new LopDungChung();
         private FrmTuyChonNhapHang frmTuyChonNhapHang;
+        private FrmBaoCaoKho frmBaoCaoKho;
 
         public BL_LoaiThucPham(FrmSuDungDichVu f)
         {
@@ -27,6 +28,11 @@ namespace QuanLyBilliard.BL
         public BL_LoaiThucPham(FrmTuyChonNhapHang frmTuyChonNhapHang)
         {
             this.frmTuyChonNhapHang = frmTuyChonNhapHang;
+        }
+
+        public BL_LoaiThucPham(FrmBaoCaoKho frmBaoCaoKho)
+        {
+            this.frmBaoCaoKho = frmBaoCaoKho;
         }
 
         public List<LoaiThucPham> LoadLoaiThucPham()

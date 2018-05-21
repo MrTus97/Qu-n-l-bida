@@ -51,7 +51,11 @@ namespace QuanLyBilliard.GUI
         private void bbtnXoa_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
             string idcapbac = textEdit1.Text;
-            blCapBac.XoaCapBac(idcapbac);
+            int i = blCapBac.XoaCapBac(idcapbac);
+            if (i == -1)
+            {
+                MessageBox.Show("Không thể xóa!!");
+            }
             DataTable result = blCapBac.LayDanhSachCapBac();
             RefeshCapBac(result);
         }

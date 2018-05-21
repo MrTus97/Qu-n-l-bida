@@ -81,7 +81,7 @@ namespace QuanLyBilliard.DA
 
         public int themBan(int idLoaiBan, string tenBan)
         {
-            string sql = "insert into BAN values ('" + tenBan + "',0,null,null,"+idLoaiBan+")";
+            string sql = "insert into BAN values (N'" + tenBan + "',0,null,null,"+idLoaiBan+")";
             return ldc.ExecuteNonQuery(sql);
         }
 
@@ -103,26 +103,36 @@ namespace QuanLyBilliard.DA
 
         public int ThemLoaiBan(string text,int gia)
         {
-            string sql = "insert into loaiban values('"+text+"',"+gia+")";
+            string sql = "insert into loaiban values(N'"+text+"',"+gia+")";
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int CapNhatLoaiBan(string txtTenLoai,int gia ,int tag)
         {
-            string sql = "update loaiban set tenloai = '"+txtTenLoai+"',gia="+gia+" where id_loaiban=" + tag;
+            string sql = "update loaiban set tenloai = N'"+txtTenLoai+"',gia="+gia+" where id_loaiban=" + tag;
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int capNhatBan(int idBan, int idLoaidBan, string text2)
         {
-            string sql = "update ban set TENBAN = '"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
+            string sql = "update ban set TENBAN = N'"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
             return ldc.ExecuteNonQuery(sql);
         }
 
         public int XoaLoaiBan(int idban)
         {
-            string sql = "delete loaiban where id_loaiBan=" + idban;
-            return ldc.ExecuteNonQuery(sql);
+            int result;
+            string sql = "";
+            try
+            {
+                sql = "delete loaiban where id_loaiBan=" + idban;
+                result = ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+            return result;
         }
 
 
@@ -168,8 +178,18 @@ namespace QuanLyBilliard.DA
 
         public int xoaBan(int id)
         {
-            string sql = "delete BAN where ID_BAN ="+id;
-            return ldc.ExecuteNonQuery(sql);
+            int result;
+            string sql = "";
+            try
+            {
+                sql = "delete BAN where ID_BAN =" + id;
+                result = ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+            return result;
         }
 
         public DataTable layDuLieuLenDataGridView()

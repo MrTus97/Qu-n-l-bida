@@ -43,17 +43,17 @@ namespace QuanLyBilliard.BL
             daKhachHang.themKhachHang(tenkhachhang, sdt, ngaysinh, gioitinh, idLoaiKhacHhang);
         }
 
-        public void CapNhatKhachHang(string id, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, string loaikhachhang)
+        public int CapNhatKhachHang(string id, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, string loaikhachhang)
         {
             int idLoaiKhacHhang = Int32.Parse(loaikhachhang);
             int idKhachHang = Int32.Parse(id);
-            daKhachHang.CapNhatKhachHang(idKhachHang, tenkhachhang, sdt, ngaysinh, gioitinh, idLoaiKhacHhang);
+            return daKhachHang.CapNhatKhachHang(idKhachHang, tenkhachhang, sdt, ngaysinh, gioitinh, idLoaiKhacHhang);
         }
 
-        public void xoaKhachHang(string text)
+        public int xoaKhachHang(string text)
         {
             int id = Int32.Parse(text);
-            daKhachHang.xoaKhachHang(id);
+            return daKhachHang.xoaKhachHang(id);
         }
 
         public DataTable LayKhachHang()

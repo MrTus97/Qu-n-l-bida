@@ -73,18 +73,27 @@ namespace QuanLyBilliard.GUI
 
         private void barButtonItem6_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult result =  MessageBox.Show("Bạn có muốn xóa khuyến mãi này ?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (btnChinhSua.Tag!= null)
             {
-                int id = Convert.ToInt32((btnChinhSua.Tag as DataGridViewRow).Cells[0].Value.ToString());
-                blKhuyenMai.XoaKhuyenMai(id);
-                DataTable s = blKhuyenMai.XemKhuyenMai();
-                RefeshDgvKhuyenMai(s);
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa khuyến mãi này ?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    int id = Convert.ToInt32((btnChinhSua.Tag as DataGridViewRow).Cells[0].Value.ToString());
+                    int i = blKhuyenMai.XoaKhuyenMai(id);
+                    if (i == -1)
+                    {
+                        MessageBox.Show("Xóa không thành công !!");
+                    }
+                    DataTable s = blKhuyenMai.XemKhuyenMai();
+                    RefeshDgvKhuyenMai(s);
+                    btnChinhSua.Tag = null;
+                }
             }
             else
             {
-                this.Close();
+                MessageBox.Show("Chưa chọn khuyến mãi");
             }
+            
         }
     }
 }

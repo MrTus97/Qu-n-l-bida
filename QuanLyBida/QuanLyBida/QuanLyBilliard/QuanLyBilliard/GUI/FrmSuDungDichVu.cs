@@ -116,7 +116,7 @@ namespace QuanLyBilliard.GUI
         
         }
 
-        private void LoadLoaiThucPham()
+        public void LoadLoaiThucPham()
         {
             List<LoaiThucPham> lst = blLoaiThucPham.LoadLoaiThucPham();
             foreach (LoaiThucPham food in lst)
@@ -127,10 +127,12 @@ namespace QuanLyBilliard.GUI
             }
         }
         #region Event
-        private void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
+        public void TreeView1_NodeMouseClick(object sender, System.Windows.Forms.TreeNodeMouseClickEventArgs e)
         {
             LoadThucPham(Int32.Parse(e.Node.Name));
-            blThucPham.getDuLieu(Int32.Parse(e.Node.Name));
+            //blThucPham.getDuLieu(Int32.Parse(e.Node.Name));
+            btnDaiDienThucPham.Tag = null;
+            
         }
 
         private void LoadThucPham(int v)
@@ -282,7 +284,11 @@ namespace QuanLyBilliard.GUI
                 cbKhachHang.DisplayMember = "TENKHACHHANG";
                 cbKhachHang.ValueMember = "ID_KHACHHANG";
                 //Giảm giá
-                int giamgio = Int32.Parse(lbGiamGiaGio.Tag.ToString());
+                if (lbGiamGiaGio.Tag == null)
+                {
+                    lbGiamGiaGio.Tag = "0";
+                }
+                double giamgio = Double.Parse(lbGiamGiaGio.Tag.ToString());
                 if (hoadon.GiamGiaGio > giamgio)
                 {
                     txtGiamGiaGio.Text = hoadon.GiamGiaGio.ToString();
@@ -291,7 +297,11 @@ namespace QuanLyBilliard.GUI
                     txtGiamGiaGio.Text = lbGiamGiaGio.Tag.ToString();
                 }
 
-                int giamnuoc = Int32.Parse(lbGiamGiaNuoc.Tag.ToString());
+                if (lbGiamGiaNuoc.Tag == null)
+                {
+                    lbGiamGiaNuoc.Tag = "0";
+                }
+                double giamnuoc = Double.Parse(lbGiamGiaNuoc.Tag.ToString());
                 if (hoadon.GiamGiaThucPham > giamnuoc)
                 {
                     txtGiamGiaNuoc.Text = hoadon.GiamGiaThucPham.ToString();
@@ -304,6 +314,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
+                btnHoaDon.Tag = null;
                 Enabel(false);
                 //Hiển thị giờ hiện tại của hệ thống.
                 dtKetThuc.Text = DateTime.Now.TimeOfDay.ToString();
@@ -484,7 +495,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (btnDaiDienThucPham.Text == "")
+            if (btnDaiDienThucPham.Tag == null)
             {
                 MessageBox.Show("Bạn chưa chọn thực phẩm để thêm");
             }
@@ -497,7 +508,7 @@ namespace QuanLyBilliard.GUI
                 //Trước hết cần phải kiểm tra hàng đó có trong danh sách bill chưa, nếu có rồi thì update số lượng, còn chưa thì mới insert => kiểm tra và làm 1 lần trong csdl
                 int id_hoadon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
                 int soluong = Int32.Parse(cbSoLuong.Text);
-                int id_thucpham = Int32.Parse(btnDaiDienThucPham.Text);
+                int id_thucpham = Int32.Parse(btnDaiDienThucPham.Tag as String);
                 blHoaDon.ThemMatHang(id_hoadon, soluong, id_thucpham);
                 blHoaDon.ShowBill((btnHoaDon.Tag as HoaDon), out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
@@ -513,7 +524,7 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            btnDaiDienThucPham.Text = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
+            btnDaiDienThucPham.Tag = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
         }
 
 
@@ -547,6 +558,7 @@ namespace QuanLyBilliard.GUI
                 blHoaDon.XoaMatHang(idHoaDon, idThucPham, soluong);
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
+                btnDaiDienHangHoaDon.Tag = null;
             }
         }
 
@@ -575,6 +587,7 @@ namespace QuanLyBilliard.GUI
                 
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
+                btnDaiDienHangHoaDon.Tag = null;
             }
 
         }
@@ -599,6 +612,7 @@ namespace QuanLyBilliard.GUI
                 blHoaDon.DoiSoLuong(idHoaDon, idThucPham,soluong+ 1);
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
+                btnDaiDienHangHoaDon.Tag = null;
             }
         }
 
@@ -626,6 +640,7 @@ namespace QuanLyBilliard.GUI
                 blHoaDon.DoiSoLuong(idHoaDon, idThucPham, soluong-1);
                 blHoaDon.ShowBill(btnHoaDon.Tag as HoaDon, out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
+                btnDaiDienHangHoaDon.Tag = null;
             }
         }
 
@@ -654,6 +669,7 @@ namespace QuanLyBilliard.GUI
         {
             FrmThanhToan f = new FrmThanhToan();
             f.ShowDialog();
+            
         }
 
 
@@ -690,16 +706,16 @@ namespace QuanLyBilliard.GUI
             if (btnDaiDienBan.Text == "Đại diện bàn")
             {
                 MessageBox.Show("Bạn phải chọn bàn trước khi gọi món");
-            }else
-            if (btnHoaDon.Text == "Đại diện hóa đơn")
+            }
+            else if (btnHoaDon.Text == "Đại diện hóa đơn")
             {
                 MessageBox.Show("Bạn phải bật bàn trước khi gọi món");
             }else
             {
-                btnDaiDienThucPham.Text = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
+                btnDaiDienThucPham.Tag = dgvThucPham.CurrentRow.Cells["ID_THUCPHAM"].Value.ToString();
                 int id_hoadon = (btnHoaDon.Tag as HoaDon).ID_HoaDon;
                 int soluong = 1;
-                int id_thucpham = Int32.Parse(btnDaiDienThucPham.Text);
+                int id_thucpham = Int32.Parse(btnDaiDienThucPham.Tag as String);
                 blHoaDon.ThemMatHang(id_hoadon, soluong, id_thucpham);
                 blHoaDon.ShowBill((btnHoaDon.Tag as HoaDon), out tongtien);
                 txtTienNuoc.Text = tongtien.ToString();
@@ -717,6 +733,7 @@ namespace QuanLyBilliard.GUI
             string keyword = txtTimKiem.Text;
             DataTable dt = blThucPham.TimThucPham(keyword);
             RefeshThucPham(dt);
+            btnDaiDienThucPham.Tag = null;
         }
 
         private void txtGiamGiaGio_EditValueChanged(object sender, EventArgs e)
@@ -727,7 +744,7 @@ namespace QuanLyBilliard.GUI
         private void simpleButton5_Click(object sender, EventArgs e)
         {
             
-            double giamGiaGio = (double)(lbGiamGiaGio.Tag);
+            double giamGiaGio = Double.Parse(lbGiamGiaGio.Tag.ToString());
             try
             {
                 double temp = Convert.ToDouble(txtGiamGiaGio.Text);
@@ -763,7 +780,7 @@ namespace QuanLyBilliard.GUI
         public void simpleButton6_Click(object sender, EventArgs e)
         {
             
-            double giamGiaThucPham = (double)lbGiamGiaNuoc.Tag;
+            double giamGiaThucPham = Double.Parse(lbGiamGiaNuoc.Tag.ToString());
             try
             {
                 double temp = Convert.ToDouble(txtGiamGiaNuoc.Text);
@@ -787,7 +804,7 @@ namespace QuanLyBilliard.GUI
                 int kq = blHoaDon.SetGiamGiaThucPham(idHoaDon, giamGiaThucPham);
                 if (kq > 0)
                 {
-                    txtGiamGiaNuoc.BackColor = Color.Black;
+                    txtGiamGiaNuoc.ForeColor = Color.Black;
                 }
                 
             }
@@ -815,12 +832,17 @@ namespace QuanLyBilliard.GUI
 
         private void txtGiamGiaNuoc_KeyPress(object sender, KeyPressEventArgs e)
         {
-            txtGiamGiaNuoc.BackColor = Color.Red;
+            txtGiamGiaNuoc.ForeColor = Color.Red;
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
                 MessageBox.Show("Sai định dạng ", "Thông Báo ");
             }
+        }
+
+        private void FrmSuDungDichVu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
         }
     }
 }

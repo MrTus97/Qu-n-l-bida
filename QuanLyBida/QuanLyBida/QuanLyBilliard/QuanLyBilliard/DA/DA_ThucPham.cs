@@ -39,8 +39,14 @@ namespace QuanLyBilliard.DA
 
         public int CapNhatMatHang(int id_thucpham, string ten, string dvt, int idLoaiThucPham, float dongia, int idNhaCungCap)
         {
-            string sql = "update thucpham set tenthucpham = '"+ten+"',dvt='"+dvt+"',id_loaithucpham="+idLoaiThucPham+",giaban="+dongia+",id_nhacungcap = "+idNhaCungCap+" where id_thucpham = "+id_thucpham;
+            string sql = "update thucpham set tenthucpham = N'"+ten+"',dvt=N'"+dvt+"',id_loaithucpham="+idLoaiThucPham+",giaban="+dongia+",id_nhacungcap = "+idNhaCungCap+" where id_thucpham = "+id_thucpham;
             return ldc.ExecuteNonQuery(sql);
+        }
+
+        public DataTable layDuLieuThucPham(int v)
+        {
+            string sql = "select * from thucpham where ID_LoaiThucPham =" + v;
+            return ldc.getDuLieu(sql);
         }
 
         public int XoaMatHang(int id)
@@ -53,9 +59,8 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                MessageBox.Show("Không thể xóa mặt hàng này");
-            }
-            return -1;            
+                return -1;
+            }  
         }
 
 

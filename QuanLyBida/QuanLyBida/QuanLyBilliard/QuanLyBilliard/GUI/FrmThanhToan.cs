@@ -241,7 +241,8 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                MessageBox.Show("Khong co ket qua");
+                MessageBox.Show("Không có kết quả");
+                txtIDHoaDon.Text = "";
             }
             
         }

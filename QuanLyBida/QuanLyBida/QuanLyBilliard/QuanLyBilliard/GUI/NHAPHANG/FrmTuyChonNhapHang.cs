@@ -62,6 +62,7 @@ namespace QuanLyBilliard.GUI.NHAPHANG
                 txtSoHoaDon.Text = v.ToString();
                 txtSoHoaDon.Visible = false;
                 lbSoHoaDonNhapHang.Visible = false;
+                dtpNgayTaoHoaDon.Text = DateTime.Now.ToShortDateString();
             }
             else //Sửa hóa đơn cũ
             {

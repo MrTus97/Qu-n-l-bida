@@ -142,9 +142,9 @@
             this.panel3.Controls.Add(this.panel5);
             this.panel3.Controls.Add(this.panel4);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(2, 127);
+            this.panel3.Location = new System.Drawing.Point(2, 102);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(707, 293);
+            this.panel3.Size = new System.Drawing.Size(707, 318);
             this.panel3.TabIndex = 3;
             // 
             // panel6
@@ -153,7 +153,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(0, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(581, 243);
+            this.panel6.Size = new System.Drawing.Size(581, 268);
             this.panel6.TabIndex = 2;
             // 
             // dgvTuyChonNhapHang
@@ -172,7 +172,7 @@
             this.dgvTuyChonNhapHang.Name = "dgvTuyChonNhapHang";
             this.dgvTuyChonNhapHang.ReadOnly = true;
             this.dgvTuyChonNhapHang.RowHeadersVisible = false;
-            this.dgvTuyChonNhapHang.Size = new System.Drawing.Size(581, 243);
+            this.dgvTuyChonNhapHang.Size = new System.Drawing.Size(581, 268);
             this.dgvTuyChonNhapHang.TabIndex = 3;
             this.dgvTuyChonNhapHang.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTuyChonNhapHang_CellClick);
             // 
@@ -225,7 +225,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel5.Location = new System.Drawing.Point(581, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(126, 243);
+            this.panel5.Size = new System.Drawing.Size(126, 268);
             this.panel5.TabIndex = 1;
             // 
             // txtGiaNhap
@@ -294,7 +294,7 @@
             // panel4
             // 
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 243);
+            this.panel4.Location = new System.Drawing.Point(0, 268);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(707, 50);
             this.panel4.TabIndex = 0;
@@ -565,6 +565,7 @@
             this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(1008, 492);
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTuyChonNhapHang";
             this.Text = "FrmTuyChonNhapHang";
             this.Load += new System.EventHandler(this.FrmTuyChonNhapHang_Load);

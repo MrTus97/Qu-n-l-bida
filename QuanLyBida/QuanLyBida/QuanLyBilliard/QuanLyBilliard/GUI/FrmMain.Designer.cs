@@ -59,7 +59,6 @@
             this.ribbonPageGroup2 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup7 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpHeThong = new DevExpress.XtraBars.Ribbon.RibbonPage();
-            this.ribbonPageGroup1 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup3 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.ribbonPageGroup4 = new DevExpress.XtraBars.Ribbon.RibbonPageGroup();
             this.rbpQuanTri = new DevExpress.XtraBars.Ribbon.RibbonPage();
@@ -340,21 +339,10 @@
             // rbpHeThong
             // 
             this.rbpHeThong.Groups.AddRange(new DevExpress.XtraBars.Ribbon.RibbonPageGroup[] {
-            this.ribbonPageGroup1,
             this.ribbonPageGroup3,
             this.ribbonPageGroup4});
             this.rbpHeThong.Name = "rbpHeThong";
             this.rbpHeThong.Text = "HỆ THỐNG";
-            // 
-            // ribbonPageGroup1
-            // 
-            this.ribbonPageGroup1.AllowTextClipping = false;
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnTaoMoiCoSoDuLieu);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnSaoLuuCoSoDuLieu);
-            this.ribbonPageGroup1.ItemLinks.Add(this.btnPhucHoiCoSoDuLieu);
-            this.ribbonPageGroup1.Name = "ribbonPageGroup1";
-            this.ribbonPageGroup1.ShowCaptionButton = false;
-            this.ribbonPageGroup1.Text = "Cơ sở dữ liệu";
             // 
             // ribbonPageGroup3
             // 
@@ -510,7 +498,6 @@
 
         private DevExpress.XtraBars.Ribbon.RibbonControl ribbonControl1;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpHeThong;
-        private DevExpress.XtraBars.Ribbon.RibbonPageGroup ribbonPageGroup1;
         private DevExpress.XtraBars.BarButtonItem btnSuDungDichVu;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpHoatDong;
         private DevExpress.XtraBars.Ribbon.RibbonPage rbpQuanTri;

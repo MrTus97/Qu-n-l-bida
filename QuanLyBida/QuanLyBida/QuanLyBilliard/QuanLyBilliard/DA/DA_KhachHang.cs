@@ -45,8 +45,19 @@ namespace QuanLyBilliard.DA
 
         public int xoaKhachHang(int id)
         {
-            string sql = "delete khachhang where id_khachhang = "+id+"";
-            return ldc.ExecuteNonQuery(sql);
+            string sql;
+            int kq;
+            try
+            {
+                sql = "delete khachhang where id_khachhang = " + id + "";
+                kq = ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+
+            return kq;
         }
 
         public DataTable LayKhachHang()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,8 +28,16 @@ namespace QuanLyBilliard.DA
 
         public int XoaCapBac(int id)
         {
-            string sql = "Delete CAPBAC where ID_CapBac = " + id;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "Delete CAPBAC where ID_CapBac = " + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+            
         }
 
         public DataTable LayDanhSachCapBac()

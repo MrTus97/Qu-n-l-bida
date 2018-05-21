@@ -81,9 +81,9 @@
             this.bar3.DockRow = 0;
             this.bar3.DockStyle = DevExpress.XtraBars.BarDockStyle.Top;
             this.bar3.LinksPersistInfo.AddRange(new DevExpress.XtraBars.LinkPersistInfo[] {
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem4),
-            new DevExpress.XtraBars.LinkPersistInfo(this.btnChinhSua),
-            new DevExpress.XtraBars.LinkPersistInfo(this.barButtonItem6)});
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem4, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.btnChinhSua, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph),
+            new DevExpress.XtraBars.LinkPersistInfo(DevExpress.XtraBars.BarLinkUserDefines.PaintStyle, this.barButtonItem6, DevExpress.XtraBars.BarItemPaintStyle.CaptionGlyph)});
             this.bar3.OptionsBar.MultiLine = true;
             this.bar3.OptionsBar.UseWholeRow = true;
             this.bar3.Text = "Main menu";
@@ -92,16 +92,15 @@
             // 
             this.barButtonItem4.AllowGlyphSkinning = DevExpress.Utils.DefaultBoolean.False;
             this.barButtonItem4.Caption = "THÊM MỚI";
-            this.barButtonItem4.Glyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.Glyph")));
+            this.barButtonItem4.Glyph = global::QuanLyBilliard.Properties.Resources.Button_Add_icon;
             this.barButtonItem4.Id = 0;
-            this.barButtonItem4.ImageUri.Uri = "Add";
-            this.barButtonItem4.LargeGlyph = ((System.Drawing.Image)(resources.GetObject("barButtonItem4.LargeGlyph")));
             this.barButtonItem4.Name = "barButtonItem4";
             this.barButtonItem4.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem4_ItemClick);
             // 
             // btnChinhSua
             // 
             this.btnChinhSua.Caption = "CHỈNH SỬA";
+            this.btnChinhSua.Glyph = global::QuanLyBilliard.Properties.Resources.edit_file_icon;
             this.btnChinhSua.Id = 1;
             this.btnChinhSua.Name = "btnChinhSua";
             this.btnChinhSua.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem5_ItemClick);
@@ -109,6 +108,7 @@
             // barButtonItem6
             // 
             this.barButtonItem6.Caption = "XÓA";
+            this.barButtonItem6.Glyph = global::QuanLyBilliard.Properties.Resources.delete_file_icon;
             this.barButtonItem6.Id = 2;
             this.barButtonItem6.Name = "barButtonItem6";
             this.barButtonItem6.ItemClick += new DevExpress.XtraBars.ItemClickEventHandler(this.barButtonItem6_ItemClick);
@@ -118,7 +118,7 @@
             this.barDockControlTop.CausesValidation = false;
             this.barDockControlTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.barDockControlTop.Location = new System.Drawing.Point(0, 0);
-            this.barDockControlTop.Size = new System.Drawing.Size(833, 24);
+            this.barDockControlTop.Size = new System.Drawing.Size(833, 32);
             // 
             // barDockControlBottom
             // 
@@ -131,15 +131,15 @@
             // 
             this.barDockControlLeft.CausesValidation = false;
             this.barDockControlLeft.Dock = System.Windows.Forms.DockStyle.Left;
-            this.barDockControlLeft.Location = new System.Drawing.Point(0, 24);
-            this.barDockControlLeft.Size = new System.Drawing.Size(0, 361);
+            this.barDockControlLeft.Location = new System.Drawing.Point(0, 32);
+            this.barDockControlLeft.Size = new System.Drawing.Size(0, 353);
             // 
             // barDockControlRight
             // 
             this.barDockControlRight.CausesValidation = false;
             this.barDockControlRight.Dock = System.Windows.Forms.DockStyle.Right;
-            this.barDockControlRight.Location = new System.Drawing.Point(833, 24);
-            this.barDockControlRight.Size = new System.Drawing.Size(0, 361);
+            this.barDockControlRight.Location = new System.Drawing.Point(833, 32);
+            this.barDockControlRight.Size = new System.Drawing.Size(0, 353);
             // 
             // dgvKhuyenMai
             // 
@@ -154,11 +154,11 @@
             this.NGAYBATDAU,
             this.NGAYKETTHUC});
             this.dgvKhuyenMai.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvKhuyenMai.Location = new System.Drawing.Point(0, 24);
+            this.dgvKhuyenMai.Location = new System.Drawing.Point(0, 32);
             this.dgvKhuyenMai.Name = "dgvKhuyenMai";
             this.dgvKhuyenMai.ReadOnly = true;
             this.dgvKhuyenMai.RowHeadersVisible = false;
-            this.dgvKhuyenMai.Size = new System.Drawing.Size(833, 361);
+            this.dgvKhuyenMai.Size = new System.Drawing.Size(833, 353);
             this.dgvKhuyenMai.TabIndex = 10;
             this.dgvKhuyenMai.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhuyenMai_CellClick);
             this.dgvKhuyenMai.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvKhuyenMai_CellDoubleClick);
@@ -220,6 +220,7 @@
             this.Controls.Add(this.barDockControlRight);
             this.Controls.Add(this.barDockControlBottom);
             this.Controls.Add(this.barDockControlTop);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmKhuyenMai";
             this.Text = "Khuyến mãi";
             this.Load += new System.EventHandler(this.FrmKhuyenMai_Load);

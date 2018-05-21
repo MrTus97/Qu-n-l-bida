@@ -50,15 +50,12 @@ namespace QuanLyBilliard.GUI
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
 
-            btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
             //Quản trị
             btnKhuyenMai.Enabled = true;
             btnAbout.Enabled = true;
-            btnCauHinhTichDiem.Enabled = true;
 
         }
-        #region Phương thức
         public bool FormXuatHienChua(string text)
         {
             foreach (Form f in this.MdiChildren)
@@ -71,7 +68,6 @@ namespace QuanLyBilliard.GUI
             }
             return false;
         }
-        #endregion
        
         public void barButtonItem1_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -210,12 +206,10 @@ namespace QuanLyBilliard.GUI
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
 
-            btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
-            btnCauHinhTichDiem.Enabled = false;
         }
 
         private void QuyenThuNgan()
@@ -240,12 +234,10 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
-            btnTamUng.Enabled = false;
             btnTinhCong.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
-            btnCauHinhTichDiem.Enabled = false;
         }
 
         private void QuyenQuanLy()
@@ -270,12 +262,10 @@ namespace QuanLyBilliard.GUI
             //Nhân sự
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
-            btnTamUng.Enabled = true;
             btnTinhCong.Enabled = true;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
-            btnCauHinhTichDiem.Enabled = false;
         }
 
         private void btnDanhMucBan_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
@@ -310,6 +300,12 @@ namespace QuanLyBilliard.GUI
 
         private void btnBaoCaoKhoHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
+            if (!FormXuatHienChua("FrmBaoCaoKho"))
+            {
+                FrmBaoCaoKho f = new FrmBaoCaoKho();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
 
         private void barButtonItem1_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

@@ -98,7 +98,11 @@ namespace QuanLyBilliard.BL
             int idLoaidBan = Int32.Parse(loaiBan);
             daTable.themBan(idLoaidBan, TenBan);
         }
-
+        /// <summary>
+        /// Chuyển bàn có mã từ v1 sang v2
+        /// </summary>
+        /// <param name="v1">Mã bàn hiện tại</param>
+        /// <param name="v2">Mã bàn chuyển tới</param>
         public void ChuyenBan(string v1, string v2)
         {
             int curr = Int32.Parse(v1);
@@ -117,16 +121,21 @@ namespace QuanLyBilliard.BL
             int idhoadon = Int32.Parse(text);
             return daTable.TATBAN(idhoadon);
         }
-
+        /// <summary>
+        /// Kết thúc theo id hóa đơn
+        /// </summary>
+        /// <param name="idhoadon"></param>
+        /// <returns></returns>
         public int KetThuc(int idhoadon)
         {
             return daTable.TATBAN(idhoadon);
         }
 
-        public int ThemLoaiBan(string text,string gia)
+
+        public int ThemLoaiBan(string tenloai,string gia)
         {
             int giaBan = Convert.ToInt32(gia);
-            return daTable.ThemLoaiBan(text,giaBan);
+            return daTable.ThemLoaiBan(tenloai, giaBan);
         }
 
         public int CapNhatLoaiBan(string txtTenLoai,string txtGia, int tag)
@@ -149,10 +158,10 @@ namespace QuanLyBilliard.BL
 
         
 
-        public void xoaBan(string text)
+        public int xoaBan(string text)
         {
             int id = Int32.Parse(text);
-            daTable.xoaBan(id);
+            return daTable.xoaBan(id);
         }
 
         public DataTable layDuLieuLenDataGridView()
@@ -195,7 +204,12 @@ namespace QuanLyBilliard.BL
             //Chuyển đổi dữ liệu cho phù hợp
             int khachhang = Convert.ToInt32(kh);
             int idNhanVien = Int32.Parse(idnv);
-            float tiengio = float.Parse(tg);
+            float tiengio = 0;
+            if (tg != "")
+            {
+                tiengio = float.Parse(tg);
+            }
+            
             int tienthucpham = Convert.ToInt32(tpp);
             //Gọi hàm để tính cột tiền giờ
             /*1. Chọn bàn

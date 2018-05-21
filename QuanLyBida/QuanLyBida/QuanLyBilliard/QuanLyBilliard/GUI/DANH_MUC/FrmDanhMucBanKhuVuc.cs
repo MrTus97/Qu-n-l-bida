@@ -105,7 +105,11 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                blBan.xoaBan(textBox1.Text);
+                int kq = blBan.xoaBan(textBox1.Text);
+                if (kq == -1)
+                {
+                    MessageBox.Show("Không thể xóa được bàn này");
+                }
             }
             RefreshBan();
         }
@@ -138,7 +142,11 @@ namespace QuanLyBilliard.GUI
             if (result == DialogResult.Yes)
             {
                 int idban = Convert.ToInt32(lbTenLoai.Tag);
-                blBan.XoaLoaiBan(idban);
+                int kq = blBan.XoaLoaiBan(idban);
+                if (kq == -1)
+                {
+                    MessageBox.Show("Không thể xóa");
+                }
                 RefeshLoaiBan();
             }
         }

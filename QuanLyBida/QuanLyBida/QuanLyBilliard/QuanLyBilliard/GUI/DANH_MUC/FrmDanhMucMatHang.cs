@@ -159,7 +159,12 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                blThucPham.xoaMatHang(textBox1.Text);
+                int kq = blThucPham.xoaMatHang(textBox1.Text);
+                if (kq == -1)
+                {
+                    MessageBox.Show("Không thể xóa");
+                }
+                
             }
             loadThucPham();
         }

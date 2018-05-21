@@ -14,6 +14,7 @@ namespace QuanLyBilliard.BL
         FrmSuDungDichVu frmSuDungDichVu;
         FrmDanhMucMatHang frmDanhMucMatHang;
         private FrmTuyChonNhapHang frmTuyChonNhapHang;
+        private FrmBaoCaoKho frmBaoCaoKho;
 
         public BL_ThucPham(FrmSuDungDichVu f)
         {
@@ -30,6 +31,11 @@ namespace QuanLyBilliard.BL
             this.frmTuyChonNhapHang = frmTuyChonNhapHang;
         }
 
+        public BL_ThucPham(FrmBaoCaoKho frmBaoCaoKho)
+        {
+            this.frmBaoCaoKho = frmBaoCaoKho;
+        }
+
         public DataTable getDuLieu(int id)
         {
             return daThucPham.getDuLieu(id);
@@ -41,6 +47,11 @@ namespace QuanLyBilliard.BL
             int idNhaCungCap = Int32.Parse(text5);
             int idLoaiThucPham = Int32.Parse(text3);
             daThucPham.ThemMatHang(tenthucpham,dvt,idLoaiThucPham,dongia,idNhaCungCap);
+        }
+
+        public DataTable LayDuLieuThucPham(int idLoaiThucPham)
+        {
+            return daThucPham.layDuLieuThucPham(idLoaiThucPham);
         }
 
         public void loadloaiThucPham()
@@ -65,10 +76,10 @@ namespace QuanLyBilliard.BL
             daThucPham.CapNhatMatHang(id_thucpham, ten, dvt, idLoaiThucPham, dongia, idNhaCungCap);
         }
 
-        public void xoaMatHang(string text)
+        public int xoaMatHang(string text)
         {
             int id = Convert.ToInt32(text);
-            daThucPham.XoaMatHang(id);
+            return daThucPham.XoaMatHang(id);
         }
 
 

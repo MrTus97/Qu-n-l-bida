@@ -106,16 +106,12 @@ namespace QuanLyBilliard.BL
             daNhanVien.SuaThongTinNhanVien(IdNhanVien,tennhanvien, ngaysinh, cmnd, sdt, gioitinh, IdCapBac, catruc);
         }
 
-        public void XoaNhanVien(string idNhanVien)
+        public int XoaNhanVien(string idNhanVien)
         {
             int id = Int32.Parse(idNhanVien);
-            int result = daNhanVien.XoaNhanVien(id);
-            if (result > 0)
-            {
-                MessageBox.Show("Thanh cong");
-            } else { MessageBox.Show("That bai"); }
-
-}
+            return daNhanVien.XoaNhanVien(id);
+            
+        }   
 
         public DataTable LayNhanVien()
         {

@@ -139,6 +139,7 @@
             this.textBoxDescription.TabStop = false;
             this.textBoxDescription.Text = "Description\r\nPhan Thanh Tú\r\nNguyễn Hữu Bách Khoa\r\nLê Đức Trung\r\nNguyễn Quang Sang" +
     "\r\nLê Văn Nam\r\n";
+            this.textBoxDescription.TextChanged += new System.EventHandler(this.textBoxDescription_TextChanged);
             // 
             // okButton
             // 
@@ -158,6 +159,7 @@
             this.ClientSize = new System.Drawing.Size(435, 283);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "About";

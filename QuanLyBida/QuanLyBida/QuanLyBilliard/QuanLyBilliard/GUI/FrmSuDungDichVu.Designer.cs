@@ -629,7 +629,7 @@ namespace QuanLyBilliard.GUI
             this.btnThanhToan.Name = "btnThanhToan";
             this.btnThanhToan.Size = new System.Drawing.Size(70, 38);
             this.btnThanhToan.TabIndex = 59;
-            this.btnThanhToan.Text = "Thanh toán";
+            this.btnThanhToan.Text = "Thống kê \r";
             this.btnThanhToan.Click += new System.EventHandler(this.btnThanhToan_Click);
             // 
             // btnBatDau
@@ -885,9 +885,11 @@ namespace QuanLyBilliard.GUI
             this.ClientSize = new System.Drawing.Size(1008, 550);
             this.Controls.Add(this.layoutControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.KeyPreview = true;
             this.Name = "FrmSuDungDichVu";
             this.Text = "Sử dụng dịch vụ";
             this.Load += new System.EventHandler(this.FrmSuDungDichVu_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmSuDungDichVu_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();
             this.layoutControl1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).EndInit();

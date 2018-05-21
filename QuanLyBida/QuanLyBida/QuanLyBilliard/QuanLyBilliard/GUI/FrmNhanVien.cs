@@ -100,8 +100,15 @@ namespace QuanLyBilliard.GUI
                 MessageBox.Show("Ban phải chọn trường cần xóa");
             }
             else
-            blNhanVien.XoaNhanVien(textBox1.Text);
-            loadDuLieu();
+            {
+                int i = blNhanVien.XoaNhanVien(textBox1.Text);
+                if (i == -1)
+                {
+                    MessageBox.Show("Xóa không thành công !!");
+                }
+                loadDuLieu();
+            }
+            
            
         }
 

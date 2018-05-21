@@ -213,6 +213,7 @@
             this.Controls.Add(this.dgvChiTietHDNhap);
             this.Controls.Add(this.dgvHoaDonNhap);
             this.Controls.Add(this.toolStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmNhapHang";
             this.Text = "FrmNhapHang";
             this.Load += new System.EventHandler(this.FrmNhapHang_Load);

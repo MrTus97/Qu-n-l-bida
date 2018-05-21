@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDoiMatKhau));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.txtMatKhauMoi = new System.Windows.Forms.MaskedTextBox();
             this.txtXacNhanMatKhau = new System.Windows.Forms.MaskedTextBox();
@@ -177,6 +178,7 @@
             this.ClientSize = new System.Drawing.Size(397, 132);
             this.ControlBox = false;
             this.Controls.Add(this.layoutControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDoiMatKhau";
             this.Text = "ĐỔI MẬT KHẨU";
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -32,15 +32,11 @@ namespace QuanLyBilliard.BL
             else MessageBox.Show("Thất bại");
         }
 
-        public void XoaCapBac(string idcapbac)
+        public int XoaCapBac(string idcapbac)
         {
             int id = Int32.Parse(idcapbac);
-            int result = daCapBac.XoaCapBac(id);
-            if (result > 0)
-            {
-                MessageBox.Show("Thanh cong");
-            }
-            else { MessageBox.Show("That bai"); }
+            return daCapBac.XoaCapBac(id);
+            
 
         }
 

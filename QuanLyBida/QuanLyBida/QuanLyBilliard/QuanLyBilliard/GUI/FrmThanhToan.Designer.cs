@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmThanhToan));
             this.pnLoc = new System.Windows.Forms.Panel();
             this.lbLocTheo = new System.Windows.Forms.Label();
             this.cbLocHoaDon = new System.Windows.Forms.ComboBox();
@@ -142,6 +143,7 @@
             this.dtpTuNgay.Name = "dtpTuNgay";
             this.dtpTuNgay.Size = new System.Drawing.Size(200, 23);
             this.dtpTuNgay.TabIndex = 13;
+            this.dtpTuNgay.ValueChanged += new System.EventHandler(this.dtpTuNgay_ValueChanged);
             // 
             // dtpDenNgay
             // 
@@ -150,6 +152,7 @@
             this.dtpDenNgay.Name = "dtpDenNgay";
             this.dtpDenNgay.Size = new System.Drawing.Size(200, 23);
             this.dtpDenNgay.TabIndex = 14;
+            this.dtpDenNgay.ValueChanged += new System.EventHandler(this.dtpDenNgay_ValueChanged);
             // 
             // lbDenNgay
             // 
@@ -284,8 +287,9 @@
             this.Controls.Add(this.pnNgay);
             this.Controls.Add(this.pnLoc);
             this.Controls.Add(this.dataGridView1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmThanhToan";
-            this.Text = "FrmThanhToan";
+            this.Text = "Thống kê";
             this.Load += new System.EventHandler(this.FrmThanhToan_Load);
             this.pnLoc.ResumeLayout(false);
             this.pnLoc.PerformLayout();

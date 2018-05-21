@@ -19,7 +19,7 @@ namespace QuanLyBilliard.GUI
             this.labelVersion.Text = String.Format("Version {0}", "1.0");
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = "CDIO397";
-            this.textBoxDescription.Text = "Phần mềm quản lý bida của nhóm xàm le trong đồ án cdio397";
+            this.textBoxDescription.Text = "DEMO phần mềm quản lý quán bida trong đồ án cdio397";
         }
 
         #region Assembly Attribute Accessors
@@ -107,6 +107,9 @@ namespace QuanLyBilliard.GUI
 
         }
 
+        private void textBoxDescription_TextChanged(object sender, EventArgs e)
+        {
 
+        }
     }
 }

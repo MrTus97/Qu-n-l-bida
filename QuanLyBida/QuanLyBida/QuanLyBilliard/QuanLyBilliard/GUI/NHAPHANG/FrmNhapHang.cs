@@ -84,7 +84,11 @@ namespace QuanLyBilliard.GUI
             DialogResult result = MessageBox.Show("Bạn có muốn xóa hóa đơn này ?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                blNhapHang.XoaHoaDonNhap((int)dgvChiTietHDNhap.Tag);
+                int i  = blNhapHang.XoaHoaDonNhap((int)dgvChiTietHDNhap.Tag);
+                if (i == -1)
+                {
+                    MessageBox.Show("Xóa không thành công !!");
+                }
                 DataTable x = blNhapHang.LayDuLieuHoaDonNhap();
                 RefeshHoaDonNhap(x);
             }

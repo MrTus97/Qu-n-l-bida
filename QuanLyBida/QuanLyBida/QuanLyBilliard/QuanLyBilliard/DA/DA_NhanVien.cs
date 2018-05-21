@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -53,8 +54,15 @@ namespace QuanLyBilliard.DA
 
         public int XoaNhanVien(int idNhanVien)
         {
-            string sql = "Delete NHANVIEN where ID_NhanVien = " + idNhanVien ;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "Delete NHANVIEN where ID_NhanVien = " + idNhanVien;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
             
         }
 
