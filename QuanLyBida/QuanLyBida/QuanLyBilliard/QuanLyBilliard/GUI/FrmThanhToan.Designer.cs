@@ -92,6 +92,7 @@
             this.cbLocHoaDon.Name = "cbLocHoaDon";
             this.cbLocHoaDon.Size = new System.Drawing.Size(144, 24);
             this.cbLocHoaDon.TabIndex = 4;
+            this.cbLocHoaDon.SelectedIndexChanged += new System.EventHandler(this.cbLocHoaDon_SelectedIndexChanged);
             this.cbLocHoaDon.TextChanged += new System.EventHandler(this.cbLocHoaDon_TextChanged);
             // 
             // btnTim

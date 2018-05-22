@@ -52,8 +52,15 @@ namespace QuanLyBilliard.BL
 
         public int xoaKhachHang(string text)
         {
-            int id = Int32.Parse(text);
-            return daKhachHang.xoaKhachHang(id);
+            try
+            {
+                int id = Int32.Parse(text);
+                return daKhachHang.xoaKhachHang(id);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         public DataTable LayKhachHang()

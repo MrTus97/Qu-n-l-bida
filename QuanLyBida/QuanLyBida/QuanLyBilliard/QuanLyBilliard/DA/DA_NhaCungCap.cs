@@ -30,8 +30,16 @@ namespace QuanLyBilliard.DA
 
         public int XoaNhaCungCap(int id)
         {
-            string sql = "delete nhacungcap where id_NHACUNGCAP =" + id;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "delete nhacungcap where id_NHACUNGCAP =" + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            
         }
 
         public DataTable TimKiemNhaCungCap(string text)

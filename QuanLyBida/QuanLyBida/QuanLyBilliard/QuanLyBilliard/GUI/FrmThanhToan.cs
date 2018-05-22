@@ -246,5 +246,10 @@ namespace QuanLyBilliard.GUI
             }
             
         }
+
+        private void cbLocHoaDon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

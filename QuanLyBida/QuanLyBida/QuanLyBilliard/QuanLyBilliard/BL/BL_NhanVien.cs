@@ -108,8 +108,15 @@ namespace QuanLyBilliard.BL
 
         public int XoaNhanVien(string idNhanVien)
         {
-            int id = Int32.Parse(idNhanVien);
-            return daNhanVien.XoaNhanVien(id);
+            try
+            {
+                int id = Int32.Parse(idNhanVien);
+                return daNhanVien.XoaNhanVien(id);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
             
         }   
 

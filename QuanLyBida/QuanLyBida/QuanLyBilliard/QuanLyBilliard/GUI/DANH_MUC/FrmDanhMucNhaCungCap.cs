@@ -72,7 +72,11 @@ namespace QuanLyBilliard.GUI.DANH_MUC
             if (rs == DialogResult.Yes)
             {
                 int id = Convert.ToInt32((btnSua.Tag as DataGridViewRow).Cells[0].Value.ToString());
-                blNhaCungCap.XoaNhaCungCap(id);
+                int kq = blNhaCungCap.XoaNhaCungCap(id);
+                if (kq < 0)
+                {
+                    MessageBox.Show("Thất bại !!");
+                }
                 DataTable result = blNhaCungCap.LayDuLieuNhaCungCap();
                 RefeshNhaCungCap(result);
             }

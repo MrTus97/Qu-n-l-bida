@@ -160,8 +160,15 @@ namespace QuanLyBilliard.BL
 
         public int xoaBan(string text)
         {
-            int id = Int32.Parse(text);
-            return daTable.xoaBan(id);
+            try
+            {
+                int id = Int32.Parse(text);
+                return daTable.xoaBan(id);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         public DataTable layDuLieuLenDataGridView()

@@ -39,17 +39,32 @@ namespace QuanLyBilliard.BL
 
         public int ThemKhuyenMai(string id, string ten, string giamGiaGio, string giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
         {
-            float gio_km = float.Parse(giamGiaGio);
-            float nuoc_km = float.Parse(giamGiaThucPham);
-            return daKhuyenMai.ThemKhuyenMai(ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
+            try
+            {
+                float gio_km = float.Parse(giamGiaGio);
+                float nuoc_km = float.Parse(giamGiaThucPham);
+                return daKhuyenMai.ThemKhuyenMai(ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            
         }
 
         public int SuaKhuyenMai(string id, string ten, string giamGiaGio, string giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
         {
-            int id_km = Convert.ToInt32(id);
-            float gio_km = float.Parse(giamGiaGio);
-            float nuoc_km = float.Parse(giamGiaThucPham);
-            return daKhuyenMai.SuaKhuyenMai(id_km, ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
+            try
+            {
+                int id_km = Convert.ToInt32(id);
+                float gio_km = float.Parse(giamGiaGio);
+                float nuoc_km = float.Parse(giamGiaThucPham);
+                return daKhuyenMai.SuaKhuyenMai(id_km, ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         public int XoaKhuyenMai(int id)

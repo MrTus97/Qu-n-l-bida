@@ -34,8 +34,15 @@ namespace QuanLyBilliard.BL
 
         public int XoaCapBac(string idcapbac)
         {
-            int id = Int32.Parse(idcapbac);
-            return daCapBac.XoaCapBac(id);
+            try
+            {
+                int id = Int32.Parse(idcapbac);
+                return daCapBac.XoaCapBac(id);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
             
 
         }

@@ -42,42 +42,50 @@ namespace QuanLyBilliard.BL
 
         public int TuyChonNhapHang(int soHoaDon, string tenHoaDon, DateTime ngayTaoHoaDon, DataTable matHangNhap)
         {
-            int change = 0;
-            int tongtien = 0;
-            foreach (DataRow row in matHangNhap.Rows)
+            try
             {
-                tongtien += Int32.Parse(row[3].ToString()); ;
-            }
-            if (soHoaDon == 0)
-            {
-                daNhapHang.TaoMoiHoaDonNhap(tenHoaDon, ngayTaoHoaDon, tongtien);
-                int soHoaDonNhap = (int)daNhapHang.LayMaHoaDonNhapHangMoiNhat();
+                int change = 0;
+                int tongtien = 0;
                 foreach (DataRow row in matHangNhap.Rows)
                 {
-                    int mathang = Int32.Parse(row[ID_MATHANG].ToString());
-                    int gianhap = Int32.Parse(row[GIANHAP].ToString());
-                    int soluongnhap = Int32.Parse(row[SOLUONGNHAP].ToString());
-                    int tongtien1sp = Int32.Parse(row[TONGTIEN].ToString());
-                    daThucPham.ThayDoiSoLuong(mathang, soluongnhap);
-                    change +=daNhapHang.TaoMoiChiTietHoaDonNhap(soHoaDonNhap, mathang,soluongnhap,gianhap,tongtien1sp);
+                    tongtien += Int32.Parse(row[3].ToString()); ;
                 }
-            }
-            else
-            {
-                daNhapHang.CapNhatHoaDonNhap(soHoaDon, tenHoaDon, ngayTaoHoaDon, tongtien);
-                daNhapHang.XoaChiTietHoaDonNhap(soHoaDon);
-                foreach (DataRow row in matHangNhap.Rows)
+                if (soHoaDon == 0)
                 {
-                    int mathang = Int32.Parse(row[ID_MATHANG].ToString());
-                    int gianhap = Int32.Parse(row[GIANHAP].ToString());
-                    int soluongnhap = Int32.Parse(row[SOLUONGNHAP].ToString());
-                    int tongtien1sp = Int32.Parse(row[TONGTIEN].ToString());
-                    daThucPham.ThayDoiSoLuong(mathang, soluongnhap);
-                    change+= daNhapHang.TaoMoiChiTietHoaDonNhap(soHoaDon, mathang, soluongnhap, gianhap, tongtien1sp);
-                    
+                    daNhapHang.TaoMoiHoaDonNhap(tenHoaDon, ngayTaoHoaDon, tongtien);
+                    int soHoaDonNhap = (int)daNhapHang.LayMaHoaDonNhapHangMoiNhat();
+                    foreach (DataRow row in matHangNhap.Rows)
+                    {
+                        int mathang = Int32.Parse(row[ID_MATHANG].ToString());
+                        int gianhap = Int32.Parse(row[GIANHAP].ToString());
+                        int soluongnhap = Int32.Parse(row[SOLUONGNHAP].ToString());
+                        int tongtien1sp = Int32.Parse(row[TONGTIEN].ToString());
+                        daThucPham.ThayDoiSoLuong(mathang, soluongnhap);
+                        change += daNhapHang.TaoMoiChiTietHoaDonNhap(soHoaDonNhap, mathang, soluongnhap, gianhap, tongtien1sp);
+                    }
                 }
+                else
+                {
+                    daNhapHang.CapNhatHoaDonNhap(soHoaDon, tenHoaDon, ngayTaoHoaDon, tongtien);
+                    daNhapHang.XoaChiTietHoaDonNhap(soHoaDon);
+                    foreach (DataRow row in matHangNhap.Rows)
+                    {
+                        int mathang = Int32.Parse(row[ID_MATHANG].ToString());
+                        int gianhap = Int32.Parse(row[GIANHAP].ToString());
+                        int soluongnhap = Int32.Parse(row[SOLUONGNHAP].ToString());
+                        int tongtien1sp = Int32.Parse(row[TONGTIEN].ToString());
+                        daThucPham.ThayDoiSoLuong(mathang, soluongnhap);
+                        change += daNhapHang.TaoMoiChiTietHoaDonNhap(soHoaDon, mathang, soluongnhap, gianhap, tongtien1sp);
+
+                    }
+                }
+                return change;
             }
-            return change;
+            catch (Exception)
+            {
+                return -1;
+            }
+            
 
         }
 

@@ -144,11 +144,18 @@ namespace QuanLyBilliard.BL
         {
             return daHoaDon.LayHoaDon(id);
         }
-        public void XoaMatHang(int idHoaDon, string text,string sl)
+        public int XoaMatHang(int idHoaDon, string text,string sl)
         {
-            int soluong = Int32.Parse(sl);
-            int idThucPham = Int32.Parse(text);
-            int i = daHoaDon.XoaMatHang(idHoaDon, idThucPham,soluong);
+            try
+            {
+                int soluong = Int32.Parse(sl);
+                int idThucPham = Int32.Parse(text);
+                return daHoaDon.XoaMatHang(idHoaDon, idThucPham, soluong);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         public void DoiSoLuong(int idHoaDon, int idThucPham, int soluong)
