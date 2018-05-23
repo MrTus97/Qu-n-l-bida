@@ -214,8 +214,7 @@ namespace QuanLyBilliard.DA
         {
             string sql = "select giovao from ban where id_ban = " + iD_Ban;
             return (DateTime)ldc.ExecuteScalar(sql);
-           
-            
+
         }
 
         public float LayGiaBan(int iD_LoaiBan)

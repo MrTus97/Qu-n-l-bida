@@ -62,11 +62,6 @@ namespace QuanLyBilliard.GUI
            
         }
 
-        
-        private void FrmDangNhap_Load(object sender, EventArgs e)
-        {
-
-        }
 
         private void linkLabel1_LinkClicked_1(object sender, LinkLabelLinkClickedEventArgs e)
         {
@@ -95,7 +90,7 @@ namespace QuanLyBilliard.GUI
         private static Random random = new Random();
         public static string RandomString(int length)
         {
-            const string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            const string chars = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
               .Select(s => s[random.Next(s.Length)]).ToArray());
         }
@@ -103,7 +98,6 @@ namespace QuanLyBilliard.GUI
         {
             captchaText = RandomString(5);
             xacNhanCaptcha.Text = "";
-
             panel1.BackgroundImage = DrawImage(captchaText, panel1.Width, panel1.Height);
         }
     }

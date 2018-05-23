@@ -25,6 +25,7 @@ namespace QuanLyBilliard.GUI
             cbCapBac.DataSource = blNhanVien.LoadCapBac();
             cbCapBac.DisplayMember = "TenCapBac";
             cbCapBac.ValueMember = "ID_CapBac";
+            radioButton2.Checked = true;
             loadDuLieu();
         }
 
