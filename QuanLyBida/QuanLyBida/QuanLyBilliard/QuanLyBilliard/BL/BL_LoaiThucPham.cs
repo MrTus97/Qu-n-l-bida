@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using QuanLyBilliard.GUI.NHAPHANG;
+using QuanLyBilliard.GUI.DANH_MUC.THUCPHAM;
 
 namespace QuanLyBilliard.BL
 {
@@ -18,6 +19,14 @@ namespace QuanLyBilliard.BL
         LopDungChung ldc = new LopDungChung();
         private FrmTuyChonNhapHang frmTuyChonNhapHang;
         private FrmBaoCaoKho frmBaoCaoKho;
+        private FrmLoaiMatHang frmDanhMucLoaiMatHang;
+        private FrmTuyChonLoaiMatHang frmTuyChonLoaiMatHang;
+        private FrmTuyChonMatHang frmTuyChonMatHang;
+
+        public DataTable LayDanhSachLoaiThucPham()
+        {
+            return daLoaiThucPham.LayDanhSachLoaiThucPham();
+        }
 
         public BL_LoaiThucPham(FrmSuDungDichVu f)
         {
@@ -30,15 +39,49 @@ namespace QuanLyBilliard.BL
             this.frmTuyChonNhapHang = frmTuyChonNhapHang;
         }
 
+        internal int SuaLoaiThucPham(int v, string text)
+        {
+            DataTable kq = daLoaiThucPham.KiemTraTonTaiThucPham(text);
+            if (kq.Rows.Count > 0) return -1;
+            return daLoaiThucPham.CapNhatLoaiThucPham(v,text);
+        }
+
+        internal int ThemLoaiThucPham(string text)
+        {
+            DataTable kq = daLoaiThucPham.KiemTraTonTaiThucPham(text);
+            if (kq.Rows.Count > 0) return -2;
+            return daLoaiThucPham.ThemMoiLoaiThucPham(text);
+
+        }
+
         public BL_LoaiThucPham(FrmBaoCaoKho frmBaoCaoKho)
         {
             this.frmBaoCaoKho = frmBaoCaoKho;
+        }
+
+        public BL_LoaiThucPham(FrmLoaiMatHang frmDanhMucLoaiMatHang)
+        {
+            this.frmDanhMucLoaiMatHang = frmDanhMucLoaiMatHang;
+        }
+
+        public BL_LoaiThucPham(FrmTuyChonLoaiMatHang frmTuyChonLoaiMatHang)
+        {
+            this.frmTuyChonLoaiMatHang = frmTuyChonLoaiMatHang;
+        }
+
+        public BL_LoaiThucPham(FrmTuyChonMatHang frmTuyChonMatHang)
+        {
+            this.frmTuyChonMatHang = frmTuyChonMatHang;
         }
 
         public List<LoaiThucPham> LoadLoaiThucPham()
         {
             return daLoaiThucPham.getDuLieu();
         }
-        
+
+        internal int XoaLoaiKhachHang(string v)
+        {
+            return daLoaiThucPham.XoaLoaiThucPham(v);
+        }
     }
 }

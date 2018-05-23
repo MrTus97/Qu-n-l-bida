@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBilliard.BL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -18,7 +19,7 @@ namespace QuanLyBilliard.DA
             {
                 sql = "select * from loaikhachhang";
             }
-            catch (SqlException )
+            catch (SqlException)
             {
                 Console.WriteLine("getdulieu ");
             }
@@ -33,31 +34,42 @@ namespace QuanLyBilliard.DA
 
         public int themKhachHang(string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int idLoaiKhacHhang)
         {
-            string sql = "insert into KHACHHANG values (N'"+tenkhachhang+"','"+sdt+"',convert(datetime,'"+ngaysinh+"',103),"+gioitinh+",0,"+idLoaiKhacHhang+")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into KHACHHANG values (N'" + tenkhachhang + "','" + sdt + "',convert(datetime,'" + ngaysinh + "',103)," + gioitinh + ",0," + idLoaiKhacHhang + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return BATLOI.SQL;
+            }
         }
 
         public int CapNhatKhachHang(int idKhachHang, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int idLoaiKhacHhang)
         {
-            string sql = "update khachhang set tenkhachhang = N'"+tenkhachhang+"', sodienthoai = '"+sdt+"', ngaysinh = convert(datetime,'"+ngaysinh+"',103), gioitinh= '"+gioitinh+"', id_loaikhachhang = "+idLoaiKhacHhang+" where id_khachhang = "+idKhachHang+"";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update khachhang set tenkhachhang = N'" + tenkhachhang + "', sodienthoai = '" + sdt + "', ngaysinh = convert(datetime,'" + ngaysinh + "',103), gioitinh= '" + gioitinh + "', id_loaikhachhang = " + idLoaiKhacHhang + " where id_khachhang = " + idKhachHang + "";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return BATLOI.SQL;
+            }
         }
 
         public int xoaKhachHang(int id)
         {
-            string sql;
-            int kq;
+
             try
             {
-                sql = "delete khachhang where id_khachhang = " + id + "";
-                kq = ldc.ExecuteNonQuery(sql);
+                string sql = "delete khachhang where id_khachhang = " + id + "";
+                return ldc.ExecuteNonQuery(sql);
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL; 
             }
-
-            return kq;
         }
 
         public DataTable LayKhachHang()

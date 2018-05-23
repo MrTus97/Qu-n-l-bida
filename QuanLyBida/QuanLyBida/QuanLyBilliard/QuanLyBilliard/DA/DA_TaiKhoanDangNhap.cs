@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,8 +20,15 @@ namespace QuanLyBilliard.DA
 
         public int ThemMoiTaiKhoan(int nhanvien, string tendangnhap, string matkhau, int quyen)
         {
-            string sql = "insert into dangnhap values("+nhanvien+",'"+tendangnhap+"','"+matkhau+"',"+quyen+")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into dangnhap values(" + nhanvien + ",'" + tendangnhap + "','" + matkhau + "'," + quyen + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable KiemTraTenDangNhap(string tendangnhap)
@@ -31,14 +39,28 @@ namespace QuanLyBilliard.DA
 
         internal int CapNhapTaiKhoan(int nhanvien, string tendangnhap, string matkhau, int quyen)
         {
-            string sql = "update dangnhap set tendangnhap = '" + tendangnhap + "',matkhau ='" + matkhau + "',quyen=" + quyen + " where ID_NhanVien =" + nhanvien;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update dangnhap set tendangnhap = '" + tendangnhap + "',matkhau ='" + matkhau + "',quyen=" + quyen + " where ID_NhanVien =" + nhanvien;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public int XoaDuLieu(string tendangnhap)
         {
-            string sql = "delete dangnhap where tendangnhap ='" + tendangnhap + "'";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "delete dangnhap where tendangnhap ='" + tendangnhap + "'";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
     }
 }

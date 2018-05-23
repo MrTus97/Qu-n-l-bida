@@ -21,8 +21,16 @@ namespace QuanLyBilliard.DA
 
         public int ThemMatHang(string tenthucpham,string dvt,int idLoaiThucPham, float dongia,int idNhaCungCap)
         {
-            string sql = "insert into thucpham values(N'"+tenthucpham+"',N'"+dvt+"',"+idLoaiThucPham+","+dongia+","+idNhaCungCap+",0)";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into thucpham values(N'" + tenthucpham + "',N'" + dvt + "'," + idLoaiThucPham + "," + dongia + "," + idNhaCungCap + ",0)";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -3;
+            }
+            
         }
 
         public DataTable getDuLieu()
@@ -39,8 +47,15 @@ namespace QuanLyBilliard.DA
 
         public int CapNhatMatHang(int id_thucpham, string ten, string dvt, int idLoaiThucPham, float dongia, int idNhaCungCap)
         {
-            string sql = "update thucpham set tenthucpham = N'"+ten+"',dvt=N'"+dvt+"',id_loaithucpham="+idLoaiThucPham+",giaban="+dongia+",id_nhacungcap = "+idNhaCungCap+" where id_thucpham = "+id_thucpham;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update thucpham set tenthucpham = N'" + ten + "',dvt=N'" + dvt + "',id_loaithucpham=" + idLoaiThucPham + ",giaban=" + dongia + ",id_nhacungcap = " + idNhaCungCap + " where id_thucpham = " + id_thucpham;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable layDuLieuThucPham(int v)
@@ -51,10 +66,9 @@ namespace QuanLyBilliard.DA
 
         public int XoaMatHang(int id)
         {
-            string sql = "";
             try
             {
-                sql = "delete thucpham where id_thucpham = " + id;
+                string sql = "delete thucpham where id_thucpham = " + id;
                 return ldc.ExecuteNonQuery(sql);
             }
             catch (SqlException)
@@ -72,8 +86,15 @@ namespace QuanLyBilliard.DA
 
         public int ThayDoiSoLuong(int mathang, int soluongnhap)
         {
-            string sql = "update THUCPHAM set SOLUONG = SOLUONG+" + soluongnhap + " where ID_THUCPHAM=" + mathang;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update THUCPHAM set SOLUONG = SOLUONG+" + soluongnhap + " where ID_THUCPHAM=" + mathang;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable layDuLieulenDataGridView()

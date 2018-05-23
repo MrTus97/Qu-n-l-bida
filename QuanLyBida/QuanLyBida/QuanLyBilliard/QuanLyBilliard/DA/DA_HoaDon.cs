@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
+using System.Data.SqlClient;
 
 namespace QuanLyBilliard.DA
 {
@@ -21,7 +22,7 @@ namespace QuanLyBilliard.DA
             string sql = "select * from hoadon where id_ban = " + ban.ID_Ban + " order by id_hoadon desc";
             return ldc.getDuLieu(sql);
         }
-        
+
 
         public DataTable showBill(int idhd)
         {
@@ -47,9 +48,15 @@ namespace QuanLyBilliard.DA
 
         public int ThanhToan(int id)
         {
-            string sql = "update hoadon set dathanhtoan =1 where id_hoadon =" + id;
-            return ldc.ExecuteNonQuery(sql);
-
+            try
+            {
+                string sql = "update hoadon set dathanhtoan =1 where id_hoadon =" + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -61,7 +68,7 @@ namespace QuanLyBilliard.DA
         /// <param name="idThucPham"></param>
         /// <param name="soluong"></param>
         /// <returns></returns>
-        public int XoaMatHang(int idHoaDon, int idThucPham,int soluong)
+        public int XoaMatHang(int idHoaDon, int idThucPham, int soluong)
         {
             /*
              * CREATE PROCEDURE XOAMATHANG
@@ -77,8 +84,15 @@ namespace QuanLyBilliard.DA
 	                SET SOLUONG = SOLUONG + @soluong
 	                where ID_THUCPHAM= @idThucPham
                 end*/
-            string sql = "XoaMatHang " + idHoaDon + "," + idThucPham + "," + soluong;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "XoaMatHang " + idHoaDon + "," + idThucPham + "," + soluong;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
         /// <summary>
         /// Thống kê hóa đơn từ ngày này đến ngày kia
@@ -86,9 +100,9 @@ namespace QuanLyBilliard.DA
         /// <param name="tungay"></param>
         /// <param name="denngay"></param>
         /// <returns></returns>
-        public DataTable ThongKeHoaDon(string tungay,string denngay)
+        public DataTable ThongKeHoaDon(string tungay, string denngay)
         {
-            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.NGAYKETTHUCHOADON >= CONVERT(datetime,'"+tungay+"',103) and hd.NGAYKETTHUCHOADON<CONVERT(datetime,'" + denngay + "',103)";
+            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.NGAYKETTHUCHOADON >= CONVERT(datetime,'" + tungay + "',103) and hd.NGAYKETTHUCHOADON<CONVERT(datetime,'" + denngay + "',103)";
             return ldc.getDuLieu(sql);
 
         }
@@ -103,20 +117,34 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public int SuaSoLuong(int idHoaDon, int tp, int sl)
         {
-            string sql = "UPDATE CHITIETHD SET SOLUONG = " + sl + " WHERE ID_HOADON = " + idHoaDon + " and ID_THUCPHAM=" + tp;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "UPDATE CHITIETHD SET SOLUONG = " + sl + " WHERE ID_HOADON = " + idHoaDon + " and ID_THUCPHAM=" + tp;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable TimKiemHoaDonShowLenThanhToan(int sohd)
         {
-            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.ID_HOADON ="+sohd;
+            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.ID_HOADON =" + sohd;
             return ldc.getDuLieu(sql);
         }
 
         public int ThanhToanHoaDon(int sohd, int trangthai)
         {
-            string sql = "update hoadon set DATHANHTOAN = " + trangthai + " where ID_HOADON = " + sohd;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update hoadon set DATHANHTOAN = " + trangthai + " where ID_HOADON = " + sohd;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -133,14 +161,28 @@ namespace QuanLyBilliard.DA
 
         public int SetGiamGiaThucPham(int idHoaDon, double giamGiaThucPham)
         {
-            string sql = "update HOADON set GIAMGIATHUCPHAM = " + giamGiaThucPham + " where ID_HOADON=" + idHoaDon;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update HOADON set GIAMGIATHUCPHAM = " + giamGiaThucPham + " where ID_HOADON=" + idHoaDon;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public int SetGiamGiaGio(int idHoaDon, double giamGiaGio)
         {
-            string sql = "update HOADON set GIAMGIAGIO = " + giamGiaGio + " where ID_HOADON=" + idHoaDon;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update HOADON set GIAMGIAGIO = " + giamGiaGio + " where ID_HOADON=" + idHoaDon;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -153,58 +195,72 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public int ThemMatHang(int id_HoaDOn, int soluong, int iD_ThucPham)
         {
-            string sql = "select count(*) from CHITIETHD where ID_HOADON = " + id_HoaDOn + " and ID_THUCPHAM = " + iD_ThucPham + "";
-            int count = (int)ldc.ExecuteScalar(sql);
-            if (count > 0)
+            try
             {
-                /*
-                 * CREATE PROCEDURE SuaSoLuongThucPhamKhiThemHang
-                    @id_hoadon int,
-                    @soluong int,
-                    @id_thucpham int
-                    as
-                    begin
-	                    update CHITIETHD
-	                    set SOLUONG = SOLUONG + @soluong
-	                    where ID_HOADON = @id_hoadon and ID_THUCPHAM= @id_thucpham
+                string sql = "select count(*) from CHITIETHD where ID_HOADON = " + id_HoaDOn + " and ID_THUCPHAM = " + iD_ThucPham + "";
+                int count = (int)ldc.ExecuteScalar(sql);
+                if (count > 0)
+                {
+                    /*
+                     * CREATE PROCEDURE SuaSoLuongThucPhamKhiThemHang
+                        @id_hoadon int,
+                        @soluong int,
+                        @id_thucpham int
+                        as
+                        begin
+                            update CHITIETHD
+                            set SOLUONG = SOLUONG + @soluong
+                            where ID_HOADON = @id_hoadon and ID_THUCPHAM= @id_thucpham
 
-	                    update THUCPHAM
-	                    set SOLUONG = SOLUONG - @soluong
-	                    where ID_THUCPHAM = @id_thucpham
-                    end
-                    */
-            sql = "SuaSoLuongThucPhamKhiThemHang " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
+                            update THUCPHAM
+                            set SOLUONG = SOLUONG - @soluong
+                            where ID_THUCPHAM = @id_thucpham
+                        end
+                        */
+                    sql = "SuaSoLuongThucPhamKhiThemHang " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
+                }
+                else
+                {
+                    //CREATE PROCEDURE ThemMoiThucPhamVaoHoaDon
+                    //@id_hoadon int,
+                    //@soluong int,
+                    //@id_thucpham int
+                    //as
+                    //begin
+                    //    insert into CHITIETHD
+                    //    Values(@id_hoadon, @id_thucpham, @soluong)
+                    //    update THUCPHAM
+                    //    set SOLUONG = SOLUONG - @soluong
+                    //    where ID_THUCPHAM = @id_thucpham
+                    //end
+
+                    sql = "ThemMoiThucPhamVaoHoaDon " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
+                }
+                return ldc.ExecuteNonQuery(sql);
             }
-            else
+            catch (SqlException)
             {
-                //CREATE PROCEDURE ThemMoiThucPhamVaoHoaDon
-                //@id_hoadon int,
-                //@soluong int,
-                //@id_thucpham int
-                //as
-                //begin
-                //    insert into CHITIETHD
-                //    Values(@id_hoadon, @id_thucpham, @soluong)
-                //    update THUCPHAM
-                //    set SOLUONG = SOLUONG - @soluong
-                //    where ID_THUCPHAM = @id_thucpham
-                //end
-
-                sql = "ThemMoiThucPhamVaoHoaDon " + id_HoaDOn + "," + soluong + "," + iD_ThucPham;
+                return -1;
             }
-            return ldc.ExecuteNonQuery(sql);
         }
 
         public int TinhTongTienThucPham(int iD_HoaDon)
         {
-            string sql = "select sum(GiABAN*ct.SOLUONG) from CHITIETHD ct inner join THUCPHAM tp on ct.ID_THUCPHAM = tp.ID_THUCPHAM where ID_HOADON =" + iD_HoaDon;
-            object tienThucPham = ldc.ExecuteScalar(sql);
-            if (tienThucPham.ToString() != "")
+            try
             {
-                int result = Convert.ToInt32(ldc.ExecuteScalar(sql));
-                return result;
+                string sql = "select sum(GiABAN*ct.SOLUONG) from CHITIETHD ct inner join THUCPHAM tp on ct.ID_THUCPHAM = tp.ID_THUCPHAM where ID_HOADON =" + iD_HoaDon;
+                object tienThucPham = ldc.ExecuteScalar(sql);
+                if (tienThucPham.ToString() != "")
+                {
+                    int result = Convert.ToInt32(ldc.ExecuteScalar(sql));
+                    return result;
+                }
+                return 0;
             }
-            return 0;
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         /// <summary>
@@ -214,10 +270,17 @@ namespace QuanLyBilliard.DA
         /// <param name="idNhanVien"></param>
         /// <param name="idKhachHang"></param>
         /// <returns></returns>
-        public int GanGiaTriInThuBill(int id,int idNhanVien, int idKhachHang)
+        public int GanGiaTriInThuBill(int id, int idNhanVien, int idKhachHang)
         {
-            string sql = "update HOADON set ID_NHANVIEN = " + idNhanVien + ", ID_KHACHHANG= " + idKhachHang + " where ID_HOADON = " + id;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update HOADON set ID_NHANVIEN = " + idNhanVien + ", ID_KHACHHANG= " + idKhachHang + " where ID_HOADON = " + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
         /// <summary>
         /// Hiển thị những hóa đơn chưa thanh toán
@@ -226,8 +289,15 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public int HienThiHoaDon(int id)
         {
-            string sql = "select id hoadon from hoadon where ID_ban = '" + id + "' and dathanhtoan =0";
-            return (int)ldc.ExecuteScalar(sql);
+            try
+            {
+                string sql = "select id hoadon from hoadon where ID_ban = '" + id + "' and dathanhtoan =0";
+                return (int)ldc.ExecuteScalar(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
     }
 }

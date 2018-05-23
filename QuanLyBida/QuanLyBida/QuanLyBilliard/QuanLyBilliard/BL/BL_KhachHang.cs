@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using QuanLyBilliard.GUI.DANH_MUC.KHACHHANG;
 
 namespace QuanLyBilliard.BL
 {
@@ -15,6 +16,10 @@ namespace QuanLyBilliard.BL
         FrmDanhMucKhachHang frmDanhMucKhachHang;
         FrmSuDungDichVu frmSuDungDichVu;
         DA_KhachHang daKhachHang = new DA_KhachHang();
+        private FrmTuyChonLoaiKhachHang frmTuyChonLoaiKhachHang;
+        private FrmKhachHang frmKhachHang;
+        private FrmTuyChonKhachHang frmTuyChonKhachHang;
+
         public BL_KhachHang(FrmDanhMucKhachHang f)
         {
             frmDanhMucKhachHang = f;
@@ -23,13 +28,26 @@ namespace QuanLyBilliard.BL
         {
             frmSuDungDichVu = f;
         }
-        
+
+        public BL_KhachHang(FrmTuyChonLoaiKhachHang frmTuyChonLoaiKhachHang)
+        {
+            this.frmTuyChonLoaiKhachHang = frmTuyChonLoaiKhachHang;
+        }
+
+        public BL_KhachHang(FrmKhachHang frmKhachHang)
+        {
+            this.frmKhachHang = frmKhachHang;
+        }
+
+        public BL_KhachHang(FrmTuyChonKhachHang frmTuyChonKhachHang)
+        {
+            this.frmTuyChonKhachHang = frmTuyChonKhachHang;
+        }
 
         public void loadLoaiKhachHang()
         {
             frmDanhMucKhachHang.cbxLoaiKhachHang.DataSource = daKhachHang.getDuLieu();
-            frmDanhMucKhachHang.cbxLoaiKhachHang.DisplayMember = "TenLoaiKhachHang";
-            frmDanhMucKhachHang.cbxLoaiKhachHang.ValueMember = "ID_LoaiKhachHang";
+            
         }
 
         public DataTable HienThiDuLieu()
@@ -37,17 +55,14 @@ namespace QuanLyBilliard.BL
             return daKhachHang.HienThiDuLieu();
         }
 
-        public void themKhachHang(string tenkhachhang, string sdt, string ngaysinh, int gioitinh, string loaikhachhang)
+        public int themKhachHang(string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int loaikhachhang)
         {
-            int idLoaiKhacHhang = Int32.Parse(loaikhachhang);
-            daKhachHang.themKhachHang(tenkhachhang, sdt, ngaysinh, gioitinh, idLoaiKhacHhang);
+            return daKhachHang.themKhachHang(tenkhachhang, sdt, ngaysinh, gioitinh, loaikhachhang);
         }
 
-        public int CapNhatKhachHang(string id, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, string loaikhachhang)
+        public int CapNhatKhachHang(int idKhachHang, string tenkhachhang, string sdt, string ngaysinh, int gioitinh, int loaikhachhang)
         {
-            int idLoaiKhacHhang = Int32.Parse(loaikhachhang);
-            int idKhachHang = Int32.Parse(id);
-            return daKhachHang.CapNhatKhachHang(idKhachHang, tenkhachhang, sdt, ngaysinh, gioitinh, idLoaiKhacHhang);
+            return daKhachHang.CapNhatKhachHang(idKhachHang, tenkhachhang, sdt, ngaysinh, gioitinh, loaikhachhang);
         }
 
         public int xoaKhachHang(string text)

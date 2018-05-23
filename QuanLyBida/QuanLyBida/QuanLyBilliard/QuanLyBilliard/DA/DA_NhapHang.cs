@@ -26,8 +26,15 @@ namespace QuanLyBilliard.DA
 
         public int TaoMoiHoaDonNhap(string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
         {
-            string sql = "insert into HOADONNHAP values(N'"+tenHoaDon+ "',convert(datetime,'" + ngayTaoHoaDon+"',103),"+tongtien+")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into HOADONNHAP values(N'" + tenHoaDon + "',convert(datetime,'" + ngayTaoHoaDon + "',103)," + tongtien + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public void CapNhatHoaDonNhap(string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
@@ -37,24 +44,44 @@ namespace QuanLyBilliard.DA
 
         public int LayMaHoaDonNhapHangMoiNhat()
         {
-            string sql = "select top 1 ID_HOADONNHAP from HOADONNHAP order by ID_HOADONNHAP desc";
-            return (int)ldc.ExecuteScalar(sql);
+            try
+            {
+                string sql = "select top 1 ID_HOADONNHAP from HOADONNHAP order by ID_HOADONNHAP desc";
+                return (int)ldc.ExecuteScalar(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public int TaoMoiChiTietHoaDonNhap(int soHoaDon, int v1, int v2, int v3, int v4)
         {
-            string sql = "insert into CHITIET_HOADONNHAP values(" + soHoaDon + "," + v1 + "," + v2 + "," + v3 + "," + v4 + ")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into CHITIET_HOADONNHAP values(" + soHoaDon + "," + v1 + "," + v2 + "," + v3 + "," + v4 + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public int XoaHoaDonNhap(int tag)
         {
-            
-            int i = XoaChiTietHoaDonNhap(tag);
-            if (i == -1) return -1;
-            int k =XoaBangHoaDonNhap(tag);
-            if (k == -1) return -1;
-            return i + k;
+            try
+            {
+                int i = XoaChiTietHoaDonNhap(tag);
+                if (i == -1) return -1;
+                int k = XoaBangHoaDonNhap(tag);
+                if (k == -1) return -1;
+                return i + k;
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
         public int XoaChiTietHoaDonNhap(int tag)
         {
@@ -67,7 +94,7 @@ namespace QuanLyBilliard.DA
             {
                 return -1;
             }
-            
+
         }
         public int XoaBangHoaDonNhap(int tag)
         {
@@ -80,7 +107,7 @@ namespace QuanLyBilliard.DA
             {
                 return -1;
             }
-           
+
         }
 
         public DataTable LayDuLieuHoaDonNhap(int v)
@@ -91,20 +118,41 @@ namespace QuanLyBilliard.DA
 
         public int CapNhatHoaDonNhap(int soHoaDon, string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
         {
-            string sql = "update hoadonnhap set tenhoadonnhap =N'" + tenHoaDon + "',ngaynhap = convert(datetime,'" + ngayTaoHoaDon + "',103),tongtien =" + tongtien + " where id_hoadonnhap =" + soHoaDon;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update hoadonnhap set tenhoadonnhap =N'" + tenHoaDon + "',ngaynhap = convert(datetime,'" + ngayTaoHoaDon + "',103),tongtien =" + tongtien + " where id_hoadonnhap =" + soHoaDon;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         internal int XoaMatHangChiTietNhap(int v, int idMatHang)
         {
-            string sql = "delete CHITIET_HOADONNHAP where ID_HOADONNHAP=" + v + " and ID_THUCPHAM=" + idMatHang;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "delete CHITIET_HOADONNHAP where ID_HOADONNHAP=" + v + " and ID_THUCPHAM=" + idMatHang;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         internal int DoiSoLuongChiTietHoaDonNhap(int v1, int idMatHang, int v2)
         {
-            string sql = "update CHITIET_HOADONNHAP where SOLUONG = SOLUONG +"+v2+" where ID_HOADONNHAP = " + v1 + " and ID_THUCPHAM = " + idMatHang;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update CHITIET_HOADONNHAP where SOLUONG = SOLUONG +" + v2 + " where ID_HOADONNHAP = " + v1 + " and ID_THUCPHAM = " + idMatHang;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
     }
 }

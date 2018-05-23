@@ -24,7 +24,7 @@ namespace QuanLyBilliard.DA
                 string sql = "SELECT * FROM BAN";
                 dt = ldc.getDuLieu(sql);
             }
-            catch(SqlException ex)
+            catch (SqlException ex)
             {
                 Console.WriteLine(ex.Message);
             }
@@ -60,8 +60,15 @@ namespace QuanLyBilliard.DA
                     where ID_BAN = @id;
                     end
                  */
-            string sql = "batgio " + id;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "batgio " + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable layDanhSachLoaiBan()
@@ -81,8 +88,15 @@ namespace QuanLyBilliard.DA
 
         public int themBan(int idLoaiBan, string tenBan)
         {
-            string sql = "insert into BAN values (N'" + tenBan + "',0,null,null,"+idLoaiBan+")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into BAN values (N'" + tenBan + "',0,null,null," + idLoaiBan + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
 
@@ -97,42 +111,68 @@ namespace QuanLyBilliard.DA
                 Update ban set TRANGTHAI = 0,GIOVAO=null,GIORA=null where ID_BAN=@curr
                 update HOADON set ID_BAN = @taget where ID_HOADON = (select top 1 (ID_HOADON) from HOADON where ID_BAN = @curr order by ID_HOADON desc)
                 end*/
-            string sql = "chuyenban "+ curr+ "," + taget;
-            return ldc.ExecuteNonQuery(sql);
-        }
-
-        public int ThemLoaiBan(string text,int gia)
-        {
-            string sql = "insert into loaiban values(N'"+text+"',"+gia+")";
-            return ldc.ExecuteNonQuery(sql);
-        }
-
-        public int CapNhatLoaiBan(string txtTenLoai,int gia ,int tag)
-        {
-            string sql = "update loaiban set tenloai = N'"+txtTenLoai+"',gia="+gia+" where id_loaiban=" + tag;
-            return ldc.ExecuteNonQuery(sql);
-        }
-
-        public int capNhatBan(int idBan, int idLoaidBan, string text2)
-        {
-            string sql = "update ban set TENBAN = N'"+text2+"', ID_LOAIBAN = "+idLoaidBan+" where ID_BAN = "+idBan;
-            return ldc.ExecuteNonQuery(sql);
-        }
-
-        public int XoaLoaiBan(int idban)
-        {
-            int result;
-            string sql = "";
             try
             {
-                sql = "delete loaiban where id_loaiBan=" + idban;
-                result = ldc.ExecuteNonQuery(sql);
+                string sql = "chuyenban " + curr + "," + taget;
+                return ldc.ExecuteNonQuery(sql);
             }
             catch (SqlException)
             {
                 return -1;
             }
-            return result;
+        }
+
+        public int ThemLoaiBan(string text, int gia)
+        {
+            try
+            {
+                string sql = "insert into loaiban values(N'" + text + "'," + gia + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+        }
+
+        public int CapNhatLoaiBan(string txtTenLoai, int gia, int tag)
+        {
+            try
+            {
+                string sql = "update loaiban set tenloai = N'" + txtTenLoai + "',gia=" + gia + " where id_loaiban=" + tag;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+        }
+
+        public int capNhatBan(int idBan, int idLoaidBan, string text2)
+        {
+            try
+            {
+                string sql = "update ban set TENBAN = N'" + text2 + "', ID_LOAIBAN = " + idLoaidBan + " where ID_BAN = " + idBan;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+        }
+
+        public int XoaLoaiBan(int idban)
+        {
+            try
+            {
+                string sql = "delete loaiban where id_loaiBan=" + idban;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
+
         }
 
 
@@ -160,17 +200,24 @@ namespace QuanLyBilliard.DA
                     where ID_HOADON = @id_hoadon
                     end
                  */
-            string nv="NULL", kh="NULL";
-            if (idNhanVien != 0)
+            try
             {
-                nv = idNhanVien.ToString();
+                string nv = "NULL", kh = "NULL";
+                if (idNhanVien != 0)
+                {
+                    nv = idNhanVien.ToString();
+                }
+                if (idkhachhang != 0)
+                {
+                    kh = idkhachhang.ToString();
+                }
+                string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + nv + "," + kh + "," + tiengio + "," + tienthucpham;
+                return ldc.ExecuteNonQuery(sql);
             }
-            if (idkhachhang != 0)
+            catch (SqlException)
             {
-                kh = idkhachhang.ToString();
+                return -1;
             }
-            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + nv + "," + kh + "," + tiengio + "," + tienthucpham;
-            return ldc.ExecuteNonQuery(sql);
         }
         /// <summary>
         /// Tắt bàn có số hóa đơn là text
@@ -180,25 +227,29 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public int TATBAN(int idhoadon)
         {
-            int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
-            string sql = "TATBAN " + idban + "," + idhoadon;
-            return ldc.ExecuteNonQuery(sql);
-        }
-
-        public int xoaBan(int id)
-        {
-            int result;
-            string sql = "";
             try
             {
-                sql = "delete BAN where ID_BAN =" + id;
-                result = ldc.ExecuteNonQuery(sql);
+                int idban = (int)ldc.ExecuteScalar("select ID_BAN from hoadon where id_hoadon =" + idhoadon);
+                string sql = "TATBAN " + idban + "," + idhoadon;
+                return ldc.ExecuteNonQuery(sql);
             }
             catch (SqlException)
             {
                 return -1;
             }
-            return result;
+        }
+
+        public int xoaBan(int id)
+        {
+            try
+            {
+                string sql = "delete BAN where ID_BAN =" + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public DataTable layDuLieuLenDataGridView()
@@ -210,7 +261,7 @@ namespace QuanLyBilliard.DA
         public DataTable HienThiDuLieu()
         {
             string sql = "select ban.ID_LoaiBan,TenBan,Gia from Ban, LoaiBan where Ban.ID_LoaiBan = LoaiBan.Id_LoaiBan";
-                return ldc.getDuLieu(sql);
+            return ldc.getDuLieu(sql);
         }
 
         public DataTable getDuLieu()
@@ -228,8 +279,15 @@ namespace QuanLyBilliard.DA
 
         public float LayGiaBan(int iD_LoaiBan)
         {
-            string sql = "select GIA from LOAIBAN where ID_LOAIBAN =" + iD_LoaiBan;
-            return float.Parse(ldc.ExecuteScalar(sql).ToString());
+            try
+            {
+                string sql = "select GIA from LOAIBAN where ID_LOAIBAN =" + iD_LoaiBan;
+                return float.Parse(ldc.ExecuteScalar(sql).ToString());
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
     }
 }

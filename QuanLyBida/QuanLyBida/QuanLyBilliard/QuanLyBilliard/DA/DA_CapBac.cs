@@ -15,15 +15,29 @@ namespace QuanLyBilliard.DA
 
         public int ThemCapBac(string tencapbac, float hesoluong)
         {
-            string sql = "INSERT INTO CAPBAC VALUES(N'"+tencapbac+"',"+hesoluong+")";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "INSERT INTO CAPBAC VALUES(N'" + tencapbac + "'," + hesoluong + ")";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
 
         public int SuaCapBac(int id, string tencapbac, float hsl)
         {
-            string sql = "update capbac set tencapbac = '"+tencapbac+"',hesoluong="+hsl+" where id_capbac="+id;
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update capbac set tencapbac = '" + tencapbac + "',hesoluong=" + hsl + " where id_capbac=" + id;
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
         public int XoaCapBac(int id)
@@ -37,7 +51,7 @@ namespace QuanLyBilliard.DA
             {
                 return -1;
             }
-            
+
         }
 
         public DataTable LayDanhSachCapBac()

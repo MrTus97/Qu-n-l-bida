@@ -1,4 +1,6 @@
 ﻿using QuanLyBilliard.GUI.DANH_MUC;
+using QuanLyBilliard.GUI.DANH_MUC.KHACHHANG;
+using QuanLyBilliard.GUI.DANH_MUC.THUCPHAM;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -131,9 +133,9 @@ namespace QuanLyBilliard.GUI
         }
         public void btnDanhMucMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!FormXuatHienChua("FrmDanhMucMatHang"))
+            if (!FormXuatHienChua("FrmMatHang"))
             {
-                FrmDanhMucMatHang f = new FrmDanhMucMatHang();
+                FrmMatHang f = new FrmMatHang();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -143,9 +145,9 @@ namespace QuanLyBilliard.GUI
 
         private void btnDanhMucKhachHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            if (!FormXuatHienChua("FrmDanhMucKhachHang"))
+            if (!FormXuatHienChua("FrmKhachHang"))
             {
-                FrmDanhMucKhachHang f = new FrmDanhMucKhachHang();
+                FrmKhachHang f = new FrmKhachHang();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -336,6 +338,36 @@ namespace QuanLyBilliard.GUI
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
                 Application.Exit();
+        }
+
+        private void barButtonItem2_ItemClick_2(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Bạn có muốn thoát khỏi chương trình không", "Xác nhận",MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+            
+        }
+
+        private void btnLoaiMatHang_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmLoaiKhachHang"))
+            {
+                FrmLoaiKhachHang f = new FrmLoaiKhachHang();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void btnLoaiThucPham_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmLoaiMatHang"))
+            {
+                FrmLoaiMatHang f = new FrmLoaiMatHang();
+                f.MdiParent = this;
+                f.Show();
+            }
         }
     }
 }

@@ -49,13 +49,20 @@ namespace QuanLyBilliard.DA
 
         public string QuenMatKhau(string text)
         {
-            string sql = "select matkhau from dangnhap where tendangnhap = '"+ text +"'";
-            object result = ldc.ExecuteScalar(sql);
-            if (result == null)
+            try
             {
-                return "";
+                string sql = "select matkhau from dangnhap where tendangnhap = '" + text + "'";
+                object result = ldc.ExecuteScalar(sql);
+                if (result == null)
+                {
+                    return "";
+                }
+                return ldc.ExecuteScalar(sql).ToString();
             }
-            return ldc.ExecuteScalar(sql).ToString();
+            catch (SqlException)
+            {
+                return null;
+            }
         }
 
         public int XoaNhanVien(int idNhanVien)
@@ -69,20 +76,34 @@ namespace QuanLyBilliard.DA
             {
                 return -1;
             }
-            
+
         }
 
-   
+
         public int ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, int idCapBac, string catruc)
         {
-            string sql = "insert into NhanVien values( N'"+tennhanvien+"',convert(datetime,'"+ngaysinh+"',103),'"+cmnd+"','"+sdt+"',"+gioitinh+", "+idCapBac+",N'"+catruc+"',null) ";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "insert into NhanVien values( N'" + tennhanvien + "',convert(datetime,'" + ngaysinh + "',103),'" + cmnd + "','" + sdt + "'," + gioitinh + ", " + idCapBac + ",N'" + catruc + "',null) ";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
 
-        public int SuaThongTinNhanVien(int IdNhanVien,string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, int idCapBac, string catruc)
+        public int SuaThongTinNhanVien(int IdNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, int idCapBac, string catruc)
         {
-            string sql = "update NHANVIEN set TENNHANVIEN=N'" + tennhanvien + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "',catruc=N'"+catruc+"' where ID_NhanVien = '" + IdNhanVien + "'";
-            return ldc.ExecuteNonQuery(sql);
+            try
+            {
+                string sql = "update NHANVIEN set TENNHANVIEN=N'" + tennhanvien + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "',catruc=N'" + catruc + "' where ID_NhanVien = '" + IdNhanVien + "'";
+                return ldc.ExecuteNonQuery(sql);
+            }
+            catch (SqlException)
+            {
+                return -1;
+            }
         }
     }
 }

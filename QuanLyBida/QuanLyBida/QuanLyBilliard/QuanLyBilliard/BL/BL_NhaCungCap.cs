@@ -8,37 +8,33 @@ using System.Threading.Tasks;
 using QuanLyBilliard.GUI.DANH_MUC;
 using System.Data;
 using System.Windows.Forms;
+using QuanLyBilliard.GUI.DANH_MUC.THUCPHAM;
 
 namespace QuanLyBilliard.BL
 {
     class BL_NhaCungCap
     {
         DA_NhaCungCap daNhaCungCap = new DA_NhaCungCap();
-        FrmDanhMucMatHang frmDanhMucMatHang;
         private FrmDanhMucNhaCungCap frmDanhMucNhaCungCap;
         private FrmTuyChonNhaCungCap frmTuyChonNhaCungCap;
+        private FrmTuyChonMatHang frmTuyChonMatHang;
 
         public BL_NhaCungCap(FrmDanhMucNhaCungCap frmDanhMucNhaCungCap)
         {
             this.frmDanhMucNhaCungCap = frmDanhMucNhaCungCap;
         }
 
-        public BL_NhaCungCap(FrmDanhMucMatHang f)
-        {
-            frmDanhMucMatHang = f;
-        }
 
         public BL_NhaCungCap(FrmTuyChonNhaCungCap frmTuyChonNhaCungCap)
         {
             this.frmTuyChonNhaCungCap = frmTuyChonNhaCungCap;
         }
 
-        public void loainhacungcap()
+        public BL_NhaCungCap(FrmTuyChonMatHang frmTuyChonMatHang)
         {
-            frmDanhMucMatHang.cbxNhaCungCap.DataSource = daNhaCungCap.LayDuLieuNhaCungCap();
-            frmDanhMucMatHang.cbxNhaCungCap.DisplayMember = "TenNhaCungCap";
-            frmDanhMucMatHang.cbxNhaCungCap.ValueMember = "ID_NhaCungCap";
+            this.frmTuyChonMatHang = frmTuyChonMatHang;
         }
+
 
         public DataTable LayDuLieuNhaCungCap()
         {
