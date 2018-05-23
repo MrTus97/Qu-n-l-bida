@@ -6,6 +6,8 @@ using DevExpress.UserSkins;
 using DevExpress.Skins;
 using QuanLyBilliard.GUI;
 using QuanLyBilliard.GUI.KHUYEN_MAI;
+using QuanLyBilliard.GUI.DANH_MUC;
+
 namespace QuanLyBilliard
 {
     static class Program
