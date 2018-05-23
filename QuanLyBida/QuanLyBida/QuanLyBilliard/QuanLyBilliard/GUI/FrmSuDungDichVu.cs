@@ -474,9 +474,19 @@ namespace QuanLyBilliard.GUI
         /// </summary>
         public void KetThuc()
         {
+            string nhanvien=null, khachhang = null;
             HoaDon hd = btnHoaDon.Tag as HoaDon;
-            string nhanvien = cbNhanVien.SelectedValue.ToString();
-            string khachhang = cbKhachHang.SelectedValue.ToString();
+            if (cbNhanVien.Items.Count != 0)
+            {
+                nhanvien = cbNhanVien.SelectedValue.ToString();
+            }
+            
+            if (cbKhachHang.Items.Count != 0)
+            {
+                khachhang = cbKhachHang.SelectedValue.ToString();
+            }
+         
+            
             string tiengio = txtTienGio.Text;
             string tienthucpham = txtTienNuoc.Text;
             (btnDaiDienBan.Tag as Ban).TrangThai = false;

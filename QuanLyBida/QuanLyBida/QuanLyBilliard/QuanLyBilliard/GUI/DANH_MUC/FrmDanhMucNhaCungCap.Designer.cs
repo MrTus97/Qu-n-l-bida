@@ -111,6 +111,7 @@
             this.txtTimKiem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(100, 25);
+            this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // lbTimKiem
             // 
@@ -161,7 +162,7 @@
             this.Controls.Add(this.toolStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmDanhMucNhaCungCap";
-            this.Text = "FrmDanhMucNhaCungCap";
+            this.Text = "NHÀ CUNG CẤP";
             this.Load += new System.EventHandler(this.FrmDanhMucNhaCungCap_Load);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();

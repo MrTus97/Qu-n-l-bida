@@ -29,6 +29,12 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
+        internal DataTable LayNhanVienChuaCoTaiKhoan()
+        {
+            string sql = "select id_nhanvien,TENNHANVIEN from nhanvien where ID_NHANVIEN not in (select ID_NHANVIEN from dangnhap)";
+            return ldc.getDuLieu(sql);
+        }
+
         //public int SuaThongTinNhanVien(int idNhanVien, string ten, string ngaysinh, string cmnd, string sdt, int gioitinh, int capbac, string catruc, string tendangnhap)
         //{
         //    string sql = "update NHANVIEN set TENNHANVIEN='" + ten + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "' where ID_NhanVien = '" + idNhanVien + "'";

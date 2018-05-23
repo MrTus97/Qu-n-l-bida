@@ -29,19 +29,25 @@ namespace QuanLyBilliard.GUI
 
         private void btnCapNhat_Click(object sender, EventArgs e)
         {
-            string matkhaumoi = txtMatKhauMoi.Text;
-            string xacnhanmatkhau = txtXacNhanMatKhau.Text;
+            MaHoaMatKhau blMahoa = new MaHoaMatKhau();
+
+
+            string matkhauhientai = blMahoa.MaHoa(txtMatkhauHienTai.Text);
             string result = blDangNhap.LayMatKhau(tendangnhap);
-            if (result != txtMatkhauHienTai.Text)
+            if (result != matkhauhientai)
             {
                 MessageBox.Show("Mật khẩu hiện tại không đúng!!");
             }else
             {
+                string matkhaumoi = blMahoa.MaHoa(txtMatKhauMoi.Text);
+
+                string xacnhanmatkhau = blMahoa.MaHoa(txtXacNhanMatKhau.Text);
                 if (matkhaumoi != xacnhanmatkhau)
                 {
                     MessageBox.Show("Mật khẩu điền vào không giống nhau");
                 }
-                else if (matkhaumoi == txtMatkhauHienTai.Text){
+                else if (matkhaumoi == matkhauhientai)
+                {
                     MessageBox.Show("Mật khẩu mới trùng với mật khẩu cũ");
                 }
                 else

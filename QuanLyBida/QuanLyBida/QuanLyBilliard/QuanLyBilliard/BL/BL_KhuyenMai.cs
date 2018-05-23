@@ -12,12 +12,12 @@ namespace QuanLyBilliard.BL
 {
     class BL_KhuyenMai
     {
-        private FrmKhuyenMai frmKhuyenMai;
+        private FrmTaiKhoan frmKhuyenMai;
         private DA_KhuyenMai daKhuyenMai = new DA_KhuyenMai();
         private FrmTuyChonKhuyenMai frmTuyChonKhuyenMai;
         private FrmSuDungDichVu frmSuDungDichVu;
 
-        public BL_KhuyenMai(FrmKhuyenMai frmKhuyenMai)
+        public BL_KhuyenMai(FrmTaiKhoan frmKhuyenMai)
         {
             this.frmKhuyenMai = frmKhuyenMai;
         }

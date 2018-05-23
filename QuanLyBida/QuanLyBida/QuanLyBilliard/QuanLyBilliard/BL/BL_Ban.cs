@@ -209,6 +209,7 @@ namespace QuanLyBilliard.BL
         public int KetThuc(HoaDon hd,string idnv,string kh,string tg,string tpp)
         {
             //Chuyển đổi dữ liệu cho phù hợp
+
             int khachhang = Convert.ToInt32(kh);
             int idNhanVien = Int32.Parse(idnv);
             float tiengio = 0;

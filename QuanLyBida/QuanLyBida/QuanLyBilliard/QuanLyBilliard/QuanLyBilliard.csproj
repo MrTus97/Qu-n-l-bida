@@ -99,8 +99,10 @@
     <Compile Include="BL\BL_NhanVien.cs" />
     <Compile Include="BL\BL_NhaCungCap.cs" />
     <Compile Include="BL\BL_NhapHang.cs" />
+    <Compile Include="BL\BL_TaiKhoanDangNhap.cs" />
     <Compile Include="BL\BL_ThucPham.cs" />
     <Compile Include="BL\BL_Quyen.cs" />
+    <Compile Include="BL\MaHoaMatKhau.cs" />
     <Compile Include="DA\DA_Ban.cs" />
     <Compile Include="DA\DA_CapBac.cs" />
     <Compile Include="DA\DA_DangNhap.cs" />
@@ -111,6 +113,8 @@
     <Compile Include="DA\DA_NhanVien.cs" />
     <Compile Include="DA\DA_NhaCungCap.cs" />
     <Compile Include="DA\DA_NhapHang.cs" />
+    <Compile Include="DA\DA_Quyen.cs" />
+    <Compile Include="DA\DA_TaiKhoanDangNhap.cs" />
     <Compile Include="DA\DA_ThucPham.cs" />
     <Compile Include="DA\LopDungChung.cs" />
     <Compile Include="DTO\Ban.cs" />
@@ -125,12 +129,6 @@
     <Compile Include="GUI\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\DANH_MUC\Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\DANH_MUC\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\DANH_MUC\FrmDanhMucNhaCungCap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -143,6 +141,12 @@
     <Compile Include="GUI\DANH_MUC\FrmTuyChonNhaCungCap.Designer.cs">
       <DependentUpon>FrmTuyChonNhaCungCap.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
     <Compile Include="GUI\FrmBaoCaoKho.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -154,6 +158,12 @@
     </Compile>
     <Compile Include="GUI\FrmDoiMatKhau.Designer.cs">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTaiKhoanDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTaiKhoanDangNhap.Designer.cs">
+      <DependentUpon>FrmTaiKhoanDangNhap.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI\NHAPHANG\FrmNhapHang.cs">
       <SubType>Form</SubType>
@@ -257,19 +267,25 @@
     <Compile Include="GUI\NHAPHANG\FrmTuyChonNhapHang.Designer.cs">
       <DependentUpon>FrmTuyChonNhapHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTuyChonTaikhoanDangNhap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTuyChonTaikhoanDangNhap.Designer.cs">
+      <DependentUpon>FrmTuyChonTaikhoanDangNhap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GUI\About.resx">
       <DependentUpon>About.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\DANH_MUC\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DANH_MUC\FrmDanhMucNhaCungCap.resx">
       <DependentUpon>FrmDanhMucNhaCungCap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DANH_MUC\FrmTuyChonNhaCungCap.resx">
       <DependentUpon>FrmTuyChonNhaCungCap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmBaoCaoKho.resx">
       <DependentUpon>FrmBaoCaoKho.cs</DependentUpon>
@@ -301,6 +317,9 @@
     <EmbeddedResource Include="GUI\FrmHoaDon.resx">
       <DependentUpon>FrmHoaDon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTaiKhoanDangNhap.resx">
+      <DependentUpon>FrmTaiKhoanDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI\NHAPHANG\FrmNhapHang.resx">
       <DependentUpon>FrmNhapHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -328,13 +347,18 @@
     <EmbeddedResource Include="GUI\NHAPHANG\FrmTuyChonNhapHang.resx">
       <DependentUpon>FrmTuyChonNhapHang.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI\TAI_KHOAN_DANG_NHAP\FrmTuyChonTaikhoanDangNhap.resx">
+      <DependentUpon>FrmTuyChonTaikhoanDangNhap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\licenses.licx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

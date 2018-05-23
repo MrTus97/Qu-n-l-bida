@@ -30,11 +30,7 @@ namespace QuanLyBilliard.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if(cbxLoaiThucPham.Text=="")
-            {
-                errorProvider1.SetError(cbxLoaiThucPham, "Bạn chưa nhập Loại Thực Phẩm");
-            }
-            else if (txtDonGia.Text == "")
+            if (txtDonGia.Text == "")
             {
                 errorProvider1.SetError(txtDonGia, "Bạn chưa nhập Đơn Giá");
             }
@@ -46,18 +42,14 @@ namespace QuanLyBilliard.GUI
             {
                 errorProvider1.SetError(txtTenThucPham, "Bạn chưa nhập Tên Thực Phẩm");
             }
-            else if (cbxNhaCungCap.Text == "")
-            {
-                errorProvider1.SetError(cbxNhaCungCap, "Bạn chưa nhập Nhà Cung Cấp");
-            }
             else
             {
-                
+                string nhacungcap = cbxNhaCungCap.SelectedValue.ToString();
+                string loaithucpham = cbxLoaiThucPham.SelectedValue.ToString();
+                blThucPham.ThemMatHang(txtTenThucPham.Text, txtDonViTinh.Text, loaithucpham, txtDonGia.Text, nhacungcap);
+                loadThucPham();
+
             }
-        }
-        public void ThemThucPham()
-        {
-            
         }
 
         private void cbxLoaiThucPham_TextChanged(object sender, EventArgs e)
@@ -83,32 +75,6 @@ namespace QuanLyBilliard.GUI
         private void cbxNhaCungCap_TextChanged(object sender, EventArgs e)
         {
             errorProvider1.SetError(cbxNhaCungCap, "");
-        }
-
-      
-
-        private void btnThem_Click_1(object sender, EventArgs e)
-        {
-            if (txtDonGia.Text == "")
-            {
-                errorProvider1.SetError(txtDonGia, "Bạn chưa nhập Đơn Giá");
-            }
-            else if (txtDonViTinh.Text == "")
-            {
-                errorProvider1.SetError(txtDonViTinh, "Bạn chưa nhập Đơn Vị Tính");
-            }
-            else if (txtTenThucPham.Text == "")
-            {
-                errorProvider1.SetError(txtTenThucPham, "Bạn chưa nhập Tên Thực Phẩm");
-            }
-            else
-            {
-                string nhacungcap = cbxNhaCungCap.SelectedValue.ToString();
-                string loaithucpham = cbxLoaiThucPham.SelectedValue.ToString();
-                blThucPham.ThemMatHang( txtTenThucPham.Text,txtDonViTinh.Text, loaithucpham, txtDonGia.Text, nhacungcap);
-                loadThucPham();
-
-            }
         }
 
         private void FrmDanhMucMatHang_Load(object sender, EventArgs e)
@@ -186,6 +152,11 @@ namespace QuanLyBilliard.GUI
                 e.Handled = true;
                 MessageBox.Show("Sai định dạng ", "Thông Báo ");
             }
+        }
+
+        private void tabNavigationPage1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

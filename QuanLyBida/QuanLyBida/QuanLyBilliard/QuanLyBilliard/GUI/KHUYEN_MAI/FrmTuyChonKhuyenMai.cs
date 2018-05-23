@@ -30,12 +30,19 @@ namespace QuanLyBilliard.GUI.KHUYEN_MAI
         public FrmTuyChonKhuyenMai(DataGridViewRow dataRow)
         {
             InitializeComponent();
-            txtIDKhuyenMai.Text = dataRow.Cells[0].Value.ToString();
-            txtTenKhuyenMai.Text = dataRow.Cells[1].Value.ToString();
-            txtGiamGiaGio.Text = dataRow.Cells[2].Value.ToString();
-            txtGiamGiaThucPham.Text = dataRow.Cells[3].Value.ToString();
-            dtpNgayBatDau.Text = dataRow.Cells[4].Value.ToString();
-            dtpNgayKetThuc.Text = dataRow.Cells[5].Value.ToString();
+            if (dataRow == null)
+            {
+                MessageBox.Show("Bạn chưa chọn gì cả !!");
+            }else
+            {
+                txtIDKhuyenMai.Text = dataRow.Cells[0].Value.ToString();
+                txtTenKhuyenMai.Text = dataRow.Cells[1].Value.ToString();
+                txtGiamGiaGio.Text = dataRow.Cells[2].Value.ToString();
+                txtGiamGiaThucPham.Text = dataRow.Cells[3].Value.ToString();
+                dtpNgayBatDau.Text = dataRow.Cells[4].Value.ToString();
+                dtpNgayKetThuc.Text = dataRow.Cells[5].Value.ToString();
+            }
+            
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

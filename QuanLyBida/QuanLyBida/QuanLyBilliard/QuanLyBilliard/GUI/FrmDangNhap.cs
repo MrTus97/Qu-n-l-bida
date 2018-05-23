@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
 using QuanLyBilliard.BL;
-
+using System.Security.Cryptography;
 
 namespace QuanLyBilliard.GUI
 {
@@ -33,12 +33,14 @@ namespace QuanLyBilliard.GUI
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
+            
             string xacnhan = xacNhanCaptcha.Text;
             string tendangnhap = txtTenDangNhap.Text;
             string matkhau = txtMatKhau.Text;
             if (tendangnhap == "" || matkhau == "")
             {
                 MessageBox.Show("Tên đăng nhập và mật khẩu không được để trống");
+                Reset();
             }
             if (captchaText != xacnhan)
             {
@@ -48,7 +50,9 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                int i = blDangNhap.DangNhap(tendangnhap, matkhau);
+                MaHoaMatKhau blMaHoa = new MaHoaMatKhau();
+                string hasPass = blMaHoa.MaHoa(matkhau);
+                int i = blDangNhap.DangNhap(tendangnhap, hasPass);
                 if (i > 0)
                 {
                     blDangNhap.HienThiFormMain(tendangnhap);
@@ -57,6 +61,7 @@ namespace QuanLyBilliard.GUI
                 else
                 {
                     MessageBox.Show("Sai tên đăng nhập hoặc mật khẩu");
+                    Reset();
                 }
             }
            
@@ -99,6 +104,11 @@ namespace QuanLyBilliard.GUI
             captchaText = RandomString(5);
             xacNhanCaptcha.Text = "";
             panel1.BackgroundImage = DrawImage(captchaText, panel1.Width, panel1.Height);
+        }
+
+        private void FrmDangNhap_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

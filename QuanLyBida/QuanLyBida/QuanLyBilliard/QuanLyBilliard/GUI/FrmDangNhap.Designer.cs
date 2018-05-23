@@ -147,6 +147,8 @@
             this.Name = "FrmDangNhap";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ĐĂNG NHẬP";
+            this.Load += new System.EventHandler(this.FrmDangNhap_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.txtTenDangNhap.Properties)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

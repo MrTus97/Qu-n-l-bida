@@ -160,7 +160,16 @@ namespace QuanLyBilliard.DA
                     where ID_HOADON = @id_hoadon
                     end
                  */
-            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + idNhanVien + "," + idkhachhang + "," + tiengio + "," + tienthucpham;
+            string nv="NULL", kh="NULL";
+            if (idNhanVien != 0)
+            {
+                nv = idNhanVien.ToString();
+            }
+            if (idkhachhang != 0)
+            {
+                kh = idkhachhang.ToString();
+            }
+            string sql = "TATBAN " + hd.ID_Ban + "," + hd.ID_HoaDon + "," + nv + "," + kh + "," + tiengio + "," + tienthucpham;
             return ldc.ExecuteNonQuery(sql);
         }
         /// <summary>

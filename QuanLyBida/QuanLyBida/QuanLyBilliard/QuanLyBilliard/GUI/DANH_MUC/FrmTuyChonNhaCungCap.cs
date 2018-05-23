@@ -78,6 +78,7 @@ namespace QuanLyBilliard.GUI.DANH_MUC
                     MessageBox.Show("Thêm Thất bại!!");
                 }
             }
+            this.Close();
         }
     }
 }

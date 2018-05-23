@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace QuanLyBilliard.GUI
 {
-    public partial class FrmKhuyenMai : System.Windows.Forms.Form
+    public partial class FrmTaiKhoan : System.Windows.Forms.Form
     {
         BL_KhuyenMai blKhuyenMai;
-        public FrmKhuyenMai()
+        public FrmTaiKhoan()
         {
             InitializeComponent();
             blKhuyenMai = new BL_KhuyenMai(this);

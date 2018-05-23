@@ -92,7 +92,7 @@
             this.txtHesoluong.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.txtHesoluong.Properties.Appearance.Options.UseFont = true;
             this.txtHesoluong.Size = new System.Drawing.Size(121, 30);
-            this.txtHesoluong.TabIndex = 13;
+            this.txtHesoluong.TabIndex = 2;
             // 
             // barManager1
             // 
@@ -139,7 +139,7 @@
             this.txtTencapbac.Properties.Appearance.Font = new System.Drawing.Font("Tahoma", 15F);
             this.txtTencapbac.Properties.Appearance.Options.UseFont = true;
             this.txtTencapbac.Size = new System.Drawing.Size(121, 30);
-            this.txtTencapbac.TabIndex = 12;
+            this.txtTencapbac.TabIndex = 1;
             // 
             // textEdit1
             // 

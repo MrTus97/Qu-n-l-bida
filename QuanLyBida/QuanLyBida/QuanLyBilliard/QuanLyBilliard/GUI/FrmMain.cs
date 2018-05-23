@@ -35,22 +35,17 @@ namespace QuanLyBilliard.GUI
             btnDanhMucKhachHang.Enabled = true;
             btnThongKeDoanhThu.Enabled = true;
             btnSuDungDichVu.Enabled = true;
+            btnDanhMucNhaCungCap.Enabled = true;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
             btnDangXuat.Enabled = true;
-            btnThoat.Enabled = true;
             //Nhập xuất
-            btnDanhMucNhaCungCap.Enabled = true;
             btnNhapHangVaoKho.Enabled = true;
             btnBaoCaoKhoHang.Enabled = true;
-            btnTaoPhieuThu.Enabled = true;
-            btnTaoPhieuChi.Enabled = true;
-            btnDanhMucThuChi.Enabled = true;
             //Nhân sự
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
-
-            btnTinhCong.Enabled = true;
+            btnTaiKhoan.Enabled = true;
             //Quản trị
             btnKhuyenMai.Enabled = true;
             btnAbout.Enabled = true;
@@ -89,12 +84,8 @@ namespace QuanLyBilliard.GUI
 
         public void barButtonItem8_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            DialogResult result = MessageBox.Show("Bạn có thực sự muốn thoát khỏi chương trình ?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
-            
+            Application.Exit();
+
         }
         public void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
@@ -110,7 +101,7 @@ namespace QuanLyBilliard.GUI
         {
             if (!FormXuatHienChua("FrmKhuyenMai"))
             {
-                FrmKhuyenMai f = new FrmKhuyenMai();
+                FrmTaiKhoan f = new FrmTaiKhoan();
                 f.MdiParent = this;
                 f.Show();
             }
@@ -185,28 +176,25 @@ namespace QuanLyBilliard.GUI
 
         private void QuyenThuKho()
         {
-            //Hoạt động
+            //Danh mục
             btnDanhMucMatHang.Enabled = true;
             btnDanhMucBan.Enabled = false;
             btnDanhMucKhachHang.Enabled = false;
-            btnThongKeDoanhThu.Enabled = false;
-            btnSuDungDichVu.Enabled = false;
-            //Hệ thống
-            btnDoiMatKhau.Enabled = true;
-            btnDangXuat.Enabled = true;
-            btnThoat.Enabled = true;
-            //Nhập xuất
             btnDanhMucNhaCungCap.Enabled = true;
+            // Sử dụng dịch vụ
+            btnSuDungDichVu.Enabled = false;
+            //Thống kê
+            btnThongKeDoanhThu.Enabled = false;
+            //Quản lý kho
             btnNhapHangVaoKho.Enabled = true;
             btnBaoCaoKhoHang.Enabled = true;
-            btnTaoPhieuThu.Enabled = true;
-            btnTaoPhieuChi.Enabled = true;
-            btnDanhMucThuChi.Enabled = true;
+            //Tài khoản
+            btnDoiMatKhau.Enabled = true;
+            btnDangXuat.Enabled = true;   
             //Nhân sự
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
-
-            btnTinhCong.Enabled = false;
+            btnTaiKhoan.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
@@ -214,27 +202,27 @@ namespace QuanLyBilliard.GUI
 
         private void QuyenThuNgan()
         {
-            //Hoạt động
+            //Danh mục
             btnDanhMucMatHang.Enabled = true;
             btnDanhMucBan.Enabled = true;
             btnDanhMucKhachHang.Enabled = true;
-            btnThongKeDoanhThu.Enabled = true;
+            btnDanhMucNhaCungCap.Enabled = false;
+            
+            
+            //Sử dụng dịch vụ
             btnSuDungDichVu.Enabled = true;
-            //Hệ thống
+            //Thống kê
+            btnThongKeDoanhThu.Enabled = true;
+            // Tài khoản
             btnDoiMatKhau.Enabled = true;
             btnDangXuat.Enabled = true;
-            btnThoat.Enabled = true;
-            //Nhập xuất
-            btnDanhMucNhaCungCap.Enabled = false;
+            
             btnNhapHangVaoKho.Enabled = false;
             btnBaoCaoKhoHang.Enabled = false;
-            btnTaoPhieuThu.Enabled = true;
-            btnTaoPhieuChi.Enabled = true;
-            btnDanhMucThuChi.Enabled = true;
             //Nhân sự
             btnCapBac.Enabled = false;
             btnNhanVien.Enabled = false;
-            btnTinhCong.Enabled = false;
+            btnTaiKhoan.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
@@ -246,23 +234,24 @@ namespace QuanLyBilliard.GUI
             btnDanhMucMatHang.Enabled = true;
             btnDanhMucBan.Enabled = true;
             btnDanhMucKhachHang.Enabled = true;
+            btnDanhMucNhaCungCap.Enabled = true;
+
+            //Thống kê
             btnThongKeDoanhThu.Enabled = true;
+
+            //Sử dụng dịch vụ
             btnSuDungDichVu.Enabled = true;
             //Hệ thống
             btnDoiMatKhau.Enabled = true;
             btnDangXuat.Enabled = true;
-            btnThoat.Enabled = true;
-            //Nhập xuất
-            btnDanhMucNhaCungCap.Enabled = true;
+            //quản lý kho
+            
             btnNhapHangVaoKho.Enabled = true;
             btnBaoCaoKhoHang.Enabled = true;
-            btnTaoPhieuThu.Enabled = true;
-            btnTaoPhieuChi.Enabled = true;
-            btnDanhMucThuChi.Enabled = true;
             //Nhân sự
             btnCapBac.Enabled = true;
             btnNhanVien.Enabled = true;
-            btnTinhCong.Enabled = true;
+            btnTaiKhoan.Enabled = false;
             //Quản trị
             btnKhuyenMai.Enabled = false;
             btnAbout.Enabled = false;
@@ -334,5 +323,19 @@ namespace QuanLyBilliard.GUI
             f.ShowDialog();
         }
 
+        private void barButtonItem2_ItemClick_1(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
+        {
+            if (!FormXuatHienChua("FrmTaiKhoanDangNhap"))
+            {
+                FrmTaiKhoanDangNhap f = new FrmTaiKhoanDangNhap();
+                f.MdiParent = this;
+                f.Show();
+            }
+        }
+
+        private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+                Application.Exit();
+        }
     }
 }

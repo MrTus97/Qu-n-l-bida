@@ -23,13 +23,19 @@ namespace QuanLyBilliard.BL
 
 
 
-        public void SuaCapBac(string idcapbac, string tencapbac, string hesoluong)
+        public int SuaCapBac(string idcapbac, string tencapbac, string hesoluong)
         {
-            int id = Int32.Parse(idcapbac);
-            float hsl = float.Parse(hesoluong);
-            int result = daCapBac.SuaCapBac(id,tencapbac, hsl);
-            if (result > 0) MessageBox.Show("thành công");
-            else MessageBox.Show("Thất bại");
+            try
+            {
+                int id = Int32.Parse(idcapbac);
+                float hsl = float.Parse(hesoluong);
+                return daCapBac.SuaCapBac(id, tencapbac, hsl);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+            
         }
 
         public int XoaCapBac(string idcapbac)
@@ -47,10 +53,17 @@ namespace QuanLyBilliard.BL
 
         }
 
-        public void ThemCapBac(string tencapbac, string hesoluong)
+        public int ThemCapBac(string tencapbac, string hesoluong)
         {
-            float hsl = float.Parse(hesoluong);
-            daCapBac.ThemCapBac(tencapbac, hsl);
+            try
+            {
+                float hsl = float.Parse(hesoluong);
+                return daCapBac.ThemCapBac(tencapbac, hsl);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
         }
 
         public DataTable LayDanhSachCapBac()

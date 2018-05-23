@@ -41,7 +41,7 @@ namespace QuanLyBilliard.DA
 
         public DataTable LayHoaDon(int id_hoadon)
         {
-            string sql = "select * from hoadon hd,ban b,khachhang kh,nhanvien nv,loaiban lb where hd.ID_NHANVIEN = nv.ID_NHANVIEN and hd.ID_KHACHHANG = kh.ID_KHACHHANG and hd.ID_BAN = b.ID_BAN and lb.ID_LOAIBAN = b.ID_LOAIBAN and hd.ID_HOADON = " + id_hoadon;
+            string sql = "select * from (((hoadon hd left join ban b on hd.ID_BAN = b.ID_BAN) left join khachhang kh on hd.ID_KHACHHANG = kh.ID_KHACHHANG) left join nhanvien nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) left join loaiban lb on lb.ID_LOAIBAN = b.ID_LOAIBAN where hd.ID_HOADON = " + id_hoadon;
             return ldc.getDuLieu(sql);
         }
 

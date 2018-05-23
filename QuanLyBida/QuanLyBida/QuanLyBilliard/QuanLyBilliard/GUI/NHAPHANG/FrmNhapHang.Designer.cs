@@ -64,7 +64,7 @@
             // 
             // btnThem
             // 
-            this.btnThem.Image = ((System.Drawing.Image)(resources.GetObject("btnThem.Image")));
+            this.btnThem.Image = global::QuanLyBilliard.Properties.Resources.Button_Add_icon;
             this.btnThem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnThem.Name = "btnThem";
             this.btnThem.Size = new System.Drawing.Size(91, 22);
@@ -73,7 +73,7 @@
             // 
             // btnSua
             // 
-            this.btnSua.Image = ((System.Drawing.Image)(resources.GetObject("btnSua.Image")));
+            this.btnSua.Image = global::QuanLyBilliard.Properties.Resources.edit_file_icon;
             this.btnSua.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnSua.Name = "btnSua";
             this.btnSua.Size = new System.Drawing.Size(79, 22);
@@ -82,7 +82,7 @@
             // 
             // btnXoa
             // 
-            this.btnXoa.Image = ((System.Drawing.Image)(resources.GetObject("btnXoa.Image")));
+            this.btnXoa.Image = global::QuanLyBilliard.Properties.Resources.delete_file_icon;
             this.btnXoa.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.btnXoa.Name = "btnXoa";
             this.btnXoa.Size = new System.Drawing.Size(80, 22);

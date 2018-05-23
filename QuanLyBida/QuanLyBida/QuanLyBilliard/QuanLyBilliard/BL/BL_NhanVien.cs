@@ -8,17 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
+using QuanLyBilliard.GUI.TAI_KHOAN_DANG_NHAP;
 
 namespace QuanLyBilliard.BL
 {
     class BL_NhanVien
     {
-        DA_NhanVien daNhanVien;
+        DA_NhanVien daNhanVien = new DA_NhanVien();
         FrmNhanVien frmNhanVien;
  
  
         private FrmSuDungDichVu f;
         private FrmQuenMatKhau frmQuenMatKhau;
+        private FrmTuyChonTaikhoanDangNhap frmTuyChonTaikhoanDangNhap;
+        private FrmTaiKhoanDangNhap frmTaiKhoanDangNhap;
 
         public BL_NhanVien(FrmNhanVien f)
         {
@@ -43,6 +46,11 @@ namespace QuanLyBilliard.BL
             return daNhanVien.layDuLieuLenDataGridView();
         }
 
+        public DataTable LayNhanVienChuaCoTaiKhoan()
+        {
+            return daNhanVien.LayNhanVienChuaCoTaiKhoan();
+        }
+
         public string QuenMatKhau(string text)
         {
             return daNhanVien.QuenMatKhau(text);
@@ -52,6 +60,16 @@ namespace QuanLyBilliard.BL
         {
             this.frmQuenMatKhau = frmQuenMatKhau;
             daNhanVien = new DA_NhanVien();
+        }
+
+        public BL_NhanVien(FrmTuyChonTaikhoanDangNhap frmTuyChonTaikhoanDangNhap)
+        {
+            this.frmTuyChonTaikhoanDangNhap = frmTuyChonTaikhoanDangNhap;
+        }
+
+        public BL_NhanVien(FrmTaiKhoanDangNhap frmTaiKhoanDangNhap)
+        {
+            this.frmTaiKhoanDangNhap = frmTaiKhoanDangNhap;
         }
 
         //public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)

@@ -34,7 +34,11 @@ namespace QuanLyBilliard.GUI
         {
             string tencapbac = txtTencapbac.Text;
             string hesoluong = txtHesoluong.Text;
-            blCapBac.ThemCapBac(tencapbac, hesoluong);
+            int kq = blCapBac.ThemCapBac(tencapbac, hesoluong);
+            if (kq < 0)
+            {
+                MessageBox.Show("Thất bại !!");
+            }
             DataTable result = blCapBac.LayDanhSachCapBac();
             RefeshCapBac(result);
         }
@@ -52,7 +56,7 @@ namespace QuanLyBilliard.GUI
         {
             string idcapbac = textEdit1.Text;
             int i = blCapBac.XoaCapBac(idcapbac);
-            if (i == -1)
+            if (i < 0)
             {
                 MessageBox.Show("Không thể xóa!!");
             }
@@ -65,7 +69,16 @@ namespace QuanLyBilliard.GUI
             string tencapbac = txtTencapbac.Text;
             string hesoluong = txtHesoluong.Text;
             string idcapbac = textEdit1.Text;
-            blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
+            int kq = blCapBac.SuaCapBac(idcapbac, tencapbac, hesoluong);
+            if (kq < 0)
+            {
+                MessageBox.Show("Thất bại !!!");
+            }
+            else
+            {
+                txtTencapbac.Text = "";
+                txtHesoluong.Text = "";
+            }
             DataTable result = blCapBac.LayDanhSachCapBac();
             RefeshCapBac(result);
         }
