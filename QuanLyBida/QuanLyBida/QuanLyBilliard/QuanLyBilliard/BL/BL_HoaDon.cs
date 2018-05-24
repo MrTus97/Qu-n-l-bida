@@ -170,11 +170,9 @@ namespace QuanLyBilliard.BL
         }
 
         public void GanGiaTriInThuBill(int id, string nv, string kh)
-
         {
             int idNhanVien = Convert.ToInt32(nv);
-            int idKhachHang = Convert.ToInt32(kh);
-            daHoaDon.GanGiaTriInThuBill(id,idNhanVien, idKhachHang);
+            daHoaDon.GanGiaTriInThuBill(id,idNhanVien, kh);
         }
 
         public int SetGiamGiaGio(int idHoaDon, double giamGiaGio)

@@ -206,7 +206,6 @@ namespace QuanLyBilliard.GUI
                 //Catch Event
                 btn.Click += new EventHandler(btn_Click);
                 btn.DoubleClick += Btn_DoubleClick;
-                btn.ContextMenuStrip = ContextMenuBan;
                 btn.Tag = table;
 
                 // Add control (as button) in flowLayout
@@ -387,7 +386,7 @@ namespace QuanLyBilliard.GUI
                 if (minutes < 0)
                 {
                     //Phút sau nhỏ hơn phút trước
-                    minutes = 60 + minutes;
+                    minutes += 60;
                     if (hour > 0)
                     {
                         hour--;
@@ -408,14 +407,14 @@ namespace QuanLyBilliard.GUI
                 tongtien-= tongtien * giamGiaThucPham / 100;
                 txtTienNuoc.Text = tongtien.ToString();
                 //Hiển thị
+                if (day > 0)
+                {
+                    hour += day * 24;
+                }
                 txtSoGioChoi.Text = hour.ToString() + ":" + minutes.ToString();
                 
                 txtTongCong.Text = (tiengio + float.Parse(txtTienNuoc.Text)).ToString();
             }
-        }
-        public void TinhTienGio()
-        {
-
         }
 
         /// <summary>
@@ -659,13 +658,28 @@ namespace QuanLyBilliard.GUI
         /// <param name="e"></param>
         public void simpleButton3_Click(object sender, EventArgs e)
         {
+            if (btnHoaDon.Tag == null)
+            {
+                MessageBox.Show("Bạn chưa chọn bàn!!");
+            }else
+            {
+                HoaDon hd = btnHoaDon.Tag as HoaDon;
+                FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon, false);
+                string nhanvien = cbNhanVien.SelectedValue.ToString();
+                //Thử khách hàng
+                string khachhang;
+                if (cbKhachHang.Items.Count > 0)
+                {
+                    khachhang = cbKhachHang.SelectedValue.ToString();
+                }else
+                {
+                    khachhang = "NULL";
+                }
+                
+                blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon, nhanvien, khachhang);
+                f.ShowDialog();
+            }
             
-            HoaDon hd = btnHoaDon.Tag as HoaDon;
-            FrmHoaDon f = new FrmHoaDon(hd.ID_HoaDon,false);
-            string nhanvien = cbNhanVien.SelectedValue.ToString();
-            string khachhang = cbKhachHang.SelectedValue.ToString();
-            blHoaDon.GanGiaTriInThuBill(hd.ID_HoaDon,nhanvien, khachhang);
-            f.ShowDialog();
         }
         /// <summary>
         /// Hiển thị các hóa đơn đã được tạo và đã kết thúc

@@ -58,5 +58,14 @@ namespace QuanLyBilliard.GUI
                 }
             }
         }
+
+        private void txtMatkhauHienTai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar))
+            {
+                e.Handled = true;
+                BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
+            }
+        }
     }
 }

@@ -271,7 +271,7 @@ namespace QuanLyBilliard.DA
         /// <param name="idNhanVien"></param>
         /// <param name="idKhachHang"></param>
         /// <returns></returns>
-        public int GanGiaTriInThuBill(int id, int idNhanVien, int idKhachHang)
+        public int GanGiaTriInThuBill(int id, int idNhanVien, string idKhachHang)
         {
             try
             {

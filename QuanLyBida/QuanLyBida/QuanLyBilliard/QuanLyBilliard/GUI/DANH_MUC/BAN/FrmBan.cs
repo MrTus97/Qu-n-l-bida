@@ -28,15 +28,26 @@ namespace QuanLyBilliard.GUI
 
         private void btnThem_Click(object sender, EventArgs e)
         {
+            int kq = 0;
             if (txtTenBan.Text == "")
             {
                 errorProvider1.SetError(txtTenBan, "Bạn chưa nhập Tên Bàn");
             }
             else
             {
-                int loaiBan = (int)cbxLoaiBan.SelectedValue;
-                blBan.themBan(loaiBan, txtTenBan.Text);
-                RefreshBan();
+                if (cbxLoaiBan.SelectedValue == null)
+                {
+                    kq = BATLOI.SAI_DINH_DANG;
+                }else
+                {
+                    int loaiBan = (int)cbxLoaiBan.SelectedValue;
+                    blBan.themBan(loaiBan, txtTenBan.Text);
+                    RefreshBan();
+                }
+            }
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
             }
         }
 
@@ -140,13 +151,28 @@ namespace QuanLyBilliard.GUI
         private void btnXoaLoaiBan_Click(object sender, EventArgs e)
         {
             int kq = 0;
-            DialogResult result = MessageBox.Show("Bạn có muốn xóa nó không ?", "Xác nhận", MessageBoxButtons.YesNo);
-            if (result == DialogResult.Yes)
+            if (lbTenLoai.Tag == null)
             {
-                int idban = Convert.ToInt32(lbTenLoai.Tag);
-                kq = blBan.XoaLoaiBan(idban);
-                RefeshLoaiBan();
+                MessageBox.Show("Bạn chưa chọn loại bàn");
             }
+            else
+            {
+                DialogResult result = MessageBox.Show("Bạn có muốn xóa nó không ?", "Xác nhận", MessageBoxButtons.YesNo);
+                if (result == DialogResult.Yes)
+                {
+                    try
+                    {
+                        int idban = Convert.ToInt32(lbTenLoai.Tag);
+                        kq = blBan.XoaLoaiBan(idban);
+                        RefeshLoaiBan();
+                    }
+                    catch (Exception)
+                    {
+                        kq = BATLOI.SAI_DINH_DANG;
+                    }
+                }
+            }
+            
             if (kq < 0)
             {
                 BATLOI.HienThiLoi(kq);

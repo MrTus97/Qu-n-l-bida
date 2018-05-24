@@ -30,7 +30,6 @@ namespace QuanLyBilliard.GUI
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSuDungDichVu));
             this.layoutControl1 = new DevExpress.XtraLayout.LayoutControl();
             this.panelControl1 = new DevExpress.XtraEditors.PanelControl();
@@ -100,9 +99,6 @@ namespace QuanLyBilliard.GUI
             this.labelControl1 = new DevExpress.XtraEditors.LabelControl();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.ContextMenuBan = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tínhTiềnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.hủyHóaĐơnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.panelControl1)).BeginInit();
@@ -137,7 +133,6 @@ namespace QuanLyBilliard.GUI
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).BeginInit();
-            this.ContextMenuBan.SuspendLayout();
             this.SuspendLayout();
             // 
             // layoutControl1
@@ -858,26 +853,6 @@ namespace QuanLyBilliard.GUI
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
             // 
-            // ContextMenuBan
-            // 
-            this.ContextMenuBan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tínhTiềnToolStripMenuItem,
-            this.hủyHóaĐơnToolStripMenuItem});
-            this.ContextMenuBan.Name = "ContextMenuBan";
-            this.ContextMenuBan.Size = new System.Drawing.Size(147, 48);
-            // 
-            // tínhTiềnToolStripMenuItem
-            // 
-            this.tínhTiềnToolStripMenuItem.Name = "tínhTiềnToolStripMenuItem";
-            this.tínhTiềnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.tínhTiềnToolStripMenuItem.Text = "Kết thúc";
-            // 
-            // hủyHóaĐơnToolStripMenuItem
-            // 
-            this.hủyHóaĐơnToolStripMenuItem.Name = "hủyHóaĐơnToolStripMenuItem";
-            this.hủyHóaĐơnToolStripMenuItem.Size = new System.Drawing.Size(146, 22);
-            this.hủyHóaĐơnToolStripMenuItem.Text = "Hủy Hóa Đơn";
-            // 
             // FrmSuDungDichVu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -927,7 +902,6 @@ namespace QuanLyBilliard.GUI
             ((System.ComponentModel.ISupportInitialize)(this.txtTimKiem.Properties)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlGroup1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControlItem1)).EndInit();
-            this.ContextMenuBan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -994,9 +968,6 @@ namespace QuanLyBilliard.GUI
         public DevExpress.XtraEditors.LabelControl labelControl10;
         public System.Windows.Forms.ComboBox cbNhanVien;
         public System.Windows.Forms.ComboBox cbKhachHang;
-        private System.Windows.Forms.ContextMenuStrip ContextMenuBan;
-        private System.Windows.Forms.ToolStripMenuItem tínhTiềnToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hủyHóaĐơnToolStripMenuItem;
         private TextEdit txtTienGio;
         private SimpleButton simpleButton6;
         private SimpleButton simpleButton5;

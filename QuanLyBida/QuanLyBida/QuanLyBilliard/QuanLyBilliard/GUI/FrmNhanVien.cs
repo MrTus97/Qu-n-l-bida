@@ -60,7 +60,16 @@ namespace QuanLyBilliard.GUI
             {
                 gioitinh = 0;
             }
-            string capbac = cbCapBac.SelectedValue.ToString();
+            string capbac;
+            if (cbCapBac.SelectedValue != null)
+            {
+                capbac = cbCapBac.SelectedValue.ToString();
+            }
+            else
+            {
+                capbac = "NULL";
+            }
+            
             string catruc = txtCaTruc.Text;
             blNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,capbac,catruc);
             loadDuLieu();
@@ -74,23 +83,28 @@ namespace QuanLyBilliard.GUI
 
         private void X_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)
         {
-            string tennhanvien = txtTenNhanVien.Text;
-            string ngaysinh = dtpNgaySinh.Text;
-            string cmnd = txtCMND.Text;
-            string sdt = txtSoDienThoai.Text;
-            int gioitinh;
-            if (radioButton1.Checked)
+            if (textBox1.Text != "")
             {
-                gioitinh = 1;
+                string tennhanvien = txtTenNhanVien.Text;
+                string ngaysinh = dtpNgaySinh.Text;
+                string cmnd = txtCMND.Text;
+                string sdt = txtSoDienThoai.Text;
+                int gioitinh;
+                if (radioButton1.Checked)
+                {
+                    gioitinh = 1;
+                }
+                else
+                {
+                    gioitinh = 0;
+                }
+                string capbac = cbCapBac.SelectedValue.ToString();
+                string catruc = txtCaTruc.Text;
+                blNhanVien.SuaThongTinNhanVien(textBox1.Text, tennhanvien, ngaysinh, cmnd, sdt, gioitinh, capbac, catruc);
+                loadDuLieu();
+                textBox1.Text = "";
             }
-            else
-            {
-                gioitinh = 0;
-            }
-            string capbac = cbCapBac.SelectedValue.ToString();
-            string catruc = txtCaTruc.Text;
-            blNhanVien.SuaThongTinNhanVien(textBox1.Text,tennhanvien, ngaysinh, cmnd, sdt, gioitinh, capbac, catruc);
-            loadDuLieu();
+            
         }
 
         private void barButtonItem2_ItemClick(object sender, DevExpress.XtraBars.ItemClickEventArgs e)

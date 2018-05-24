@@ -90,6 +90,7 @@
             this.txtMatkhauHienTai.PromptChar = ' ';
             this.txtMatkhauHienTai.Size = new System.Drawing.Size(279, 20);
             this.txtMatkhauHienTai.TabIndex = 1;
+            this.txtMatkhauHienTai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatkhauHienTai_KeyPress);
             // 
             // panelControl1
             // 

@@ -30,10 +30,13 @@ namespace QuanLyBilliard.DA
                 Console.WriteLine(ex.Message);
             }
             List<Ban> lst = new List<Ban>();
-            foreach (DataRow row in dt.Rows)
+            if (dt.Rows.Count != 0)
             {
-                Ban table = new Ban(row);
-                lst.Add(table);
+                foreach (DataRow row in dt.Rows)
+                {
+                    Ban table = new Ban(row);
+                    lst.Add(table);
+                }
             }
             return lst;
         }
