@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
 using System.Data;
 using System.Data.SqlClient;
+using QuanLyBilliard.BL;
 
 namespace QuanLyBilliard.DA
 {
@@ -67,7 +68,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -95,7 +96,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -118,7 +119,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -131,7 +132,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -144,7 +145,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -157,7 +158,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -170,7 +171,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
 
         }
@@ -216,7 +217,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
         /// <summary>
@@ -235,7 +236,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -248,7 +249,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -286,7 +287,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
     }

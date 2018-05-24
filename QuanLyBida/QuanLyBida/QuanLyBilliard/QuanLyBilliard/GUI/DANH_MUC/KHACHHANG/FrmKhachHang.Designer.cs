@@ -196,6 +196,7 @@
             this.ID_KHACHHANG.HeaderText = "Column1";
             this.ID_KHACHHANG.Name = "ID_KHACHHANG";
             this.ID_KHACHHANG.ReadOnly = true;
+            this.ID_KHACHHANG.Visible = false;
             this.ID_KHACHHANG.Width = 73;
             // 
             // ID_LOAIKHACHHANG
@@ -204,6 +205,7 @@
             this.ID_LOAIKHACHHANG.HeaderText = "ID_LOAIKHACHHANG";
             this.ID_LOAIKHACHHANG.Name = "ID_LOAIKHACHHANG";
             this.ID_LOAIKHACHHANG.ReadOnly = true;
+            this.ID_LOAIKHACHHANG.Visible = false;
             this.ID_LOAIKHACHHANG.Width = 141;
             // 
             // FrmKhachHang

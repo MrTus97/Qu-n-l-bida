@@ -13,17 +13,12 @@ namespace QuanLyBilliard.BL
 {
     class BL_KhachHang
     {
-        FrmDanhMucKhachHang frmDanhMucKhachHang;
         FrmSuDungDichVu frmSuDungDichVu;
         DA_KhachHang daKhachHang = new DA_KhachHang();
         private FrmTuyChonLoaiKhachHang frmTuyChonLoaiKhachHang;
         private FrmKhachHang frmKhachHang;
         private FrmTuyChonKhachHang frmTuyChonKhachHang;
 
-        public BL_KhachHang(FrmDanhMucKhachHang f)
-        {
-            frmDanhMucKhachHang = f;
-        }
         public BL_KhachHang(FrmSuDungDichVu f)
         {
             frmSuDungDichVu = f;
@@ -42,12 +37,6 @@ namespace QuanLyBilliard.BL
         public BL_KhachHang(FrmTuyChonKhachHang frmTuyChonKhachHang)
         {
             this.frmTuyChonKhachHang = frmTuyChonKhachHang;
-        }
-
-        public void loadLoaiKhachHang()
-        {
-            frmDanhMucKhachHang.cbxLoaiKhachHang.DataSource = daKhachHang.getDuLieu();
-            
         }
 
         public DataTable HienThiDuLieu()

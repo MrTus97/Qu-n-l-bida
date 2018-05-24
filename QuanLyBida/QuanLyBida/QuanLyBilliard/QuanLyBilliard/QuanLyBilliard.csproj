@@ -143,12 +143,6 @@
     <Compile Include="GUI\DANH_MUC\KHACHHANG\FrmTuyChonKhachHang.Designer.cs">
       <DependentUpon>FrmTuyChonKhachHang.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\DANH_MUC\LOAIBAN\FrmKhuVuc.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\DANH_MUC\LOAIBAN\FrmKhuVuc.Designer.cs">
-      <DependentUpon>FrmKhuVuc.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\DANH_MUC\LOAIKHACHHANG\FrmLoaiKhachHang.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -264,12 +258,6 @@
     <Compile Include="GUI\DANH_MUC\BAN\FrmBan.Designer.cs">
       <DependentUpon>FrmBan.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI\DANH_MUC\KHACHHANG\KhachHangCu.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI\DANH_MUC\KHACHHANG\KhachHangCu.Designer.cs">
-      <DependentUpon>KhachHangCu.cs</DependentUpon>
-    </Compile>
     <Compile Include="GUI\FrmDoiSoLuong.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,9 +323,6 @@
     <EmbeddedResource Include="GUI\DANH_MUC\KHACHHANG\FrmTuyChonKhachHang.resx">
       <DependentUpon>FrmTuyChonKhachHang.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="GUI\DANH_MUC\LOAIBAN\FrmKhuVuc.resx">
-      <DependentUpon>FrmKhuVuc.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="GUI\DANH_MUC\LOAIKHACHHANG\FrmLoaiKhachHang.resx">
       <DependentUpon>FrmLoaiKhachHang.cs</DependentUpon>
     </EmbeddedResource>
@@ -379,9 +364,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\DANH_MUC\BAN\FrmBan.resx">
       <DependentUpon>FrmBan.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="GUI\DANH_MUC\KHACHHANG\KhachHangCu.resx">
-      <DependentUpon>KhachHangCu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="GUI\FrmDoiMatKhau.resx">
       <DependentUpon>FrmDoiMatKhau.cs</DependentUpon>

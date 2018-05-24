@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
+            this.btnGhiDuLieu = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dtpNgaySinh = new System.Windows.Forms.DateTimePicker();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -36,16 +38,14 @@
             this.rbnNam = new System.Windows.Forms.RadioButton();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.lbIDKhachHang = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cbxLoaiKhachHang = new System.Windows.Forms.ComboBox();
+            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
             this.txtSoDienThoai = new System.Windows.Forms.TextBox();
             this.txtTenKhachHang = new System.Windows.Forms.TextBox();
-            this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
-            this.btnGhiDuLieu = new DevExpress.XtraEditors.SimpleButton();
-            this.txtIDKhachHang = new System.Windows.Forms.TextBox();
-            this.lbIDKhachHang = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -60,6 +60,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(396, 35);
             this.panel1.TabIndex = 0;
+            // 
+            // btnThoat
+            // 
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnThoat.Location = new System.Drawing.Point(303, 6);
+            this.btnThoat.Name = "btnThoat";
+            this.btnThoat.Size = new System.Drawing.Size(75, 23);
+            this.btnThoat.TabIndex = 1;
+            this.btnThoat.Text = "Thoát";
+            // 
+            // btnGhiDuLieu
+            // 
+            this.btnGhiDuLieu.Location = new System.Drawing.Point(222, 6);
+            this.btnGhiDuLieu.Name = "btnGhiDuLieu";
+            this.btnGhiDuLieu.Size = new System.Drawing.Size(75, 23);
+            this.btnGhiDuLieu.TabIndex = 2;
+            this.btnGhiDuLieu.Text = "Ghi Dữ Liệu";
+            this.btnGhiDuLieu.Click += new System.EventHandler(this.btnGhiDuLieu_Click);
             // 
             // panel2
             // 
@@ -139,6 +157,15 @@
             this.label3.TabIndex = 22;
             this.label3.Text = "Tên Khách Hàng";
             // 
+            // lbIDKhachHang
+            // 
+            this.lbIDKhachHang.AutoSize = true;
+            this.lbIDKhachHang.Location = new System.Drawing.Point(15, 30);
+            this.lbIDKhachHang.Name = "lbIDKhachHang";
+            this.lbIDKhachHang.Size = new System.Drawing.Size(81, 13);
+            this.lbIDKhachHang.TabIndex = 23;
+            this.lbIDKhachHang.Text = "ID Khách Hàng";
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -174,6 +201,13 @@
             this.cbxLoaiKhachHang.Size = new System.Drawing.Size(272, 21);
             this.cbxLoaiKhachHang.TabIndex = 26;
             // 
+            // txtIDKhachHang
+            // 
+            this.txtIDKhachHang.Location = new System.Drawing.Point(106, 27);
+            this.txtIDKhachHang.Name = "txtIDKhachHang";
+            this.txtIDKhachHang.Size = new System.Drawing.Size(272, 20);
+            this.txtIDKhachHang.TabIndex = 28;
+            // 
             // txtSoDienThoai
             // 
             this.txtSoDienThoai.Location = new System.Drawing.Point(106, 161);
@@ -188,48 +222,18 @@
             this.txtTenKhachHang.Size = new System.Drawing.Size(272, 20);
             this.txtTenKhachHang.TabIndex = 27;
             // 
-            // btnThoat
-            // 
-            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnThoat.Location = new System.Drawing.Point(303, 6);
-            this.btnThoat.Name = "btnThoat";
-            this.btnThoat.Size = new System.Drawing.Size(75, 23);
-            this.btnThoat.TabIndex = 1;
-            this.btnThoat.Text = "Thoát";
-            // 
-            // btnGhiDuLieu
-            // 
-            this.btnGhiDuLieu.Location = new System.Drawing.Point(222, 6);
-            this.btnGhiDuLieu.Name = "btnGhiDuLieu";
-            this.btnGhiDuLieu.Size = new System.Drawing.Size(75, 23);
-            this.btnGhiDuLieu.TabIndex = 2;
-            this.btnGhiDuLieu.Text = "Ghi Dữ Liệu";
-            this.btnGhiDuLieu.Click += new System.EventHandler(this.btnGhiDuLieu_Click);
-            // 
-            // txtIDKhachHang
-            // 
-            this.txtIDKhachHang.Location = new System.Drawing.Point(106, 27);
-            this.txtIDKhachHang.Name = "txtIDKhachHang";
-            this.txtIDKhachHang.Size = new System.Drawing.Size(272, 20);
-            this.txtIDKhachHang.TabIndex = 28;
-            // 
-            // lbIDKhachHang
-            // 
-            this.lbIDKhachHang.AutoSize = true;
-            this.lbIDKhachHang.Location = new System.Drawing.Point(15, 30);
-            this.lbIDKhachHang.Name = "lbIDKhachHang";
-            this.lbIDKhachHang.Size = new System.Drawing.Size(81, 13);
-            this.lbIDKhachHang.TabIndex = 23;
-            this.lbIDKhachHang.Text = "ID Khách Hàng";
-            // 
             // FrmTuyChonKhachHang
             // 
+            this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(396, 344);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmTuyChonKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTuyChonKhachHang";
             this.Load += new System.EventHandler(this.FrmTuyChonKhachHang_Load);
             this.panel1.ResumeLayout(false);

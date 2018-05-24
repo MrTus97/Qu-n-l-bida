@@ -23,7 +23,7 @@ namespace QuanLyBilliard
 
             BonusSkins.Register();
             SkinManager.EnableFormSkins();
-            Application.Run(new FrmMain(1,"admin"));
+            Application.Run(new FrmDangNhap());
         }
     }
 }

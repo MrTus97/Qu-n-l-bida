@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using QuanLyBilliard.DTO;
 using System.Data.SqlClient;
 using System.Windows.Forms;
+using QuanLyBilliard.BL;
 
 namespace QuanLyBilliard.DA
 {
@@ -28,7 +29,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -3;
+                return BATLOI.SQL;
             }
             
         }
@@ -54,7 +55,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -73,7 +74,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }  
         }
 
@@ -93,7 +94,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 

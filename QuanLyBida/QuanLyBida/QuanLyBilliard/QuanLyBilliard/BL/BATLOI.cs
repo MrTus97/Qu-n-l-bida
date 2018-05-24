@@ -13,6 +13,7 @@ namespace QuanLyBilliard.BL
         public const int TRUNG_DU_LIEU = -2;
         public const int SAI_DINH_DANG = -3;
         public const int SQL = -4;
+        public const object SQL_OTHER = null;
 
 
         public static void HienThiLoi(int kq)
@@ -27,6 +28,9 @@ namespace QuanLyBilliard.BL
             {
                 MessageBox.Show("Sai định dạng");
             }else if (kq == SQL)
+            {
+                MessageBox.Show("Thực hiện sql có lỗi");
+            }else
             {
                 MessageBox.Show("Thất bại");
             }

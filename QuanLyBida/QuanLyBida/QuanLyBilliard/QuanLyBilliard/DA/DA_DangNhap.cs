@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBilliard.BL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -26,7 +27,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -53,7 +54,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
     }

@@ -33,9 +33,9 @@ namespace QuanLyBilliard.BL
             }
             catch (Exception)
             {
-                return -1;
+                return BATLOI.SAI_DINH_DANG;
             }
-            
+
         }
 
         public int XoaCapBac(string idcapbac)
@@ -47,9 +47,9 @@ namespace QuanLyBilliard.BL
             }
             catch (Exception)
             {
-                return -1;
+                return BATLOI.SAI_DINH_DANG;
             }
-            
+
 
         }
 
@@ -62,7 +62,7 @@ namespace QuanLyBilliard.BL
             }
             catch (Exception)
             {
-                return -1;
+                return BATLOI.SAI_DINH_DANG;
             }
         }
 

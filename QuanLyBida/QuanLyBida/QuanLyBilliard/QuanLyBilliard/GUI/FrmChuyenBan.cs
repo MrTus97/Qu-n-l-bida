@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using QuanLyBilliard.DTO;
 using QuanLyBilliard.BL;
@@ -82,8 +77,19 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                blBan.ChuyenBan(cbBanHienTai.SelectedValue.ToString(), cbBanChuyen.SelectedValue.ToString());
-                this.Close();
+                try
+                {
+                    int banHienTai = (int)cbBanHienTai.SelectedValue;
+                    int banChuyen = (int)cbBanChuyen.SelectedValue;
+                    blBan.ChuyenBan(banHienTai,banChuyen);
+                    this.Close();
+                }
+                catch (Exception)
+                {
+                    int kq = BATLOI.SAI_DINH_DANG;
+                    BATLOI.HienThiLoi(kq);
+                }
+                
             }
             
         }

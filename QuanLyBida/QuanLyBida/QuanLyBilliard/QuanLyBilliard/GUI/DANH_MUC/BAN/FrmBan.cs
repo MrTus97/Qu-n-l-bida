@@ -34,7 +34,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                string loaiBan = cbxLoaiBan.SelectedValue.ToString();
+                int loaiBan = (int)cbxLoaiBan.SelectedValue;
                 blBan.themBan(loaiBan, txtTenBan.Text);
                 RefreshBan();
             }
@@ -99,19 +99,20 @@ namespace QuanLyBilliard.GUI
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
+            int kq = 0;
             if (textBox1.Text == "")
             {
                 MessageBox.Show("Bạn phải chọn trường cần xóa");
             }
             else
             {
-                int kq = blBan.xoaBan(textBox1.Text);
-                if (kq == -1)
-                {
-                    MessageBox.Show("Không thể xóa được bàn này");
-                }
+                kq = blBan.xoaBan(textBox1.Text);
             }
             RefreshBan();
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
+            }
         }
 
         private void splitter1_SplitterMoved(object sender, SplitterEventArgs e)
@@ -138,16 +139,17 @@ namespace QuanLyBilliard.GUI
 
         private void btnXoaLoaiBan_Click(object sender, EventArgs e)
         {
+            int kq = 0;
             DialogResult result = MessageBox.Show("Bạn có muốn xóa nó không ?", "Xác nhận", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
                 int idban = Convert.ToInt32(lbTenLoai.Tag);
-                int kq = blBan.XoaLoaiBan(idban);
-                if (kq == -1)
-                {
-                    MessageBox.Show("Không thể xóa");
-                }
+                kq = blBan.XoaLoaiBan(idban);
                 RefeshLoaiBan();
+            }
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
             }
         }
 
@@ -170,7 +172,7 @@ namespace QuanLyBilliard.GUI
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
-                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+                BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
             }
         }
     }

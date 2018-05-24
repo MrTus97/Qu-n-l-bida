@@ -93,21 +93,27 @@ namespace QuanLyBilliard.BL
         /// </summary>
         /// <param name="v1"></param>
         /// <param name="v2"></param>
-        public void themBan(string loaiBan, string TenBan)
+        public int themBan(int loaiBan, string TenBan)
         {
-            int idLoaidBan = Int32.Parse(loaiBan);
-            daTable.themBan(idLoaidBan, TenBan);
+            try
+            {
+                //int idLoaidBan = Int32.Parse(loaiBan);
+                return daTable.themBan(loaiBan, TenBan);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
+            
         }
         /// <summary>
         /// Chuyển bàn có mã từ v1 sang v2
         /// </summary>
         /// <param name="v1">Mã bàn hiện tại</param>
         /// <param name="v2">Mã bàn chuyển tới</param>
-        public void ChuyenBan(string v1, string v2)
+        public int ChuyenBan(int v1, int v2)
         {
-            int curr = Int32.Parse(v1);
-            int taget = Int32.Parse(v2);
-            daTable.chuyenBan(curr, taget);
+                return daTable.chuyenBan(v1, v2);           
         }
 
         /// <summary>
@@ -117,9 +123,15 @@ namespace QuanLyBilliard.BL
         /// <returns></returns>
         public int KetThuc(string text)
         {
-
-            int idhoadon = Int32.Parse(text);
-            return daTable.TATBAN(idhoadon);
+            try
+            {
+                int idhoadon = Int32.Parse(text);
+                return daTable.TATBAN(idhoadon);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
         }
         /// <summary>
         /// Kết thúc theo id hóa đơn
@@ -134,21 +146,42 @@ namespace QuanLyBilliard.BL
 
         public int ThemLoaiBan(string tenloai,string gia)
         {
-            int giaBan = Convert.ToInt32(gia);
-            return daTable.ThemLoaiBan(tenloai, giaBan);
+            try
+            {
+                int giaBan = Convert.ToInt32(gia);
+                return daTable.ThemLoaiBan(tenloai, giaBan);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
         }
 
         public int CapNhatLoaiBan(string txtTenLoai,string txtGia, int tag)
         {
-            int gia = Convert.ToInt32(txtGia);
-            return daTable.CapNhatLoaiBan(txtTenLoai,gia, tag);
+            try
+            {
+                int gia = Convert.ToInt32(txtGia);
+                return daTable.CapNhatLoaiBan(txtTenLoai, gia, tag);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
         }
 
-        public void capNhatBan(string text1, string loaiBan, string text2)
+        public int capNhatBan(string text1, string loaiBan, string text2)
         {
-            int idBan = Int32.Parse(text1);
-            int idLoaidBan = Int32.Parse(loaiBan);
-            daTable.capNhatBan(idBan,idLoaidBan, text2);
+            try
+            {
+                int idBan = Int32.Parse(text1);
+                int idLoaidBan = Int32.Parse(loaiBan);
+                return daTable.capNhatBan(idBan, idLoaidBan, text2);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
         }
 
         public int XoaLoaiBan(int idban)
@@ -167,7 +200,7 @@ namespace QuanLyBilliard.BL
             }
             catch (Exception)
             {
-                return -1;
+                return BATLOI.SAI_DINH_DANG;
             }
         }
 

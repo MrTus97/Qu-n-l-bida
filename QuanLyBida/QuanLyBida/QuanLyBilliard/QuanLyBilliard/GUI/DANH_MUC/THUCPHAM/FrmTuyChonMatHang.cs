@@ -34,7 +34,7 @@ namespace QuanLyBilliard.GUI.DANH_MUC.THUCPHAM
             this.dataGridViewRow = dataGridViewRow;
             txtIDMatHang.Enabled = false;
             //Bing dữ liệu 
-            
+
 
 
         }
@@ -43,7 +43,7 @@ namespace QuanLyBilliard.GUI.DANH_MUC.THUCPHAM
         {
             int kq = 0;
 
-            if (txtTenThucPham.Text == "" || txtDonGia.Text == "" || txtDonViTinh.Text =="")
+            if (txtTenThucPham.Text == "" || txtDonGia.Text == "" || txtDonViTinh.Text == "")
             {
                 kq = BATLOI.THIEU_DU_LIEU;
             }
@@ -51,32 +51,40 @@ namespace QuanLyBilliard.GUI.DANH_MUC.THUCPHAM
             {
                 try
                 {
-                    
+
                     string tenThucPham = txtTenThucPham.Text.ToString();
                     string dvt = txtDonViTinh.Text.ToString();
                     int loaithucpham = (int)cbxLoaiThucPham.SelectedValue;
                     int giaban = Int32.Parse(txtDonGia.Text.ToString());
                     int nhacungcap = (int)cbxNhaCungCap.SelectedValue;
                     kq = blThucPham.ThemMatHang(txtTenThucPham.Text, txtDonViTinh.Text, loaithucpham, txtDonGia.Text, nhacungcap);
-                    
+
                 }
                 catch (Exception)
                 {
                     kq = BATLOI.SAI_DINH_DANG;
                 }
-                
+
 
             }
             else
             {
-                int id = Int32.Parse(txtIDMatHang.Text.ToString());
-                string tenThucPham = txtTenThucPham.Text.ToString();
-                string dvt = txtDonViTinh.Text.ToString();
-                int loaithucpham = (int)cbxLoaiThucPham.SelectedValue;
-                int giaban = Int32.Parse(txtDonGia.Text.ToString());
-                int nhacungcap = (int)cbxNhaCungCap.SelectedValue;
-               
-                kq = blThucPham.CapNhatMatHang(id,tenThucPham,dvt,loaithucpham,giaban,nhacungcap);
+                try
+                {
+                    int id = Int32.Parse(txtIDMatHang.Text.ToString());
+                    string tenThucPham = txtTenThucPham.Text.ToString();
+                    string dvt = txtDonViTinh.Text.ToString();
+                    int loaithucpham = (int)cbxLoaiThucPham.SelectedValue;
+                    int giaban = Int32.Parse(txtDonGia.Text.ToString());
+                    int nhacungcap = (int)cbxNhaCungCap.SelectedValue;
+
+                    kq = blThucPham.CapNhatMatHang(id, tenThucPham, dvt, loaithucpham, giaban, nhacungcap);
+
+                }
+                catch (Exception)
+                {
+                    kq = BATLOI.THIEU_DU_LIEU;
+                }
             }
 
             if (kq == BATLOI.THIEU_DU_LIEU)
@@ -118,13 +126,13 @@ namespace QuanLyBilliard.GUI.DANH_MUC.THUCPHAM
                 txtDonViTinh.Text = dataGridViewRow.Cells["DonViTinh"].Value.ToString();
                 txtDonGia.Text = dataGridViewRow.Cells["GiaBan"].Value.ToString();
                 cbxNhaCungCap.SelectedValue = Int32.Parse(dataGridViewRow.Cells["ID_NHACUNGCAP"].Value.ToString());
-                
+
             }
         }
 
         private void txtDonViTinh_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+
         }
 
         private void txtDonGia_KeyPress(object sender, KeyPressEventArgs e)

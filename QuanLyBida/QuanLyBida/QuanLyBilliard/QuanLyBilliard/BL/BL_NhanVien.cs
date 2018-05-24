@@ -72,23 +72,6 @@ namespace QuanLyBilliard.BL
             this.frmTaiKhoanDangNhap = frmTaiKhoanDangNhap;
         }
 
-        //public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
-        //{
-
-        //    int gt;
-        //    if (gioitinh == "Nam")
-        //    {
-        //        gt = 1;
-        //    }
-        //    else gt = 0;
-        //    int cp = Int32.Parse(capbac);
-        //    int result = daNhanVien.ThemNhanVien(tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
-        //    if (result > 0)
-        //    {
-        //        MessageBox.Show("Thanh cong");
-        //    } else { MessageBox.Show("That bai"); }
-        //}
-
         public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string catruc)
         {
             int idCapBac = Int32.Parse(capbac);

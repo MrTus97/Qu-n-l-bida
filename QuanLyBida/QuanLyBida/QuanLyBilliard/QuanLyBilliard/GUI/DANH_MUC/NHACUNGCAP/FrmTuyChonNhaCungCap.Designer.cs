@@ -37,7 +37,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtIDNhaCungCap = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,9 +57,9 @@
             this.panel2.Controls.Add(this.btnGhiDuLieu);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel2.Location = new System.Drawing.Point(0, 183);
+            this.panel2.Location = new System.Drawing.Point(0, 100);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(447, 48);
+            this.panel2.Size = new System.Drawing.Size(441, 48);
             this.panel2.TabIndex = 5;
             // 
             // btnThoat
@@ -118,32 +117,20 @@
             this.panel1.Controls.Add(this.txtIDNhaCungCap);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.panel1.Location = new System.Drawing.Point(0, 71);
+            this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(447, 160);
+            this.panel1.Size = new System.Drawing.Size(441, 148);
             this.panel1.TabIndex = 4;
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.richTextBox1.Enabled = false;
-            this.richTextBox1.Font = new System.Drawing.Font("Arial", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(0, 0);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(447, 71);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
             // 
             // FrmTuyChonNhaCungCap
             // 
             this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.CancelButton = this.btnThoat;
-            this.ClientSize = new System.Drawing.Size(447, 231);
+            this.ClientSize = new System.Drawing.Size(441, 148);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.richTextBox1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmTuyChonNhaCungCap";
             this.Text = "Nhà cung cấp";
@@ -165,6 +152,5 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtIDNhaCungCap;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
     }
 }

@@ -66,17 +66,18 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
             }
             else
             {
+                int k = 0;
                 DialogResult kq = MessageBox.Show("Bạn có muốn xóa không ?", "Xác nhận", MessageBoxButtons.YesNo);
                 if (kq == DialogResult.Yes)
                 {
-                    int k = blKhachHang.xoaKhachHang((btnSua.Tag as DataGridViewRow).Cells["ID_KHACHHANG"].Value.ToString());
-                    if (k < 0)
-                    {
-                        MessageBox.Show("Mặt hàng này đã xuất hiện trong hóa đơn. Không thể xóa !!");
-                    }
+                    k = blKhachHang.xoaKhachHang((btnSua.Tag as DataGridViewRow).Cells["ID_KHACHHANG"].Value.ToString());
                     DataTable dt = blKhachHang.layDuLieuLenDataGridView();
                     Refesh(dt);
                     btnSua.Tag = null;
+                }
+                if (k < 0)
+                {
+                    BATLOI.HienThiLoi(k);
                 }
 
 

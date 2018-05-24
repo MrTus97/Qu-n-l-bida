@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBilliard.BL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -33,13 +34,8 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
-        }
-
-        public void CapNhatHoaDonNhap(string tenHoaDon, DateTime ngayTaoHoaDon, int tongtien)
-        {
-            throw new NotImplementedException();
         }
 
         public int LayMaHoaDonNhapHangMoiNhat()
@@ -51,7 +47,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -64,7 +60,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -80,7 +76,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
         public int XoaChiTietHoaDonNhap(int tag)
@@ -92,7 +88,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
 
         }
@@ -105,7 +101,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
 
         }

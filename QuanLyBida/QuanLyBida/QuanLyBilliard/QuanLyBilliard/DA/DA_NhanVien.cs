@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyBilliard.BL;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
@@ -11,11 +12,6 @@ namespace QuanLyBilliard.DA
     class DA_NhanVien
     {
         LopDungChung ldc = new LopDungChung();
-        //public int ThemNhanVien(string ten,string ngaysinh,string cmnd,string sdt,int gioitinh,int capbac,string catruc,string tendangnhap)
-        //{
-        //    string sql = "INSERT INTO NHANVIEN VALUES(N'"+ten+"',convert(datetime,'"+ngaysinh+"',103),'"+cmnd+"','"+sdt+"',"+gioitinh+","+capbac+",'"+catruc+"',NULL)";
-        //    return ldc.ExecuteNonQuery(sql);
-        //}
 
         public DataTable LayNhanvien()
         {
@@ -34,12 +30,6 @@ namespace QuanLyBilliard.DA
             string sql = "select id_nhanvien,TENNHANVIEN from nhanvien where ID_NHANVIEN not in (select ID_NHANVIEN from dangnhap)";
             return ldc.getDuLieu(sql);
         }
-
-        //public int SuaThongTinNhanVien(int idNhanVien, string ten, string ngaysinh, string cmnd, string sdt, int gioitinh, int capbac, string catruc, string tendangnhap)
-        //{
-        //    string sql = "update NHANVIEN set TENNHANVIEN='" + ten + "',ngaysinh = convert(datetime,'" + ngaysinh + "',103), cmnd = '" + cmnd + "', sodienthoai = '" + sdt + "' where ID_NhanVien = '" + idNhanVien + "'";
-        //    return ldc.ExecuteNonQuery(sql);
-        //}
 
         public DataTable layDuLieuLenDataGridView()
         {
@@ -74,7 +64,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
 
         }
@@ -89,7 +79,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
 
@@ -102,7 +92,7 @@ namespace QuanLyBilliard.DA
             }
             catch (SqlException)
             {
-                return -1;
+                return BATLOI.SQL;
             }
         }
     }

@@ -66,7 +66,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(581, 456);
+            this.panel2.Size = new System.Drawing.Size(526, 365);
             this.panel2.TabIndex = 1;
             // 
             // panel1
@@ -74,9 +74,9 @@
             this.panel1.Controls.Add(this.btnThoat);
             this.panel1.Controls.Add(this.btnGhiDuLieu);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 403);
+            this.panel1.Location = new System.Drawing.Point(0, 312);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(581, 53);
+            this.panel1.Size = new System.Drawing.Size(526, 53);
             this.panel1.TabIndex = 40;
             // 
             // btnThoat
@@ -90,6 +90,7 @@
             // 
             // btnGhiDuLieu
             // 
+            this.btnGhiDuLieu.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGhiDuLieu.Location = new System.Drawing.Point(310, 18);
             this.btnGhiDuLieu.Name = "btnGhiDuLieu";
             this.btnGhiDuLieu.Size = new System.Drawing.Size(75, 23);
@@ -199,11 +200,15 @@
             // 
             // FrmTuyChonMatHang
             // 
+            this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(581, 456);
+            this.CancelButton = this.btnThoat;
+            this.ClientSize = new System.Drawing.Size(526, 365);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Name = "FrmTuyChonMatHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTuyChonMatHang";
             this.Load += new System.EventHandler(this.FrmTuyChonMatHang_Load);
             this.panel2.ResumeLayout(false);

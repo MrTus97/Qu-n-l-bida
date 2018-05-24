@@ -43,8 +43,16 @@ namespace QuanLyBilliard.BL
 
         public int CapNhatNhaCungCap(string text1, string text2)
         {
-            int id = Convert.ToInt32(text1);
-            return daNhaCungCap.CapNhatNhaCungCap(id, text2);
+            try
+            {
+                int id = Convert.ToInt32(text1);
+                return daNhaCungCap.CapNhatNhaCungCap(id, text2);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
+            
         }
 
         public int ThemNhaCungCap(string txtTenNhaCungCap)
@@ -60,6 +68,16 @@ namespace QuanLyBilliard.BL
         public DataTable TimNhaCungCap(string text)
         {
             return daNhaCungCap.TimKiemNhaCungCap(text);
+        }
+
+        public bool KiemTraTrungNhaCungCap(string txtTenNhaCungCap)
+        {
+            DataTable dt = daNhaCungCap.KiemTraTrungNhaCungCap(txtTenNhaCungCap);
+            if (dt.Rows.Count > 0)
+            {
+                return true;
+            }
+            return false;
         }
     }
     

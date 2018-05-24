@@ -105,6 +105,7 @@
             // 
             // btnGhiDuLieu
             // 
+            this.btnGhiDuLieu.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGhiDuLieu.Location = new System.Drawing.Point(139, 6);
             this.btnGhiDuLieu.Name = "btnGhiDuLieu";
             this.btnGhiDuLieu.Size = new System.Drawing.Size(75, 23);
@@ -114,8 +115,10 @@
             // 
             // FrmTuyChonLoaiMatHang
             // 
+            this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(326, 135);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);

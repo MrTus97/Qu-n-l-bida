@@ -37,13 +37,11 @@ namespace QuanLyBilliard.GUI.DANH_MUC
                 txtIDNhaCungCap.Enabled = false;
                 txtIDNhaCungCap.Text = dataGridViewRow.Cells[0].Value.ToString();
                 txtTenNhaCungCap.Text = dataGridViewRow.Cells[1].Value.ToString();
-                richTextBox1.Text = "Cập nhật nhà cung cấp";
                 this.Text = "Cập nhật nhà cung cấp";
             }else
             {
                 label1.Visible = false;
                 txtIDNhaCungCap.Visible = false;
-                richTextBox1.Text = "Thêm mới nhà cung cấp";
                 this.Text = "Thêm mới nhà cung cấp";
             }
         }
@@ -55,30 +53,31 @@ namespace QuanLyBilliard.GUI.DANH_MUC
 
         private void btnGhiDuLieu_Click(object sender, EventArgs e)
         {
-            if (dataGridViewRow != null)
+            int kq = 0;
+            if (txtTenNhaCungCap.Text == "")
             {
-                int i = blNhaCungCap.CapNhatNhaCungCap(txtIDNhaCungCap.Text,txtTenNhaCungCap.Text);
-                if (i > 0)
-                {
-                    MessageBox.Show("Cập nhật thành công!!");
-                }else
-                {
-                    MessageBox.Show("Cập nhật Thất bại!!");
-                }
+                kq = BATLOI.THIEU_DU_LIEU;
+            }
+            else if (blNhaCungCap.KiemTraTrungNhaCungCap(txtTenNhaCungCap.Text))
+            {
+                kq = BATLOI.TRUNG_DU_LIEU;
+            }
+            else if (dataGridViewRow != null)
+            {
+                kq = blNhaCungCap.CapNhatNhaCungCap(txtIDNhaCungCap.Text,txtTenNhaCungCap.Text);
             }
             else
             {
-                int i = blNhaCungCap.ThemNhaCungCap(txtTenNhaCungCap.Text);
-                if (i > 0)
-                {
-                    MessageBox.Show("Thêm thành công!!");
-                }
-                else
-                {
-                    MessageBox.Show("Thêm Thất bại!!");
-                }
+                kq = blNhaCungCap.ThemNhaCungCap(txtTenNhaCungCap.Text);
+                
             }
-            this.Close();
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
+            }else
+            {
+                this.Close();
+            }
         }
     }
 }

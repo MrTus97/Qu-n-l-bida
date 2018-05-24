@@ -32,14 +32,14 @@
             this.btnThoat = new DevExpress.XtraEditors.SimpleButton();
             this.btnGhiDuLieu = new DevExpress.XtraEditors.SimpleButton();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.txtGiamGiaNuoc = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.txtGiamGiaGio = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txtTenLoaiKhachHang = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtIDLoaiKhach = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.txtGiamGiaGio = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.txtGiamGiaNuoc = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -56,6 +56,7 @@
             // 
             // btnThoat
             // 
+            this.btnThoat.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnThoat.Location = new System.Drawing.Point(233, 6);
             this.btnThoat.Name = "btnThoat";
             this.btnThoat.Size = new System.Drawing.Size(75, 23);
@@ -65,6 +66,7 @@
             // 
             // btnGhiDuLieu
             // 
+            this.btnGhiDuLieu.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnGhiDuLieu.Location = new System.Drawing.Point(139, 6);
             this.btnGhiDuLieu.Name = "btnGhiDuLieu";
             this.btnGhiDuLieu.Size = new System.Drawing.Size(75, 23);
@@ -87,6 +89,38 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(320, 156);
             this.panel2.TabIndex = 1;
+            // 
+            // txtGiamGiaNuoc
+            // 
+            this.txtGiamGiaNuoc.Location = new System.Drawing.Point(139, 88);
+            this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
+            this.txtGiamGiaNuoc.Size = new System.Drawing.Size(169, 20);
+            this.txtGiamGiaNuoc.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 91);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(73, 13);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "giảm giá nước";
+            // 
+            // txtGiamGiaGio
+            // 
+            this.txtGiamGiaGio.Location = new System.Drawing.Point(139, 62);
+            this.txtGiamGiaGio.Name = "txtGiamGiaGio";
+            this.txtGiamGiaGio.Size = new System.Drawing.Size(169, 20);
+            this.txtGiamGiaGio.TabIndex = 1;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 65);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(63, 13);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "giảm giá giờ";
             // 
             // txtTenLoaiKhachHang
             // 
@@ -120,46 +154,18 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "ID loại khách hàng";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 65);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(63, 13);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "giảm giá giờ";
-            // 
-            // txtGiamGiaGio
-            // 
-            this.txtGiamGiaGio.Location = new System.Drawing.Point(139, 62);
-            this.txtGiamGiaGio.Name = "txtGiamGiaGio";
-            this.txtGiamGiaGio.Size = new System.Drawing.Size(169, 20);
-            this.txtGiamGiaGio.TabIndex = 1;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 91);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(73, 13);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "giảm giá nước";
-            // 
-            // txtGiamGiaNuoc
-            // 
-            this.txtGiamGiaNuoc.Location = new System.Drawing.Point(139, 88);
-            this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
-            this.txtGiamGiaNuoc.Size = new System.Drawing.Size(169, 20);
-            this.txtGiamGiaNuoc.TabIndex = 1;
-            // 
             // FrmTuyChonLoaiKhachHang
             // 
+            this.AcceptButton = this.btnGhiDuLieu;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.btnThoat;
             this.ClientSize = new System.Drawing.Size(320, 209);
+            this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmTuyChonLoaiKhachHang";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmTuyChonLoaiKhachHang";
             this.Load += new System.EventHandler(this.FrmTuyChonLoaiKhachHang_Load);
             this.panel1.ResumeLayout(false);
