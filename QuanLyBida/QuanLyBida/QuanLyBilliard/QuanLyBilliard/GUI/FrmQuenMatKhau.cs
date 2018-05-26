@@ -49,7 +49,6 @@ namespace QuanLyBilliard.GUI
                 SmtpServer.Port = 587;
                 SmtpServer.Credentials = new System.Net.NetworkCredential("stringstu2@gmail.com", "98760012t");
                 SmtpServer.EnableSsl = true;
-
                 SmtpServer.Send(mail);
                 Console.WriteLine("Send mail!");
 

@@ -72,10 +72,17 @@ namespace QuanLyBilliard.BL
             this.frmTaiKhoanDangNhap = frmTaiKhoanDangNhap;
         }
 
-        public void ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string catruc)
+        public int ThemNhanVien(string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string email)
         {
-            int idCapBac = Int32.Parse(capbac);
-            daNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,idCapBac,catruc);
+            try
+            {
+                int idCapBac = Int32.Parse(capbac);
+                return daNhanVien.ThemNhanVien(tennhanvien, ngaysinh, cmnd, sdt, gioitinh, idCapBac, email);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
         }
 
         /// <summary>
@@ -87,24 +94,18 @@ namespace QuanLyBilliard.BL
             DataTable dt = daNhanVien.LayNhanvien();
         }
 
-        //public void SuaThongTinNhanVien(string txtIDNhanVien, string tennhanvien, string ngaysinh, string cmnd, string sdt, string gioitinh, string capbac, string catruc, string tendangnhap)
-        //{
-        //    int idNhanVien = Int32.Parse(txtIDNhanVien);
-        //    int gt;
-        //    if (gioitinh == "Nam")
-        //    {
-        //        gt = 1;
-        //    }
-        //    else gt = 0;
-        //    int cp = Int32.Parse(capbac);
-        //    daNhanVien.SuaThongTinNhanVien(idNhanVien, tennhanvien, ngaysinh, cmnd, sdt, gt, cp, catruc, tendangnhap);
-        //}
-
-        public void SuaThongTinNhanVien(string text,string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string catruc)
+        public int SuaThongTinNhanVien(string text,string tennhanvien, string ngaysinh, string cmnd, string sdt, int gioitinh, string capbac, string email)
         {
-            int IdNhanVien = Int32.Parse(text);
-            int IdCapBac = Int32.Parse(capbac);
-            daNhanVien.SuaThongTinNhanVien(IdNhanVien,tennhanvien, ngaysinh, cmnd, sdt, gioitinh, IdCapBac, catruc);
+            try
+            {
+                int IdNhanVien = Int32.Parse(text);
+                return daNhanVien.SuaThongTinNhanVien(IdNhanVien, tennhanvien, ngaysinh, cmnd, sdt, gioitinh, capbac, email);
+            }
+            catch (Exception)
+            {
+                return BATLOI.SAI_DINH_DANG;
+            }
+            
         }
 
         public int XoaNhanVien(string idNhanVien)

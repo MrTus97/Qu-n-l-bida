@@ -7,20 +7,25 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 using DevExpress.XtraEditors;
-
 namespace QuanLyBilliard.BL
 {
     class BL_Ban
     {
         #region Khai báo
-        DA_Ban daTable;
-        DA_HoaDon daHoaDon;
+        DA_Ban daTable = new DA_Ban();
+        DA_HoaDon daHoaDon = new DA_HoaDon();
         FrmSuDungDichVu frmSuDungDichVu;
         FrmDanhMucBanKhuVuc frmDanhMucBanKhuVuc;
         FrmChuyenBan frmChuyenBan;
         BL_HoaDon blHoaDon;
         BL_NhanVien blNhanVien;
         BL_KhachHang blKhachHang;
+
+        internal DataTable LayDanhSachBan()
+        {
+            return daTable.LayDanhSachBan();
+        }
+
         const int TABLE_WIDTH = 70;
         const int TABLE_HEIGHT = 120;
         FrmHoaDon frmHoaDon;
@@ -34,15 +39,13 @@ namespace QuanLyBilliard.BL
         public BL_Ban(FrmDanhMucBanKhuVuc f)
         {
             frmDanhMucBanKhuVuc = f;
-            daTable = new DA_Ban();
-            daHoaDon = new DA_HoaDon();
+
         }
 
 
         public BL_Ban(FrmSuDungDichVu f)
         {
             daTable = new DA_Ban();
-            daHoaDon = new DA_HoaDon();
             blHoaDon = new BL_HoaDon(f);
             blNhanVien = new BL_NhanVien(f);
             blKhachHang = new BL_KhachHang(f);
@@ -72,7 +75,6 @@ namespace QuanLyBilliard.BL
         public BL_Ban(FrmChuyenBan f)
         {
             frmChuyenBan = f;
-            daTable = new DA_Ban();
             blHoaDon = new BL_HoaDon(f);
             
         }
@@ -84,10 +86,10 @@ namespace QuanLyBilliard.BL
         public BL_Ban(FrmHoaDon f)
         {
             frmHoaDon = f;
-            daTable = new DA_Ban();
         }
 
-       
+
+
         /// <summary>
         /// Chuyển bàn có id là v1 sang bàn có id là v2
         /// </summary>

@@ -73,10 +73,15 @@ namespace QuanLyBilliard.GUI
             Value_KhangHang.Text = data.Rows[0]["TenKhachHang"].ToString();
             Value_NhanVien.Text = data.Rows[0]["TenNhanVien"].ToString();
             //Tính tiền giờ:
-            int hour = gioRa.Hour - giovao.Hour;
+            int day = gioRa.Day - giovao.Day;
+            int hour = gioRa.Hour - giovao.Hour + day*24;
             int minutes = gioRa.Minute - giovao.Minute;
+            if (minutes < 0)
+            {
+                minutes += 60;
+                hour -= 1;
+            }
             int gia = Int32.Parse(data.Rows[0]["GIA"].ToString());
-
             float tienGio = hour * gia + (minutes * gia / 60);
 
             //Hiển thị trên datagridview

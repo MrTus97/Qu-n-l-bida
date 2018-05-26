@@ -250,7 +250,7 @@ namespace QuanLyBilliard.GUI
             // 
             // labelControl10
             // 
-            this.labelControl10.Location = new System.Drawing.Point(53, 33);
+            this.labelControl10.Location = new System.Drawing.Point(61, 33);
             this.labelControl10.Name = "labelControl10";
             this.labelControl10.Size = new System.Drawing.Size(56, 13);
             this.labelControl10.TabIndex = 92;
@@ -360,7 +360,7 @@ namespace QuanLyBilliard.GUI
             this.txtSoGioChoi.Enabled = false;
             this.txtSoGioChoi.Location = new System.Drawing.Point(10, 0);
             this.txtSoGioChoi.Name = "txtSoGioChoi";
-            this.txtSoGioChoi.Size = new System.Drawing.Size(37, 21);
+            this.txtSoGioChoi.Size = new System.Drawing.Size(53, 21);
             this.txtSoGioChoi.TabIndex = 81;
             // 
             // labelControl8
@@ -500,7 +500,7 @@ namespace QuanLyBilliard.GUI
             // 
             // labelControl3
             // 
-            this.labelControl3.Location = new System.Drawing.Point(53, 8);
+            this.labelControl3.Location = new System.Drawing.Point(69, 9);
             this.labelControl3.Name = "labelControl3";
             this.labelControl3.Size = new System.Drawing.Size(48, 13);
             this.labelControl3.TabIndex = 61;

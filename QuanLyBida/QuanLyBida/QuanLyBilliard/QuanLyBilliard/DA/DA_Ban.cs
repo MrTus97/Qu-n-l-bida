@@ -40,6 +40,13 @@ namespace QuanLyBilliard.DA
             }
             return lst;
         }
+
+        public DataTable LayDanhSachBan()
+        {
+            string sql = "select * from ban";
+            return ldc.getDuLieu(sql);
+        }
+
         /// <summary>
         /// Thực hiện procedure đổi trạng thái bàn và tạo hóa đơn
         /// </summary>

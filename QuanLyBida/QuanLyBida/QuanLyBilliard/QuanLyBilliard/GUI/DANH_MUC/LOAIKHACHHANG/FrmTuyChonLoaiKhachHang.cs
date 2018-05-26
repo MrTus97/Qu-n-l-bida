@@ -44,33 +44,31 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
 
         private void btnGhiDuLieu_Click(object sender, EventArgs e)
         {
+            int kq = 0;
             try
             {
                 int giamgiagio = Int32.Parse(txtGiamGiaGio.Text);
                 int giamgianuoc = Int32.Parse(txtGiamGiaNuoc.Text);
-                int kq;
                 if (loai == 1)
                 {
                     kq = blLoaiKhachHang.ThemMoiLoaiKhachHang(txtTenLoaiKhachHang.Text, giamgiagio, giamgianuoc);
-
                 }
                 else
                 {
                     kq = blLoaiKhachHang.CapNhatLoaiKhachHang(txtIDLoaiKhach.Text, txtTenLoaiKhachHang.Text, giamgiagio, giamgianuoc);
-
                 }
-                if (kq < 0)
-                {
-                    throw new Exception();
-                }else
-                {
-                    this.Close();
-                }
+                
             }
             catch (Exception)
             {
-                MessageBox.Show("Thất bại !!");
+                kq = BATLOI.SAI_DINH_DANG;
             }
+
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
+            }
+            else { this.Close(); }
         }
 
         private void FrmTuyChonLoaiKhachHang_Load(object sender, EventArgs e)

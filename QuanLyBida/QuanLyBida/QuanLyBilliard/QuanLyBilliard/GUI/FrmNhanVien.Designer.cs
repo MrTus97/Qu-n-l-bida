@@ -45,15 +45,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtIDNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.dtgNhanVien = new System.Windows.Forms.DataGridView();
-            this.TenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CaTruc = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCapBac = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -72,6 +63,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
+            this.TenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -241,7 +241,7 @@
             this.TenNhanVien,
             this.Cmnd,
             this.SoDienThoai,
-            this.CaTruc,
+            this.Email,
             this.NgaySinh,
             this.GioiTinh,
             this.CapBac,
@@ -256,62 +256,6 @@
             this.dtgNhanVien.TabIndex = 18;
             this.dtgNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgNhanVien_CellClick);
             this.dtgNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
-            // TenNhanVien
-            // 
-            this.TenNhanVien.HeaderText = "Tên Nhân Viên";
-            this.TenNhanVien.Name = "TenNhanVien";
-            this.TenNhanVien.ReadOnly = true;
-            // 
-            // Cmnd
-            // 
-            this.Cmnd.HeaderText = "CMND";
-            this.Cmnd.Name = "Cmnd";
-            this.Cmnd.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            // 
-            // CaTruc
-            // 
-            this.CaTruc.HeaderText = "Ca Trực";
-            this.CaTruc.Name = "CaTruc";
-            this.CaTruc.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // CapBac
-            // 
-            this.CapBac.HeaderText = "Cấp bậc";
-            this.CapBac.Name = "CapBac";
-            this.CapBac.ReadOnly = true;
-            // 
-            // IDNhanVien
-            // 
-            this.IDNhanVien.HeaderText = "ID_NhânViên";
-            this.IDNhanVien.Name = "IDNhanVien";
-            this.IDNhanVien.ReadOnly = true;
-            this.IDNhanVien.Visible = false;
-            // 
-            // IDCapBac
-            // 
-            this.IDCapBac.HeaderText = "ID_CấpBậc";
-            this.IDCapBac.Name = "IDCapBac";
-            this.IDCapBac.ReadOnly = true;
-            this.IDCapBac.Visible = false;
             // 
             // cbCapBac
             // 
@@ -401,9 +345,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 86);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(41, 13);
+            this.label3.Size = new System.Drawing.Size(31, 13);
             this.label3.TabIndex = 9;
-            this.label3.Text = "ca trực";
+            this.label3.Text = "Email";
             // 
             // label1
             // 
@@ -474,6 +418,62 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(1075, 354);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
+            // 
+            // TenNhanVien
+            // 
+            this.TenNhanVien.HeaderText = "Tên Nhân Viên";
+            this.TenNhanVien.Name = "TenNhanVien";
+            this.TenNhanVien.ReadOnly = true;
+            // 
+            // Cmnd
+            // 
+            this.Cmnd.HeaderText = "CMND";
+            this.Cmnd.Name = "Cmnd";
+            this.Cmnd.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // CapBac
+            // 
+            this.CapBac.HeaderText = "Cấp bậc";
+            this.CapBac.Name = "CapBac";
+            this.CapBac.ReadOnly = true;
+            // 
+            // IDNhanVien
+            // 
+            this.IDNhanVien.HeaderText = "ID_NhânViên";
+            this.IDNhanVien.Name = "IDNhanVien";
+            this.IDNhanVien.ReadOnly = true;
+            this.IDNhanVien.Visible = false;
+            // 
+            // IDCapBac
+            // 
+            this.IDCapBac.HeaderText = "ID_CấpBậc";
+            this.IDCapBac.Name = "IDCapBac";
+            this.IDCapBac.ReadOnly = true;
+            this.IDCapBac.Visible = false;
             // 
             // FrmNhanVien
             // 
@@ -546,7 +546,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn TenNhanVien;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cmnd;
         private System.Windows.Forms.DataGridViewTextBoxColumn SoDienThoai;
-        private System.Windows.Forms.DataGridViewTextBoxColumn CaTruc;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Email;
         private System.Windows.Forms.DataGridViewTextBoxColumn NgaySinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn GioiTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn CapBac;

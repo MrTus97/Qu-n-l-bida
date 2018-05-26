@@ -25,7 +25,7 @@ namespace QuanLyBilliard.GUI
             cbCapBac.DataSource = blNhanVien.LoadCapBac();
             cbCapBac.DisplayMember = "TenCapBac";
             cbCapBac.ValueMember = "ID_CapBac";
-            radioButton2.Checked = true;
+            radioButton1.Checked = true;
             loadDuLieu();
         }
 
@@ -70,8 +70,12 @@ namespace QuanLyBilliard.GUI
                 capbac = "NULL";
             }
             
-            string catruc = txtCaTruc.Text;
-            blNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,capbac,catruc);
+            string email = txtCaTruc.Text;
+            int i = blNhanVien.ThemNhanVien(tennhanvien,ngaysinh,cmnd,sdt,gioitinh,capbac, email);
+            if (i < 0)
+            {
+                BATLOI.HienThiLoi(i);
+            }
             loadDuLieu();
             
         }
@@ -98,9 +102,17 @@ namespace QuanLyBilliard.GUI
                 {
                     gioitinh = 0;
                 }
-                string capbac = cbCapBac.SelectedValue.ToString();
-                string catruc = txtCaTruc.Text;
-                blNhanVien.SuaThongTinNhanVien(textBox1.Text, tennhanvien, ngaysinh, cmnd, sdt, gioitinh, capbac, catruc);
+                string capbac;
+                if (cbCapBac.SelectedValue == null)
+                {
+                    capbac = "NULL";
+                }else
+                {
+                    capbac = cbCapBac.SelectedValue.ToString();
+                }
+                
+                string email = txtCaTruc.Text;
+                blNhanVien.SuaThongTinNhanVien(textBox1.Text, tennhanvien, ngaysinh, cmnd, sdt, gioitinh, capbac, email);
                 loadDuLieu();
                 textBox1.Text = "";
             }
@@ -133,7 +145,7 @@ namespace QuanLyBilliard.GUI
             txtTenNhanVien.Text = dtgNhanVien.CurrentRow.Cells["TenNhanVien"].Value.ToString();
             txtCMND.Text = dtgNhanVien.CurrentRow.Cells["Cmnd"].Value.ToString();
             txtSoDienThoai.Text = dtgNhanVien.CurrentRow.Cells["SoDienThoai"].Value.ToString();
-            txtCaTruc.Text = dtgNhanVien.CurrentRow.Cells["CaTruc"].Value.ToString();
+            txtCaTruc.Text = dtgNhanVien.CurrentRow.Cells["Email"].Value.ToString();
             dtpNgaySinh.Text = dtgNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
             cbCapBac.Text = dtgNhanVien.CurrentRow.Cells["IDCapBac"].Value.ToString();
             if (dtgNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString()=="Nam")

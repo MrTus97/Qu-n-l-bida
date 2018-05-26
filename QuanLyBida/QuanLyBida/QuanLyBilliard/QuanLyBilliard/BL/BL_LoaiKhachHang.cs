@@ -42,14 +42,14 @@ namespace QuanLyBilliard.BL
         internal int ThemMoiLoaiKhachHang(string txtTenLoaiKhachHang,int giamgio,int giamnuoc)
         {
             DataTable kq = daLoaiKhachHang.KiemTraTrungTenLoaiKhachHang(txtTenLoaiKhachHang);
-            if (kq.Rows.Count > 0) return -1;
+            if (kq.Rows.Count > 0) return BATLOI.TRUNG_DU_LIEU;
             return daLoaiKhachHang.ThemMoiLoaiKhachHang(txtTenLoaiKhachHang,giamgio,giamnuoc);
         }
 
         internal int CapNhatLoaiKhachHang(string khach,string text, int giamgiagio, int giamgianuoc)
         {
             DataTable kq = daLoaiKhachHang.KiemTraTrungTenLoaiKhachHang(text);
-            if (kq.Rows.Count > 0) return -1;
+            if (kq.Rows.Count > 0) return BATLOI.TRUNG_DU_LIEU;
             int id = Int32.Parse(khach);
             return daLoaiKhachHang.CapNhatLoaiKhachHang(id, text, giamgiagio, giamgianuoc);
         }
