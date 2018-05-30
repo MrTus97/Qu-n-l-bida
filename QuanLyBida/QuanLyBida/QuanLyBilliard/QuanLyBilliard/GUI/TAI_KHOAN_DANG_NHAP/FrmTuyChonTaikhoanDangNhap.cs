@@ -97,5 +97,15 @@ namespace QuanLyBilliard.GUI.TAI_KHOAN_DANG_NHAP
                 }
             }
         }
+
+        private void cbNhanVien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbQuyen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

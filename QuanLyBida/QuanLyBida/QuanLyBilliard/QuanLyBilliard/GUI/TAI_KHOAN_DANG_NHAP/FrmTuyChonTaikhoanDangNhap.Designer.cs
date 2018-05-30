@@ -142,6 +142,7 @@
             this.cbQuyen.Name = "cbQuyen";
             this.cbQuyen.Size = new System.Drawing.Size(159, 24);
             this.cbQuyen.TabIndex = 5;
+            this.cbQuyen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbQuyen_KeyPress);
             // 
             // cbNhanVien
             // 
@@ -151,6 +152,7 @@
             this.cbNhanVien.Name = "cbNhanVien";
             this.cbNhanVien.Size = new System.Drawing.Size(159, 24);
             this.cbNhanVien.TabIndex = 1;
+            this.cbNhanVien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbNhanVien_KeyPress);
             // 
             // txtTenDangNhap
             // 

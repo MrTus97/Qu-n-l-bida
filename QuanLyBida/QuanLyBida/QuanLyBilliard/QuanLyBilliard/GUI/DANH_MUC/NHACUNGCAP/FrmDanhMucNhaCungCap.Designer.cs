@@ -104,6 +104,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Visible = false;
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // txtTimKiem
@@ -111,6 +112,7 @@
             this.txtTimKiem.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.txtTimKiem.Name = "txtTimKiem";
             this.txtTimKiem.Size = new System.Drawing.Size(100, 25);
+            this.txtTimKiem.Visible = false;
             this.txtTimKiem.TextChanged += new System.EventHandler(this.txtTimKiem_TextChanged);
             // 
             // lbTimKiem
@@ -119,6 +121,7 @@
             this.lbTimKiem.Name = "lbTimKiem";
             this.lbTimKiem.Size = new System.Drawing.Size(57, 22);
             this.lbTimKiem.Text = "Tìm kiếm";
+            this.lbTimKiem.Visible = false;
             // 
             // dgvDanhMucNhaCungCap
             // 

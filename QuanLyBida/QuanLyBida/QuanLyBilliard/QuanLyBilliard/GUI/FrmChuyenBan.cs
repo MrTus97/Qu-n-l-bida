@@ -93,5 +93,15 @@ namespace QuanLyBilliard.GUI
             }
             
         }
+
+        private void cbBanChuyen_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbBanHienTai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

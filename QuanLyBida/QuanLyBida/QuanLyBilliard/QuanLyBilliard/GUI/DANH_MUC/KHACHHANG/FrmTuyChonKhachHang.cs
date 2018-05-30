@@ -52,10 +52,38 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
             {
                 try
                 {
-                    int loaiKhachHang = (int)cbxLoaiKhachHang.SelectedValue;
-                    string tenKhachHang = txtTenKhachHang.Text.ToString();
-                    int soDienThoai = Int32.Parse(txtSoDienThoai.Text.ToString());
-                    string ngaySinh = dtpNgaySinh.Value.ToShortDateString();
+                    //Loại khách hàng
+                    int loaiKhachHang = 0;
+                    if (cbxLoaiKhachHang.SelectedValue != null)
+                    {
+                        loaiKhachHang = (int)cbxLoaiKhachHang.SelectedValue;
+                    }
+                    //Tên khách hàng
+                    string tenKhachHang;
+                    if (txtTenKhachHang.Text == "")
+                    {
+                        throw new Exception();
+                    }else
+                    {
+                        tenKhachHang = txtTenKhachHang.Text.ToString();
+                    }
+                    //Số điện thoại
+                    int soDienThoai;
+                    if (txtSoDienThoai.Text.Length > 9)
+                    {
+                        soDienThoai = Int32.Parse(txtSoDienThoai.Text.ToString());
+                    }else
+                    {
+                        throw new Exception();
+                    }
+                    string ngaySinh;
+                    if (dtpNgaySinh.Value != null)
+                    {
+                        ngaySinh = dtpNgaySinh.Value.ToShortDateString();
+                    }else
+                    {
+                        throw new Exception();
+                    }
                     int gioitinh;
                     if (rbnNam.Checked)
                     {
@@ -102,6 +130,7 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
         {
             blKhachHang = new BL_KhachHang(this);
             blLoaiKhachHang = new BL_LoaiKhachHang(this);
+            rbnNam.Checked = true;
             //Lấy dữ liệu lên combobox Loại khách hàng
             cbxLoaiKhachHang.DataSource = blLoaiKhachHang.LayDanhSachLoaiKhachHang();
             cbxLoaiKhachHang.DisplayMember = "TenLoaiKhachHang";
@@ -118,9 +147,26 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
                     rbnNam.Checked = true;
                 }
                 else rbnNU.Checked = true;
-
-
             }
+        }
+
+        private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
+            }
+        }
+
+        private void cbxLoaiKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void dtpNgaySinh_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

@@ -19,7 +19,7 @@ namespace QuanLyBilliard.DA
             return ldc.getDuLieu(sql);
         }
 
-        public int ThemKhuyenMai(string ten, float gio_km, float nuoc_km, string ngayBatDau, string ngayKetThuc)
+        public int ThemKhuyenMai(string ten, int gio_km, int nuoc_km, string ngayBatDau, string ngayKetThuc)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace QuanLyBilliard.DA
             }
         }
 
-        public int SuaKhuyenMai(int id_km, string ten, float gio_km, float nuoc_km, string ngayBatDau, string ngayKetThuc)
+        public int SuaKhuyenMai(int id_km, string ten, int gio_km, int nuoc_km, string ngayBatDau, string ngayKetThuc)
         {
             try
             {

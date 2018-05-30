@@ -56,34 +56,51 @@ namespace QuanLyBilliard.GUI.KHUYEN_MAI
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string id= txtIDKhuyenMai.Text;
-            string ten = txtTenKhuyenMai.Text;
-            string giamGiaGio = txtGiamGiaGio.Text;
-            string giamGiaThucPham = txtGiamGiaThucPham.Text;
-            string ngayBatDau = dtpNgayBatDau.Text;
-            string ngayKetThuc = dtpNgayKetThuc.Text;
-            if (id == "")
+            int kq = 0;
+            try
             {
-                int kq = blKhuyenMai.ThemKhuyenMai(id,ten,giamGiaGio,giamGiaThucPham,ngayBatDau,ngayKetThuc);
-                if (kq > 0)
+                string id = txtIDKhuyenMai.Text;
+                string ten = txtTenKhuyenMai.Text;
+                int giamGiaGio = Int32.Parse(txtGiamGiaGio.Text);
+                int giamGiaThucPham = Int32.Parse(txtGiamGiaThucPham.Text);
+                string ngayBatDau = dtpNgayBatDau.Value.ToShortDateString();
+                string ngayKetThuc = dtpNgayKetThuc.Value.ToShortDateString();
+                if (giamGiaGio < 0 || giamGiaGio > 100 || giamGiaThucPham < 0 || giamGiaThucPham > 100)
                 {
-                    this.Close();
+                    throw new Exception();
+                }
+                if (id == "")
+                {
+                    int q = blKhuyenMai.ThemKhuyenMai(id, ten, giamGiaGio, giamGiaThucPham, ngayBatDau, ngayKetThuc);
+                    if (q > 0)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        kq = BATLOI.SQL;
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Thất bại");
+                    int q = blKhuyenMai.SuaKhuyenMai(id, ten, giamGiaGio, giamGiaThucPham, ngayBatDau, ngayKetThuc);
+                    if (q > 0)
+                    {
+                        this.Close();
+                    }
+                    else
+                    {
+                        kq = BATLOI.SQL;
+                    }
                 }
-            }else
+            }
+            catch (Exception)
             {
-                int kq = blKhuyenMai.SuaKhuyenMai(id, ten, giamGiaGio, giamGiaThucPham, ngayBatDau, ngayKetThuc);
-                if (kq > 0)
-                {
-                    this.Close();
-                }
-                else
-                {
-                    MessageBox.Show("Thất bại");
-                }
+                kq = BATLOI.SAI_DINH_DANG;
+            }
+            if (kq < 0)
+            {
+                BATLOI.HienThiLoi(kq);
             }
         }
 

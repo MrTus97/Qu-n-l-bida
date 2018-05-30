@@ -96,7 +96,7 @@ namespace QuanLyBilliard.GUI
                 if (kq < 0)
                 {
                     BATLOI.HienThiLoi(kq);
-                }else { this.Close(); }
+                }
             }
             else
             {

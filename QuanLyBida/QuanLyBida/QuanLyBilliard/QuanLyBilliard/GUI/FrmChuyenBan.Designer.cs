@@ -86,6 +86,7 @@
             this.cbBanChuyen.Name = "cbBanChuyen";
             this.cbBanChuyen.Size = new System.Drawing.Size(121, 21);
             this.cbBanChuyen.TabIndex = 6;
+            this.cbBanChuyen.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbBanChuyen_KeyPress);
             // 
             // labelControl2
             // 
@@ -102,6 +103,7 @@
             this.cbBanHienTai.Name = "cbBanHienTai";
             this.cbBanHienTai.Size = new System.Drawing.Size(121, 21);
             this.cbBanHienTai.TabIndex = 4;
+            this.cbBanHienTai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbBanHienTai_KeyPress);
             // 
             // labelControl1
             // 

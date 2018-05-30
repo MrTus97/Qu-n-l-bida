@@ -166,7 +166,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(0, 48);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(827, 241);
+            this.panel5.Size = new System.Drawing.Size(827, 162);
             this.panel5.TabIndex = 37;
             // 
             // lbGia
@@ -208,9 +208,9 @@
             this.panel6.Controls.Add(this.btnCapNhatLoaiBan);
             this.panel6.Controls.Add(this.btnXoaLoaiBan);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(0, 289);
+            this.panel6.Location = new System.Drawing.Point(0, 210);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(827, 63);
+            this.panel6.Size = new System.Drawing.Size(827, 142);
             this.panel6.TabIndex = 36;
             // 
             // btnThemLoaiBan
@@ -339,7 +339,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 48);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(827, 241);
+            this.panel4.Size = new System.Drawing.Size(827, 145);
             this.panel4.TabIndex = 33;
             // 
             // label2
@@ -367,6 +367,7 @@
             this.cbxLoaiBan.Name = "cbxLoaiBan";
             this.cbxLoaiBan.Size = new System.Drawing.Size(233, 24);
             this.cbxLoaiBan.TabIndex = 13;
+            this.cbxLoaiBan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxLoaiBan_KeyPress);
             // 
             // txtTenBan
             // 
@@ -381,9 +382,9 @@
             this.panel2.Controls.Add(this.btnCapNhat);
             this.panel2.Controls.Add(this.btnXoa);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 289);
+            this.panel2.Location = new System.Drawing.Point(0, 193);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(827, 63);
+            this.panel2.Size = new System.Drawing.Size(827, 159);
             this.panel2.TabIndex = 32;
             // 
             // btnThem

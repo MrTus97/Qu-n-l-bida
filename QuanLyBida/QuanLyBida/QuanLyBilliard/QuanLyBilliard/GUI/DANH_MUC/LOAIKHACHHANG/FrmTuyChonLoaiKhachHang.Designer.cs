@@ -95,6 +95,7 @@
             this.txtGiamGiaNuoc.Name = "txtGiamGiaNuoc";
             this.txtGiamGiaNuoc.Size = new System.Drawing.Size(169, 20);
             this.txtGiamGiaNuoc.TabIndex = 1;
+            this.txtGiamGiaNuoc.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGiaNuoc_KeyPress);
             // 
             // label4
             // 
@@ -111,6 +112,7 @@
             this.txtGiamGiaGio.Name = "txtGiamGiaGio";
             this.txtGiamGiaGio.Size = new System.Drawing.Size(169, 20);
             this.txtGiamGiaGio.TabIndex = 1;
+            this.txtGiamGiaGio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiamGiaGio_KeyPress);
             // 
             // label3
             // 

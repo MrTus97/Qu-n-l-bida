@@ -290,6 +290,7 @@
             this.cbSoLuong.Properties.Mask.MaskType = DevExpress.XtraEditors.Mask.MaskType.None;
             this.cbSoLuong.Size = new System.Drawing.Size(76, 20);
             this.cbSoLuong.TabIndex = 57;
+            this.cbSoLuong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbSoLuong_KeyPress);
             // 
             // panel4
             // 

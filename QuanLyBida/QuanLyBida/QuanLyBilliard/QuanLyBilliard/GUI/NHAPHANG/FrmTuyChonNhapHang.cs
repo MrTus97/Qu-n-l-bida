@@ -254,5 +254,13 @@ namespace QuanLyBilliard.GUI.NHAPHANG
             }
         }
 
+        private void cbSoLuong_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng ", "Thông Báo ");
+            }
+        }
     }
 }

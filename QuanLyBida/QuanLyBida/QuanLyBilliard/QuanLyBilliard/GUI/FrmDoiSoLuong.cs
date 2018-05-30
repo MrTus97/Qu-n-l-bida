@@ -122,5 +122,14 @@ namespace QuanLyBilliard.GUI
         {
             textBox1.Text = soluong.ToString();
         }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Ký tự nhập vào phải là số ", "Thông Báo ");
+            }
+        }
     }
 }

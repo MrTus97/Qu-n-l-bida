@@ -23,8 +23,8 @@ namespace QuanLyBilliard.GUI
         private void FrmNhanVien2_Load(object sender, EventArgs e)
         {
             cbCapBac.DataSource = blNhanVien.LoadCapBac();
-            cbCapBac.DisplayMember = "TenCapBac";
-            cbCapBac.ValueMember = "ID_CapBac";
+            cbCapBac.DisplayMember = "TENCAPBAC";
+            cbCapBac.ValueMember = "ID_CAPBAC";
             radioButton1.Checked = true;
             loadDuLieu();
         }
@@ -147,7 +147,8 @@ namespace QuanLyBilliard.GUI
             txtSoDienThoai.Text = dtgNhanVien.CurrentRow.Cells["SoDienThoai"].Value.ToString();
             txtCaTruc.Text = dtgNhanVien.CurrentRow.Cells["Email"].Value.ToString();
             dtpNgaySinh.Text = dtgNhanVien.CurrentRow.Cells["NgaySinh"].Value.ToString();
-            cbCapBac.Text = dtgNhanVien.CurrentRow.Cells["IDCapBac"].Value.ToString();
+            //cbCapBac.SelectedText = dtgNhanVien.CurrentRow.Cells["CapBac"].Value.ToString();
+            cbCapBac.SelectedValue = dtgNhanVien.CurrentRow.Cells["IDCapBac"].Value;
             if (dtgNhanVien.CurrentRow.Cells["GioiTinh"].Value.ToString()=="Nam")
             {
                 radioButton1.Checked = true;
@@ -156,6 +157,29 @@ namespace QuanLyBilliard.GUI
             {
                 radioButton2.Checked = true;
             }
+        }
+
+        private void txtCMND_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng", "Thông Báo ");
+            }
+        }
+
+        private void txtSoDienThoai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                MessageBox.Show("Sai định dạng", "Thông Báo ");
+            }
+        }
+
+        private void cbCapBac_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

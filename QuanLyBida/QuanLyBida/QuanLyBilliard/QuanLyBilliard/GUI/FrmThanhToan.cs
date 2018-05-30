@@ -78,7 +78,7 @@ namespace QuanLyBilliard.GUI
                 dtpTuNgay.Text = DateTime.Now.ToShortDateString();
                 dtpTuNgay.Enabled = false;
 
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpTuNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Value.ToShortDateString(), dtpTuNgay.Value.ToShortDateString());
                 HienThiHoaDonLenDataGridView(result);
             }
             // Lọc từ ngày này đến ngày kia
@@ -97,7 +97,7 @@ namespace QuanLyBilliard.GUI
                 dtpDenNgay.Visible = true;
                 dtpDenNgay.Text = DateTime.Now.ToShortDateString();
 
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpDenNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Value.ToShortDateString(), dtpDenNgay.Value.ToShortDateString());
                 HienThiHoaDonLenDataGridView(result);
             }
         }
@@ -149,7 +149,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpDenNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Value.ToShortDateString(), dtpDenNgay.Value.ToShortDateString());
                 HienThiHoaDonLenDataGridView(result);
             }
         }
@@ -176,7 +176,7 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Text, dtpDenNgay.Text);
+                DataTable result = blHoaDon.ThongKeHoaDon(dtpTuNgay.Value.ToShortDateString(), dtpDenNgay.Value.ToShortDateString());
                 HienThiHoaDonLenDataGridView(result);
             }
         }
@@ -233,7 +233,16 @@ namespace QuanLyBilliard.GUI
 
         private void btnTim_Click(object sender, EventArgs e)
         {
-            int sohd = Int32.Parse(txtIDHoaDon.Text);
+            int sohd = -1;
+            try
+            {
+                sohd = Int32.Parse(txtIDHoaDon.Text);
+            }
+            catch (Exception)
+            {
+                BATLOI.HienThiLoi(BATLOI.THIEU_DU_LIEU);
+                return;
+            }
             DataTable result = blHoaDon.TimKiemHoaDonShowLenThanhToan(sohd);
             if (result.Rows.Count != 0)
             {

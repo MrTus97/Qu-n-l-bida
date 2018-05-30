@@ -150,6 +150,7 @@
             this.cbxNhaCungCap.Name = "cbxNhaCungCap";
             this.cbxNhaCungCap.Size = new System.Drawing.Size(293, 21);
             this.cbxNhaCungCap.TabIndex = 39;
+            this.cbxNhaCungCap.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxNhaCungCap_KeyPress);
             // 
             // label5
             // 
@@ -175,6 +176,7 @@
             this.cbxLoaiThucPham.Name = "cbxLoaiThucPham";
             this.cbxLoaiThucPham.Size = new System.Drawing.Size(293, 21);
             this.cbxLoaiThucPham.TabIndex = 35;
+            this.cbxLoaiThucPham.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxLoaiThucPham_KeyPress);
             // 
             // txtDonViTinh
             // 

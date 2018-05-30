@@ -11,8 +11,8 @@ namespace QuanLyBilliard.DA
         {
             _con = new SqlConnection();
 
-            _con.ConnectionString = ConfigurationManager.ConnectionStrings["tenketnoi"].ConnectionString;
-            //_con.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
+            //_con.ConnectionString = ConfigurationManager.ConnectionStrings["tenketnoi"].ConnectionString;
+            _con.ConnectionString = @"Data Source=.\SQLEXPRESS;Initial Catalog=QUANLYBIDA;Integrated Security=True";
 
         }
         /// <summary>

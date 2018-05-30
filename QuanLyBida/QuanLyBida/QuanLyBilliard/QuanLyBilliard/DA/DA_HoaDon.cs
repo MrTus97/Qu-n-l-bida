@@ -37,13 +37,13 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public DataTable HienThiTatCaCacHoaDon()
         {
-            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) order by hd.ID_HOADON desc";
+            string sql = "select hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.TIENGIO + hd.TIENTHUCPHAM as TONGTIEN,hd.DATHANHTOAN from ((HOADON hd left join BAN b on b.ID_BAN = hd.ID_BAN) left join NHANVIEN nv on nv.ID_NHANVIEN = hd.ID_NHANVIEN) left join KHACHHANG kh on kh.ID_KHACHHANG = hd.ID_KHACHHANG where hd.NGAYKETTHUCHOADON is not null order by hd.ID_HOADON desc";
             return ldc.getDuLieu(sql);
         }
 
         public DataTable LayHoaDon(int id_hoadon)
         {
-            string sql = "select * from (((hoadon hd left join ban b on hd.ID_BAN = b.ID_BAN) left join khachhang kh on hd.ID_KHACHHANG = kh.ID_KHACHHANG) left join nhanvien nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) left join loaiban lb on lb.ID_LOAIBAN = b.ID_LOAIBAN where hd.ID_HOADON = " + id_hoadon;
+            string sql = "select * from (((hoadon hd left join ban b on hd.ID_BAN = b.ID_BAN) left join khachhang kh on hd.ID_KHACHHANG = kh.ID_KHACHHANG) left join nhanvien nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) left join loaiban lb on lb.ID_LOAIBAN = b.ID_LOAIBAN where  hd.ID_HOADON = " + id_hoadon ;
             return ldc.getDuLieu(sql);
         }
 
@@ -103,7 +103,7 @@ namespace QuanLyBilliard.DA
         /// <returns></returns>
         public DataTable ThongKeHoaDon(string tungay, string denngay)
         {
-            string sql = "SELECT hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.tiengio + hd.tienthucpham as tongtien,hd.DATHANHTOAN FROM (((KHACHHANG kh inner join HOADON hd on hd.ID_KHACHHANG = kh.ID_KHACHHANG) inner join NHANVIEN nv on hd.ID_NHANVIEN = nv.ID_NHANVIEN) inner join ban b on hd.ID_BAN = b.ID_BAN) where hd.NGAYKETTHUCHOADON >= CONVERT(datetime,'" + tungay + "',103) and hd.NGAYKETTHUCHOADON<CONVERT(datetime,'" + denngay + "',103)";
+            string sql = "select hd.ID_HOADON,b.TENBAN,nv.TENNHANVIEN,kh.TENKHACHHANG,hd.TIENGIO,hd.GIAMGIAGIO,hd.TIENTHUCPHAM,hd.GIAMGIATHUCPHAM,hd.TIENGIO + hd.TIENTHUCPHAM as TONGTIEN,hd.DATHANHTOAN from ((HOADON hd left join BAN b on b.ID_BAN = hd.ID_BAN) left join NHANVIEN nv on nv.ID_NHANVIEN = hd.ID_NHANVIEN) left join KHACHHANG kh on kh.ID_KHACHHANG = hd.ID_KHACHHANG where hd.NGAYKETTHUCHOADON is not null and CONVERT(date,NGAYKETTHUCHOADON,103) >= CONVERT(date,'" + tungay+"',103)and convert(date,NGAYKETTHUCHOADON,103) <= CONVERT(date,'"+denngay+"',103)   order by hd.ID_HOADON desc";
             return ldc.getDuLieu(sql);
 
         }

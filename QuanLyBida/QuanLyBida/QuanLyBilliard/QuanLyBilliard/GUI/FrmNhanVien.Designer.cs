@@ -45,6 +45,15 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtIDNhanVien = new DevExpress.XtraEditors.TextEdit();
             this.dtgNhanVien = new System.Windows.Forms.DataGridView();
+            this.TenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IDCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cbCapBac = new System.Windows.Forms.ComboBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -63,15 +72,6 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.layoutControlGroup1 = new DevExpress.XtraLayout.LayoutControlGroup();
             this.layoutControlItem1 = new DevExpress.XtraLayout.LayoutControlItem();
-            this.TenNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cmnd = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SoDienThoai = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.NgaySinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.GioiTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.CapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDNhanVien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IDCapBac = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.barManager1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).BeginInit();
             this.layoutControl1.SuspendLayout();
@@ -257,13 +257,70 @@
             this.dtgNhanVien.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtgNhanVien_CellClick);
             this.dtgNhanVien.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // TenNhanVien
+            // 
+            this.TenNhanVien.HeaderText = "Tên Nhân Viên";
+            this.TenNhanVien.Name = "TenNhanVien";
+            this.TenNhanVien.ReadOnly = true;
+            // 
+            // Cmnd
+            // 
+            this.Cmnd.HeaderText = "CMND";
+            this.Cmnd.Name = "Cmnd";
+            this.Cmnd.ReadOnly = true;
+            // 
+            // SoDienThoai
+            // 
+            this.SoDienThoai.HeaderText = "Số Điện Thoại";
+            this.SoDienThoai.Name = "SoDienThoai";
+            this.SoDienThoai.ReadOnly = true;
+            // 
+            // Email
+            // 
+            this.Email.HeaderText = "Email";
+            this.Email.Name = "Email";
+            this.Email.ReadOnly = true;
+            // 
+            // NgaySinh
+            // 
+            this.NgaySinh.HeaderText = "Ngày Sinh";
+            this.NgaySinh.Name = "NgaySinh";
+            this.NgaySinh.ReadOnly = true;
+            // 
+            // GioiTinh
+            // 
+            this.GioiTinh.HeaderText = "Giới Tính";
+            this.GioiTinh.Name = "GioiTinh";
+            this.GioiTinh.ReadOnly = true;
+            // 
+            // CapBac
+            // 
+            this.CapBac.HeaderText = "Cấp bậc";
+            this.CapBac.Name = "CapBac";
+            this.CapBac.ReadOnly = true;
+            // 
+            // IDNhanVien
+            // 
+            this.IDNhanVien.HeaderText = "ID_NhânViên";
+            this.IDNhanVien.Name = "IDNhanVien";
+            this.IDNhanVien.ReadOnly = true;
+            this.IDNhanVien.Visible = false;
+            // 
+            // IDCapBac
+            // 
+            this.IDCapBac.HeaderText = "ID_CấpBậc";
+            this.IDCapBac.Name = "IDCapBac";
+            this.IDCapBac.ReadOnly = true;
+            this.IDCapBac.Visible = false;
+            // 
             // cbCapBac
             // 
             this.cbCapBac.FormattingEnabled = true;
             this.cbCapBac.Location = new System.Drawing.Point(86, 186);
             this.cbCapBac.Name = "cbCapBac";
             this.cbCapBac.Size = new System.Drawing.Size(121, 21);
-            this.cbCapBac.TabIndex = 17;
+            this.cbCapBac.TabIndex = 8;
+            this.cbCapBac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbCapBac_KeyPress);
             // 
             // radioButton2
             // 
@@ -271,7 +328,7 @@
             this.radioButton2.Location = new System.Drawing.Point(205, 151);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(38, 17);
-            this.radioButton2.TabIndex = 16;
+            this.radioButton2.TabIndex = 7;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "nữ";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -282,7 +339,7 @@
             this.radioButton1.Location = new System.Drawing.Point(86, 151);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(46, 17);
-            this.radioButton1.TabIndex = 15;
+            this.radioButton1.TabIndex = 6;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Nam";
             this.radioButton1.UseVisualStyleBackColor = true;
@@ -293,7 +350,7 @@
             this.dtpNgaySinh.Location = new System.Drawing.Point(86, 112);
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(126, 21);
-            this.dtpNgaySinh.TabIndex = 14;
+            this.dtpNgaySinh.TabIndex = 5;
             // 
             // label7
             // 
@@ -364,7 +421,8 @@
             this.txtSoDienThoai.MenuManager = this.barManager1;
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(126, 20);
-            this.txtSoDienThoai.TabIndex = 4;
+            this.txtSoDienThoai.TabIndex = 3;
+            this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
             // txtCMND
             // 
@@ -372,7 +430,8 @@
             this.txtCMND.MenuManager = this.barManager1;
             this.txtCMND.Name = "txtCMND";
             this.txtCMND.Size = new System.Drawing.Size(126, 20);
-            this.txtCMND.TabIndex = 3;
+            this.txtCMND.TabIndex = 2;
+            this.txtCMND.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCMND_KeyPress);
             // 
             // txtCaTruc
             // 
@@ -380,7 +439,7 @@
             this.txtCaTruc.MenuManager = this.barManager1;
             this.txtCaTruc.Name = "txtCaTruc";
             this.txtCaTruc.Size = new System.Drawing.Size(126, 20);
-            this.txtCaTruc.TabIndex = 1;
+            this.txtCaTruc.TabIndex = 4;
             // 
             // txtTenNhanVien
             // 
@@ -388,7 +447,7 @@
             this.txtTenNhanVien.MenuManager = this.barManager1;
             this.txtTenNhanVien.Name = "txtTenNhanVien";
             this.txtTenNhanVien.Size = new System.Drawing.Size(126, 20);
-            this.txtTenNhanVien.TabIndex = 0;
+            this.txtTenNhanVien.TabIndex = 1;
             // 
             // groupBox1
             // 
@@ -418,62 +477,6 @@
             this.layoutControlItem1.Size = new System.Drawing.Size(1075, 354);
             this.layoutControlItem1.TextSize = new System.Drawing.Size(0, 0);
             this.layoutControlItem1.TextVisible = false;
-            // 
-            // TenNhanVien
-            // 
-            this.TenNhanVien.HeaderText = "Tên Nhân Viên";
-            this.TenNhanVien.Name = "TenNhanVien";
-            this.TenNhanVien.ReadOnly = true;
-            // 
-            // Cmnd
-            // 
-            this.Cmnd.HeaderText = "CMND";
-            this.Cmnd.Name = "Cmnd";
-            this.Cmnd.ReadOnly = true;
-            // 
-            // SoDienThoai
-            // 
-            this.SoDienThoai.HeaderText = "Số Điện Thoại";
-            this.SoDienThoai.Name = "SoDienThoai";
-            this.SoDienThoai.ReadOnly = true;
-            // 
-            // Email
-            // 
-            this.Email.HeaderText = "Email";
-            this.Email.Name = "Email";
-            this.Email.ReadOnly = true;
-            // 
-            // NgaySinh
-            // 
-            this.NgaySinh.HeaderText = "Ngày Sinh";
-            this.NgaySinh.Name = "NgaySinh";
-            this.NgaySinh.ReadOnly = true;
-            // 
-            // GioiTinh
-            // 
-            this.GioiTinh.HeaderText = "Giới Tính";
-            this.GioiTinh.Name = "GioiTinh";
-            this.GioiTinh.ReadOnly = true;
-            // 
-            // CapBac
-            // 
-            this.CapBac.HeaderText = "Cấp bậc";
-            this.CapBac.Name = "CapBac";
-            this.CapBac.ReadOnly = true;
-            // 
-            // IDNhanVien
-            // 
-            this.IDNhanVien.HeaderText = "ID_NhânViên";
-            this.IDNhanVien.Name = "IDNhanVien";
-            this.IDNhanVien.ReadOnly = true;
-            this.IDNhanVien.Visible = false;
-            // 
-            // IDCapBac
-            // 
-            this.IDCapBac.HeaderText = "ID_CấpBậc";
-            this.IDCapBac.Name = "IDCapBac";
-            this.IDCapBac.ReadOnly = true;
-            this.IDCapBac.Visible = false;
             // 
             // FrmNhanVien
             // 

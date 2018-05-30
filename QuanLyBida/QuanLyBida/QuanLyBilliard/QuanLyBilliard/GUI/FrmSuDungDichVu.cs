@@ -198,9 +198,9 @@ namespace QuanLyBilliard.GUI
                 btn.LookAndFeel.UseDefaultLookAndFeel = false;
                 if (table.TrangThai)
                 {
-                    btn.Appearance.Image = Properties.Resources.on;
+                    btn.Appearance.Image = Properties.Resources.off;
                 }
-                else btn.Appearance.Image = Properties.Resources.off;
+                else btn.Appearance.Image = Properties.Resources.on;
 
 
                 //Catch Event
@@ -864,6 +864,16 @@ namespace QuanLyBilliard.GUI
         private void FrmSuDungDichVu_KeyPress(object sender, KeyPressEventArgs e)
         {
 
+        }
+
+        private void cbNhanVien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbKhachHang_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }

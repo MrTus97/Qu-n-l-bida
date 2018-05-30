@@ -93,6 +93,7 @@
             this.txtHesoluong.Properties.Appearance.Options.UseFont = true;
             this.txtHesoluong.Size = new System.Drawing.Size(121, 30);
             this.txtHesoluong.TabIndex = 2;
+            this.txtHesoluong.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtHesoluong_KeyPress);
             // 
             // barManager1
             // 

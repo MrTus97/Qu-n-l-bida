@@ -49,6 +49,10 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
             {
                 int giamgiagio = Int32.Parse(txtGiamGiaGio.Text);
                 int giamgianuoc = Int32.Parse(txtGiamGiaNuoc.Text);
+                if (giamgiagio < 0 || giamgiagio > 100 || giamgianuoc < 0 || giamgianuoc > 100)
+                {
+                    throw new Exception();
+                }
                 if (loai == 1)
                 {
                     kq = blLoaiKhachHang.ThemMoiLoaiKhachHang(txtTenLoaiKhachHang.Text, giamgiagio, giamgianuoc);
@@ -79,6 +83,24 @@ namespace QuanLyBilliard.GUI.DANH_MUC.KHACHHANG
         private void btnThoat_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtGiamGiaGio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
+            }
+        }
+
+        private void txtGiamGiaNuoc_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+                BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
+            }
         }
     }
 }

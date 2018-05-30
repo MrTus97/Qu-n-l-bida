@@ -239,6 +239,7 @@ namespace QuanLyBilliard.GUI
             this.cbKhachHang.Name = "cbKhachHang";
             this.cbKhachHang.Size = new System.Drawing.Size(117, 21);
             this.cbKhachHang.TabIndex = 94;
+            this.cbKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbKhachHang_KeyPress);
             // 
             // cbNhanVien
             // 
@@ -247,6 +248,7 @@ namespace QuanLyBilliard.GUI
             this.cbNhanVien.Name = "cbNhanVien";
             this.cbNhanVien.Size = new System.Drawing.Size(117, 21);
             this.cbNhanVien.TabIndex = 93;
+            this.cbNhanVien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbNhanVien_KeyPress);
             // 
             // labelControl10
             // 
@@ -862,7 +864,7 @@ namespace QuanLyBilliard.GUI
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FrmSuDungDichVu";
-            this.Text = "Sử dụng dịch vụ";
+            this.Text = "A";
             this.Load += new System.EventHandler(this.FrmSuDungDichVu_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmSuDungDichVu_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.layoutControl1)).EndInit();

@@ -37,29 +37,19 @@ namespace QuanLyBilliard.BL
             return daKhuyenMai.XemKhuyenMai();
         }
 
-        public int ThemKhuyenMai(string id, string ten, string giamGiaGio, string giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
+        public int ThemKhuyenMai(string id, string ten, int giamGiaGio, int giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
         {
-            try
-            {
-                float gio_km = float.Parse(giamGiaGio);
-                float nuoc_km = float.Parse(giamGiaThucPham);
-                return daKhuyenMai.ThemKhuyenMai(ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
-            }
-            catch (Exception)
-            {
-                return -1;
-            }
-            
+
+                return daKhuyenMai.ThemKhuyenMai(ten, giamGiaGio, giamGiaThucPham, ngayBatDau, ngayKetThuc);
+
         }
 
-        public int SuaKhuyenMai(string id, string ten, string giamGiaGio, string giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
+        public int SuaKhuyenMai(string id, string ten, int giamGiaGio, int giamGiaThucPham, string ngayBatDau, string ngayKetThuc)
         {
             try
             {
                 int id_km = Convert.ToInt32(id);
-                float gio_km = float.Parse(giamGiaGio);
-                float nuoc_km = float.Parse(giamGiaThucPham);
-                return daKhuyenMai.SuaKhuyenMai(id_km, ten, gio_km, nuoc_km, ngayBatDau, ngayKetThuc);
+                return daKhuyenMai.SuaKhuyenMai(id_km, ten, giamGiaGio, giamGiaThucPham, ngayBatDau, ngayKetThuc);
             }
             catch (Exception)
             {

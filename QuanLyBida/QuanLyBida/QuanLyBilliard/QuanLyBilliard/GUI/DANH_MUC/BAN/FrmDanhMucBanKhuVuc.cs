@@ -201,5 +201,10 @@ namespace QuanLyBilliard.GUI
                 BATLOI.HienThiLoi(BATLOI.SAI_DINH_DANG);
             }
         }
+
+        private void cbxLoaiBan_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

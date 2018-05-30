@@ -143,5 +143,15 @@ namespace QuanLyBilliard.GUI.DANH_MUC.THUCPHAM
                 MessageBox.Show("Sai định dạng ", "Thông Báo ");
             }
         }
+
+        private void cbxLoaiThucPham_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void cbxNhaCungCap_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

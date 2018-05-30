@@ -107,6 +107,7 @@
             this.dtpNgaySinh.Name = "dtpNgaySinh";
             this.dtpNgaySinh.Size = new System.Drawing.Size(273, 20);
             this.dtpNgaySinh.TabIndex = 30;
+            this.dtpNgaySinh.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.dtpNgaySinh_KeyPress);
             // 
             // panel4
             // 
@@ -200,6 +201,7 @@
             this.cbxLoaiKhachHang.Name = "cbxLoaiKhachHang";
             this.cbxLoaiKhachHang.Size = new System.Drawing.Size(272, 21);
             this.cbxLoaiKhachHang.TabIndex = 26;
+            this.cbxLoaiKhachHang.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbxLoaiKhachHang_KeyPress);
             // 
             // txtIDKhachHang
             // 
@@ -214,6 +216,7 @@
             this.txtSoDienThoai.Name = "txtSoDienThoai";
             this.txtSoDienThoai.Size = new System.Drawing.Size(272, 20);
             this.txtSoDienThoai.TabIndex = 28;
+            this.txtSoDienThoai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSoDienThoai_KeyPress);
             // 
             // txtTenKhachHang
             // 
