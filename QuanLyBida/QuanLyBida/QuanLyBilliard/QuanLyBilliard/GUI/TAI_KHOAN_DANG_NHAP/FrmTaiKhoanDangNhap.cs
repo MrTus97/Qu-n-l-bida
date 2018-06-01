@@ -78,7 +78,10 @@ namespace QuanLyBilliard.GUI
             }
             else
             {
-                blTaiKhoanDangNhap.XoaDuLieu((btnSua.Tag as DataGridViewRow).Cells["TENDANGNHAP"].ToString());
+                blTaiKhoanDangNhap.XoaDuLieu((btnSua.Tag as DataGridViewRow).Cells["TENDANGNHAP"].Value.ToString());
+                DataTable result = blTaiKhoanDangNhap.LayThongTinTaiKhoanDangNhap();
+                RefeshDgvTaiKhoan(result);
+
             }
         }
 
